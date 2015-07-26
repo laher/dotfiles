@@ -1,12 +1,11 @@
 #!/bin/bash
 
-sudo apt-get install -y vim aptitude zsh wget vim-nox
+sudo apt-get install -y vim aptitude zsh
 
 chsh -s $(which zsh)
 
 sudo aptitude install -y git-core git chromium-browser \
-	stow tmux
-
+	stow tmux wget vim-nox
 
 echo ":: Now do the manual setups from README.asciidoc"
 
