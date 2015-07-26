@@ -48,3 +48,7 @@ filetype plugin indent on    " required
 syntax on
 set whichwrap+=<,>,h,l,[,]
 let g:neocomplete#enable_at_startup = 1
+
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
