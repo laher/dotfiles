@@ -1,0 +1,16 @@
+dotfiles
+========
+
+Ubuntu setup:
+
+    bash <(curl -s https://raw.githubusercontent.com/laher/dotfiles/master/setup-ubuntu.sh)
+
+Mac setup (requires brew):
+
+    bash <(curl -s https://raw.githubusercontent.com/laher/dotfiles/master/setup-mac.sh)
+
+Manual installation steps:
+
+ * Vundle: https://github.com/VundleVim/Vundle.vim
+ * OhMyZsh: https://github.com/robbyrussell/oh-my-zsh
+ * godeb: ... 
