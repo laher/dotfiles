@@ -1,16 +1,28 @@
 dotfiles
 ========
 
-Ubuntu setup:
+These are my dotfiles, managed by stow.
+
+
+== (X)ubuntu setup (requires curl):
 
     bash <(curl -s https://raw.githubusercontent.com/laher/dotfiles/master/setup-ubuntu.sh)
 
-Mac setup (requires brew):
+== Mac setup (requires brew):
 
     bash <(curl -s https://raw.githubusercontent.com/laher/dotfiles/master/setup-mac.sh)
 
-Manual installation steps:
+== Installation:
+
+   cd ~/
+   git clone https://github.com/laher/dotfiles 
+   cd dotfiles
+   stow vim
+
+== Manual installation steps:
 
  * Vundle: https://github.com/VundleVim/Vundle.vim
  * OhMyZsh: https://github.com/robbyrussell/oh-my-zsh
- * godeb: ... 
+ * godeb: https://github.com/niemeyer/godeb
+ * git-up: https://github.com/aanand/git-up
+ * autocomplete-git: http://code-worrier.com/blog/autocomplete-git/
