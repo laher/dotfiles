@@ -28,6 +28,7 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 Plugin 'fatih/vim-go'
 Plugin 'Shougo/neocomplete.vim'
+Plugin 'bling/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -47,6 +48,14 @@ filetype plugin indent on    " required
 
 syntax on
 set whichwrap+=<,>,h,l,[,]
+set autochdir
+set laststatus=2 " Always display the statusline in all windows
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+set encoding=utf-8
+set t_Co=256
+set term=xterm-256color
+set termencoding=utf-8
+
 let g:neocomplete#enable_at_startup = 1
 
 let g:go_fmt_command = "goimports"
@@ -56,7 +65,6 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-set autochdir
 
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
