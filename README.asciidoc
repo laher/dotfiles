@@ -18,11 +18,13 @@ These are my dotfiles, managed by stow.
    git clone https://github.com/laher/dotfiles 
    cd dotfiles
    stow vim
+   ./setup-ubuntu.sh (or ./setup-mac.sh)
+   ./setup-vim.sh
 
 == Manual installation steps:
 
- * [line-through]*Vundle: https://github.com/VundleVim/Vundle.vim*
  * OhMyZsh: https://github.com/robbyrussell/oh-my-zsh
  * (linux only) godeb: https://github.com/niemeyer/godeb
  * git-up: https://github.com/aanand/git-up
  * autocomplete-git: http://code-worrier.com/blog/autocomplete-git/
+ * [line-through]#(now done by setup-vim.sh) Vundle: https://github.com/VundleVim/Vundle.vim#
