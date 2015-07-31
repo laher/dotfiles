@@ -28,7 +28,7 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 Plugin 'fatih/vim-go'
 Plugin 'Shougo/neocomplete.vim'
-Plugin 'bling/vim-airline'
+"Plugin 'bling/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -49,12 +49,16 @@ filetype plugin indent on    " required
 syntax on
 set whichwrap+=<,>,h,l,[,]
 set autochdir
-set laststatus=2 " Always display the statusline in all windows
+set autowrite " useful for :bufdo
+"set laststatus=2 " Always display the statusline in all windows
+"set showtabline=2 " Always display the tabline, even if there is only one tab
+
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set encoding=utf-8
 set t_Co=256
 set term=xterm-256color
 set termencoding=utf-8
+"set guifont=Source\ Code\ Pro\ ExtraLight:h18
 
 let g:neocomplete#enable_at_startup = 1
 
@@ -64,7 +68,6 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-
 
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
