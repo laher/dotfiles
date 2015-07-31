@@ -21,8 +21,8 @@ These are my dotfiles, managed by stow.
 
 == Manual installation steps:
 
- * Vundle: https://github.com/VundleVim/Vundle.vim
+ * [line-through]*Vundle: https://github.com/VundleVim/Vundle.vim*
  * OhMyZsh: https://github.com/robbyrussell/oh-my-zsh
- * godeb: https://github.com/niemeyer/godeb
+ * (linux only) godeb: https://github.com/niemeyer/godeb
  * git-up: https://github.com/aanand/git-up
  * autocomplete-git: http://code-worrier.com/blog/autocomplete-git/
