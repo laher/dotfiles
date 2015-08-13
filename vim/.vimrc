@@ -29,6 +29,7 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'fatih/vim-go'
 Plugin 'Shougo/neocomplete.vim'
 "Plugin 'bling/vim-airline'
+Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -61,6 +62,7 @@ set termencoding=utf-8
 "set guifont=Source\ Code\ Pro\ ExtraLight:h18
 
 let g:neocomplete#enable_at_startup = 1
+set completeopt-=preview
 
 let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
@@ -68,6 +70,8 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+            
+nnoremap <silent> <leader>tt :TagbarToggle<CR>
 
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
