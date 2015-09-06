@@ -23,12 +23,9 @@ Plugin 'git://git.wincent.com/command-t.git'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-"Plugin 'user/L9', {'name': 'newL9'}
 
 Plugin 'fatih/vim-go'
 Plugin 'Shougo/neocomplete.vim'
-"Plugin 'bling/vim-airline'
 Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
@@ -71,6 +68,10 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
             
+set number
+set hlsearch
+
+
 nnoremap <silent> <leader>tt :TagbarToggle<CR>
 
 if filereadable(expand("~/.vimrc.local"))

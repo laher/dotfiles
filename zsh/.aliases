@@ -8,3 +8,5 @@ alias FUCK='fuck'
 
 alias release-diff='git log --graph --abbrev-commit --date=relative release-prod..release-test'
 alias branch-diff='git log --graph --abbrev-commit --date=relative'
+
+alias cdg="cd $GOHAP"
