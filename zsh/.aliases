@@ -10,3 +10,18 @@ alias release-diff='git log --graph --abbrev-commit --date=relative release-prod
 alias branch-diff='git log --graph --abbrev-commit --date=relative'
 
 alias cdg="cd $GOHAP"
+
+alias golibsup='GO15VENDOREXPERIMENT=1 godep update github.com/Hapara/golibs/... && GO15VENDOREXPERIMENT=1 godep save ./app/... ./cmd/...'
+
+alias gc-ws-il="gcloud compute --project h-engage instances list"
+alias gc-ws-ssh="gcloud compute --project h-engage ssh --zone us-central1-b"
+alias gc-ws-scp="gcloud compute --project h-engage copy-files --zone us-central1-b"
+
+alias gc-hugs-il="gcloud compute --project h-ugs-a instances list"
+alias gc-hugs-ssh="gcloud compute --project h-ugs-a ssh --zone us-central1-b"
+alias gc-hugs-scp="gcloud compute --project h-ugs-a copy-files --zone us-central1-b"
+alias gc-hugs-prod-ssh="gcloud compute --project h-ugs-a ssh --zone us-central1-c"
+alias gc-hugs-prod-scp="gcloud compute --project h-ugs-a copy-files --zone us-central1-c"
+
+
+alias tailf='tail -F'
