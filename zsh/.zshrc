@@ -79,6 +79,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+if [ -s ~/.gvm/scripts/gvm ]; then
+    source ~/.gvm/scripts/gvm
+fi
 
 if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
@@ -91,3 +94,4 @@ fi
 if [ -f ~/.aliases.local ]; then
     source ~/.aliases.local
 fi
+
