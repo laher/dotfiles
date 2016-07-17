@@ -1,62 +1,74 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " Git support
-Plugin 'tpope/vim-fugitive'
-" Plugin 'tpope/vim-rhubarb'
-Plugin 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-rhubarb'
+Plug 'airblade/vim-gitgutter'
+Plug 'jreybert/vimagit'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
+Plug 'L9'
 
 " Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 
-Plugin 'fatih/vim-go'
-Plugin 'godoctor/godoctor.vim'
-"Plugin 'molok/vim-smartusline'
+Plug 'fatih/vim-go'
+Plug 'godoctor/godoctor.vim'
+Plug 'nsf/gocode', {'rtp': 'nvim/'}
+"Plug 'molok/vim-smartusline'
 
-"Plugin 'ctrlpvim/ctrlp.vim'
-"Plugin 'bling/vim-airline'
-" Plugin 'Shougo/vimproc.vim'
-"Plugin 'majutsushi/tagbar'
+"Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'bling/vim-airline'
+" Plug 'Shougo/vimproc.vim'
+Plug 'majutsushi/tagbar'
 
-"Plugin 'itchyny/lightline.vim'
-"Plugin 'ap/vim-buftabline'
-"Plugin 'Valloric/MatchTagAlways'
+"Plug 'itchyny/lightline.vim'
+Plug 'ap/vim-buftabline'
+"Plug 'Valloric/MatchTagAlways'
 "
-Plugin 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify'
 
-"Plugin 'tpope/vim-repeat'
-"Plugin 'svermeulen/vim-easyclip'
-"Plugin 'vim-scripts/renamer.vim'
+Plug 'burnettk/vim-angular'
+Plug 'ternjs/tern_for_vim'
+Plug 'carlitux/deoplete-ternjs'
+Plug 'othree/javascript-libraries-syntax.vim'
 
-Bundle 'https://github.com/freeo/vim-kalisi'
-Bundle 'https://github.com/altercation/vim-colors-solarized'
+Plug 'tpope/vim-jdaddy'
+
+Plug 'SwagKingTenK/VimSearch'
+
+Plug 'christoomey/vim-tmux-navigator'
+
+"Plug 'tpope/vim-repeat'
+"Plug 'svermeulen/vim-easyclip'
+"Plug 'vim-scripts/renamer.vim'
+
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'junegunn/fzf.vim'
+
+Plug 'freeo/vim-kalisi'
+Plug 'altercation/vim-colors-solarized'
 
 
 if !has('nvim')
-	Plugin 'Shougo/neocomplete.vim'
+	Plug 'Shougo/neocomplete.vim'
 endif
 if has('nvim')
-	Plugin 'Shougo/deoplete.nvim'
-	Plugin 'zchee/deoplete-go', {'build': {'unix': 'make'}}
+	Plug 'Shougo/deoplete.nvim'
+	Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
 endif
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+" All of your Plugs must be added before the following line
+call plug#end()
+
+
+
 filetype plugin indent on    " required
 "colorscheme solarized
-colorscheme kalisi
+"colorscheme kalisi
 set background=light
 
 set whichwrap+=<,>,h,l,[,]
@@ -92,7 +104,7 @@ set guifont=Ubuntu\ Mono\ derivative\ Powerline:h18
 
 "needs extra color suport I guess
 let g:startify_custom_header =
-            \ map(split(system('fortune | cowsay -f tux'), '\n'), '"   ". v:val')
+            \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val')
 
 if !has('nvim')
 	let g:ycm_complete_in_strings = 1
@@ -106,6 +118,19 @@ if has('nvim')
 	"inoremap <silent><expr> <C-Tab>
 	"\ pumvisible() ? "\<C-n>" :
 	"\ deoplete#mappings#manual_complete()
+	
+	function! s:fzf_statusline()
+	  " Override statusline as you like
+	  highlight fzf1 ctermfg=161 ctermbg=251
+	  highlight fzf2 ctermfg=23 ctermbg=251
+	  highlight fzf3 ctermfg=237 ctermbg=251
+	  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
+	endfunction
+
+	autocmd! User FzfStatusLine call <SID>fzf_statusline()
+
+	" This is for vim-tmux-navigator in OSX
+	nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 endif
 
 au FileType go nmap <leader>rt <Plug>(go-run-tab)
@@ -131,3 +156,12 @@ let g:go_term_enabled = 1
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+
+let g:used_javascript_libs = 'angularjs,angularui'
+
+"noremap <Up> <nop>
+"noremap <Down> <nop>
+"noremap <Left> <nop>
+"noremap <Right> <nop>
+"
+set autowrite
