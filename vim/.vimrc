@@ -5,12 +5,17 @@ call plug#begin('~/.vim/plugged')
 
 " Git support
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 " Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
 Plug 'jreybert/vimagit'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plug 'L9'
+
+Plug 'osyo-manga/vim-over'
+
+Plug 'scrooloose/syntastic'
 
 " Pass the path to set the runtimepath properly.
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -29,7 +34,7 @@ Plug 'majutsushi/tagbar'
 Plug 'ap/vim-buftabline'
 "Plug 'Valloric/MatchTagAlways'
 "
-Plug 'mhinz/vim-startify'
+"Plug 'mhinz/vim-startify'
 
 Plug 'burnettk/vim-angular'
 Plug 'ternjs/tern_for_vim'
@@ -41,6 +46,10 @@ Plug 'tpope/vim-jdaddy'
 Plug 'SwagKingTenK/VimSearch'
 
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'benmills/vimux'
+Plug 'benmills/vimux-golang'
+
+Plug 'FooSoft/vim-argwrap'
 
 "Plug 'tpope/vim-repeat'
 "Plug 'svermeulen/vim-easyclip'
@@ -51,7 +60,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'freeo/vim-kalisi'
 Plug 'altercation/vim-colors-solarized'
-
+Plug 'editorconfig/editorconfig-vim'
 
 if !has('nvim')
 	Plug 'Shougo/neocomplete.vim'
@@ -68,7 +77,7 @@ call plug#end()
 
 filetype plugin indent on    " required
 "colorscheme solarized
-"colorscheme kalisi
+colorscheme kalisi
 set background=light
 
 set whichwrap+=<,>,h,l,[,]
@@ -118,6 +127,7 @@ if has('nvim')
 	"inoremap <silent><expr> <C-Tab>
 	"\ pumvisible() ? "\<C-n>" :
 	"\ deoplete#mappings#manual_complete()
+	set completeopt-=preview
 	
 	function! s:fzf_statusline()
 	  " Override statusline as you like
@@ -153,9 +163,6 @@ nnoremap <silent> <leader>tt :TagbarToggle<CR>
 
 let g:go_term_enabled = 1
 
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
-endif
 
 let g:used_javascript_libs = 'angularjs,angularui'
 
@@ -165,3 +172,20 @@ let g:used_javascript_libs = 'angularjs,angularui'
 "noremap <Right> <nop>
 "
 set autowrite
+let g:argwrap_tail_comma = 1
+
+
+autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['standard']
+let g:syntastic_javascript_standard_exec = 'semistandard'
+
+"autocmd FileType tmpl setlocal shiftwidth=4 tabstop=4 expandtab
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 expandtab
+"autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 expandtab
+"autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
+"autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
+
+
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif

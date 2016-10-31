@@ -26,3 +26,5 @@ alias gc-hugs-prod-scp="gcloud compute --project h-ugs-a copy-files --zone us-ce
 
 
 alias tailf='tail -F'
+
+alias mymongo='mongo localhost/hugs'
