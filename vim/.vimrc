@@ -62,8 +62,10 @@ Plug 'freeo/vim-kalisi'
 Plug 'altercation/vim-colors-solarized'
 Plug 'editorconfig/editorconfig-vim'
 
+
 if !has('nvim')
-	Plug 'Shougo/neocomplete.vim'
+	"Plug 'Shougo/neocomplete.vim'
+	Plug 'maralla/completor.vim'
 endif
 if has('nvim')
 	Plug 'Shougo/deoplete.nvim'
@@ -116,9 +118,14 @@ let g:startify_custom_header =
             \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val')
 
 if !has('nvim')
-	let g:ycm_complete_in_strings = 1
-	let g:ycm_allow_changing_updatetime = 1000
-	let g:ycm_auto_trigger = 1
+	"let g:ycm_complete_in_strings = 1
+	"let g:ycm_allow_changing_updatetime = 1000
+	"let g:ycm_auto_trigger = 1
+	let g:completor_go_omni_trigger = '(?:\b[^\W\d]\w*|[\]\)])\.(?:[^\W\d]\w*)?'
+	let g:completor_auto_trigger = 0
+	let g:completor_min_chars = 2	
+	inoremap _expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>"
+        let g:completor_gocode_binary = '$HOME/go/bin/gocode'
 endif
 
 if has('nvim')
@@ -153,6 +160,7 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
             
 set number
 set hlsearch
@@ -185,6 +193,7 @@ autocmd FileType html setlocal shiftwidth=2 tabstop=2 expandtab
 "autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 "autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
