@@ -198,3 +198,7 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+
+au InsertEnter * hi Normal ctermbg=230 guibg=#eeeeee
+au InsertLeave * hi Normal ctermbg=white guibg=#ffffff
+
