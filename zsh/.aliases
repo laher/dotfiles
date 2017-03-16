@@ -11,6 +11,8 @@ alias release-diff='git log --graph --abbrev-commit --date=relative release-prod
 alias branch-diff='git log --graph --abbrev-commit --date=relative'
 
 alias cdg="cd $GOHAP"
+export HAP2="~/d/hapara2"
+alias cdh2="cd $HAP2"
 
 alias golibsup='GO15VENDOREXPERIMENT=1 godep update github.com/Hapara/golibs/... && GO15VENDOREXPERIMENT=1 godep save ./app/... ./cmd/...'
 
@@ -28,3 +30,5 @@ alias gc-hugs-prod-scp="gcloud compute --project h-ugs-a copy-files --zone us-ce
 alias tailf='tail -F'
 
 alias mymongo='mongo localhost/hugs'
+
+alias v=/usr/local/bin/nvim

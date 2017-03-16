@@ -21,6 +21,7 @@ Plug 'scrooloose/syntastic'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 Plug 'fatih/vim-go'
+Plug 'jodosha/vim-godebug'
 Plug 'godoctor/godoctor.vim'
 Plug 'nsf/gocode', {'rtp': 'nvim/'}
 "Plug 'molok/vim-smartusline'
@@ -121,11 +122,12 @@ if !has('nvim')
 	"let g:ycm_complete_in_strings = 1
 	"let g:ycm_allow_changing_updatetime = 1000
 	"let g:ycm_auto_trigger = 1
-	let g:completor_go_omni_trigger = '(?:\b[^\W\d]\w*|[\]\)])\.(?:[^\W\d]\w*)?'
-	let g:completor_auto_trigger = 0
-	let g:completor_min_chars = 2	
+	"let g:completor_go_omni_trigger = '(?:\b[^\W\d]\w*|[\]\)])\.(?:[^\W\d]\w*)?'
+	"let g:completor_auto_trigger = 1
+	"let g:completor_min_chars = 2	
 	inoremap _expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>"
-        let g:completor_gocode_binary = '$HOME/go/bin/gocode'
+	let g:completor_auto_trigger = 0
+        let g:completor_gocode_binary = "$HOME/go/bin/gocode"
 endif
 
 if has('nvim')
@@ -193,7 +195,11 @@ autocmd FileType html setlocal shiftwidth=2 tabstop=2 expandtab
 "autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 "autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+"set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+
+set backspace=indent,eol,start
+
 
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
