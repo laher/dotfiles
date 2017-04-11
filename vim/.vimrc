@@ -12,64 +12,57 @@ Plug 'jreybert/vimagit'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plug 'L9'
-
 Plug 'osyo-manga/vim-over'
-
 Plug 'scrooloose/syntastic'
 
-" Pass the path to set the runtimepath properly.
+""" Pass the path to set the runtimepath properly.
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 
+""" Go
 Plug 'fatih/vim-go'
-Plug 'jodosha/vim-godebug'
 Plug 'godoctor/godoctor.vim'
 Plug 'nsf/gocode', {'rtp': 'nvim/'}
-"Plug 'molok/vim-smartusline'
 
-"Plug 'ctrlpvim/ctrlp.vim'
-"Plug 'bling/vim-airline'
-" Plug 'Shougo/vimproc.vim'
-Plug 'majutsushi/tagbar'
+""" related to go but not specific
+Plug 'FooSoft/vim-argwrap' " Wrap a paremeter list accross multiple lines
+Plug 'majutsushi/tagbar' " 'Outline' of current file
 
-"Plug 'itchyny/lightline.vim'
-Plug 'ap/vim-buftabline'
-"Plug 'Valloric/MatchTagAlways'
-"
-"Plug 'mhinz/vim-startify'
-
+""" JS
 Plug 'burnettk/vim-angular'
 Plug 'ternjs/tern_for_vim'
-Plug 'carlitux/deoplete-ternjs'
 Plug 'othree/javascript-libraries-syntax.vim'
 
-Plug 'tpope/vim-jdaddy'
 
-Plug 'SwagKingTenK/VimSearch'
-
+""" tmux
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'benmills/vimux'
 Plug 'benmills/vimux-golang'
 
-Plug 'FooSoft/vim-argwrap'
 
-"Plug 'tpope/vim-repeat'
-"Plug 'svermeulen/vim-easyclip'
-"Plug 'vim-scripts/renamer.vim'
+""" tpope
+Plug 'tpope/vim-surround'          " Operate on surrounding 
+Plug 'tpope/vim-speeddating'       " Increment dates
+Plug 'tpope/vim-repeat'            " Repeat plugins
+Plug 'tpope/vim-commentary'        " Comment out blocks
+Plug 'tpope/vim-abolish'           " Flexible search
+Plug 'tpope/vim-jdaddy'            " JSON text object
 
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-"Plug 'junegunn/fzf.vim'
 
+""" Appearance and layout
+Plug 'ap/vim-buftabline'
 Plug 'freeo/vim-kalisi'
 Plug 'altercation/vim-colors-solarized'
-Plug 'editorconfig/editorconfig-vim'
 
 
+""" Completion
 if !has('nvim')
 	"Plug 'Shougo/neocomplete.vim'
-	Plug 'maralla/completor.vim'
+	Plug 'maralla/completor.vim' " Ugh not working for go. Disabling at startup for now and switching back to nvim
 endif
 if has('nvim')
-	Plug 'Shougo/deoplete.nvim'
+	Plug 'jodosha/vim-godebug'
+	Plug 'Shougo/deoplete.nvim' ", { 'do': ':UpdateRemotePlugins' }
+	Plug 'carlitux/deoplete-ternjs'
 	Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
 endif
 
@@ -79,6 +72,9 @@ call plug#end()
 
 
 filetype plugin indent on    " required
+
+set t_Co=256 " Ignored by nvim
+
 "colorscheme solarized
 colorscheme kalisi
 set background=light
@@ -93,10 +89,15 @@ set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusl
 set encoding=utf-8
 
 syntax on
+
+
+
 if !has('nvim')
-	set t_Co=256
 	set term=xterm-256color
 endif
+
+let g:deoplete#enable_at_startup = 1
+
 if has('nvim')
 	autocmd BufEnter * if &buftype == "terminal" | startinsert | endif
 	tnoremap <Esc> <C-\><C-n>
@@ -105,8 +106,10 @@ if has('nvim')
 	command Ttabedit tabedit term://$SHELL
 	"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 	"let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-"	let &t_AB="\e[48;5;%dm"
-"	let &t_AF="\e[38;5;%dm"
+	"let &t_AB="\e[48;5;%dm"
+	"let &t_AF="\e[38;5;%dm""	
+	" This is for vim-tmux-navigator in OSX
+	nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 endif
 
 set termencoding=utf-8
@@ -114,11 +117,9 @@ set termencoding=utf-8
 set guifont=Ubuntu\ Mono\ derivative\ Powerline:h18
 "set completeopt-=preview
 
-"needs extra color suport I guess
-let g:startify_custom_header =
-            \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val')
 
 if !has('nvim')
+	" old completion stuff
 	"let g:ycm_complete_in_strings = 1
 	"let g:ycm_allow_changing_updatetime = 1000
 	"let g:ycm_auto_trigger = 1
@@ -130,27 +131,6 @@ if !has('nvim')
         let g:completor_gocode_binary = "$HOME/go/bin/gocode"
 endif
 
-if has('nvim')
-	let g:deoplete#enable_at_startup = 1
-	"let g:deoplete#disable_auto_complete = 1
-	"inoremap <silent><expr> <C-Tab>
-	"\ pumvisible() ? "\<C-n>" :
-	"\ deoplete#mappings#manual_complete()
-	set completeopt-=preview
-	
-	function! s:fzf_statusline()
-	  " Override statusline as you like
-	  highlight fzf1 ctermfg=161 ctermbg=251
-	  highlight fzf2 ctermfg=23 ctermbg=251
-	  highlight fzf3 ctermfg=237 ctermbg=251
-	  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
-	endfunction
-
-	autocmd! User FzfStatusLine call <SID>fzf_statusline()
-
-	" This is for vim-tmux-navigator in OSX
-	nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
-endif
 
 au FileType go nmap <leader>rt <Plug>(go-run-tab)
 au FileType go nmap <Leader>rs <Plug>(go-run-split)
@@ -169,7 +149,8 @@ set hlsearch
 
 nnoremap <silent> <leader>tt :TagbarToggle<CR>
 
-:set clipboard^=unnamed
+set clipboard^=unnamed
+"set clipboard+=unnamedplus
 
 let g:go_term_enabled = 1
 

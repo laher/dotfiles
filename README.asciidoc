@@ -6,9 +6,12 @@ These are my dotfiles, managed by stow.
 
 == (X)ubuntu setup (requires curl):
 
+    apt install curl
     bash <(curl -s https://raw.githubusercontent.com/laher/dotfiles/master/setup-ubuntu.sh)
 
 == Mac setup (requires brew):
+
+Get brew from https://brew.sh . Then:
 
     bash <(curl -s https://raw.githubusercontent.com/laher/dotfiles/master/setup-mac.sh)
 
@@ -21,10 +24,10 @@ These are my dotfiles, managed by stow.
    ./setup-ubuntu.sh (or ./setup-mac.sh)
    ./setup-vim.sh
 
-== Manual installation steps:
+== Other stuff to install:
 
  * OhMyZsh: https://github.com/robbyrussell/oh-my-zsh
- * (linux only) godeb: https://github.com/niemeyer/godeb
- * git-up: https://github.com/aanand/git-up
  * autocomplete-git: http://code-worrier.com/blog/autocomplete-git/
+ * (linux only) godeb: https://github.com/niemeyer/godeb
+ * [line-through]#git-up: https://github.com/aanand/git-up#
  * [line-through]#(now done by setup-vim.sh) Vundle: https://github.com/VundleVim/Vundle.vim#
