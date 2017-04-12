@@ -46,6 +46,7 @@ Plug 'tpope/vim-repeat'            " Repeat plugins
 Plug 'tpope/vim-commentary'        " Comment out blocks
 Plug 'tpope/vim-abolish'           " Flexible search
 Plug 'tpope/vim-jdaddy'            " JSON text object
+Plug 'tpope/vim-obsession'         " Continuously save buffer state
 
 
 """ Appearance and layout
