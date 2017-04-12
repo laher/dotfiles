@@ -20,6 +20,7 @@ sudo update-alternatives --config vim
 sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
 sudo update-alternatives --config editor
 
+git config --global credential.helper 'cache --timeout=3600'
 
-echo ":: Now run ./setup-vim.sh and do the manual setups from README.asciidoc"
+echo ":: Now run ./setup-pt2.sh and do the manual setups from README.asciidoc"
 

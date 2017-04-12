@@ -3,26 +3,24 @@ dotfiles
 
 These are my dotfiles, managed by stow.
 
-
-== (X)ubuntu setup (requires curl):
+== Quick partial (X)ubuntu setup (requires curl):
 
     apt install curl
     bash <(curl -s https://raw.githubusercontent.com/laher/dotfiles/master/setup-ubuntu.sh)
 
-== Mac setup (requires brew):
+== Quick partial Mac setup (requires brew):
 
 Get brew from https://brew.sh . Then:
 
     bash <(curl -s https://raw.githubusercontent.com/laher/dotfiles/master/setup-mac.sh)
 
-== Installation:
+== Full installation:
 
    cd ~/
    git clone https://github.com/laher/dotfiles 
    cd dotfiles
-   stow vim
    ./setup-ubuntu.sh (or ./setup-mac.sh)
-   ./setup-vim.sh
+   ./setup-pt2.sh
 
 == Other stuff to install:
 
