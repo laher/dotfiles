@@ -48,6 +48,7 @@ Plug 'tpope/vim-abolish'           " Flexible search
 Plug 'tpope/vim-jdaddy'            " JSON text object
 Plug 'tpope/vim-obsession'         " Continuously save buffer state
 
+Plug 'ctrlpvim/ctrlp.vim' " Find files faster
 
 """ Appearance and layout
 Plug 'ap/vim-buftabline'
@@ -133,16 +134,17 @@ if !has('nvim')
 endif
 
 
+" Go stuff
 au FileType go nmap <leader>rt <Plug>(go-run-tab)
 au FileType go nmap <Leader>rs <Plug>(go-run-split)
 au FileType go nmap <Leader>rv <Plug>(go-run-vertical)
-
 let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_term_enabled = 1
 
             
 set number
@@ -153,11 +155,11 @@ nnoremap <silent> <leader>tt :TagbarToggle<CR>
 set clipboard^=unnamed
 "set clipboard+=unnamedplus
 
-let g:go_term_enabled = 1
 
 
 let g:used_javascript_libs = 'angularjs,angularui'
 
+" expert mode
 "noremap <Up> <nop>
 "noremap <Down> <nop>
 "noremap <Left> <nop>
@@ -166,7 +168,20 @@ let g:used_javascript_libs = 'angularjs,angularui'
 set autowrite
 let g:argwrap_tail_comma = 1
 
+" Put plugins and dictionaries in this dir (also on Windows)
+let vimDir = '$HOME/.vim'
+let &runtimepath.=','.vimDir
 
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+    let myUndoDir = expand(vimDir . '/undodir')
+    " Create dirs
+    call system('mkdir -p ' . myUndoDir)
+    let &undodir = myUndoDir
+    set undofile
+endif
+
+" Syntax for js etc
 autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['standard']
 let g:syntastic_javascript_standard_exec = 'semistandard'
 
@@ -177,16 +192,29 @@ autocmd FileType html setlocal shiftwidth=2 tabstop=2 expandtab
 "autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 "autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 
-"set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
+" Status stuff
+"set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+set cursorline
+autocmd InsertEnter * highlight StatusLine guifg=white guibg=cyan ctermfg=white ctermbg=cyan
+autocmd InsertEnter * highlight LineNr guifg=white guibg=cyan ctermfg=white ctermbg=cyan
+autocmd InsertLeave * highlight StatusLine guifg=white guibg=darkblue ctermfg=white ctermbg=darkblue
+autocmd InsertLeave * highlight LineNr guifg=white guibg=darkblue ctermfg=white ctermbg=darkblue
+
+"au InsertEnter * hi Normal ctermbg=230 guibg=#eeeeee
+"au InsertLeave * hi Normal ctermbg=white guibg=#ffffff
+
+autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif 
 
 set backspace=indent,eol,start
 
+" Leader
+nnoremap <Leader>o :CtrlP<CR>
 
+
+" Local overrides ...
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
-au InsertEnter * hi Normal ctermbg=230 guibg=#eeeeee
-au InsertLeave * hi Normal ctermbg=white guibg=#ffffff
 
