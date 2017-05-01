@@ -78,13 +78,18 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
 if [ -s ~/.gvm/scripts/gvm ]; then
     source ~/.gvm/scripts/gvm
 fi
 
 if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
+fi
+
+if [[ -d ~/.zshrc.d ]]; then
+	for f in ~/.zshrc.d/*(N); do
+		source $f
+	done
 fi
 
 if [ -f ~/.aliases ]; then

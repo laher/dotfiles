@@ -10,25 +10,23 @@ alias FUCK='fuck'
 alias release-diff='git log --graph --abbrev-commit --date=relative release-prod..release-test'
 alias branch-diff='git log --graph --abbrev-commit --date=relative'
 
-alias cdg="cd $GOHAP"
-export HAP2="~/d/hapara2"
-alias cdh2="cd $HAP2"
+alias g='git '
+alias gs='git status '
+alias ga='git add '
+alias gb='git branch '
+alias gci='git commit'
+alias gcl='git clone'
+alias gd='git diff'
+alias gco='git checkout'
+alias gk='gitk --all&'
+alias gu='git gui --all'
 
-alias golibsup='GO15VENDOREXPERIMENT=1 godep update github.com/Hapara/golibs/... && GO15VENDOREXPERIMENT=1 godep save ./app/... ./cmd/...'
-
-alias gc-ws-il="gcloud compute --project h-engage instances list"
-alias gc-ws-ssh="gcloud compute --project h-engage ssh --zone us-central1-b"
-alias gc-ws-scp="gcloud compute --project h-engage copy-files --zone us-central1-b"
-
-alias gc-hugs-il="gcloud compute --project h-ugs-a instances list"
-alias gc-hugs-ssh="gcloud compute --project h-ugs-a ssh --zone us-central1-b"
-alias gc-hugs-scp="gcloud compute --project h-ugs-a copy-files --zone us-central1-b"
-alias gc-hugs-prod-ssh="gcloud compute --project h-ugs-a ssh --zone us-central1-c"
-alias gc-hugs-prod-scp="gcloud compute --project h-ugs-a copy-files --zone us-central1-c"
+alias got='git '
+alias get='git '
 
 
 alias tailf='tail -F'
 
-alias mymongo='mongo localhost/hugs'
-
 alias v=/usr/local/bin/nvim
+
+

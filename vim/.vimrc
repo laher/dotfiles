@@ -55,6 +55,9 @@ Plug 'ap/vim-buftabline'
 Plug 'freeo/vim-kalisi'
 Plug 'altercation/vim-colors-solarized'
 
+""" OMG Scala
+Plug 'derekwyatt/vim-scala'
+
 
 """ Completion
 if !has('nvim')
@@ -152,8 +155,8 @@ set hlsearch
 
 nnoremap <silent> <leader>tt :TagbarToggle<CR>
 
-set clipboard^=unnamed
-"set clipboard+=unnamedplus
+"set clipboard^=unnamed
+set clipboard+=unnamedplus
 
 
 
@@ -180,6 +183,11 @@ if has('persistent_undo')
     let &undodir = myUndoDir
     set undofile
 endif
+
+
+" set listchars is useful in combination with :set list (showing whitespace chars)
+:set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+
 
 " Syntax for js etc
 autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['standard']
@@ -211,6 +219,41 @@ set backspace=indent,eol,start
 " Leader
 nnoremap <Leader>o :CtrlP<CR>
 
+let mapleader=","
+
+" vim-go
+augroup vg
+au FileType go nmap <Leader>, :GoAlternate<CR>
+au FileType go nmap <Leader>t :GoTest<CR>
+au FileType go nmap <Leader>T :GoTestFunc<CR>
+"au FileType go nmap <Leader>b :GoBuild<CR>
+" au FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+au FileType go nmap <Leader>r :GoRename<CR>
+au FileType go nmap <Leader>R :GoRun<CR>
+au FileType go nmap <Leader>z :GoCallers<CR>
+au FileType go nmap <Leader>x :GoCallees<CR>
+au FileType go nmap <Leader>? :GoCoverageToggle<CR>
+au FileType go nmap <Leader>c :GoReferrers<CR>
+au FileType go nmap <Leader>v :GoImplements<CR>
+au FileType go nmap <Leader>d :GoDef<CR>
+au FileType go nmap <Leader>D :GoDefPop<CR>
+au FileType go nmap <Leader>i :GoImports<CR>
+au FileType go nmap <Leader>I :GoInstall<CR>
+au FileType go nmap <Leader>p :GoPlay<CR>
+au FileType go nmap <Leader>' :GoDocBrowser<CR>
+au FileType go nmap <Leader>/ :GoInfo<CR>
+au FileType go nmap <Leader>b :GoToggleBreakpoint<CR>
+au FileType go nmap <Leader>g :GoDebug<CR>
+au FileType go nmap <Leader>e :Refactor extract<CR>
+augroup END
+
+" jump to next/prev vim-go error:
+" nnoremap <C-j> :cn<CR>
+" nnoremap <C-k> :cp<CR>
+
+nnoremap <Leader>. :TagbarToggle<CR>
+
+imap jk <Esc>
 
 " Local overrides ...
 if filereadable(expand("~/.vimrc.local"))
