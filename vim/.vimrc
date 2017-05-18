@@ -6,9 +6,19 @@ call plug#begin('~/.vim/plugged')
 " Git support
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
-" Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
 Plug 'jreybert/vimagit'
+Plug 'gregsexton/gitv', {'on': ['Gitv']}
+Plug 'Shougo/denite.nvim'
+Plug 'junkblocker/patchreview-vim'
+Plug 'codegram/vim-codereview'
+
+" show buffers
+Plug 'junegunn/vim-peekaboo'
+
+" deal with swap files
+Plug 'gioele/vim-autoswap'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plug 'L9'
@@ -31,6 +41,8 @@ Plug 'majutsushi/tagbar' " 'Outline' of current file
 Plug 'burnettk/vim-angular'
 Plug 'ternjs/tern_for_vim'
 Plug 'othree/javascript-libraries-syntax.vim'
+
+Plug 'markbiek/phpLint.vim'
 
 
 """ tmux
@@ -221,37 +233,41 @@ nnoremap <Leader>o :CtrlP<CR>
 
 let mapleader=","
 
+
 " vim-go
 augroup vg
-au FileType go nmap <Leader>, :GoAlternate<CR>
-au FileType go nmap <Leader>t :GoTest<CR>
-au FileType go nmap <Leader>T :GoTestFunc<CR>
+au FileType go nmap <Leader>g, :GoAlternate<CR>
+au FileType go nmap <Leader>gt :GoTest<CR>
+au FileType go nmap <Leader>gT :GoTestFunc<CR>
 "au FileType go nmap <Leader>b :GoBuild<CR>
 " au FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-au FileType go nmap <Leader>r :GoRename<CR>
-au FileType go nmap <Leader>R :GoRun<CR>
-au FileType go nmap <Leader>z :GoCallers<CR>
-au FileType go nmap <Leader>x :GoCallees<CR>
-au FileType go nmap <Leader>? :GoCoverageToggle<CR>
-au FileType go nmap <Leader>c :GoReferrers<CR>
-au FileType go nmap <Leader>v :GoImplements<CR>
-au FileType go nmap <Leader>d :GoDef<CR>
-au FileType go nmap <Leader>D :GoDefPop<CR>
-au FileType go nmap <Leader>i :GoImports<CR>
-au FileType go nmap <Leader>I :GoInstall<CR>
-au FileType go nmap <Leader>p :GoPlay<CR>
-au FileType go nmap <Leader>' :GoDocBrowser<CR>
-au FileType go nmap <Leader>/ :GoInfo<CR>
-au FileType go nmap <Leader>b :GoToggleBreakpoint<CR>
-au FileType go nmap <Leader>g :GoDebug<CR>
-au FileType go nmap <Leader>e :Refactor extract<CR>
+au FileType go nmap <Leader>gr :GoRename<CR>
+au FileType go nmap <Leader>gx :GoRun<CR>
+au FileType go nmap <Leader>gcr :GoCallers<CR>
+au FileType go nmap <Leader>gce :GoCallees<CR>
+au FileType go nmap <Leader>g? :GoCoverageToggle<CR>
+au FileType go nmap <Leader>gr :GoReferrers<CR>
+au FileType go nmap <Leader>gd :GoDef<CR>
+au FileType go nmap <Leader>gD :GoDefPop<CR>
+au FileType go nmap <Leader>gv :GoImplements<CR>
+au FileType go nmap <Leader>gI :GoImports<CR>
+au FileType go nmap <Leader>gi :GoInstall<CR>
+au FileType go nmap <Leader>gp :GoPlay<CR>
+au FileType go nmap <Leader>g' :GoDocBrowser<CR>
+au FileType go nmap <Leader>g/ :GoInfo<CR>
+au FileType go nmap <Leader>gb :GoToggleBreakpoint<CR>
+au FileType go nmap <Leader>gd :GoDebug<CR>
+au FileType go nmap <Leader>ge :Refactor extract<CR>
 augroup END
+
+
 
 " jump to next/prev vim-go error:
 " nnoremap <C-j> :cn<CR>
 " nnoremap <C-k> :cp<CR>
 
 nnoremap <Leader>. :TagbarToggle<CR>
+nnoremap <Leader>d "_d
 
 imap jk <Esc>
 
