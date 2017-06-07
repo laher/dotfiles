@@ -23,7 +23,7 @@ Plug 'gioele/vim-autoswap'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plug 'L9'
 Plug 'osyo-manga/vim-over'
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
 
 """ Pass the path to set the runtimepath properly.
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -36,14 +36,14 @@ Plug 'nsf/gocode', {'rtp': 'nvim/'}
 """ related to go but not specific
 Plug 'FooSoft/vim-argwrap' " Wrap a paremeter list accross multiple lines
 Plug 'majutsushi/tagbar' " 'Outline' of current file
+Plug 'w0rp/ale'
 
-""" JS
+""" Other languages
 Plug 'burnettk/vim-angular'
 Plug 'ternjs/tern_for_vim'
 Plug 'othree/javascript-libraries-syntax.vim'
-
 Plug 'markbiek/phpLint.vim'
-
+Plug 'gabrielelana/vim-markdown'
 
 """ tmux
 Plug 'christoomey/vim-tmux-navigator'
@@ -87,6 +87,8 @@ endif
 call plug#end()
 
 
+
+set directory=/dev/shm " in-memory swap files (more risky but nothing sticks around)
 
 filetype plugin indent on    " required
 
@@ -160,7 +162,7 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_term_enabled = 1
-
+let g:go_list_type = "quickfix"
             
 set number
 set hlsearch
@@ -228,6 +230,10 @@ autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 
 
 set backspace=indent,eol,start
 
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_save = 1
+
+
 " Leader
 nnoremap <Leader>o :CtrlP<CR>
 
@@ -236,28 +242,28 @@ let mapleader=","
 
 " vim-go
 augroup vg
-au FileType go nmap <Leader>g, :GoAlternate<CR>
-au FileType go nmap <Leader>gt :GoTest<CR>
-au FileType go nmap <Leader>gT :GoTestFunc<CR>
+au FileType go nmap <Leader>, :GoAlternate<CR>
+au FileType go nmap <Leader>t :GoTest
+au FileType go nmap <Leader>T :GoTestFunc
 "au FileType go nmap <Leader>b :GoBuild<CR>
 " au FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-au FileType go nmap <Leader>gr :GoRename<CR>
-au FileType go nmap <Leader>gx :GoRun<CR>
-au FileType go nmap <Leader>gcr :GoCallers<CR>
-au FileType go nmap <Leader>gce :GoCallees<CR>
-au FileType go nmap <Leader>g? :GoCoverageToggle<CR>
-au FileType go nmap <Leader>gr :GoReferrers<CR>
-au FileType go nmap <Leader>gd :GoDef<CR>
-au FileType go nmap <Leader>gD :GoDefPop<CR>
-au FileType go nmap <Leader>gv :GoImplements<CR>
-au FileType go nmap <Leader>gI :GoImports<CR>
-au FileType go nmap <Leader>gi :GoInstall<CR>
-au FileType go nmap <Leader>gp :GoPlay<CR>
-au FileType go nmap <Leader>g' :GoDocBrowser<CR>
-au FileType go nmap <Leader>g/ :GoInfo<CR>
-au FileType go nmap <Leader>gb :GoToggleBreakpoint<CR>
-au FileType go nmap <Leader>gd :GoDebug<CR>
-au FileType go nmap <Leader>ge :Refactor extract<CR>
+au FileType go nmap <Leader>r :GoRename<CR>
+au FileType go nmap <Leader>x :GoRun<CR>
+au FileType go nmap <Leader>cr :GoCallers<CR>
+au FileType go nmap <Leader>ce :GoCallees<CR>
+au FileType go nmap <Leader>? :GoCoverageToggle<CR>
+au FileType go nmap <Leader>r :GoReferrers<CR>
+au FileType go nmap <Leader>d :GoDef<CR>
+au FileType go nmap <Leader>D :GoDefPop<CR>
+au FileType go nmap <Leader>v :GoImplements<CR>
+au FileType go nmap <Leader>I :GoImports<CR>
+au FileType go nmap <Leader>i :GoInstall<CR>
+au FileType go nmap <Leader>p :GoPlay<CR>
+au FileType go nmap <Leader>' :GoDocBrowser<CR>
+au FileType go nmap <Leader>/ :GoInfo<CR>
+au FileType go nmap <Leader>b :GoToggleBreakpoint<CR>
+au FileType go nmap <Leader>db :GoDebug<CR>
+au FileType go nmap <Leader>e :Refactor extract
 augroup END
 
 
