@@ -45,7 +45,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-nvm golang ubuntu git-extras)
 
 # User configuration
 
@@ -100,3 +100,13 @@ if [ -f ~/.aliases.local ]; then
     source ~/.aliases.local
 fi
 
+
+#autoload -U +X bashcompinit && bashcompinit
+
+#complete -C /home/am/go/bin/kubelete kt
+
+#complete -C /home/am/go/bin/kubelete ks3
+
+#autoload -U +X bashcompinit && bashcompinit
+
+#complete -C "/home/am/go/bin/kuplete" s3

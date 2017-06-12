@@ -1,0 +1,86 @@
+call plug#begin('~/.vim/plugged')
+
+" Git support
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+Plug 'tpope/vim-rhubarb'
+Plug 'airblade/vim-gitgutter'
+Plug 'jreybert/vimagit'
+Plug 'gregsexton/gitv', {'on': ['Gitv']}
+Plug 'Shougo/denite.nvim'
+Plug 'junkblocker/patchreview-vim'
+Plug 'codegram/vim-codereview'
+
+" show buffers
+Plug 'junegunn/vim-peekaboo'
+
+" deal with swap files
+Plug 'gioele/vim-autoswap'
+
+" plugin from http://vim-scripts.org/vim/scripts.html
+Plug 'L9'
+Plug 'osyo-manga/vim-over'
+
+""" Pass the path to set the runtimepath properly.
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+
+""" Go
+Plug 'fatih/vim-go'
+Plug 'godoctor/godoctor.vim'
+Plug 'nsf/gocode', {'rtp': 'nvim/'}
+
+""" related to go but not specific
+Plug 'FooSoft/vim-argwrap' " Wrap a paremeter list accross multiple lines
+Plug 'majutsushi/tagbar' " 'Outline' of current file
+Plug 'w0rp/ale' "syntax & linting
+"Plug 'scrooloose/syntastic'
+
+""" Other languages
+Plug 'burnettk/vim-angular'
+Plug 'ternjs/tern_for_vim'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'markbiek/phpLint.vim'
+Plug 'gabrielelana/vim-markdown'
+""" OMG Scala
+Plug 'derekwyatt/vim-scala'
+
+""" tmux
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'benmills/vimux'
+Plug 'benmills/vimux-golang'
+
+
+""" tpope
+Plug 'tpope/vim-surround'          " Operate on surrounding 
+Plug 'tpope/vim-speeddating'       " Increment dates
+Plug 'tpope/vim-repeat'            " Repeat plugins
+Plug 'tpope/vim-commentary'        " Comment out blocks
+Plug 'tpope/vim-abolish'           " Flexible search
+Plug 'tpope/vim-jdaddy'            " JSON text object
+Plug 'tpope/vim-obsession'         " Continuously save buffer state
+
+Plug 'ctrlpvim/ctrlp.vim' " Find files faster
+
+""" Appearance and layout
+Plug 'ap/vim-buftabline'
+Plug 'freeo/vim-kalisi'
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-ctrlspace/vim-ctrlspace'
+
+
+""" Completion
+if !has('nvim')
+	"Plug 'Shougo/neocomplete.vim'
+	Plug 'maralla/completor.vim' " Ugh not working for go. Disabling at startup for now and switching back to nvim
+endif
+if has('nvim')
+	Plug 'jodosha/vim-godebug'
+	Plug 'Shougo/deoplete.nvim' ", { 'do': ':UpdateRemotePlugins' }
+	Plug 'carlitux/deoplete-ternjs'
+	Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
+endif
+
+" All of your Plugs must be added before the following line
+call plug#end()
+
+

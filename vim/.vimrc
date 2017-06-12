@@ -1,93 +1,13 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-call plug#begin('~/.vim/plugged')
-
-" Git support
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
-Plug 'tpope/vim-rhubarb'
-Plug 'airblade/vim-gitgutter'
-Plug 'jreybert/vimagit'
-Plug 'gregsexton/gitv', {'on': ['Gitv']}
-Plug 'Shougo/denite.nvim'
-Plug 'junkblocker/patchreview-vim'
-Plug 'codegram/vim-codereview'
-
-" show buffers
-Plug 'junegunn/vim-peekaboo'
-
-" deal with swap files
-Plug 'gioele/vim-autoswap'
-
-" plugin from http://vim-scripts.org/vim/scripts.html
-Plug 'L9'
-Plug 'osyo-manga/vim-over'
-"Plug 'scrooloose/syntastic'
-
-""" Pass the path to set the runtimepath properly.
-Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
-
-""" Go
-Plug 'fatih/vim-go'
-Plug 'godoctor/godoctor.vim'
-Plug 'nsf/gocode', {'rtp': 'nvim/'}
-
-""" related to go but not specific
-Plug 'FooSoft/vim-argwrap' " Wrap a paremeter list accross multiple lines
-Plug 'majutsushi/tagbar' " 'Outline' of current file
-Plug 'w0rp/ale'
-
-""" Other languages
-Plug 'burnettk/vim-angular'
-Plug 'ternjs/tern_for_vim'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'markbiek/phpLint.vim'
-Plug 'gabrielelana/vim-markdown'
-
-""" tmux
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'benmills/vimux'
-Plug 'benmills/vimux-golang'
-
-
-""" tpope
-Plug 'tpope/vim-surround'          " Operate on surrounding 
-Plug 'tpope/vim-speeddating'       " Increment dates
-Plug 'tpope/vim-repeat'            " Repeat plugins
-Plug 'tpope/vim-commentary'        " Comment out blocks
-Plug 'tpope/vim-abolish'           " Flexible search
-Plug 'tpope/vim-jdaddy'            " JSON text object
-Plug 'tpope/vim-obsession'         " Continuously save buffer state
-
-Plug 'ctrlpvim/ctrlp.vim' " Find files faster
-
-""" Appearance and layout
-Plug 'ap/vim-buftabline'
-Plug 'freeo/vim-kalisi'
-Plug 'altercation/vim-colors-solarized'
-
-""" OMG Scala
-Plug 'derekwyatt/vim-scala'
-
-
-""" Completion
-if !has('nvim')
-	"Plug 'Shougo/neocomplete.vim'
-	Plug 'maralla/completor.vim' " Ugh not working for go. Disabling at startup for now and switching back to nvim
-endif
-if has('nvim')
-	Plug 'jodosha/vim-godebug'
-	Plug 'Shougo/deoplete.nvim' ", { 'do': ':UpdateRemotePlugins' }
-	Plug 'carlitux/deoplete-ternjs'
-	Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
+" vim-plug ...
+if filereadable(expand("~/.vimrc.plug"))
+  source ~/.vimrc.plug
 endif
 
-" All of your Plugs must be added before the following line
-call plug#end()
 
-
-
+set hidden " required by CtrlSpace
 set directory=/dev/shm " in-memory swap files (more risky but nothing sticks around)
 
 filetype plugin indent on    " required
@@ -163,6 +83,7 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_term_enabled = 1
 let g:go_list_type = "quickfix"
+let g:go_addtags_transform = "camelcase"
             
 set number
 set hlsearch
@@ -234,8 +155,11 @@ let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
 
 
+let g:CtrlSpaceDefaultMappingKey = "<C-Space> "
+
 " Leader
 nnoremap <Leader>o :CtrlP<CR>
+nnoremap <Leader><Space> :CtrlSpace<CR>
 
 let mapleader=","
 
@@ -247,8 +171,6 @@ au FileType go nmap <Leader>t :GoTest
 au FileType go nmap <Leader>T :GoTestFunc
 "au FileType go nmap <Leader>b :GoBuild<CR>
 " au FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-au FileType go nmap <Leader>r :GoRename<CR>
-au FileType go nmap <Leader>x :GoRun<CR>
 au FileType go nmap <Leader>cr :GoCallers<CR>
 au FileType go nmap <Leader>ce :GoCallees<CR>
 au FileType go nmap <Leader>? :GoCoverageToggle<CR>

@@ -31,3 +31,5 @@ alias v=/usr/local/bin/nvim
 
 
 alias watch='watch '
+
+alias h='hostname'
