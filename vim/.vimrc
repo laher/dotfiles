@@ -18,7 +18,7 @@ set t_Co=256 " Ignored by nvim
 colorscheme kalisi
 set background=light
 
-set whichwrap+=<,>,h,l,[,]
+set whichwrap+=<,>,h,l,[,] " right-arrow goes to next line
 set autochdir
 set autowrite " useful for :bufdo
 set laststatus=2 " Always display the statusline in all windows
