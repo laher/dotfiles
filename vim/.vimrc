@@ -29,6 +29,8 @@ set encoding=utf-8
 
 syntax on
 
+set wildmenu                       
+set wildmode=list:longest,full 
 
 
 if !has('nvim')
@@ -154,14 +156,17 @@ set backspace=indent,eol,start
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
 
-
+" ctrlp
 let g:CtrlSpaceDefaultMappingKey = "<C-Space> "
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 " Leader
+let mapleader=","
 nnoremap <Leader>o :CtrlP<CR>
+nnoremap <leader>ob :CtrlPBuffer
 nnoremap <Leader><Space> :CtrlSpace<CR>
 
-let mapleader=","
 
 
 " vim-go
