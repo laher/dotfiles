@@ -74,9 +74,6 @@ endif
 
 
 " Go stuff
-au FileType go nmap <leader>rt <Plug>(go-run-tab)
-au FileType go nmap <Leader>rs <Plug>(go-run-split)
-au FileType go nmap <Leader>rv <Plug>(go-run-vertical)
 let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -171,26 +168,33 @@ nnoremap <Leader><Space> :CtrlSpace<CR>
 
 " vim-go
 augroup vg
-au FileType go nmap <Leader>, :GoAlternate<CR>
-au FileType go nmap <Leader>t :GoTest
-au FileType go nmap <Leader>T :GoTestFunc
 "au FileType go nmap <Leader>b :GoBuild<CR>
 " au FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 au FileType go nmap <Leader>cr :GoCallers<CR>
 au FileType go nmap <Leader>ce :GoCallees<CR>
 au FileType go nmap <Leader>? :GoCoverageToggle<CR>
-au FileType go nmap <Leader>r :GoReferrers<CR>
-au FileType go nmap <Leader>d :GoDef<CR>
 au FileType go nmap <Leader>D :GoDefPop<CR>
 au FileType go nmap <Leader>v :GoImplements<CR>
 au FileType go nmap <Leader>I :GoImports<CR>
 au FileType go nmap <Leader>i :GoInstall<CR>
 au FileType go nmap <Leader>p :GoPlay<CR>
 au FileType go nmap <Leader>' :GoDocBrowser<CR>
-au FileType go nmap <Leader>/ :GoInfo<CR>
 au FileType go nmap <Leader>b :GoToggleBreakpoint<CR>
 au FileType go nmap <Leader>db :GoDebug<CR>
 au FileType go nmap <Leader>e :Refactor extract
+au FileType go nmap <leader>rt <Plug>(go-run-tab)
+au FileType go nmap <Leader>rs <Plug>(go-run-split)
+au FileType go nmap <Leader>rv <Plug>(go-run-vertical)
+
+" synced with emacs
+au FileType go nmap <Leader>,, :GoAlternate<CR>
+au FileType go nmap <Leader>T :GoTestFunc
+au FileType go nmap <Leader>t :GoTest
+au FileType go nmap <Leader>r :GoReferrers<CR>
+au FileType go nmap <Leader>cp :GoChannelPeers<CR>
+au FileType go nmap <Leader>d :GoDef<CR>
+au FileType go nmap <Leader>k :GoInfo<CR>
+
 augroup END
 
 

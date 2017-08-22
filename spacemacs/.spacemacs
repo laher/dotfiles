@@ -56,6 +56,7 @@ values."
      version-control
      go
      scala
+     php
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -319,21 +320,37 @@ This function is called at the very end of Spacemacs initialization after
 layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
-you should place your code here."
+you should place your code here.
+
+Synced with .vimrc where possible ...
+See here for go leader keys https://github.com/syl20bnr/spacemacs/blob/develop/layers/%2Blang/go/packages.el
+"
   (setq evil-cross-lines t)
   (define-key evil-ex-map "ff" 'find-file)
-  (spacemacs/set-leader-keys ",e" 'find-file)
-  (spacemacs/set-leader-keys ",g" 'spacemacs/helm-open-github)
-  (spacemacs/set-leader-keys ",r" 'load-file)
-  (spacemacs/set-leader-keys ",t" 'multi-term)
-  (spacemacs/set-leader-keys-for-major-mode 'go-mode ",e" 'find-file)
-  (spacemacs/set-leader-keys-for-major-mode 'go-mode ",," 'ff-find-other-file)
-  (spacemacs/set-leader-keys-for-major-mode 'go-mode ",t" 'spacemacs/go-run-package-tests)
-  (spacemacs/set-leader-keys-for-major-mode 'go-mode ",T" 'spacemacs/go-run-tests-function)
 
-  (define-key evil-ex-map "GoTest" 'spacemacs/go-run-test-current-suite)
-  (evil-ex-define-cmd "Gbr" 'spacemacs/helm-open-github-from-file)
-  (define-key evil-ex-map "Gbrowse" 'spacemacs/helm-open-github-from-file)
+  (spacemacs/set-leader-keys
+    ",e" 'find-file
+    ",g" 'spacemacs/helm-open-github
+    ",r" 'load-file
+    ",t" 'multi-term)
+
+  (spacemacs/set-leader-keys-for-major-mode 'go-mode
+    ",," 'ff-find-other-file
+    "T" 'spacemacs/go-run-test-current-function
+    "tt" 'spacemacs/go-run-package-tests
+    "r" 'go-guru-referrers
+    "d" 'go-guru-definition
+    "cp" 'go-guru-peers
+    "k" 'go-guru-describe
+    )
+
+  (evil-ex-define-cmd  "Gbrowse" 'spacemacs/helm-open-github-from-file)
+  (evil-ex-define-cmd  "GoTest" 'spacemacs/go-run-package-tests)
+  (evil-ex-define-cmd  "GoTestFunc" 'spacemacs/go-run-test-current-function)
+  (evil-ex-define-cmd  "GoDef" 'go-guru-definition)
+  (evil-ex-define-cmd  "GoInfo" 'go-guru-describe)
+  (evil-ex-define-cmd  "GoReferrers" 'go-guru-referrers)
+  (evil-ex-define-cmd  "GoChannelPeers" 'go-guru-peers)
 
   (setq undo-tree-auto-save-history t
         undo-tree-history-directory-alist
@@ -350,6 +367,14 @@ you should place your code here."
   (evil-ex-define-cmd "x" #'cb-evil-save-buffers-and-nope)
   (evil-ex-define-cmd "wq" #'cb-evil-save-buffers-and-nope)
   (global-linum-mode 1)
+
+  (setq-default dotspacemacs-configuration-layers '(
+                                                    (scala :variables scala-auto-start-ensime t)))
+  (setq-default dotspacemacs-configuration-layers '(
+                                                    (scala :variables scala-use-unicode-arrows t)))
+  (setq-default dotspacemacs-configuration-layers '(
+                                                    (scala :variables scala-use-unicode-arrows t)))
+  (setq-default flycheck-scalastylerc "/home/am/d/scala/scalastyle_config.xml")
   )
 
 (defun cb-evil-save-buffers-and-nope ()
@@ -369,7 +394,7 @@ you should place your code here."
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (noflet ensime sbt-mode scala-mode yaml-mode unfill mwim d-mode company-dcd ivy flycheck-dmd-dub marshal logito pcache ht esh-help gh helm-open-github magithub flyspell-correct-helm flyspell-correct auto-dictionary flycheck-gometalinter mmm-mode markdown-toc markdown-mode gh-md xterm-color shell-pop multi-term eshell-z eshell-prompt-extras simpleclip vimrc-mode dactyl-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data helm-company helm-c-yasnippet git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter fuzzy flycheck-pos-tip pos-tip flycheck diff-hl company-tern dash-functional tern company-statistics auto-yasnippet ac-ispell auto-complete company-go company web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode smeargle orgit org-projectile org-present org-pomodoro alert log4e gntp org-download magit-gitflow htmlize helm-gitignore go-guru go-eldoc go-mode gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
+    (phpunit phpcbf php-extras php-auto-yasnippets drupal-mode php-mode noflet ensime sbt-mode scala-mode yaml-mode unfill mwim d-mode company-dcd ivy flycheck-dmd-dub marshal logito pcache ht esh-help gh helm-open-github magithub flyspell-correct-helm flyspell-correct auto-dictionary flycheck-gometalinter mmm-mode markdown-toc markdown-mode gh-md xterm-color shell-pop multi-term eshell-z eshell-prompt-extras simpleclip vimrc-mode dactyl-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data helm-company helm-c-yasnippet git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter fuzzy flycheck-pos-tip pos-tip flycheck diff-hl company-tern dash-functional tern company-statistics auto-yasnippet ac-ispell auto-complete company-go company web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode smeargle orgit org-projectile org-present org-pomodoro alert log4e gntp org-download magit-gitflow htmlize helm-gitignore go-guru go-eldoc go-mode gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
