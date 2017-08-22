@@ -55,7 +55,9 @@ values."
      syntax-checking
      version-control
      go
-     scala
+     (scala :variables
+            scala-auto-start-ensime t
+            scala-use-unicode-arrows t)
      php
      )
    ;; List of additional packages that will be installed without being
@@ -78,7 +80,9 @@ values."
    ;; `used-but-keep-unused' installs only the used packages but won't uninstall
    ;; them if they become unused. `all' installs *all* packages supported by
    ;; Spacemacs and never uninstall them. (default is `used-only')
-   dotspacemacs-install-packages 'used-only))
+   dotspacemacs-install-packages 'used-only)
+
+   )
 
 (defun dotspacemacs/init ()
   "Initialization function.
@@ -145,7 +149,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+                               :size 20
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -332,7 +336,12 @@ See here for go leader keys https://github.com/syl20bnr/spacemacs/blob/develop/l
     ",e" 'find-file
     ",g" 'spacemacs/helm-open-github
     ",r" 'load-file
-    ",t" 'multi-term)
+    ",t" 'multi-term
+    )
+
+  (evil-ex-define-cmd  "Gbrowse" 'spacemacs/helm-open-github-from-file)
+  (evil-ex-define-cmd  "Restart" 'restart-emacs)
+  (evil-ex-define-cmd  "CtrlP" 'recentf-open-files)
 
   (spacemacs/set-leader-keys-for-major-mode 'go-mode
     ",," 'ff-find-other-file
@@ -344,7 +353,6 @@ See here for go leader keys https://github.com/syl20bnr/spacemacs/blob/develop/l
     "k" 'go-guru-describe
     )
 
-  (evil-ex-define-cmd  "Gbrowse" 'spacemacs/helm-open-github-from-file)
   (evil-ex-define-cmd  "GoTest" 'spacemacs/go-run-package-tests)
   (evil-ex-define-cmd  "GoTestFunc" 'spacemacs/go-run-test-current-function)
   (evil-ex-define-cmd  "GoDef" 'go-guru-definition)
@@ -362,18 +370,13 @@ See here for go leader keys https://github.com/syl20bnr/spacemacs/blob/develop/l
   (add-hook 'emacs-startup-hook '2-windows-vertical-to-horizontal)
 
   (setq-default evil-escape-key-sequence "jk")
-  (save-place-mode 1)
   (evil-ex-define-cmd "q" 'evil-window-delete)
   (evil-ex-define-cmd "x" #'cb-evil-save-buffers-and-nope)
   (evil-ex-define-cmd "wq" #'cb-evil-save-buffers-and-nope)
+
+  (save-place-mode 1)
   (global-linum-mode 1)
 
-  (setq-default dotspacemacs-configuration-layers '(
-                                                    (scala :variables scala-auto-start-ensime t)))
-  (setq-default dotspacemacs-configuration-layers '(
-                                                    (scala :variables scala-use-unicode-arrows t)))
-  (setq-default dotspacemacs-configuration-layers '(
-                                                    (scala :variables scala-use-unicode-arrows t)))
   (setq-default flycheck-scalastylerc "/home/am/d/scala/scalastyle_config.xml")
   )
 
