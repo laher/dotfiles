@@ -18,7 +18,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'gioele/vim-autoswap'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
-Plug 'L9'
+"Plug 'L9'
 Plug 'osyo-manga/vim-over'
 
 """ Pass the path to set the runtimepath properly.
@@ -28,6 +28,7 @@ Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'fatih/vim-go'
 Plug 'godoctor/godoctor.vim'
 Plug 'nsf/gocode', {'rtp': 'nvim/'}
+Plug 'buoto/gotests-vim'
 
 """ related to go but not specific
 Plug 'FooSoft/vim-argwrap' " Wrap a paremeter list accross multiple lines
@@ -75,7 +76,7 @@ if !has('nvim')
 endif
 if has('nvim')
 	Plug 'jodosha/vim-godebug'
-	Plug 'Shougo/deoplete.nvim' ", { 'do': ':UpdateRemotePlugins' }
+	Plug 'Shougo/deoplete.nvim' , { 'do': ':UpdateRemotePlugins' }
 	Plug 'carlitux/deoplete-ternjs'
 	Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
 endif
