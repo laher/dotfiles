@@ -79,6 +79,9 @@ if [ -s ~/.gvm/scripts/gvm ]; then
     source ~/.gvm/scripts/gvm
 fi
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
 fi
@@ -108,3 +111,4 @@ alias gt='go test'
 #autoload -U +X bashcompinit && bashcompinit
 
 #complete -C "/home/am/go/bin/kuplete" s3
+
