@@ -82,7 +82,7 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-if [ -f ~/.zshrc.local ]; then
+if [ -d ~/.zshrc.local ]; then
     source ~/.zshrc.local
 fi
 
@@ -90,6 +90,13 @@ if [[ -d ~/.zshrc.d ]]; then
 	for f in ~/.zshrc.d/*(N); do
 		source $f
 	done
+fi
+
+if [ -d ~/.zshrc.local.d ]; then
+    for f in ~/.zshrc.local.d/*(N); do
+	source $f
+    done
+
 fi
 
 if [ -f ~/.aliases ]; then
@@ -111,4 +118,6 @@ alias gt='go test'
 #autoload -U +X bashcompinit && bashcompinit
 
 #complete -C "/home/am/go/bin/kuplete" s3
+
+
 
