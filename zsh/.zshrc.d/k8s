@@ -1,0 +1,59 @@
+#!/bin/zsh
+
+function kb {
+  kubectl --context=$1 scale --replicas=0 deployment/$2
+  kubectl --context=$1 scale --replicas=1 deployment/$2
+  clicache -del kubectl --context=$1 get pod
+}
+
+function ki {
+  clicache kubectl --context=$1 get pod -l "app=$2" --no-headers | cut -d ' ' -f1
+}
+
+function kcc {
+  clicache -del kubectl --context=$1 get pod
+}
+
+function k {
+  kubectl --context=$1 ${@:2}
+}
+
+function kgp {
+  clicache -del kubectl --context=$1 get pod ${@:2}
+  clicache kubectl --context=$1 get pod ${@:2}
+}
+
+function kga {
+  kubectl --context=$1 get pod -l "app=${@:2}" --no-headers
+}
+
+function kw {
+  watch kubectl --context=$1 get pod
+}
+
+function kbw {
+  kb ${@:1}
+  kw ${@:1}
+}
+
+function kx {
+  kubectl --context=$1 exec -it $2 -- ${@:3}
+}
+
+function kl {
+  kubectl --context=$1 log ${@:2}
+}
+
+function ka {
+  kubectl --context=$1 apply -f ${@:2}
+}
+
+function kr {
+  kubectl --context=$1 replace --cascade --force -f ${@:2}
+}
+
+function kpf {
+  kubectl --context=$1 port-forward ${@:2}
+}
+
+
