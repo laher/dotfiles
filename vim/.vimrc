@@ -207,6 +207,9 @@ augroup END
 nnoremap <Leader>. :TagbarToggle<CR>
 nnoremap <Leader>d "_d
 
+
+command W w !sudo tee % > /dev/null
+
 imap jk <Esc>
 
 " Local overrides ...
