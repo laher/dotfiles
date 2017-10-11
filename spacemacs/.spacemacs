@@ -339,10 +339,12 @@ See here for go leader keys https://github.com/syl20bnr/spacemacs/blob/develop/l
   (define-key evil-ex-map "ff" 'find-file)
 
   (spacemacs/set-leader-keys
-    ",e" 'find-file
-    ",g" 'spacemacs/helm-open-github
-    ",r" 'load-file
-    ",t" 'multi-term
+    "oe" 'find-file
+    "og" 'spacemacs/helm-open-github
+    "of" 'load-file
+    "om" 'multi-term
+    "or" 'recentf-open-files
+    "ox" 'restart-emacs
     )
 
   (require 'helm-bookmark)
@@ -352,13 +354,14 @@ See here for go leader keys https://github.com/syl20bnr/spacemacs/blob/develop/l
   (evil-ex-define-cmd  "CtrlP" 'recentf-open-files)
 
   (spacemacs/set-leader-keys-for-major-mode 'go-mode
-    ",," 'ff-find-other-file
-    "T" 'spacemacs/go-run-test-current-function
-    "tt" 'spacemacs/go-run-package-tests
-    "r" 'go-guru-referrers
-    "d" 'go-guru-definition
-    "cp" 'go-guru-peers
-    "k" 'go-guru-describe
+    "oo" 'ff-find-other-file
+    "oT" 'spacemacs/go-run-test-current-function
+    "ot" 'spacemacs/go-run-package-tests
+    "or" 'go-guru-referrers
+    "od" 'go-guru-definition
+    "op" 'go-guru-peers
+    "ok" 'go-guru-describe
+    "oR" 'go-rename
     )
 
   (evil-ex-define-cmd  "GoTest" 'spacemacs/go-run-package-tests)
