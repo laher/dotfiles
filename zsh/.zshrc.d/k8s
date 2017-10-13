@@ -8,6 +8,7 @@ function kb {
 
 function ki {
   #clicache kubectl --context=$1 get pod -l "app=$2" --no-headers | cut -d ' ' -f1
+  echo -n "$1 "
   clicache kubectl --context=$1 get pod --no-headers | grep $2 | head -1| cut -d ' ' -f1
 }
 
