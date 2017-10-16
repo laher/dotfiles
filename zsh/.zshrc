@@ -107,7 +107,7 @@ if [ -f ~/.aliases.local ]; then
     source ~/.aliases.local
 fi
 
-alias gt='go test'
+#alias gt='go test'
 
 #autoload -U +X bashcompinit && bashcompinit
 

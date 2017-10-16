@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/zsh
 
 function kb {
   kubectl --context=$1 scale --replicas=0 deployment/$2
