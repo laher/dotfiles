@@ -416,7 +416,7 @@ See here for go leader keys https://github.com/syl20bnr/spacemacs/blob/develop/l
   ;(setq request-message-level 'debug)
 
   (setq org-directory "~/o")
-  (setq org-agenda-files (list "~/o/"))
+  (setq org-agenda-files (list "~/o/" "~/o/w/"))
 
   (setq org-refile-targets '((org-agenda-files :maxlevel . 9)))
   (setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
