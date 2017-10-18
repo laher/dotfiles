@@ -80,6 +80,7 @@ values."
       go-dlv
       go-impl
       go-errcheck
+      simpleclip
       ;(go-fillstruct :location
       ;               (recipe :fetcher file
       ;                       :path "~/.emacs.d/private/local/go-fillstruct/go-fillstruct.el"))
@@ -403,6 +404,9 @@ See here for go leader keys https://github.com/syl20bnr/spacemacs/blob/develop/l
   (setq-default flycheck-scalastylerc "/home/am/d/scala/scalastyle_config.xml")
 
   (require 'helm)
+  (require 'simpleclip)
+  (simpleclip-mode 1)
+
   ;(require 'go-fillstruct)
   (define-key helm-map (kbd "C-j") 'helm-next-line)
   (define-key helm-map (kbd "C-k") 'helm-previous-line)
