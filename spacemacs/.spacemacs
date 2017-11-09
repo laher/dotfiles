@@ -65,7 +65,6 @@ values."
 
      github
      search-engine
-     local
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -81,6 +80,11 @@ values."
       go-impl
       go-errcheck
       simpleclip
+      org-tree-slide
+      ox-reveal
+      epresent
+      ob-go
+      ;(go-fillstruct :location local)
       ;(go-fillstruct :location
       ;               (recipe :fetcher file
       ;                       :path "~/.emacs.d/private/local/go-fillstruct/go-fillstruct.el"))
@@ -354,7 +358,7 @@ See here for go leader keys https://github.com/syl20bnr/spacemacs/blob/develop/l
     "og" 'spacemacs/helm-open-github
     "of" 'load-file
     "om" 'multi-term
-    "or" 'recentf-open-files
+    "orf" 'recentf-open-files
     "ox" 'restart-emacs
     )
 
@@ -373,6 +377,12 @@ See here for go leader keys https://github.com/syl20bnr/spacemacs/blob/develop/l
     "op" 'go-guru-peers
     "ok" 'go-guru-describe
     "oR" 'go-rename
+    )
+
+  (spacemacs/set-leader-keys-for-major-mode 'org-mode
+    "oh" 'org-reveal-export-to-html
+    "ox" 'org-babel-execute-src-block
+    "ob" 'org-reveal-export-to-html-and-browse
     )
 
   (evil-ex-define-cmd  "GoTest" 'spacemacs/go-run-package-tests)
@@ -408,6 +418,18 @@ See here for go leader keys https://github.com/syl20bnr/spacemacs/blob/develop/l
   (simpleclip-mode 1)
 
   ;(require 'go-fillstruct)
+  (require 'org-tree-slide)
+
+  (load-file "/home/am/.emacs.d/private/local/go-fillstruct")
+  (require 'go-fillstruct)
+
+  (load-file "/home/am/.emacs.d/private/local/go-ffs")
+  (require 'go-ffs)
+
+
+  (load-file "/home/am/.emacs.d/private/local/re-cap")
+  (require 're-cap)
+
   (define-key helm-map (kbd "C-j") 'helm-next-line)
   (define-key helm-map (kbd "C-k") 'helm-previous-line)
 
@@ -428,6 +450,13 @@ See here for go leader keys https://github.com/syl20bnr/spacemacs/blob/develop/l
   ;(setq org-refile-targets (quote (("support-stuff.org" :maxlevel . 1)
    ;                                ("*.org" :level . 1)
     ;                               ("someday.org" :level . 2))))
+  ;(setq org-reveal-root "file:///home/am/d/reveal.js-3.5.0")
+  (load-file "/home/am/d/e/org-reveal/ox-reveal.el")
+
+  (require 'ob-go)
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((go . t)))
   )
 
 (defun cb-evil-save-buffers-and-nope ()
@@ -447,7 +476,7 @@ See here for go leader keys https://github.com/syl20bnr/spacemacs/blob/develop/l
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (quelpa package-build go-errcheck go-snippets go-rename go-impl twittering-mode spotify magit-gh-pulls helm-spotify multi github-search github-clone github-browse-file gist engine-mode org-jira company-emacs-eclim eclim go-dlv org-category-capture ghub+ apiwrap ghub sql-indent helm-gtags ggtags phpunit phpcbf php-extras php-auto-yasnippets drupal-mode php-mode noflet ensime sbt-mode scala-mode yaml-mode unfill mwim d-mode company-dcd ivy flycheck-dmd-dub marshal logito pcache ht esh-help gh helm-open-github magithub flyspell-correct-helm flyspell-correct auto-dictionary flycheck-gometalinter mmm-mode markdown-toc markdown-mode gh-md xterm-color shell-pop multi-term eshell-z eshell-prompt-extras simpleclip vimrc-mode dactyl-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data helm-company helm-c-yasnippet git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter fuzzy flycheck-pos-tip pos-tip flycheck diff-hl company-tern dash-functional tern company-statistics auto-yasnippet ac-ispell auto-complete company-go company web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode smeargle orgit org-projectile org-present org-pomodoro alert log4e gntp org-download magit-gitflow htmlize helm-gitignore go-guru go-eldoc go-mode gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
+    (ob-go epresent ox-reveal org-tree-slide xclip quelpa package-build go-errcheck go-snippets go-rename go-impl twittering-mode spotify magit-gh-pulls helm-spotify multi github-search github-clone github-browse-file gist engine-mode org-jira company-emacs-eclim eclim go-dlv org-category-capture ghub+ apiwrap ghub sql-indent helm-gtags ggtags phpunit phpcbf php-extras php-auto-yasnippets drupal-mode php-mode noflet ensime sbt-mode scala-mode yaml-mode unfill mwim d-mode company-dcd ivy flycheck-dmd-dub marshal logito pcache ht esh-help gh helm-open-github magithub flyspell-correct-helm flyspell-correct auto-dictionary flycheck-gometalinter mmm-mode markdown-toc markdown-mode gh-md xterm-color shell-pop multi-term eshell-z eshell-prompt-extras simpleclip vimrc-mode dactyl-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data helm-company helm-c-yasnippet git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter fuzzy flycheck-pos-tip pos-tip flycheck diff-hl company-tern dash-functional tern company-statistics auto-yasnippet ac-ispell auto-complete company-go company web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode smeargle orgit org-projectile org-present org-pomodoro alert log4e gntp org-download magit-gitflow htmlize helm-gitignore go-guru go-eldoc go-mode gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

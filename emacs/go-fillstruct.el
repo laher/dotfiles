@@ -20,7 +20,7 @@
 (require 'cl-lib)
 (require 'compile)
 (require 'go-mode)
-(require 'thingatpt)
+;(require 'thingatpt)
 
 (defgroup go-fillstruct nil
   "Options specific to the Go fillstruct."

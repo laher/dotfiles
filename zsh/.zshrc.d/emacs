@@ -1,3 +1,9 @@
-alias e='emacsclient -a ""'
+#!/usr/bin/zsh
+
+alias ec='emacsclient -a ""'
 alias enw='emacs -nw'
 alias er='systemctl --user restart emacs.service'
+
+function e {
+  nohup emacsclient --create-frame ${@} >/dev/null &
+}
