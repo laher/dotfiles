@@ -13,8 +13,9 @@ function ki {
 }
 
 function kcc {
-  clicache -del kubectl --context=$1 get pod
-  clicache -del kubectl --context=$1 get pod --no-headers
+  rm -rf ~/.cache/clicache/*
+  #clicache -del kubectl --context=$1 get pod
+  #clicache -del kubectl --context=$1 get pod --no-headers
 }
 
 function k {
