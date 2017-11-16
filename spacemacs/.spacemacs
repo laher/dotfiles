@@ -417,18 +417,17 @@ See here for go leader keys https://github.com/syl20bnr/spacemacs/blob/develop/l
   (require 'simpleclip)
   (simpleclip-mode 1)
 
-  ;(require 'go-fillstruct)
   (require 'org-tree-slide)
 
-  (load-file "/home/am/.emacs.d/private/local/go-fillstruct")
-  (require 'go-fillstruct)
+  ;(load-file "/home/am/.emacs.d/private/local/go-fillstruct")
+  ;(require 'go-fillstruct)
 
-  (load-file "/home/am/.emacs.d/private/local/go-ffs")
-  (require 'go-ffs)
+  ;(load-file "/home/am/.emacs.d/private/local/go-ffs")
+  ;(require 'go-ffs)
 
 
-  (load-file "/home/am/.emacs.d/private/local/re-cap")
-  (require 're-cap)
+  ;(load-file "/home/am/.emacs.d/private/local/re-cap")
+  ;(require 're-cap)
 
   (define-key helm-map (kbd "C-j") 'helm-next-line)
   (define-key helm-map (kbd "C-k") 'helm-previous-line)
@@ -451,7 +450,7 @@ See here for go leader keys https://github.com/syl20bnr/spacemacs/blob/develop/l
    ;                                ("*.org" :level . 1)
     ;                               ("someday.org" :level . 2))))
   ;(setq org-reveal-root "file:///home/am/d/reveal.js-3.5.0")
-  (load-file "/home/am/d/e/org-reveal/ox-reveal.el")
+  ;(load-file "/home/am/d/e/org-reveal/ox-reveal.el")
 
   (require 'ob-go)
   (org-babel-do-load-languages
