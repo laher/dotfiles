@@ -1,9 +1,14 @@
 #!/usr/bin/zsh
 
 function kb {
-  kubectl --context=$1 scale --replicas=0 deployment/$2
-  kubectl --context=$1 scale --replicas=1 deployment/$2
-  clicache -del kubectl --context=$1 get pod
+  context="$1"
+  shift
+  for i
+  do
+     kubectl --context=$context scale --replicas=0 deployment/$i
+     kubectl --context=$context scale --replicas=1 deployment/$i
+  done
+  clicache -del kubectl --context=$context get pod --no-headers
 }
 
 function ki {
