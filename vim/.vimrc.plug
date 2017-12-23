@@ -24,6 +24,9 @@ Plug 'osyo-manga/vim-over'
 """ Pass the path to set the runtimepath properly.
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 
+" insertions with ga (non-cursor)
+Plulg 'joereynolds/place'
+
 """ Go
 Plug 'fatih/vim-go'
 Plug 'godoctor/godoctor.vim'
