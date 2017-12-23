@@ -25,7 +25,7 @@ Plug 'osyo-manga/vim-over'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 " insertions with ga (non-cursor)
-Plug 'joereynolds/place'
+Plug 'joereynolds/place.vim'
 
 """ Go
 Plug 'fatih/vim-go'
