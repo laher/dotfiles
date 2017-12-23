@@ -209,7 +209,9 @@ nnoremap <Leader>. :TagbarToggle<CR>
 nnoremap <Leader>d "_d
 
 
-command W w !sudo tee % > /dev/null
+command sw w !sudo tee % > /dev/null
+
+let g:place_single_character_mode = 0
 
 imap jk <Esc>
 
