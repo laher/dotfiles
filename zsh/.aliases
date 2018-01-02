@@ -20,6 +20,7 @@ alias gd='git diff'
 alias gco='git checkout'
 alias gk='gitk --all&'
 alias gu='git gui --all'
+alias gupp='git pull && git push'
 
 alias got='git '
 alias get='git '
