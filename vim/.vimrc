@@ -199,6 +199,8 @@ au FileType go nmap <Leader>k :GoInfo<CR>
 
 augroup END
 
+let g:go_auto_type_info = 1
+let g:go_info_mode = 'gocode'
 
 
 " jump to next/prev vim-go error:

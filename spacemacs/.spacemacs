@@ -353,6 +353,9 @@ See here for go leader keys https://github.com/syl20bnr/spacemacs/blob/develop/l
 "
   (setq evil-cross-lines t)
   (define-key evil-ex-map "ff" 'find-file)
+  (define-key evil-ex-map "cl" (lambda () (interactive) (evil-use-register "+")))
+
+  (spacemacs/declare-prefix "o" "Am prefix")
 
   (spacemacs/set-leader-keys
     "oe" 'find-file
@@ -361,9 +364,11 @@ See here for go leader keys https://github.com/syl20bnr/spacemacs/blob/develop/l
     "om" 'multi-term
     "orf" 'recentf-open-files
     "ox" 'restart-emacs
+    "oc" (lambda () (interactive) (evil-use-register "+"))
     )
 
   (require 'helm-bookmark)
+  (require 'ox-md)
 
   (evil-ex-define-cmd  "Gbrowse" 'spacemacs/helm-open-github-from-file)
   (evil-ex-define-cmd  "Restart" 'restart-emacs)
