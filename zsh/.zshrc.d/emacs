@@ -3,8 +3,8 @@
 alias ec='emacsclient -a ""'
 alias enw='emacs -nw'
 alias er='systemctl --user restart emacs.service'
-alias edaemon='nohup emacs --daemon >/dev/null &'
+alias edaemon='emacs --daemon -n'
 
 function e {
-  nohup emacsclient --create-frame ${@} >/dev/null &
+  emacsclient --create-frame ${@} -n
 }
