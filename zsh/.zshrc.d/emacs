@@ -1,10 +1,7 @@
 #!/usr/bin/zsh
 
-alias ec='emacsclient -a ""'
-alias enw='emacs -nw'
-alias er='systemctl --user restart emacs.service'
-alias edaemon='emacs --daemon -n'
+alias er='systemctl restart --user emacs'
 
 function e {
-  emacsclient --create-frame ${@} -n
+  emacsclient --create-frame -n ${@}
 }
