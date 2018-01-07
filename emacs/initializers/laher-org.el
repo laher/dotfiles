@@ -6,15 +6,25 @@
 ;;
 ;;; Code:
 
+(use-package evil-org
+  :ensure t
+  :after org
+  :config
+  (add-hook 'org-mode-hook 'evil-org-mode)
+  (add-hook 'evil-org-mode-hook #'evil-org-set-key-theme))
+
+(use-package org-tree-slide
+  :ensure t)
+(use-package ox-reveal
+  :ensure t)
+
 (use-package org
   :ensure t
   :mode ("\\.org$" . org-mode)
   :config
   (progn
     ;; auto-wrap
-    (add-hook 'org-mode-hook 'bw-turn-on-auto-fill)
-
-    (require 'evil-org)
+    ;; (add-hook 'org-mode-hook 'bw-turn-on-auto-fill)
 
     ;; edit inline code blocks natively
     (setq
@@ -38,8 +48,5 @@
     ;; default directory
     (setq org-directory (expand-file-name "~/o"))))
 
-(use-package evil-org
-  :ensure t
-  :init (add-hook 'org-mode-hook 'evil-org-mode))
 
 (provide 'laher-org)

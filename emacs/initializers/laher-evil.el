@@ -97,16 +97,16 @@
 
 
 
-; ??
+; see laher-org.el
 ;; (add-to-list 'load-path "~/.emacs.d/elpa/evil-org-0.1.1")
-(use-package evil-org
-:init
-(add-hook 'org-mode-hook 'evil-org-mode)
-	     )
+;; (use-package evil-org
+;;:init
+;; (add-hook 'org-mode-hook 'evil-org-mode)
+;;	     )
 
 ;; (evil-org-set-key-theme '(navigation insert textobjects additional calendar))
 
-(use-package evil-org-agenda)
+;; (use-package evil-org-agenda)
 ;;(evil-org-agenda-set-keys)
 
 
