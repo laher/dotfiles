@@ -15,8 +15,8 @@
 
 (use-package org-tree-slide
   :ensure t)
-(use-package ox-reveal
-  :ensure t)
+;;(use-package ox-reveal
+;;  :ensure t)
 
 (use-package org
   :ensure t
@@ -47,6 +47,7 @@
 
     ;; default directory
     (setq org-directory (expand-file-name "~/o"))))
+
 
 
 (provide 'laher-org)
