@@ -1,4 +1,4 @@
-;;; laher-php.el --- php settings
+;;; php-am.el --- php settings
 ;;
 ;;; Commentary:
 ;;
@@ -30,4 +30,4 @@
   :ensure t
   :defer t)
 
-(provide 'laher-php)
+(provide 'php-am)

@@ -104,7 +104,7 @@
 
 
 
-; see laher-org.el
+; see org-am.el
 ;; (add-to-list 'load-path "~/.emacs.d/elpa/evil-org-0.1.1")
 ;; (use-package evil-org
 ;;:init
@@ -117,4 +117,4 @@
 ;;(evil-org-agenda-set-keys)
 
 
-(provide 'laher-evil)
+(provide 'evil-am)

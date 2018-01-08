@@ -1,4 +1,4 @@
-;;; laher-org.el --- org-mode settings
+;;; org-am.el --- org-mode settings
 ;;
 ;;; Commentary:
 ;;
@@ -50,4 +50,4 @@
 
 
 
-(provide 'laher-org)
+(provide 'org-am)

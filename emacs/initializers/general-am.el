@@ -8,5 +8,5 @@
 (use-package fzf
   :ensure t)
 
-(provide 'laher-gen)
-;;; laher-gen.el ends here
+(provide 'general-am)
+;;; general-am.el ends here

@@ -1,4 +1,4 @@
-;;; laher-go.el --- go-related settings
+;;; go-am.el --- go-related settings
 ;;
 ;;; Commentary:
 ;;
@@ -39,4 +39,4 @@
 ;; (add-hook 'go-mode-hook #'go-guru-hl-identifier-mode))
 
 
-(provide 'laher-go)
+(provide 'go-am)

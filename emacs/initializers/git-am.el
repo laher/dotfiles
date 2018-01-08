@@ -1,4 +1,4 @@
-;;; laher-git.el --- Git-related settings
+;;; git-am.el --- Git-related settings
 ;;
 ;;; Commentary:
 ;;
@@ -31,4 +31,4 @@
 
 
 
-(provide 'laher-git)
+(provide 'git-am)
