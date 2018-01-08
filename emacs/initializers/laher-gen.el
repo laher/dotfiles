@@ -7,3 +7,6 @@
   :ensure t)
 (use-package fzf
   :ensure t)
+
+(provide 'laher-gen)
+;;; laher-gen.el ends here

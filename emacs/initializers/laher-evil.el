@@ -67,7 +67,7 @@
 
   (evil-leader/set-key
     "s"       'sort-lines
-    "e" 'find-file
+    "e" 'counsel-fzf
 
     ;; Folding
     "zf"      'hs-hide-block
