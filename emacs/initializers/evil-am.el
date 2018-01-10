@@ -90,13 +90,6 @@
 
   (evil-ex-define-cmd  "Restart" 'restart-emacs)
   (evil-leader/set-key-for-mode 'emacs-lisp-mode "b" 'byte-compile-file)
-  (evil-leader/set-key-for-mode 'go-mode
-    "or" 'go-guru-referrers
-    "od" 'go-guru-definition
-    "op" 'go-guru-peers
-    "ok" 'go-guru-describe
-    "oR" 'go-rename
-    )
 
  (setq evil-cross-lines t)
 

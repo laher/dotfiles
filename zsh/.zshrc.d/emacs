@@ -3,5 +3,6 @@
 alias er='systemctl restart --user emacs'
 
 function e {
-  emacsclient --create-frame -n ${@}
+  #emacsclient --create-frame -n ${@}
+  emacsclient -c -F "'(fullscreen . maximized)" -e "(progn (raise-frame) (x-focus-frame (selected-frame)))" -n ${@}
 }

@@ -21,6 +21,15 @@
 (use-package go-mode
  :ensure t
  :config
+    (require 'evil-leader)
+    (evil-leader/set-key-for-mode 'go-mode
+        "or" 'go-guru-referrers
+        "od" 'go-guru-definition
+        "op" 'go-guru-peers
+        "ok" 'go-guru-describe
+        "oR" 'go-rename
+        "ot" 'go-test
+        )
     (progn
       (add-hook 'before-save-hook 'gofmt-before-save)
       )
@@ -37,6 +46,10 @@
 (use-package go-guru
   :ensure t)
 ;; (add-hook 'go-mode-hook #'go-guru-hl-identifier-mode))
+
+
+
+
 
 
 (provide 'go-am)
