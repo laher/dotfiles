@@ -4,7 +4,7 @@
   :config
   (require 'paradox)
   (paradox-enable)
-  (setq paradox-github-token "26f97972bcdd39208d8081df195773e8384d88ef"))
+  (setq paradox-github-token ""))
 
 
 (use-package auto-package-update
