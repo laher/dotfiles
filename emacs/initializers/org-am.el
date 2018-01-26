@@ -11,7 +11,8 @@
   :after org
   :config
   (add-hook 'org-mode-hook 'evil-org-mode)
-  (add-hook 'evil-org-mode-hook #'evil-org-set-key-theme))
+  ;;(add-hook 'evil-org-mode-hook #'evil-org-set-key-theme)
+  )
 
 (use-package org-tree-slide
   :ensure t)
