@@ -46,8 +46,14 @@
   (setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
   (setq org-refile-use-outline-path t)                  ; Show full paths for refiling
 
+
+  (defun org-mode-export-hook ()
+    (add-hook 'after-save-hook 'org-html-export-to-html t t))
+
+  (add-hook 'org-mode-hook #'org-mode-export-hook)
+
     ;; default directory
-    (setq org-directory (expand-file-name "~/o"))))
+  (setq org-directory (expand-file-name "~/o"))))
 
 
 
