@@ -58,19 +58,21 @@
         ([f8]         . treemacs-toggle)
         ("M-0"        . treemacs-select-window)
         ("C-c 1"      . treemacs-delete-other-windows)
-        ("M-m ft"     . treemacs-toggle)
-        ("M-m fT"     . treemacs)
-        ("M-m fB"     . treemacs-bookmark)
-        ("M-m f C-t"  . treemacs-find-file)
-        ("M-m f M-t"  . treemacs-find-tag)))
+;;        ("M-m ft"     . treemacs-toggle)
+;;        ("M-m fT"     . treemacs)
+;;        ("M-m fB"     . treemacs-bookmark)
+;;        ("M-m f C-t"  . treemacs-find-file)
+        ;;       ("M-m f M-t"  . treemacs-find-tag)
+        ))
 (use-package treemacs-projectile
   :defer t
   :ensure t
   :config
   (setq treemacs-header-function #'treemacs-projectile-create-header)
-  :bind (:map global-map
-              ("M-m fP" . treemacs-projectile)
-              ("M-m fp" . treemacs-projectile-toggle)))
+  ;;  :bind (:map global-map
+  ;;            ("M-m fP" . treemacs-projectile)
+  ;;            ("M-m fp" . treemacs-projectile-toggle))
+  )
 
 (provide 'general-am)
 ;;; general-am.el ends here
