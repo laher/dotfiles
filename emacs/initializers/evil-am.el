@@ -90,6 +90,7 @@
 
   (evil-ex-define-cmd  "Restart" 'restart-emacs)
   (evil-leader/set-key-for-mode 'emacs-lisp-mode "b" 'byte-compile-file)
+  (key-chord-define-global "yy" 'evil-yank-line)
 
  (setq evil-cross-lines t)
 
