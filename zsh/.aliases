@@ -38,3 +38,5 @@ alias h='hostname'
 
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
+
+alias pgen='pass generate --clip'
