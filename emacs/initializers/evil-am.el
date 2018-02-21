@@ -68,6 +68,7 @@
   (evil-leader/set-key
     "s"       'sort-lines
     "e" 'counsel-fzf
+    "f" 'counsel-projectile-ag
 
     ;; Folding
     "zf"      'hs-hide-block
