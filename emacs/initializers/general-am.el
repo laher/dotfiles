@@ -10,8 +10,9 @@
 (use-package golden-ratio
   :ensure t
   :config
-  (golden-ratio-mode 1)
-  (setq golden-ratio-auto-scale t))
+  (golden-ratio-mode 0)
+  (setq golden-ratio-auto-scale nil)
+  )
 
 (use-package treemacs
   :ensure t

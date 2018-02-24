@@ -23,12 +23,14 @@
  :config
     (require 'evil-leader)
     (evil-leader/set-key-for-mode 'go-mode
+        "oo" 'ff-find-other-file
         "or" 'go-guru-referrers
         "od" 'go-guru-definition
         "op" 'go-guru-peers
         "ok" 'go-guru-describe
         "oR" 'go-rename
-        "ot" 'go-test
+        "oT" 'go-run-test-current-function
+        "ot" 'am/go-run-package-tests
         )
     (defun am/go-run-tests (args)
         (interactive)
@@ -70,10 +72,10 @@
 
     (evil-ex-define-cmd  "GoTest" 'am/go-run-package-tests)
     (evil-ex-define-cmd  "GoTestFunc" 'am/go-run-test-current-function)
-    (evil-ex-define-cmd  "GoDef" 'go-guru-definition)
-    (evil-ex-define-cmd  "GoInfo" 'go-guru-describe)
-    (evil-ex-define-cmd  "GoReferrers" 'go-guru-referrers)
-    (evil-ex-define-cmd  "GoChannelPeers" 'go-guru-peers)
+  (evil-ex-define-cmd  "GoDef" 'go-guru-definition)
+  (evil-ex-define-cmd  "GoInfo" 'go-guru-describe)
+  (evil-ex-define-cmd  "GoReferrers" 'go-guru-referrers)
+  (evil-ex-define-cmd  "GoChannelPeers" 'go-guru-peers)
 
     (setq gofmt-command "goimports")
     (progn
@@ -90,7 +92,12 @@
       ))
 
 (use-package go-guru
-  :ensure t)
+  :ensure t
+  :defer t
+  :config
+  (go-guru-hl-identifier-mode)                    ; highlight identifiers
+  )
+
 ;; (add-hook 'go-mode-hook #'go-guru-hl-identifier-mode))
 
 
