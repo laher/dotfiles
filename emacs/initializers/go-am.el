@@ -70,12 +70,52 @@
           (format "go run %s"
                   (shell-quote-argument (buffer-file-name)))))
 
+    (defun am/go-get (args)
+        (interactive)
+        (async-shell-command (concat "go get -v " args)))
+
+    (defun am/go-get-update (args)
+        (interactive)
+        (save-selected-window
+          (async-shell-command (concat "go get -u -v " args))))
+
+;; this is more than what we need at this point ...
+;; we probably just need guru, gocode
+    (setq gobinaries [ "github.com/zmb3/gogetdoc"
+                        "golang.org/x/tools/cmd/guru"
+                        "github.com/klauspost/asmfmt/cmd/asmfmt"
+                        "github.com/kisielk/errcheck"
+                        "github.com/davidrjenni/reftools/cmd/fillstruct"
+                        "github.com/nsf/gocode"
+                        "github.com/rogpeppe/godef"
+                        "github.com/zmb3/gogetdoc"
+                        "golang.org/x/tools/cmd/goimports"
+                        "github.com/golang/lint/golint"
+                        "github.com/alecthomas/gometalinter"
+                        "github.com/fatih/gomodifytags"
+                        "golang.org/x/tools/cmd/gorename"
+                        "github.com/jstemmer/gotags"
+                        "golang.org/x/tools/cmd/guru"
+                        "github.com/josharian/impl"
+                        "github.com/dominikh/go-tools/cmd/keyify"
+                        "github.com/fatih/motion" ])
+
+    (defun am/go-install-binaries ()
+        (interactive)
+        (async-shell-command (concat "go get -v " (string-join gobinaries " "))))
+
+    (defun am/go-update-binaries ()
+        (interactive)
+        (async-shell-command (concat "go get -u -v " (string-join gobinaries " "))))
+
     (evil-ex-define-cmd  "GoTest" 'am/go-run-package-tests)
     (evil-ex-define-cmd  "GoTestFunc" 'am/go-run-test-current-function)
-  (evil-ex-define-cmd  "GoDef" 'go-guru-definition)
-  (evil-ex-define-cmd  "GoInfo" 'go-guru-describe)
-  (evil-ex-define-cmd  "GoReferrers" 'go-guru-referrers)
-  (evil-ex-define-cmd  "GoChannelPeers" 'go-guru-peers)
+
+    (evil-ex-define-cmd  "GoDef" 'go-guru-definition)
+    (evil-ex-define-cmd  "GoInfo" 'go-guru-describe)
+    (evil-ex-define-cmd  "GoReferrers" 'go-guru-referrers)
+    (evil-ex-define-cmd  "GoChannelPeers" 'go-guru-peers)
+    (evil-ex-define-cmd  "GoInstallBinaries" 'am/go-install-binaries)
 
     (setq gofmt-command "goimports")
     (progn
@@ -96,6 +136,11 @@
   :defer t
   :config
   (go-guru-hl-identifier-mode)                    ; highlight identifiers
+  )
+
+(use-package go-fill-struct
+  :ensure t
+  :defer t
   )
 
 ;; (add-hook 'go-mode-hook #'go-guru-hl-identifier-mode))
