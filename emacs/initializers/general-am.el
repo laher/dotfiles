@@ -75,5 +75,11 @@
   ;;            ("M-m fp" . treemacs-projectile-toggle))
   )
 
+(use-package restclient
+  :defer t
+  :ensure t
+  :config
+  )
+
 (provide 'general-am)
 ;;; general-am.el ends here
