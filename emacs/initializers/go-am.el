@@ -43,6 +43,7 @@
     (defun am/go-run-package-tests-nested ()
         (interactive)
         (am/go-run-tests "./..."))
+
     (defun am/go-run-test-current-function ()
         (interactive)
         (if (string-match "_test\\.go" buffer-file-name)
@@ -100,6 +101,7 @@
                         "github.com/dominikh/go-tools/cmd/keyify"
                         "github.com/fatih/motion" ])
 
+    ;; TODO: check go/git exist
     (defun am/go-install-binaries ()
         (interactive)
         (async-shell-command (concat "go get -v " (string-join gobinaries " "))))
@@ -108,14 +110,113 @@
         (interactive)
         (async-shell-command (concat "go get -u -v " (string-join gobinaries " "))))
 
-    (evil-ex-define-cmd  "GoTest" 'am/go-run-package-tests)
-    (evil-ex-define-cmd  "GoTestFunc" 'am/go-run-test-current-function)
 
-    (evil-ex-define-cmd  "GoDef" 'go-guru-definition)
-    (evil-ex-define-cmd  "GoInfo" 'go-guru-describe)
-    (evil-ex-define-cmd  "GoReferrers" 'go-guru-referrers)
-    (evil-ex-define-cmd  "GoChannelPeers" 'go-guru-peers)
+    ;; TODO (for feature-parity with vim-go)
+    ;;
+    ;; * binaries
+    ;; GoInstallBinaries
     (evil-ex-define-cmd  "GoInstallBinaries" 'am/go-install-binaries)
+    ;; GoUpdateBinaries
+    (evil-ex-define-cmd  "GoUpdateBinaries" 'am/go-update-binaries)
+    ;;
+    ;; * gorename
+    ;; GoRename
+    ;;
+    ;; * guru
+    ;; GoImplements
+    ;; GoWhicherrs
+    ;; GoCallees
+    ;; GoDescribe
+    ;; GoCallers
+    ;; GoCallstack
+    ;; GoFreevars
+    ;; GoChannelPeers
+    (evil-ex-define-cmd  "GoChannelPeers" 'go-guru-peers)
+    ;; GoReferrers
+    (evil-ex-define-cmd  "GoReferrers" 'go-guru-referrers)
+    ;; GoSameIds
+    ;; GoSameIdsClear
+    ;; GoSameIdsToggle
+    ;; GoSameIdsAutoToggle
+    ;;
+    ;; * tags
+    ;; GoAddTags
+    ;; GoRemoveTags
+    ;;
+    ;; * tool
+    ;; GoFiles
+    ;; GoDeps
+    ;; GoInfo
+    (evil-ex-define-cmd  "GoInfo" 'go-guru-describe)
+    ;; GoAutoTypeInfoToggle
+    ;; GoBuild
+    ;; GoBuildTags
+    ;; GoGenerate
+    ;; GoRun
+    ;; GoInstall
+    ;;
+    ;; * test
+    ;; GoTest
+    (evil-ex-define-cmd  "GoTest" 'am/go-run-package-tests)
+    ;; GoTestFunc
+    (evil-ex-define-cmd  "GoTestFunc" 'am/go-run-test-current-function)
+    ;; GoTestCompile
+    ;;
+    ;; * cover
+    ;; GoCoverage
+    ;; GoCoverageClear
+    ;; GoCoverageToggle
+    ;; GoCoverageBrowser
+    ;;
+    ;; * play
+    ;; GoPlay
+    ;;
+    ;; * def
+    ;; GoDef
+    (evil-ex-define-cmd  "GoDef" 'go-guru-definition)
+    ;; GoDefPop
+    ;; GoDefStack
+    ;; GoDefStackClear
+    ;;
+    ;; * doc
+    ;; GoDoc
+    ;; GoDocBrowser
+    ;;
+    ;; * fmt
+    ;; GoFmt
+    ;; GoFmtAutoSaveToggle
+    ;; GoImports
+    ;;
+    ;; * import
+    ;; GoDrop
+    ;; GoImport
+    ;; GoImportAs
+    ;;
+    ;; * linters
+    ;; GoMetaLinter
+    ;; GoMetaLinterAutoSaveToggle
+    ;; GoLint
+    ;; GoVet
+    ;; GoErrCheck
+    ;;
+    ;; * alternate
+    ;; GoAlternate
+    ;;
+    ;; * decls
+    ;; GoDecls
+    ;; GoDeclsDir
+    ;;
+    ;; * impl
+    ;; GoImpl
+    ;;
+    ;; * template
+    ;; GoTemplateAutoCreateToggle
+    ;;
+    ;; * keyify
+    ;; GoKeyify
+    ;;
+    ;; * fillstruct
+    ;; GoFillStruct
 
     (setq gofmt-command "goimports")
     (progn
