@@ -138,6 +138,7 @@
     ;;
     ;; * gorename
     ;; GoRename
+    (evil-ex-define-cmd  "GoRename" 'go-rename)
     ;;
     ;; * guru
     ;; GoImplements

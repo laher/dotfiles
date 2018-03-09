@@ -8,6 +8,7 @@
 
 (use-package evil-org
   :ensure t
+  :defer t
   :after org
   :config
   (add-hook 'org-mode-hook 'evil-org-mode)
@@ -15,12 +16,16 @@
   )
 
 (use-package org-tree-slide
-  :ensure t)
-;;(use-package ox-reveal
-;;  :ensure t)
+  :ensure t
+  :defer t)
+
+(use-package ob-restclient
+  :ensure t
+  :defer t)
 
 (use-package org
   :ensure t
+  :defer t
   :mode ("\\.org$" . org-mode)
   :config
   (progn
@@ -39,6 +44,7 @@
      ;; load emacs-lisp natively
      '((emacs-lisp . t)
        (go . t)
+       (restclient . t)
        (ruby . t)))
 
     (setq org-agenda-files (list "~/o/" "~/o/w/"))
