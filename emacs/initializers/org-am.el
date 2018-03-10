@@ -58,6 +58,7 @@
 
   (add-hook 'org-mode-hook #'org-mode-export-hook)
 
+  (setq  org-return-follows-link t)
     ;; default directory
   (setq org-directory (expand-file-name "~/o"))))
 
