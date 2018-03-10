@@ -45,6 +45,7 @@
      '((emacs-lisp . t)
        (go . t)
        (restclient . t)
+       (dot . t)
        (ruby . t)))
 
     (setq org-agenda-files (list "~/o/" "~/o/w/"))
@@ -57,6 +58,10 @@
     (add-hook 'after-save-hook 'org-html-export-to-html t t))
 
   (add-hook 'org-mode-hook #'org-mode-export-hook)
+
+  (defun my-org-confirm-babel-evaluate (lang body)
+    (not (string= lang "dot")))  ; don't ask for dot diagrams
+  (setq org-confirm-babel-evaluate 'my-org-confirm-babel-evaluate)
 
   (setq  org-return-follows-link t)
     ;; default directory
