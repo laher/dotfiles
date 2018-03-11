@@ -32,6 +32,12 @@
   :config
   (global-evil-surround-mode 1))
 
+(use-package evil-indent-plus
+  :ensure t
+  :defer t
+  :config
+  )
+
 ;; https://github.com/emacsmirror/evil
 (use-package evil
   :ensure t
@@ -44,10 +50,13 @@
   (require 'evil-surround)
   (require 'evil-vimish-fold)
   (require 'evil-org)
+  (require 'evil-indent-plus)
 
   (setq evil-default-cursor t)
 
   (evil-leader/set-leader ",")
+
+  (evil-indent-plus-default-bindings)
 
   ;; Ensure ESC quits in all modes: http://stackoverflow.com/a/10166400/61435
   (define-key evil-normal-state-map [escape] 'keyboard-quit)

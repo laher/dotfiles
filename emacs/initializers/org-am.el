@@ -58,6 +58,7 @@
     (add-hook 'after-save-hook 'org-html-export-to-html t t))
 
   (add-hook 'org-mode-hook #'org-mode-export-hook)
+  (add-hook 'org-mode-hook 'evil-org-mode)
 
   (defun my-org-confirm-babel-evaluate (lang body)
     (not (string= lang "dot")))  ; don't ask for dot diagrams
