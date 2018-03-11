@@ -31,12 +31,14 @@
 
 (use-package rjsx-mode
   :ensure t
+  :defer t
   :config
   (add-hook 'rjsx-mode-hook 'my-style)
   )
 
 (use-package flow-minor-mode
   :ensure t
+  :defer t
   :config
   (add-hook 'js2-mode-hook 'flow-minor-enable-automatically)
   )
@@ -44,6 +46,7 @@
   ;; :load-path "~/code/js/prettier/editors/emacs"
 (use-package prettier-js
   :ensure t
+  :defer t
   :commands (prettier-mode prettier)
   :init
   (add-hook 'js2-mode-hook 'prettier-js-mode)

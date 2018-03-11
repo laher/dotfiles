@@ -13,7 +13,7 @@
   :config
   (global-evil-leader-mode))
 
-;; https://github.com/linktohack/evil-commentary
+;; https://github.com/linktohack/evil-commentary (gc<motion>)
 (use-package evil-commentary
   :ensure t
   :defer t
@@ -23,7 +23,9 @@
 ;; https://github.com/roman/evil-paredit
 (use-package evil-paredit
   :ensure t
-  :defer t)
+  :defer t
+  :config
+  (add-hook 'emacs-lisp-mode-hook 'evil-paredit-mode))
 
 ;; https://github.com/timcharper/evil-surround
 (use-package evil-surround
