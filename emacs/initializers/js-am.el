@@ -44,15 +44,15 @@
   )
 
   ;; :load-path "~/code/js/prettier/editors/emacs"
-(use-package prettier-js
-  :ensure t
-  :defer t
-  :commands (prettier-mode prettier)
-  :init
-  (add-hook 'js2-mode-hook 'prettier-js-mode)
-  (add-hook 'web-mode-hook 'prettier-js-mode)
-  :bind (:map js2-mode-map ("M-q" . prettier))
-  :config (setq prettier-target-mode "js2-mode"))
+;;(use-package prettier-js
+;;  :ensure t
+;;  :defer t
+;;  :commands (prettier-mode prettier)
+;;  :init
+;;  (add-hook 'js2-mode-hook 'prettier-js-mode)
+;;  (add-hook 'web-mode-hook 'prettier-js-mode)
+;;  :bind (:map js2-mode-map ("M-q" . prettier))
+;;  :config (setq prettier-target-mode "js2-mode"))
 
 
 (provide 'js-am)
