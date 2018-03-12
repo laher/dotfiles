@@ -18,6 +18,7 @@
 (use-package org-tree-slide
   :ensure t
   :defer t)
+  :ensure t)
 
 (use-package ob-restclient
   :ensure t
@@ -49,13 +50,18 @@
        (ruby . t)))
 
     (setq org-agenda-files (list "~/o/" "~/o/w/"))
- (setq org-refile-targets '((org-agenda-files :maxlevel . 9)))
-  (setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
-  (setq org-refile-use-outline-path t)                  ; Show full paths for refiling
+    (setq org-refile-targets '((org-agenda-files :maxlevel . 9)))
+    (setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
+    (setq org-refile-use-outline-path t)                  ; Show full paths for refiling
 
 
-  (defun org-mode-export-hook ()
-    (add-hook 'after-save-hook 'org-html-export-to-html t t))
+    (defun my-org-confirm-babel-evaluate (lang body)
+      (not (string= lang "restclient")))  ; don't ask for restclient
+    (setq org-confirm-babel-evaluate 'my-org-confirm-babel-evaluate)
+
+
+    (defun org-mode-export-hook ()
+      (add-hook 'after-save-hook 'org-html-export-to-html t t))
 
   (add-hook 'org-mode-hook #'org-mode-export-hook)
   (add-hook 'org-mode-hook 'evil-org-mode)
@@ -66,7 +72,7 @@
 
   (setq  org-return-follows-link t)
     ;; default directory
-  (setq org-directory (expand-file-name "~/o"))))
+    (setq org-directory (expand-file-name "~/o"))))
 
 
 
