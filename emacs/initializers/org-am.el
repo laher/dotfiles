@@ -18,6 +18,7 @@
 (use-package org-tree-slide
   :ensure t
   :defer t)
+  :ensure t)
 
 (use-package ob-restclient
   :ensure t
@@ -49,9 +50,29 @@
        (ruby . t)))
 
     (setq org-agenda-files (list "~/o/" "~/o/w/"))
- (setq org-refile-targets '((org-agenda-files :maxlevel . 9)))
-  (setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
-  (setq org-refile-use-outline-path t)                  ; Show full paths for refiling
+    (setq org-refile-targets '((org-agenda-files :maxlevel . 9)))
+    (setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
+    (setq org-refile-use-outline-path t)                  ; Show full paths for refiling
+
+
+    (defun my-org-confirm-babel-evaluate (lang body)
+      (not (string= lang "restclient")))  ; don't ask for restclient
+    (setq org-confirm-babel-evaluate 'my-org-confirm-babel-evaluate)
+
+
+    (defun org-mode-export-hook ()
+      (add-hook 'after-save-hook 'org-html-export-to-html t t))
+
+  (setq org-default-notes-file (concat org-directory ""))
+  (global-set-key (kbd "C-c c") 'org-capture)
+
+
+  (setq org-capture-templates
+   '(("t" "Todo" entry (file+headline "~/o/winbox.org" "Tasks")
+        "* TODO %?\n  %i\n  %a")
+     ("j" "Journal" entry (file+olp+datetree "~/o/journal.org")
+        "* %?\nEntered on %U\n  %i\n  %a")))
+
 
 
 
@@ -79,11 +100,7 @@
 
   (setq  org-return-follows-link t)
     ;; default directory
-  (setq org-directory (expand-file-name "~/o")))
-
-
-  )
-
+  (setq org-directory (expand-file-name "~/o"))))
 
 
 (provide 'org-am)
