@@ -55,6 +55,7 @@
     (setq org-refile-use-outline-path t)                  ; Show full paths for refiling
 
 
+<<<<<<< HEAD
     (defun my-org-confirm-babel-evaluate (lang body)
       (not (string= lang "restclient")))  ; don't ask for restclient
     (setq org-confirm-babel-evaluate 'my-org-confirm-babel-evaluate)
@@ -62,6 +63,23 @@
 
     (defun org-mode-export-hook ()
       (add-hook 'after-save-hook 'org-html-export-to-html t t))
+=======
+
+  (setq org-default-notes-file (concat org-directory ""))
+  (global-set-key (kbd "C-c c") 'org-capture)
+
+
+  (setq org-capture-templates
+   '(("t" "Todo" entry (file+headline "~/o/winbox.org" "Tasks")
+        "* TODO %?\n  %i\n  %a")
+     ("j" "Journal" entry (file+olp+datetree "~/o/journal.org")
+        "* %?\nEntered on %U\n  %i\n  %a")))
+
+
+
+  (defun org-mode-export-hook ()
+    (add-hook 'after-save-hook 'org-html-export-to-html t t))
+>>>>>>> udpate
 
   (add-hook 'org-mode-hook #'org-mode-export-hook)
   (add-hook 'org-mode-hook 'evil-org-mode)
@@ -72,7 +90,14 @@
 
   (setq  org-return-follows-link t)
     ;; default directory
+<<<<<<< HEAD
     (setq org-directory (expand-file-name "~/o"))))
+=======
+  (setq org-directory (expand-file-name "~/o")))
+
+
+  )
+>>>>>>> udpate
 
 
 
