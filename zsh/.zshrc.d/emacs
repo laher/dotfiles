@@ -6,3 +6,18 @@ function e {
   #emacsclient --create-frame -n ${@}
   emacsclient -c -F "'(fullscreen . maximized)" -n ${@}
 }
+
+function eo {
+    #emacsclient --create-frame -n ${@}
+  args=()
+  init=0
+  for a in ${@}; do
+      if [ init == 1 ]; then
+          args+=("-f")
+          args+=("split-window-horizontally")
+      fi
+      args+=($a)
+      init=1
+  done
+  emacs ${args}
+}
