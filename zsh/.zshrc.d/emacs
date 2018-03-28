@@ -1,11 +1,18 @@
 #!/usr/bin/zsh
 
 alias er='systemctl restart --user emacs'
+alias estop='systemctl stop --user emacs'
+alias estart='systemctl start --user emacs'
 
 function e {
   #emacsclient --create-frame -n ${@}
   emacsclient -c -F "'(fullscreen . maximized)" -n ${@}
 }
+
+function et {
+  emacsclient -t ${@}
+}
+
 
 function eo {
     #emacsclient --create-frame -n ${@}

@@ -81,5 +81,12 @@
   :config
   )
 
+; (use-package xclip
+;   :defer t
+;   :ensure t
+;   :config
+;   (xclip-mode 1)
+;   )
+
 (provide 'general-am)
 ;;; general-am.el ends here
