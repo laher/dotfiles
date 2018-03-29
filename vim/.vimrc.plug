@@ -79,6 +79,7 @@ Plug 'freeo/vim-kalisi'
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 
+Plug 'diepm/vim-rest-console'
 
 """ Completion
 if !has('nvim')
