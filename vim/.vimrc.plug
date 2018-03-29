@@ -48,6 +48,11 @@ Plug 'gabrielelana/vim-markdown'
 """ OMG Scala
 Plug 'derekwyatt/vim-scala'
 
+""" org-mode-ish
+"" Plug 'jceb/vim-orgmode'
+Plug 'dhruvasagar/vim-dotoo'
+Plug 'mattn/calendar-vim'
+
 """ tmux
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'benmills/vimux'
