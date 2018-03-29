@@ -20,6 +20,7 @@ Plug 'gioele/vim-autoswap'
 " plugin from http://vim-scripts.org/vim/scripts.html
 "Plug 'L9'
 Plug 'osyo-manga/vim-over'
+Plug 'pelodelfuego/vim-swoop'
 
 """ Pass the path to set the runtimepath properly.
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}

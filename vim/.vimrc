@@ -152,6 +152,9 @@ autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 
 
 set backspace=indent,eol,start
 
+au BufRead,BufNewFile *.org		set filetype=dotoo
+let g:dotoo#capture#refile="~/o/winbox.org"
+
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
 
@@ -166,7 +169,10 @@ nnoremap <Leader>o :CtrlP<CR>
 nnoremap <leader>ob :CtrlPBuffer
 nnoremap <Leader><Space> :CtrlSpace<CR>
 
-
+nmap <Leader>l :call Swoop()<CR>
+vmap <Leader>l :call SwoopSelection()<CR>
+nmap <Leader>ml :call SwoopMulti()<CR>
+vmap <Leader>ml :call SwoopMultiSelection()<CR>
 
 " vim-go
 augroup vg
