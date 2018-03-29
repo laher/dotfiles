@@ -11,21 +11,23 @@ Plug 'Shougo/denite.nvim'
 Plug 'junkblocker/patchreview-vim'
 Plug 'codegram/vim-codereview'
 
-" show buffers
+""" show buffers
 Plug 'junegunn/vim-peekaboo'
 
-" deal with swap files
+""" deal with swap files
 Plug 'gioele/vim-autoswap'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 "Plug 'L9'
 Plug 'osyo-manga/vim-over'
-Plug 'pelodelfuego/vim-swoop'
+
+""" replace across files typa thing
+"Plug 'pelodelfuego/vim-swoop'
 
 """ Pass the path to set the runtimepath properly.
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 
-" insertions with ga (non-cursor)
+""" insertions with ga (non-cursor)
 Plug 'joereynolds/place.vim'
 
 """ Go
@@ -89,6 +91,11 @@ if has('nvim')
 	Plug 'carlitux/deoplete-ternjs'
 	Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
 endif
+
+""" snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 
 " All of your Plugs must be added before the following line
 call plug#end()

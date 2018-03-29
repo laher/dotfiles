@@ -222,6 +222,13 @@ command Sw w !sudo tee % > /dev/null
 let g:place_single_character_mode = 0
 nmap ga <Plug>(place-insert)
 
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetsDir='~/.vimsnippets'
+let g:UltiSnipsSnippetDirectories=['~/.vimsnippets']
 imap jk <Esc>
 
 " Local overrides ...
