@@ -71,7 +71,9 @@ Plug 'tpope/vim-abolish'           " Flexible search
 Plug 'tpope/vim-jdaddy'            " JSON text object
 Plug 'tpope/vim-obsession'         " Continuously save buffer state
 
-Plug 'ctrlpvim/ctrlp.vim' " Find files faster
+Plug 'ctrlpvim/ctrlp.vim' " Find files faster by name
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim' " Find within files
 
 """ Appearance and layout
 Plug 'ap/vim-buftabline'
