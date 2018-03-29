@@ -21,8 +21,6 @@ Plug 'gioele/vim-autoswap'
 "Plug 'L9'
 Plug 'osyo-manga/vim-over'
 
-""" replace across files typa thing
-"Plug 'pelodelfuego/vim-swoop'
 
 """ Pass the path to set the runtimepath properly.
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -83,6 +81,8 @@ Plug 'vim-ctrlspace/vim-ctrlspace'
 
 Plug 'diepm/vim-rest-console'
 
+""" replace across files typa thing
+Plug 'pelodelfuego/vim-swoop'
 """ Completion
 if !has('nvim')
 	"Plug 'Shougo/neocomplete.vim'
