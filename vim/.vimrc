@@ -39,6 +39,9 @@ endif
 
 let g:deoplete#enable_at_startup = 1
 
+"" autocmd BufWritePost *.org execute '!emacs ' + expand(<afile>) + '--batch -f org-html-export-to-html -kill'
+autocmd BufWritePost *.org silent! !emacs <afile> --batch -f org-html-export-to-html -kill
+
 if has('nvim')
 	autocmd BufEnter * if &buftype == "terminal" | startinsert | endif
 	tnoremap <Esc> <C-\><C-n>
