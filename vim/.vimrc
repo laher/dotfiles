@@ -40,7 +40,7 @@ endif
 let g:deoplete#enable_at_startup = 1
 
 "" autocmd BufWritePost *.org execute '!emacs ' + expand(<afile>) + '--batch -f org-html-export-to-html -kill'
-autocmd BufWritePost *.org silent! !emacs <afile> --batch -f org-html-export-to-html -kill
+autocmd BufWritePost *.org silent! !emacs <afile> --batch -f org-html-export-to-html -kill 2> /dev/null
 
 if has('nvim')
 	autocmd BufEnter * if &buftype == "terminal" | startinsert | endif
@@ -230,7 +230,7 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<C-tab>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetsDir='~/.vimsnippets'
+"let g:UltiSnipsSnippetsDir='mysnippets'
 "let g:UltiSnipsSnippetDirectories=['~/.vimsnippets']
 
 imap jk <Esc>
