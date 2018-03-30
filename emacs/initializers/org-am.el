@@ -86,7 +86,18 @@
      ("j" "Journal" entry (file+olp+datetree "~/o/journal.org")
         "* %?\nEntered on %U\n  %i\n  %a")))
 
-
+;  (setq org-publish-project-alist
+;  '(("html"
+;     :base-directory "~/o/"
+;     :base-extension "org"
+;     :publishing-directory "~/o/exports"
+;     :publishing-function org-publish-org-to-html)
+;    ("pdf"
+;     :base-directory "~/o/"
+;     :base-extension "org"
+;     :publishing-directory "~/o/exports"
+;     :publishing-function org-publish-org-to-pdf)
+;    ("all" :components ("html" "pdf"))))
 
   (defun org-mode-export-hook ()
     (add-hook 'after-save-hook 'org-html-export-to-html t t))

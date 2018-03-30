@@ -28,3 +28,7 @@ function eo {
   done
   emacs ${args}
 }
+
+function org-export-html {
+  emacs ${@} --batch -f org-html-export-to-html -kill
+}
