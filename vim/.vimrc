@@ -6,7 +6,6 @@ if filereadable(expand("~/.vimrc.plug"))
   source ~/.vimrc.plug
 endif
 
-
 set hidden " required by CtrlSpace
 "set directory=/dev/shm " in-memory swap files (more risky but nothing sticks around)
 
@@ -95,8 +94,6 @@ nnoremap <silent> <leader>tt :TagbarToggle<CR>
 "set clipboard^=unnamed
 set clipboard+=unnamedplus
 
-
-
 let g:used_javascript_libs = 'angularjs,angularui'
 
 " expert mode
@@ -171,6 +168,9 @@ let mapleader=","
 nnoremap <Leader>o :CtrlP<CR>
 nnoremap <leader>ob :CtrlPBuffer
 nnoremap <Leader><Space> :CtrlSpace<CR>
+nnoremap <Leader>. :TagbarToggle<CR>
+nnoremap <Leader>d "_d
+nnoremap <Leader>e :Ag <c-r><c-w><CR>
 
 nmap <Leader>l :call Swoop()<CR>
 vmap <Leader>l :call SwoopSelection()<CR>
@@ -181,30 +181,30 @@ vmap <Leader>ml :call SwoopMultiSelection()<CR>
 augroup vg
 "au FileType go nmap <Leader>b :GoBuild<CR>
 " au FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-au FileType go nmap <Leader>cr :GoCallers<CR>
-au FileType go nmap <Leader>ce :GoCallees<CR>
-au FileType go nmap <Leader>? :GoCoverageToggle<CR>
-au FileType go nmap <Leader>D :GoDefPop<CR>
-au FileType go nmap <Leader>v :GoImplements<CR>
-au FileType go nmap <Leader>I :GoImports<CR>
-au FileType go nmap <Leader>i :GoInstall<CR>
-au FileType go nmap <Leader>p :GoPlay<CR>
-au FileType go nmap <Leader>' :GoDocBrowser<CR>
-au FileType go nmap <Leader>b :GoToggleBreakpoint<CR>
-au FileType go nmap <Leader>db :GoDebug<CR>
-au FileType go nmap <Leader>e :Refactor extract
-au FileType go nmap <leader>rt <Plug>(go-run-tab)
-au FileType go nmap <Leader>rs <Plug>(go-run-split)
-au FileType go nmap <Leader>rv <Plug>(go-run-vertical)
+au FileType go nmap <Leader>,cr :GoCallers<CR>
+au FileType go nmap <Leader>,ce :GoCallees<CR>
+au FileType go nmap <Leader>,? :GoCoverageToggle<CR>
+au FileType go nmap <Leader>,D :GoDefPop<CR>
+au FileType go nmap <Leader>,v :GoImplements<CR>
+au FileType go nmap <Leader>,I :GoImports<CR>
+au FileType go nmap <Leader>,i :GoInstall<CR>
+au FileType go nmap <Leader>,p :GoPlay<CR>
+au FileType go nmap <Leader>,' :GoDocBrowser<CR>
+au FileType go nmap <Leader>,b :GoToggleBreakpoint<CR>
+au FileType go nmap <Leader>,db :GoDebug<CR>
+au FileType go nmap <Leader>,re :Refactor extract
+au FileType go nmap <leader>,rt <Plug>(go-run-tab)
+au FileType go nmap <Leader>,rs <Plug>(go-run-split)
+au FileType go nmap <Leader>,rv <Plug>(go-run-vertical)
 
 " synced with emacs
 au FileType go nmap <Leader>,, :GoAlternate<CR>
-au FileType go nmap <Leader>T :GoTestFunc
-au FileType go nmap <Leader>t :GoTest
-au FileType go nmap <Leader>r :GoReferrers<CR>
-au FileType go nmap <Leader>cp :GoChannelPeers<CR>
-au FileType go nmap <Leader>d :GoDef<CR>
-au FileType go nmap <Leader>k :GoInfo<CR>
+au FileType go nmap <Leader>,T :GoTestFunc
+au FileType go nmap <Leader>,t :GoTest
+au FileType go nmap <Leader>,r :GoReferrers<CR>
+au FileType go nmap <Leader>,cp :GoChannelPeers<CR>
+au FileType go nmap <Leader>,d :GoDef<CR>
+au FileType go nmap <Leader>,k :GoInfo<CR>
 
 augroup END
 
@@ -216,8 +216,6 @@ let g:go_info_mode = 'gocode'
 " nnoremap <C-j> :cn<CR>
 " nnoremap <C-k> :cp<CR>
 
-nnoremap <Leader>. :TagbarToggle<CR>
-nnoremap <Leader>d "_d
 
 
 command Sw w !sudo tee % > /dev/null
