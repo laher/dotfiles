@@ -8,7 +8,7 @@ endif
 
 
 set hidden " required by CtrlSpace
-set directory=/dev/shm " in-memory swap files (more risky but nothing sticks around)
+"set directory=/dev/shm " in-memory swap files (more risky but nothing sticks around)
 
 filetype plugin indent on    " required
 
