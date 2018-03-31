@@ -8,6 +8,7 @@
 
 (use-package evil-org
   :ensure t
+  :defer t
   :after org
   :config
   (add-hook 'org-mode-hook 'evil-org-mode)
@@ -15,12 +16,17 @@
   )
 
 (use-package org-tree-slide
+  :ensure t
+  :defer t)
   :ensure t)
-;;(use-package ox-reveal
-;;  :ensure t)
+
+(use-package ob-restclient
+  :ensure t
+  :defer t)
 
 (use-package org
   :ensure t
+  :defer t
   :mode ("\\.org$" . org-mode)
   :config
   (progn
@@ -39,22 +45,73 @@
      ;; load emacs-lisp natively
      '((emacs-lisp . t)
        (go . t)
+       (restclient . t)
+       (dot . t)
        (ruby . t)))
 
     (setq org-agenda-files (list "~/o/" "~/o/w/"))
- (setq org-refile-targets '((org-agenda-files :maxlevel . 9)))
-  (setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
-  (setq org-refile-use-outline-path t)                  ; Show full paths for refiling
+    (setq org-refile-targets '((org-agenda-files :maxlevel . 9)))
+    (setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
+    (setq org-refile-use-outline-path t)                  ; Show full paths for refiling
 
+
+    (defun my-org-confirm-babel-evaluate (lang body)
+      (not (string= lang "restclient")))  ; don't ask for restclient
+    (setq org-confirm-babel-evaluate 'my-org-confirm-babel-evaluate)
+
+
+    (defun org-mode-export-hook ()
+      (add-hook 'after-save-hook 'org-html-export-to-html t t))
+
+  (setq org-default-notes-file (concat org-directory ""))
+  (global-set-key (kbd "C-c c") 'org-capture)
+
+
+  (setq org-capture-templates
+   '(("t" "Todo" entry (file+headline "~/o/winbox.org" "Tasks")
+        "* TODO %?\n  %i\n  %a")
+     ("j" "Journal" entry (file+olp+datetree "~/o/journal.org")
+        "* %?\nEntered on %U\n  %i\n  %a")))
+
+
+
+
+  (setq org-default-notes-file (concat org-directory ""))
+  (global-set-key (kbd "C-c c") 'org-capture)
+
+
+  (setq org-capture-templates
+   '(("t" "Todo" entry (file+headline "~/o/winbox.org" "Tasks")
+        "* TODO %?\n  %i\n  %a")
+     ("j" "Journal" entry (file+olp+datetree "~/o/journal.org")
+        "* %?\nEntered on %U\n  %i\n  %a")))
+
+;  (setq org-publish-project-alist
+;  '(("html"
+;     :base-directory "~/o/"
+;     :base-extension "org"
+;     :publishing-directory "~/o/exports"
+;     :publishing-function org-publish-org-to-html)
+;    ("pdf"
+;     :base-directory "~/o/"
+;     :base-extension "org"
+;     :publishing-directory "~/o/exports"
+;     :publishing-function org-publish-org-to-pdf)
+;    ("all" :components ("html" "pdf"))))
 
   (defun org-mode-export-hook ()
     (add-hook 'after-save-hook 'org-html-export-to-html t t))
 
   (add-hook 'org-mode-hook #'org-mode-export-hook)
+  (add-hook 'org-mode-hook 'evil-org-mode)
 
+  (defun my-org-confirm-babel-evaluate (lang body)
+    (not (string= lang "dot")))  ; don't ask for dot diagrams
+  (setq org-confirm-babel-evaluate 'my-org-confirm-babel-evaluate)
+
+  (setq  org-return-follows-link t)
     ;; default directory
   (setq org-directory (expand-file-name "~/o"))))
-
 
 
 (provide 'org-am)

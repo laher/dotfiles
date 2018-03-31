@@ -39,6 +39,9 @@ endif
 
 let g:deoplete#enable_at_startup = 1
 
+"" autocmd BufWritePost *.org execute '!emacs ' + expand(<afile>) + '--batch -f org-html-export-to-html -kill'
+autocmd BufWritePost *.org silent! !emacs <afile> --batch -f org-html-export-to-html -kill 2> /dev/null
+
 if has('nvim')
 	autocmd BufEnter * if &buftype == "terminal" | startinsert | endif
 	tnoremap <Esc> <C-\><C-n>
@@ -152,6 +155,9 @@ autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 
 
 set backspace=indent,eol,start
 
+au BufRead,BufNewFile *.org		set filetype=dotoo
+let g:dotoo#capture#refile="~/o/winbox.org"
+
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
 
@@ -166,7 +172,10 @@ nnoremap <Leader>o :CtrlP<CR>
 nnoremap <leader>ob :CtrlPBuffer
 nnoremap <Leader><Space> :CtrlSpace<CR>
 
-
+nmap <Leader>l :call Swoop()<CR>
+vmap <Leader>l :call SwoopSelection()<CR>
+nmap <Leader>ml :call SwoopMulti()<CR>
+vmap <Leader>ml :call SwoopMultiSelection()<CR>
 
 " vim-go
 augroup vg
@@ -215,6 +224,14 @@ command Sw w !sudo tee % > /dev/null
 
 let g:place_single_character_mode = 0
 nmap ga <Plug>(place-insert)
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<C-tab>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+"let g:UltiSnipsSnippetsDir='mysnippets'
+"let g:UltiSnipsSnippetDirectories=['~/.vimsnippets']
 
 imap jk <Esc>
 

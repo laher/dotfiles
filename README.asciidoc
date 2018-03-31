@@ -17,10 +17,18 @@ Get brew from https://brew.sh . Then:
 == Full installation:
 
    cd ~/
-   git clone https://github.com/laher/dotfiles 
+   git clone https://github.com/laher/dotfiles
    cd dotfiles
    ./setup-ubuntu.sh (or ./setup-mac.sh)
    ./setup-pt2.sh
+
+== Sync:
+
+   crontab -e
+
+Add this line (Linux) to keep things synced:
+
+   0 10,17 * * * ~/dotfiles/sync.sh || notify-send "~/dotfiles/sync.sh" "Failed to sync dotfiles (via crontab)"
 
 == Other stuff to install:
 

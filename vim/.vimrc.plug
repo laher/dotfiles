@@ -11,20 +11,21 @@ Plug 'Shougo/denite.nvim'
 Plug 'junkblocker/patchreview-vim'
 Plug 'codegram/vim-codereview'
 
-" show buffers
+""" show buffers
 Plug 'junegunn/vim-peekaboo'
 
-" deal with swap files
+""" deal with swap files
 Plug 'gioele/vim-autoswap'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 "Plug 'L9'
 Plug 'osyo-manga/vim-over'
 
+
 """ Pass the path to set the runtimepath properly.
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 
-" insertions with ga (non-cursor)
+""" insertions with ga (non-cursor)
 Plug 'joereynolds/place.vim'
 
 """ Go
@@ -48,6 +49,11 @@ Plug 'gabrielelana/vim-markdown'
 """ OMG Scala
 Plug 'derekwyatt/vim-scala'
 
+""" org-mode-ish
+"" Plug 'jceb/vim-orgmode'
+Plug 'dhruvasagar/vim-dotoo'
+Plug 'mattn/calendar-vim'
+
 """ tmux
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'benmills/vimux'
@@ -63,7 +69,9 @@ Plug 'tpope/vim-abolish'           " Flexible search
 Plug 'tpope/vim-jdaddy'            " JSON text object
 Plug 'tpope/vim-obsession'         " Continuously save buffer state
 
-Plug 'ctrlpvim/ctrlp.vim' " Find files faster
+Plug 'ctrlpvim/ctrlp.vim' " Find files faster by name
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim' " Find within files
 
 """ Appearance and layout
 Plug 'ap/vim-buftabline'
@@ -71,7 +79,10 @@ Plug 'freeo/vim-kalisi'
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 
+Plug 'diepm/vim-rest-console'
 
+""" replace across files typa thing
+Plug 'pelodelfuego/vim-swoop'
 """ Completion
 if !has('nvim')
 	"Plug 'Shougo/neocomplete.vim'
@@ -83,6 +94,11 @@ if has('nvim')
 	Plug 'carlitux/deoplete-ternjs'
 	Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
 endif
+
+""" snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 
 " All of your Plugs must be added before the following line
 call plug#end()

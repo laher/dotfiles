@@ -40,6 +40,7 @@
 
 	(defvar evil-mc-mode-line-prefix "ⓜ"
 	  "Override of the default mode line string for `evil-mc-mode'.")
-
+  (evil-leader/set-key
+      "/" 'evil-mc-make-all-cursors)
 	(global-evil-mc-mode 1)
 	)

@@ -75,5 +75,18 @@
   ;;            ("M-m fp" . treemacs-projectile-toggle))
   )
 
+(use-package restclient
+  :defer t
+  :ensure t
+  :config
+  )
+
+; (use-package xclip
+;   :defer t
+;   :ensure t
+;   :config
+;   (xclip-mode 1)
+;   )
+
 (provide 'general-am)
 ;;; general-am.el ends here

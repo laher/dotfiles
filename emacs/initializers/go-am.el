@@ -7,17 +7,29 @@
 ;;; Code:
 
 (use-package go-dlv
-  :ensure t)
+  :ensure t
+  :defer t)
 (use-package go-impl
-  :ensure t)
+  :ensure t
+  :defer t)
 (use-package go-errcheck
-  :ensure t)
+  :ensure t
+  :defer t)
 (use-package ob-go
-  :ensure t)
+  :ensure t
+  :defer t)
 (use-package go-rename
   :ensure t
-  :init
-    )
+  :defer t)
+(use-package go-eldoc
+  :ensure t
+  :defer t
+  :config
+  (add-hook 'go-mode-hook 'go-eldoc-setup))
+(use-package go-projectile
+  :ensure t
+  :defer t)
+
 (use-package go-mode
  :ensure t
  :config
@@ -36,6 +48,11 @@
         (interactive)
         (save-selected-window
           (async-shell-command (concat "go test " args))))
+
+    (defun am/go-install ()
+        (interactive)
+          (async-shell-command "go install -v ."))
+
     (defun am/go-run-package-tests ()
         (interactive)
         (am/go-run-tests ""))
@@ -121,15 +138,23 @@
     ;;
     ;; * gorename
     ;; GoRename
+    (evil-ex-define-cmd  "GoRename" 'go-rename)
     ;;
     ;; * guru
     ;; GoImplements
+    (evil-ex-define-cmd  "GoImplements" 'go-guru-implements)
     ;; GoWhicherrs
+    (evil-ex-define-cmd  "GoWhicherrs" 'go-guru-whicherrs)
     ;; GoCallees
+    (evil-ex-define-cmd  "GoCallees" 'go-guru-callees)
     ;; GoDescribe
+    (evil-ex-define-cmd  "GoDescribe" 'go-guru-describe)
     ;; GoCallers
+    (evil-ex-define-cmd  "GoCallers" 'go-guru-callers)
     ;; GoCallstack
+    (evil-ex-define-cmd  "GoCallstack" 'go-guru-callstack)
     ;; GoFreevars
+    (evil-ex-define-cmd  "GoFreevars" 'go-guru-freevars)
     ;; GoChannelPeers
     (evil-ex-define-cmd  "GoChannelPeers" 'go-guru-peers)
     ;; GoReferrers
@@ -153,7 +178,9 @@
     ;; GoBuildTags
     ;; GoGenerate
     ;; GoRun
+    (evil-ex-define-cmd  "GoRun" 'am/go-run-main)
     ;; GoInstall
+    (evil-ex-define-cmd  "GoInstall" 'am/go-install)
     ;;
     ;; * test
     ;; GoTest
@@ -180,6 +207,7 @@
     ;;
     ;; * doc
     ;; GoDoc
+    (evil-ex-define-cmd  "GoDoc" 'godoc-at-point)
     ;; GoDocBrowser
     ;;
     ;; * fmt
@@ -201,6 +229,7 @@
     ;;
     ;; * alternate
     ;; GoAlternate
+    (evil-ex-define-cmd  "GoAlternate" 'ff-find-other-file)
     ;;
     ;; * decls
     ;; GoDecls
