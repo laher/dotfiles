@@ -86,7 +86,9 @@ Plug 'ap/vim-buftabline'
 Plug 'freeo/vim-kalisi'
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-ctrlspace/vim-ctrlspace'
+Plug 'kyuhi/vim-emoji-complete'
 
+" Rest console
 Plug 'diepm/vim-rest-console'
 
 """ replace across files typa thing
