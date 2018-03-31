@@ -80,6 +80,7 @@ Plug 'vim-scripts/argtextobj.vim'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'bkad/CamelCaseMotion'
 Plug 'glts/vim-textobj-comment'
+Plug 'jiangmiao/auto-pairs'
 
 """ Appearance and layout
 Plug 'ap/vim-buftabline'
