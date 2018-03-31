@@ -74,8 +74,12 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " Find within files
 
 """ text objects
-" Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
 Plug 'vim-scripts/argtextobj.vim'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'bkad/CamelCaseMotion'
+Plug 'glts/vim-textobj-comment'
 
 """ Appearance and layout
 Plug 'ap/vim-buftabline'
