@@ -73,6 +73,10 @@ Plug 'ctrlpvim/ctrlp.vim' " Find files faster by name
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " Find within files
 
+""" text objects
+" Plug 'kana/vim-textobj-entire'
+Plug 'vim-scripts/argtextobj.vim'
+
 """ Appearance and layout
 Plug 'ap/vim-buftabline'
 Plug 'freeo/vim-kalisi'
@@ -93,6 +97,10 @@ if has('nvim')
 	Plug 'Shougo/deoplete.nvim' , { 'do': ':UpdateRemotePlugins' }
 	Plug 'carlitux/deoplete-ternjs'
 	Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
+
+	"gonvim
+	Plug 'equalsraf/neovim-gui-shim'
+	Plug 'dzhou121/gonvim-fuzzy' 
 endif
 
 """ snippets
