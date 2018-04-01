@@ -153,7 +153,9 @@ autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 
 set backspace=indent,eol,start
 
 au BufRead,BufNewFile *.org		set filetype=dotoo
-let g:dotoo#capture#refile="~/o/inbox.org"
+let g:dotoo#capture#refile="~/o/refile.org"
+
+let g:dotoo#agenda#files=["~/o/*.org","~/o/b/*.org","~/o/y/*.org","~/o/r/*.org"]
 
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
