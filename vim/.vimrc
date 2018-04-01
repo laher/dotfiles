@@ -166,7 +166,7 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
 " Leader
-let mapleader=" "
+let mapleader=";"
 let maplocalleader=","
 
 source ~/.vim/plugged/vim-shortcut/plugin/shortcut.vim
@@ -181,10 +181,11 @@ endif
 
 Shortcut CtrlP nnoremap <Leader>p :CtrlP<CR>
 Shortcut CtrlPBuffer nnoremap <leader>ob :CtrlPBuffer
-"Shortcut CtrlSpace nnoremap <Leader><Space> :CtrlSpace<CR>
+Shortcut CtrlSpace nnoremap <Leader><Space> :CtrlSpace<CR>
 Shortcut TagbarToggle nnoremap <Leader>. :TagbarToggle<CR>
 nnoremap <Leader>d "_d
 Shortcut Find in project nnoremap <Leader>e :Ag <c-r><c-w><CR>
+Shortcut NERDTreeToggle nnoremap <Leader>t :NERDTreeToggle<CR>
 
 
 Shortcut swoop 
@@ -234,6 +235,9 @@ let g:go_info_mode = 'gocode'
 " nnoremap <C-k> :cp<CR>
 
 
+" Start NERDTree when no files specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 command Sw w !sudo tee % > /dev/null
 

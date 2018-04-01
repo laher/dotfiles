@@ -70,9 +70,16 @@ Plug 'tpope/vim-abolish'           " Flexible search
 Plug 'tpope/vim-jdaddy'            " JSON text object
 Plug 'tpope/vim-obsession'         " Continuously save buffer state
 
+""" navigation and fuzzy
 Plug 'ctrlpvim/ctrlp.vim' " Find files faster by name
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " Find within files
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+""" replace across files typa thing
+Plug 'pelodelfuego/vim-swoop'
+Plug 'vim-ctrlspace/vim-ctrlspace' "not really using this megabeast
+Plug 'sunaku/vim-shortcut' "searchable key mappings
 
 """ text objects and editing
 Plug 'kana/vim-textobj-user'
@@ -82,15 +89,11 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'bkad/CamelCaseMotion'
 Plug 'glts/vim-textobj-comment'
 Plug 'jiangmiao/auto-pairs'
-""" replace across files typa thing
-Plug 'pelodelfuego/vim-swoop'
 
 """ Appearance and layout
 Plug 'ap/vim-buftabline'
 Plug 'freeo/vim-kalisi'
 Plug 'altercation/vim-colors-solarized'
-Plug 'vim-ctrlspace/vim-ctrlspace'
-Plug 'sunaku/vim-shortcut'
 
 " Rest console
 Plug 'diepm/vim-rest-console'
