@@ -166,47 +166,62 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
 " Leader
-let mapleader=","
-nnoremap <Leader>o :CtrlP<CR>
-nnoremap <leader>ob :CtrlPBuffer
-nnoremap <Leader><Space> :CtrlSpace<CR>
-nnoremap <Leader>. :TagbarToggle<CR>
-nnoremap <Leader>d "_d
-nnoremap <Leader>e :Ag <c-r><c-w><CR>
+let mapleader=" "
+let maplocalleader=","
 
-nmap <Leader>l :call Swoop()<CR>
-vmap <Leader>l :call SwoopSelection()<CR>
-nmap <Leader>ml :call SwoopMulti()<CR>
-vmap <Leader>ml :call SwoopMultiSelection()<CR>
+source ~/.vim/plugged/vim-shortcut/plugin/shortcut.vim
+
+if exists('g:loaded_shortcut')
+  Shortcut show shortcut menu and run chosen shortcut
+		\ noremap <silent> <Leader><Leader> :Shortcuts<Return>
+
+  Shortcut fallback to shortcut menu on partial entry
+		\ noremap <silent> <Leader> :Shortcuts<Return>
+endif
+
+Shortcut CtrlP nnoremap <Leader>p :CtrlP<CR>
+Shortcut CtrlPBuffer nnoremap <leader>ob :CtrlPBuffer
+"Shortcut CtrlSpace nnoremap <Leader><Space> :CtrlSpace<CR>
+Shortcut TagbarToggle nnoremap <Leader>. :TagbarToggle<CR>
+nnoremap <Leader>d "_d
+Shortcut Find in project nnoremap <Leader>e :Ag <c-r><c-w><CR>
+
+
+Shortcut swoop 
+ \ nmap <Leader>l :call Swoop()<CR>
+Shortcut swoop selection 
+ \ vmap <Leader>l :call SwoopSelection()<CR>
+Shortcut swoop multi
+ \ nmap <Leader>ml :call SwoopMulti()<CR>
+Shortcut swoop multi selection 
+ \ vmap <Leader>ml :call SwoopMultiSelection()<CR>
 
 " vim-go
 augroup vg
-"au FileType go nmap <Leader>b :GoBuild<CR>
+"au FileType go nmap <LocalLeader>b :GoBuild<CR>
 " au FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-au FileType go nmap <Leader>,cr :GoCallers<CR>
-au FileType go nmap <Leader>,ce :GoCallees<CR>
-au FileType go nmap <Leader>,? :GoCoverageToggle<CR>
-au FileType go nmap <Leader>,D :GoDefPop<CR>
-au FileType go nmap <Leader>,v :GoImplements<CR>
-au FileType go nmap <Leader>,I :GoImports<CR>
-au FileType go nmap <Leader>,i :GoInstall<CR>
-au FileType go nmap <Leader>,p :GoPlay<CR>
-au FileType go nmap <Leader>,' :GoDocBrowser<CR>
-au FileType go nmap <Leader>,b :GoToggleBreakpoint<CR>
-au FileType go nmap <Leader>,db :GoDebug<CR>
-au FileType go nmap <Leader>,re :Refactor extract
-au FileType go nmap <leader>,rt <Plug>(go-run-tab)
-au FileType go nmap <Leader>,rs <Plug>(go-run-split)
-au FileType go nmap <Leader>,rv <Plug>(go-run-vertical)
-
-" synced with emacs
-au FileType go nmap <Leader>,, :GoAlternate<CR>
-au FileType go nmap <Leader>,T :GoTestFunc
-au FileType go nmap <Leader>,t :GoTest
-au FileType go nmap <Leader>,r :GoReferrers<CR>
-au FileType go nmap <Leader>,cp :GoChannelPeers<CR>
-au FileType go nmap <Leader>,d :GoDef<CR>
-au FileType go nmap <Leader>,k :GoInfo<CR>
+au FileType go Shortcut GoCallers nmap <LocalLeader>c :GoCallers<CR>
+au FileType go Shortcut GoCallees nmap <LocalLeader>ce :GoCallees<CR>
+au FileType go Shortcut GoCoverageToggle nmap <LocalLeader>? :GoCoverageToggle<CR>
+au FileType go Shortcut GoDefPop nmap <LocalLeader>D :GoDefPop<CR>
+au FileType go Shortcut GoImplements nmap <LocalLeader>v :GoImplements<CR>
+au FileType go Shortcut GoImports nmap <LocalLeader>I :GoImports<CR>
+au FileType go Shortcut GoInstall nmap <LocalLeader>i :GoInstall<CR>
+au FileType go Shortcut GoPlay nmap <LocalLeader>y :GoPlay<CR>
+au FileType go Shortcut GoDocBrowser nmap <LocalLeader>' :GoDocBrowser<CR>
+au FileType go Shortcut GoToggleBreakpoint nmap <LocalLeader>b :GoToggleBreakpoint<CR>
+au FileType go Shortcut GoDebug nmap <LocalLeader>db :GoDebug<CR>
+au FileType go Shortcut GoRefactor nmap <LocalLeader>re :Refactor extract
+au FileType go Shortcut Go run tab nmap <leader>rt <Plug>(go-run-tab)
+au FileType go Shortcut go run split nmap <LocalLeader>rs <Plug>(go-run-split)
+au FileType go Shortcut go run vertical nmap <LocalLeader>rv <Plug>(go-run-vertical)
+au FileType go Shortcut GoAlternate nmap <LocalLeader>. :GoAlternate<CR>
+au FileType go Shortcut GoTestFunc nmap <LocalLeader>T :GoTestFunc
+au FileType go Shortcut GoTest nmap <LocalLeader>t :GoTest
+au FileType go Shortcut GoReferrers nmap <LocalLeader>rf :GoReferrers<CR>
+au FileType go Shortcut GoChannelPeers nmap <LocalLeader>p :GoChannelPeers<CR>
+au FileType go Shortcut GoDef nmap <LocalLeader>d :GoDef<CR>
+au FileType go Shortcut GoInfo nmap <LocalLeader>k :GoInfo<CR>
 
 augroup END
 

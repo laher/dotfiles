@@ -48,6 +48,7 @@ Plug 'markbiek/phpLint.vim'
 Plug 'gabrielelana/vim-markdown'
 """ OMG Scala
 Plug 'derekwyatt/vim-scala'
+Plug 'kyuhi/vim-emoji-complete'
 
 """ org-mode-ish
 "" Plug 'jceb/vim-orgmode'
@@ -73,7 +74,7 @@ Plug 'ctrlpvim/ctrlp.vim' " Find files faster by name
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " Find within files
 
-""" text objects
+""" text objects and editing
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'vim-scripts/argtextobj.vim'
@@ -81,19 +82,21 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'bkad/CamelCaseMotion'
 Plug 'glts/vim-textobj-comment'
 Plug 'jiangmiao/auto-pairs'
+""" replace across files typa thing
+Plug 'pelodelfuego/vim-swoop'
 
 """ Appearance and layout
 Plug 'ap/vim-buftabline'
 Plug 'freeo/vim-kalisi'
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-ctrlspace/vim-ctrlspace'
-Plug 'kyuhi/vim-emoji-complete'
+Plug 'sunaku/vim-shortcut'
 
 " Rest console
 Plug 'diepm/vim-rest-console'
 
-""" replace across files typa thing
-Plug 'pelodelfuego/vim-swoop'
+
+
 """ Completion
 if !has('nvim')
 	"Plug 'Shougo/neocomplete.vim'
