@@ -17,6 +17,13 @@ set t_Co=256 " Ignored by nvim
 colorscheme kalisi
 set background=light
 
+" set list " show whitespace chars
+" set listchars is useful in combination with :set list (showing whitespace chars)
+set listchars=eol:↲,tab:»\ ,trail:~,extends:⟩,precedes:⟨,space:·
+set showbreak=↪
+" hi NonText ctermfg=16 guifg=#4a4a59
+" hi SpecialKey ctermfg=16 guifg=#4a4a59
+
 set whichwrap+=<,>,h,l,[,] " right-arrow goes to next line
 set autochdir " change dir to current file's dir
 set autowrite " useful for :bufdo
@@ -113,17 +120,12 @@ let &runtimepath.=','.vimDir
 
 " Keep undo history across sessions by storing it in a file
 if has('persistent_undo')
-    let myUndoDir = expand(vimDir . '/undodir')
-    " Create dirs
-    call system('mkdir -p ' . myUndoDir)
-    let &undodir = myUndoDir
-    set undofile
+	let myUndoDir = expand(vimDir . '/undodir')
+	" Create dirs
+	call system('mkdir -p ' . myUndoDir)
+	let &undodir = myUndoDir
+	set undofile
 endif
-
-
-" set listchars is useful in combination with :set list (showing whitespace chars)
-:set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
-
 
 " Syntax for js etc
 autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['standard']
@@ -174,11 +176,8 @@ let maplocalleader=","
 source ~/.vim/plugged/vim-shortcut/plugin/shortcut.vim
 
 if exists('g:loaded_shortcut')
-  Shortcut show shortcut menu and run chosen shortcut
-		\ noremap <silent> <Leader><Leader> :Shortcuts<Return>
-
-  Shortcut fallback to shortcut menu on partial entry
-		\ noremap <silent> <Leader> :Shortcuts<Return>
+  Shortcut show shortcut menu and run chosen shortcut noremap <silent> <Leader><Leader> :Shortcuts<Return>
+  Shortcut fallback to shortcut menu on partial entry noremap <silent> <Leader> :Shortcuts<Return>
 endif
 
 Shortcut CtrlP nnoremap <Leader>p :CtrlP<CR>

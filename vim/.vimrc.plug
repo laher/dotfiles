@@ -73,9 +73,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " Find within files
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-""" replace across files typa thing
-Plug 'pelodelfuego/vim-swoop'
-Plug 'vim-ctrlspace/vim-ctrlspace' "not really using this megabeast
+Plug 'pelodelfuego/vim-swoop' " replace across files typa thing
+" Plug 'vim-ctrlspace/vim-ctrlspace' "not really using this megabeast
 Plug 'sunaku/vim-shortcut' "searchable key mappings
 
 """ text objects and editing
@@ -86,7 +85,6 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'bkad/CamelCaseMotion'
 Plug 'glts/vim-textobj-comment'
 Plug 'jiangmiao/auto-pairs'
-Plug 'osyo-manga/vim-over' " show preview of commands
 
 """ Appearance and layout
 Plug 'ap/vim-buftabline' " tabs across top
@@ -119,6 +117,7 @@ endif
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
+Plug 'osyo-manga/vim-over' " show preview of commands
 
 " All of your Plugs must be added before the following line
 call plug#end()
