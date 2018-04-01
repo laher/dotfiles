@@ -88,6 +88,8 @@ let g:go_addtags_transform = "camelcase"
             
 set number
 set hlsearch
+let g:over_enable_cmd_window = 1 " vim-over
+let g:over_enable_auto_nohlsearch = 1
 
 nnoremap <silent> <leader>tt :TagbarToggle<CR>
 

@@ -19,11 +19,7 @@ Plug 'gioele/vim-autoswap'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 "Plug 'L9'
-Plug 'osyo-manga/vim-over'
 
-
-""" Pass the path to set the runtimepath properly.
-Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 """ insertions with ga (non-cursor)
 Plug 'joereynolds/place.vim'
@@ -41,6 +37,7 @@ Plug 'w0rp/ale' "syntax & linting
 "Plug 'scrooloose/syntastic'
 
 """ Other languages
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}  """ condensed html
 Plug 'burnettk/vim-angular'
 Plug 'ternjs/tern_for_vim'
 Plug 'othree/javascript-libraries-syntax.vim'
@@ -89,6 +86,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'bkad/CamelCaseMotion'
 Plug 'glts/vim-textobj-comment'
 Plug 'jiangmiao/auto-pairs'
+Plug 'osyo-manga/vim-over' """ show preview of commands
 
 """ Appearance and layout
 Plug 'ap/vim-buftabline'
