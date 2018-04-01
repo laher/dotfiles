@@ -94,6 +94,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'ap/vim-buftabline'
 Plug 'freeo/vim-kalisi'
 Plug 'altercation/vim-colors-solarized'
+Plug 'itchyny/lightline.vim'
 
 " Rest console
 Plug 'diepm/vim-rest-console'
