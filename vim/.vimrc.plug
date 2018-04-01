@@ -86,13 +86,13 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'bkad/CamelCaseMotion'
 Plug 'glts/vim-textobj-comment'
 Plug 'jiangmiao/auto-pairs'
-Plug 'osyo-manga/vim-over' """ show preview of commands
+Plug 'osyo-manga/vim-over' " show preview of commands
 
 """ Appearance and layout
-Plug 'ap/vim-buftabline'
-Plug 'freeo/vim-kalisi'
-Plug 'altercation/vim-colors-solarized'
-Plug 'itchyny/lightline.vim'
+Plug 'ap/vim-buftabline' " tabs across top
+Plug 'freeo/vim-kalisi' " theme
+Plug 'altercation/vim-colors-solarized' " theme
+Plug 'itchyny/lightline.vim' " status across bottom
 
 " Rest console
 Plug 'diepm/vim-rest-console'
