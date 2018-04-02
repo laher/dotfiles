@@ -182,6 +182,7 @@ source ~/.vim/plugged/vim-shortcut/plugin/shortcut.vim
 if exists('g:loaded_shortcut')
   Shortcut show shortcut menu and run chosen shortcut noremap <silent> <Leader><Leader> :Shortcuts<Return>
   Shortcut fallback to shortcut menu on partial entry noremap <silent> <Leader> :Shortcuts<Return>
+  Shortcut fallback to shortcut menu on partial entry noremap <silent> <LocalLeader> :Shortcuts<Return>
 endif
 
 Shortcut CtrlP nnoremap <Leader>p :CtrlP<CR>
@@ -233,7 +234,7 @@ augroup END
 
 "au FileType dotoo inoremap <CR> <CR><C-R>=expand("%:t:r")
 " au FileType dotoo nnoremap t ji<CR>*
-au FileType dotoo nnoremap <LocalLeader>b i*<Space>
+au FileType dotoo Shortcut new headline nnoremap <LocalLeader>b i*<Space>
 
 let g:go_auto_type_info = 1
 let g:go_info_mode = 'gocode'
