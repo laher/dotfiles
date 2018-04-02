@@ -185,13 +185,13 @@ if exists('g:loaded_shortcut')
 endif
 
 Shortcut CtrlP nnoremap <Leader>p :CtrlP<CR>
-Shortcut CtrlPBuffer nnoremap <leader>ob :CtrlPBuffer
+Shortcut CtrlPBuffer nnoremap <Leader>ob :CtrlPBuffer
 Shortcut CtrlSpace nnoremap <Leader><Space> :CtrlSpace<CR>
 Shortcut TagbarToggle nnoremap <Leader>. :TagbarToggle<CR>
 nnoremap <Leader>d "_d
 Shortcut Find in project nnoremap <Leader>e :Ag <c-r><c-w><CR>
 Shortcut NERDTreeToggle nnoremap <Leader>t :NERDTreeToggle<CR>
-
+Shortcut Filename inoremap <Leader>fn <c-r>=expand("%:t")<cr>
 
 Shortcut swoop 
  \ nmap <Leader>l :call Swoop()<CR>
@@ -230,6 +230,10 @@ au FileType go Shortcut GoDef nmap <LocalLeader>d :GoDef<CR>
 au FileType go Shortcut GoInfo nmap <LocalLeader>k :GoInfo<CR>
 
 augroup END
+
+"au FileType dotoo inoremap <CR> <CR><C-R>=expand("%:t:r")
+" au FileType dotoo nnoremap t ji<CR>*
+au FileType dotoo nnoremap <LocalLeader>b i*<Space>
 
 let g:go_auto_type_info = 1
 let g:go_info_mode = 'gocode'
