@@ -41,3 +41,5 @@ alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
 alias pgen='pass generate --clip'
+
+alias ktail='~/d/kubetail/kubetail -t'
