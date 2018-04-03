@@ -235,7 +235,7 @@ augroup END
 "au FileType dotoo inoremap <CR> <CR><C-R>=expand("%:t:r")
 " au FileType dotoo nnoremap t ji<CR>*
 au FileType dotoo Shortcut new headline nnoremap <LocalLeader>b i*<Space>
-au FileType dotoo iabbrev ** • 
+" au FileType dotoo iabbrev ** • 
 let g:go_auto_type_info = 1
 let g:go_info_mode = 'gocode'
 
