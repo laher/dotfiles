@@ -85,6 +85,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'bkad/CamelCaseMotion'
 Plug 'glts/vim-textobj-comment'
 Plug 'jiangmiao/auto-pairs'
+Plug 'jeetsukumaran/vim-indentwise'
 
 """ Appearance and layout
 Plug 'ap/vim-buftabline' " tabs across top
