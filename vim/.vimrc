@@ -115,7 +115,7 @@ let g:used_javascript_libs = 'angularjs,angularui'
 "noremap <Left> <nop>
 "noremap <Right> <nop>
 "
-set autowrite
+" ^set autowrite
 let g:argwrap_tail_comma = 1
 
 " Put plugins and dictionaries in this dir (also on Windows)
@@ -248,6 +248,9 @@ let g:go_info_mode = 'gocode'
 " Start NERDTree when no files specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+autocmd BufEnter *.org syntax match stars /^\*+/
+highlight stars guifg=#ffffff guibg=#ff0000 ctermbg=red
 
 command Sw w !sudo tee % > /dev/null
 
