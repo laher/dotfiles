@@ -249,9 +249,11 @@ let g:go_info_mode = 'gocode'
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-autocmd BufEnter *.org syntax match stars /^\*+/
-highlight stars guifg=#ffffff guibg=#ff0000 ctermbg=red
+" fiddle with org mode syntax
+autocmd BufEnter *.org syntax match stars /^\*\+ .*/
+highlight stars ctermfg=red guifg=#ff0000 cterm=bold
 
+"sudo write current buffer:
 command Sw w !sudo tee % > /dev/null
 
 let g:place_single_character_mode = 0
