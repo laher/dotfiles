@@ -38,6 +38,9 @@ syntax on
 set wildmenu                       
 set wildmode=list:longest,full 
 
+set mouse=a
+set mousemodel=extend
+
 
 if !has('nvim')
 	set term=xterm-256color
@@ -96,8 +99,8 @@ let g:go_addtags_transform = "camelcase"
 set number
 set hlsearch
 set incsearch
-set gdefault " treat :s// as :s//g (and vice versa)
-set smartcase " treat all-lower as case-insensitive while searching
+"set gdefault " treat :s// as :s//g (and vice versa)
+"set smartcase " treat all-lower as case-insensitive while searching
 set title
 let g:over_enable_cmd_window = 1 " vim-over
 let g:over_enable_auto_nohlsearch = 1
