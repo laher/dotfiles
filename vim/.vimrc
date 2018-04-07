@@ -194,7 +194,11 @@ Shortcut CtrlSpace nnoremap <Leader><Space> :CtrlSpace<CR>
 Shortcut TagbarToggle nnoremap <Leader>. :TagbarToggle<CR>
 nnoremap <Leader>d "_d
 Shortcut Find in project nnoremap <Leader>e :Ag <c-r><c-w><CR>
-Shortcut NERDTreeToggle nnoremap <Leader>t :NERDTreeToggle<CR>
+Shortcut NERDTreeToggle nnoremap <Leader>T :NERDTreeToggle<CR>
+Shortcut NERDTreeFind nnoremap <expr> <Leader>t IsNERDTreeOpen() ? ':NERDTreeToggle<CR>' : ':NERDTreeFind<CR>'
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 Shortcut Filename inoremap <Leader>fn <c-r>=expand("%:t")<cr>
 
 Shortcut swoop 
@@ -251,6 +255,8 @@ let g:go_info_mode = 'gocode'
 " Start NERDTree when no files specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd BufEnter * NERDTreeMirror
+autocmd VimEnter * wincmd w
 
 " show syntax highlighting
 map <M-i> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
