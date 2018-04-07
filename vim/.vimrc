@@ -184,8 +184,8 @@ source ~/.vim/plugged/vim-shortcut/plugin/shortcut.vim
 
 if exists('g:loaded_shortcut')
   Shortcut show shortcut menu and run chosen shortcut noremap <silent> <Leader><Leader> :Shortcuts<Return>
-  Shortcut fallback to shortcut menu on partial entry noremap <silent> <Leader> :Shortcuts<Return>
-  Shortcut fallback to shortcut menu on partial entry noremap <silent> <LocalLeader> :Shortcuts<Return>
+"  Shortcut fallback to shortcut menu on partial entry noremap <silent> <Leader> :Shortcuts<Return>
+"  Shortcut fallback to shortcut menu on partial entry noremap <silent> <LocalLeader> :Shortcuts<Return>
 endif
 
 Shortcut CtrlP nnoremap <Leader>p :CtrlP<CR>
@@ -222,7 +222,7 @@ au FileType go Shortcut GoDocBrowser nmap <LocalLeader>' :GoDocBrowser<CR>
 au FileType go Shortcut GoToggleBreakpoint nmap <LocalLeader>b :GoToggleBreakpoint<CR>
 au FileType go Shortcut GoDebug nmap <LocalLeader>db :GoDebug<CR>
 au FileType go Shortcut GoRefactor nmap <LocalLeader>re :Refactor extract
-au FileType go Shortcut Go run tab nmap <leader>rt <Plug>(go-run-tab)
+au FileType go Shortcut Go run tab nmap <LocalLeader>rt <Plug>(go-run-tab)
 au FileType go Shortcut go run split nmap <LocalLeader>rs <Plug>(go-run-split)
 au FileType go Shortcut go run vertical nmap <LocalLeader>rv <Plug>(go-run-vertical)
 au FileType go Shortcut GoAlternate nmap <LocalLeader>. :GoAlternate<CR>
