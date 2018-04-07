@@ -2,7 +2,9 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " vim-plug ...
-if filereadable(expand("~/.vimrc.plug"))
+if filereadable(expand("~/.vimplug.vimrc"))
+  source ~/.vimplug.vimrc
+elseif filereadable(expand("~/.vimrc.plug")) "deprecated
   source ~/.vimrc.plug
 endif
 
@@ -195,7 +197,19 @@ Shortcut TagbarToggle nnoremap <Leader>. :TagbarToggle<CR>
 nnoremap <Leader>d "_d
 Shortcut Find in project nnoremap <Leader>e :Ag <c-r><c-w><CR>
 Shortcut NERDTreeToggle nnoremap <Leader>T :NERDTreeToggle<CR>
-Shortcut NERDTreeFind nnoremap <expr> <Leader>t IsNERDTreeOpen() ? ':NERDTreeToggle<CR>' : ':NERDTreeFind<CR>'
+Shortcut NERDTreeFind nnoremap <Leader>t :NERDTreeFind<CR>
+
+func IsNERDTreeOpen()
+    return exists('t:NERDTreeBufName') && bufwinnr(t:NERDTreeBufName) != -1
+endfunc
+
+func NERDToggleOrFind()
+	if IsNERDTreeOpen()
+		:NERDTreeToggle<CR>
+	else 
+		:NERDTreeFind<CR>
+	endif
+endfunc
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -283,6 +297,11 @@ let g:UltiSnipsEditSplit="vertical"
 
 imap jk <Esc>
 
+
+let g:lightline = {
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
 " Local overrides ...
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
