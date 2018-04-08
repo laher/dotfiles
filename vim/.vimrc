@@ -69,7 +69,8 @@ endif
 
 set termencoding=utf-8
 "set guifont=Source\ Code\ Pro\ ExtraLight:h18
-set guifont=Ubuntu\ Mono\ derivative\ Powerline:h18
+"set guifont=Ubuntu\ Mono\ derivative\ Powerline:h18
+set guifont=GoMono\ Nerd\ Font\ Book:h18
 "set completeopt-=preview
 
 
