@@ -26,7 +26,7 @@ Plug 'gioele/vim-autoswap'
 Plug 'joereynolds/place.vim'
 
 """ Go
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoUpdateBinaries' }
 Plug 'godoctor/godoctor.vim'
 Plug 'nsf/gocode', {'rtp': 'nvim/'}
 Plug 'buoto/gotests-vim'
