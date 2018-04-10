@@ -16,9 +16,15 @@ filetype plugin indent on    " required
 set t_Co=256 " Ignored by nvim
 
 "colorscheme solarized
-colorscheme kalisi
+"colorscheme kalisi
+let g:monochrome_italic_comments = 1
+colorscheme monochrome-light
 set background=light
 
+autocmd ColorScheme * hi Comment gui=italic cterm=italic
+autocmd ColorScheme * hi LineNr guifg=#737373 ctermfg=249
+
+autocmd ColorScheme * hi String guifg=#202020 ctermfg=16 gui=bold cterm=bold term=bold
 " set list " show whitespace chars
 " set listchars is useful in combination with :set list (showing whitespace chars)
 set listchars=eol:↲,tab:»\ ,trail:~,extends:⟩,precedes:⟨,space:·
@@ -183,6 +189,7 @@ let g:ctrlp_cmd = 'CtrlP'
 let mapleader=";"
 let maplocalleader=","
 
+" shortcut plugin needs to be included for some reason. Weird!
 source ~/.vim/plugged/vim-shortcut/plugin/shortcut.vim
 
 if exists('g:loaded_shortcut')
@@ -298,6 +305,8 @@ let g:UltiSnipsEditSplit="vertical"
 
 imap jk <Esc>
 
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
 
 let g:lightline = {
       \ 'separator': { 'left': '', 'right': '' },

@@ -51,7 +51,7 @@ Plug 'kyuhi/vim-emoji-complete'
 """ org-mode-ish
 "" Plug 'jceb/vim-orgmode'
 Plug 'dhruvasagar/vim-dotoo'
-Plug 'mattn/calendar-vim'
+"Plug 'mattn/calendar-vim'
 
 """ tmux
 Plug 'christoomey/vim-tmux-navigator'
@@ -93,10 +93,14 @@ Plug 'ap/vim-buftabline' " tabs across top
 Plug 'freeo/vim-kalisi' " theme
 Plug 'altercation/vim-colors-solarized' " theme
 Plug 'itchyny/lightline.vim' " status across bottom
-
+Plug 'fxn/vim-monochrome' " theme
+Plug 'kcsongor/vim-monochrome-light' " theme
+Plug 'itchyny/vim-cursorword' " underline word under cursor
 " Rest console
 Plug 'diepm/vim-rest-console'
 
+" calendar
+Plug 'itchyny/calendar.vim'
 
 
 """ Completion
