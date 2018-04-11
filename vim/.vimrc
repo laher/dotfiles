@@ -23,8 +23,11 @@ set background=light
 
 autocmd ColorScheme * hi Comment gui=italic cterm=italic
 autocmd ColorScheme * hi LineNr guifg=#737373 ctermfg=249
-
-autocmd ColorScheme * hi String guifg=#202020 ctermfg=16 gui=bold cterm=bold term=bold
+autocmd ColorScheme * hi MatchParen cterm=none ctermbg=none ctermfg=blue
+autocmd ColorScheme * hi String guifg=#2020F0 ctermfg=blue
+autocmd ColorScheme * hi Search guifg=White ctermfg=15 guibg=#2020F0 ctermbg=blue
+autocmd ColorScheme * hi Pmenu guifg=Black ctermfg=16 guibg=#2020F0 ctermbg=blue
+autocmd ColorScheme * hi PmenuSel guifg=#2020F0 ctermfg=blue guibg=Black ctermbg=16
 " set list " show whitespace chars
 " set listchars is useful in combination with :set list (showing whitespace chars)
 set listchars=eol:↲,tab:»\ ,trail:~,extends:⟩,precedes:⟨,space:·
