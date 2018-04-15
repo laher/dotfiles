@@ -130,4 +130,38 @@ Plug 'osyo-manga/vim-over' " show preview of commands
 " All of your Plugs must be added before the following line
 call plug#end()
 
+" Start NERDTree when no files specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd BufEnter * NERDTreeMirror
+autocmd VimEnter * wincmd w
+
+
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<C-tab>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+"let g:UltiSnipsSnippetsDir='mysnippets'
+"let g:UltiSnipsSnippetDirectories=['~/.vimsnippets']
+"
+"
+"
+
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_save = 1
+
+" ctrlp
+let g:CtrlSpaceDefaultMappingKey = "<C-Space> "
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+           
+let g:over_enable_cmd_window = 1 " vim-over
+let g:over_enable_auto_nohlsearch = 1
+
+let g:used_javascript_libs = 'angularjs,angularui'
+"
+let g:argwrap_tail_comma = 1
 
