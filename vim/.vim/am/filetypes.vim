@@ -17,4 +17,3 @@ autocmd FileType php setlocal shiftwidth=4 tabstop=4 expandtab
 au BufRead,BufNewFile *.org		set filetype=dotoo
 let g:dotoo#capture#refile="~/o/refile.org"
 let g:dotoo#agenda#files=["~/o/*.org","~/o/b/*.org","~/o/y/*.org","~/o/r/*.org"]
-au FileType dotoo Shortcut new headline nnoremap <LocalLeader>b i*<Space>

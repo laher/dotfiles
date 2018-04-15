@@ -69,3 +69,5 @@ nmap ga <Plug>(place-insert)
 "au FileType dotoo inoremap <CR> <CR><C-R>=expand("%:t:r")
 " au FileType dotoo nnoremap t ji<CR>*
 " au FileType dotoo iabbrev ** • 
+"
+au FileType dotoo Shortcut new headline nnoremap <LocalLeader>b i*<Space>
