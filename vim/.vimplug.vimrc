@@ -86,7 +86,7 @@ Plug 'vim-scripts/argtextobj.vim'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'bkad/CamelCaseMotion'
 Plug 'glts/vim-textobj-comment'
-Plug 'jiangmiao/auto-pairs'
+"Plug 'jiangmiao/auto-pairs'
 Plug 'jeetsukumaran/vim-indentwise'
 
 """ Appearance and layout
@@ -97,6 +97,7 @@ Plug 'itchyny/lightline.vim' " status across bottom
 Plug 'fxn/vim-monochrome' " theme
 Plug 'kcsongor/vim-monochrome-light' " theme
 Plug 'itchyny/vim-cursorword' " underline word under cursor
+
 " Rest console
 Plug 'diepm/vim-rest-console'
 
