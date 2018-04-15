@@ -14,6 +14,7 @@ elseif filereadable(expand("~/.vimrc.plug")) " Deprecated
   source ~/.vimrc.plug
 endif
 
+
 if filereadable(expand("~/.vimrc.local")) " Local overrides ...
   source ~/.vimrc.local
 endif
