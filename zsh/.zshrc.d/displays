@@ -5,28 +5,23 @@ function layout-work() {
 	if [[ "${XDG_SESSION_TYPE}" == "x11" ]]; then
 		xrandr \
 			--output VIRTUAL1 --off \
-			--output eDP1 --off \
-			--output DP1 --off \
-			--output HDMI2 --off \
-			--output HDMI1 --off \
-			--output DP2 --off
+			--output eDP-1 --off \
+			--output DP-1 --off \
+			--output HDMI-2 --off \
+			--output HDMI-1 --off \
+			--output DP-2 --off
 		xrandr \
 			--output VIRTUAL1 --off \
-			--output eDP1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --scale 0.5x0.5 \
-			--output DP1 --mode 1920x1200 --pos 1400x0 --rotate normal \
-			--output HDMI2 --off \
-			--output HDMI1 --off \
+			--output eDP-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --scale 0.5x0.5 \
+			--output HDMI-2 --mode 1920x1200 --pos 1400x0 --rotate normal \
+			--output HDMI-1 --off \
 			--output DP2 --off
-
-#		i3-msg "workspace 1:chat; move workspace to output eDP1"
-#		i3-msg "workspace 2:term; move workspace to output DP1"
-#		i3-msg "workspace 3:web; move workspace to output DP1"
 	fi
 
 	# sway (wayland)
 	if [[ "${XDG_SESSION_TYPE}" == "wayland" ]]; then
 		swaymsg output eDP-1 res 2560x1440 pos 0 0    scale 2
-		swaymsg output DP-1  res 1920x1200 pos 1400 0 scale 1
+		swaymsg output HDMI-1  res 1920x1200 pos 1400 0 scale 1
 		swaymsg -t get_outputs
 	fi
 }
@@ -38,37 +33,37 @@ function layout-hightable() {
 			--output VIRTUAL1 --off \
 			--output eDP1 --off \
 			--output DP1 --off \
-			--output HDMI2 --off \
-			--output HDMI1 --off \
+			--output HDMI-2 --off \
+			--output HDMI-1 --off \
 			--output DP2 --off
 		xrandr \
 			--output VIRTUAL1 --off \
-			--output eDP1 --primary --mode 3200x1800 --pos 0x0 --rotate normal --scale 0.5x0.5 \
-			--output DP1 --mode 1920x1080 --pos 1600x0 --rotate normal \
-			--output HDMI2 --off \
-			--output HDMI1 --off \
+			--output eDP1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --scale 0.5x0.5 \
+			--output HDMI-2 --mode 1920x1080 --pos 1600x0 --rotate normal \
+			--output HDMI-1 --off \
 			--output DP2 --off
 	fi
 
 	# sway (wayland)
 	if [[ "${XDG_SESSION_TYPE}" == "wayland" ]]; then
-		swaymsg output eDP-1 res 3200x1800 pos 0 0    scale 2
+		swaymsg output eDP-1 res 2560x1440 pos 0 0    scale 2
 		swaymsg output DP-1  res 1920x1200 pos 1600 0 scale 1
 		swaymsg -t get_outputs
 	fi
 }
 
 function layout-laptop() {
-	if [ "${HOSTNAME}" = "kurt-movio" ]; then
-		LAPTOP_DISPLAY=eDP1
-		LAPTOP_RESOLUTION=3200x1800
-		LAPTOP_SCALE=0.5x0.5
-		LAPTOP_POSITION=0x0
-	elif [ "${HOSTNAME}" = "arch-lappy486" ]; then
-		LAPTOP_DISPLAY=eDP-1
-		LAPTOP_RESOLUTION=1920x1080
-		LAPTOP_SCALE=1x1
-		LAPTOP_POSITION=0x0
+	if [ "${HOST}" = "narya" ]; then
+		LAPTOP_DISPLAY="eDP-1"
+		LAPTOP_RESOLUTION="2560x1440"
+		#LAPTOP_SCALE="0.5x0.5"
+		LAPTOP_SCALE="1x1"
+		LAPTOP_POSITION="0x0"
+	elif [ "${HOST}" = "nenya" ]; then
+		LAPTOP_DISPLAY="eDP-1"
+		LAPTOP_RESOLUTION="1920x1080"
+		LAPTOP_SCALE="1x1"
+		LAPTOP_POSITION="0x0"
 	else
 		exit 1
 	fi
@@ -79,10 +74,4 @@ function layout-laptop() {
 		--mode ${LAPTOP_RESOLUTION} \
 		--pos ${LAPTOP_POSITION} \
 		--scale ${LAPTOP_SCALE}
-
-	i3-msg "workspace 1:chat; move workspace to output ${LAPTOP_DISPLAY}"
-	i3-msg "workspace 2:term; move workspace to output ${LAPTOP_DISPLAY}"
-	i3-msg "workspace 3:web; move workspace to output ${LAPTOP_DISPLAY}"
-
-	feh --bg-fill ~/.wallpaper/arch-1920x1200.png
 }
