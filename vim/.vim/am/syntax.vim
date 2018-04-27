@@ -1,18 +1,19 @@
 
 "colorscheme solarized
-"colorscheme kalisi
+colorscheme kalisi
 let g:monochrome_italic_comments = 1
-colorscheme monochrome-light
+
+"colorscheme monochrome-light
 set background=light
 
-autocmd ColorScheme * hi Comment gui=italic cterm=italic
-autocmd ColorScheme * hi LineNr guifg=#737373 ctermfg=249
-autocmd ColorScheme * hi MatchParen cterm=none ctermbg=none ctermfg=blue
-autocmd ColorScheme * hi String guifg=#2020F0 ctermfg=blue
-autocmd ColorScheme * hi Search guifg=White ctermfg=15 guibg=#2020F0 ctermbg=blue
-autocmd ColorScheme * hi Pmenu guifg=Black ctermfg=16 guibg=#2020F0 ctermbg=blue
-autocmd ColorScheme * hi PmenuSel guifg=#2020F0 ctermfg=blue guibg=Black ctermbg=16
-
+"autocmd ColorScheme * hi Comment gui=italic cterm=italic
+"autocmd ColorScheme * hi LineNr guifg=#737373 ctermfg=249
+"autocmd ColorScheme * hi MatchParen cterm=none ctermbg=none ctermfg=blue
+"autocmd ColorScheme * hi String guifg=#2020F0 ctermfg=blue
+"autocmd ColorScheme * hi Search guifg=White ctermfg=15 guibg=#2020F0 ctermbg=blue
+"autocmd ColorScheme * hi Pmenu guifg=Black ctermfg=16 guibg=#2020F0 ctermbg=blue
+"autocmd ColorScheme * hi PmenuSel guifg=#2020F0 ctermfg=blue guibg=Black ctermbg=16
+"
 " show syntax highlighting
 map <M-i> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
