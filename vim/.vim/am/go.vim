@@ -36,6 +36,7 @@ au FileType go Shortcut GoAlternate nmap <LocalLeader>. :GoAlternate<CR>
 au FileType go Shortcut GoTestFunc nmap <LocalLeader>T :GoTestFunc
 au FileType go Shortcut GoTest nmap <LocalLeader>t :GoTest
 au FileType go Shortcut GoReferrers nmap <LocalLeader>rf :GoReferrers<CR>
+au FileType go Shortcut GoReferrers nmap gr :GoReferrers<CR>
 au FileType go Shortcut GoChannelPeers nmap <LocalLeader>p :GoChannelPeers<CR>
 au FileType go Shortcut GoDef nmap <LocalLeader>d :GoDef<CR>
 au FileType go Shortcut GoInfo nmap <LocalLeader>k :GoInfo<CR>
