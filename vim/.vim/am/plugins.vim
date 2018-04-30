@@ -68,6 +68,7 @@ Plug 'tpope/vim-commentary'        " Comment out blocks
 Plug 'tpope/vim-abolish'           " Flexible search
 Plug 'tpope/vim-jdaddy'            " JSON text object
 Plug 'tpope/vim-obsession'         " Continuously save buffer state
+Plug 'tpope/vim-tbone'
 
 """ navigation and fuzzy
 Plug 'ctrlpvim/ctrlp.vim' " Find files faster by name
