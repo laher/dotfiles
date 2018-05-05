@@ -19,5 +19,6 @@ let g:dotoo#agenda#files=["~/o/*.org","~/o/b/*.org","~/o/y/*.org","~/o/r/*.org"]
 
 " smoosh
 au BufRead,BufNewFile *.smoosh set filetype=smoosh
-autocmd FileType smoosh setlocal commentstring=\/\/\ %s
+au BufRead,BufNewFile *.smoosh set syntax=go
+autocmd FileType smoosh setlocal commentstring="# %s"
 autocmd FileType smoosh setlocal shiftwidth=2 tabstop=2 expandtab

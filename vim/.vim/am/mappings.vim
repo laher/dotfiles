@@ -47,9 +47,6 @@ Shortcut swoop multi selection
 
 imap jk <Esc>
 
-
-nnoremap <silent> <leader>tt :TagbarToggle<CR>
-
 "sudo write current buffer:
 command Sw w !sudo tee % > /dev/null
 
