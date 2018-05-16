@@ -44,4 +44,5 @@ alias pgen='pass generate --clip'
 
 alias ktail='~/d/kubetail/kubetail -t'
 
-alias cdo='cd ~/o/'
+alias cdo='cd ~/o'
+alias cdp='cd ~/d/atm-php'
