@@ -28,6 +28,18 @@ set wildmode=list:longest,full
 set mouse=a
 set mousemodel=extend
 
+if exists('g:gui_oni')
+    filetype off                  " required
+    set noswapfile
+endif
+
+if exists('g:gui_oni')
+"   set smartcase
+"   set noshowmode
+"   set noruler
+"    set laststatus=0
+"    set noshowcmd
+endif
 
 if !has('nvim')
 	set term=xterm-256color
