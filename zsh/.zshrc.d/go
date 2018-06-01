@@ -1,5 +1,6 @@
 #!/usr/bin/zsh
 
-function redep {
-  dep ensure && dep prune
+function cover {
+  local t=$(mktemp -t cover)
+  go test $COVERFLAGS -coverprofile=$t $@ && go tool cover -func=$t && unlink $t
 }
