@@ -75,9 +75,9 @@ source ~/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-if [ -s ~/.gvm/scripts/gvm ]; then
-    source ~/.gvm/scripts/gvm
-fi
+#if [ -s ~/.gvm/scripts/gvm ]; then
+#    source ~/.gvm/scripts/gvm
+#fi
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
