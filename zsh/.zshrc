@@ -50,7 +50,7 @@ plugins=(git zsh-nvm golang ubuntu git-extras)
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-source $ZSH/oh-my-zsh.sh
+source ~/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
