@@ -1,5 +1,7 @@
 set hidden " required by CtrlSpace
-set directory=/dev/shm " in-memory swap files (more risky but nothing sticks around)
+if isdirectory('/dev/shm')
+	set directory=/dev/shm " in-memory swap files (more risky but nothing sticks around)
+endif
 
 filetype plugin indent on    " required
 set t_Co=256 " Ignored by nvim
@@ -28,6 +30,18 @@ set wildmode=list:longest,full
 set mouse=a
 set mousemodel=extend
 
+if exists('g:gui_oni')
+    filetype off                  " required
+    set noswapfile
+endif
+
+if exists('g:gui_oni')
+"   set smartcase
+"   set noshowmode
+"   set noruler
+"    set laststatus=0
+"    set noshowcmd
+endif
 
 if !has('nvim')
 	set term=xterm-256color
