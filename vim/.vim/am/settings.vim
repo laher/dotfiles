@@ -1,5 +1,7 @@
 set hidden " required by CtrlSpace
-set directory=/dev/shm " in-memory swap files (more risky but nothing sticks around)
+if isdirectory('/dev/shm')
+	set directory=/dev/shm " in-memory swap files (more risky but nothing sticks around)
+endif
 
 filetype plugin indent on    " required
 set t_Co=256 " Ignored by nvim
