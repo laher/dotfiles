@@ -28,14 +28,14 @@ au FileType go Shortcut GoPlay nmap <LocalLeader>y :GoPlay<CR>
 au FileType go Shortcut GoDocBrowser nmap <LocalLeader>' :GoDocBrowser<CR>
 au FileType go Shortcut GoToggleBreakpoint nmap <LocalLeader>b :GoToggleBreakpoint<CR>
 au FileType go Shortcut GoDebug nmap <LocalLeader>db :GoDebug<CR>
-au FileType go Shortcut GoRefactor nmap <LocalLeader>re :Refactor extract
-au FileType go Shortcut Go run tab nmap <LocalLeader>rt <Plug>(go-run-tab)
-au FileType go Shortcut go run split nmap <LocalLeader>rs <Plug>(go-run-split)
-au FileType go Shortcut go run vertical nmap <LocalLeader>rv <Plug>(go-run-vertical)
+au FileType go Shortcut GoRefactor nmap <LocalLeader>e :Refactor extract
+au FileType go Shortcut Go run tab nmap <LocalLeader>st <Plug>(go-run-tab)
+au FileType go Shortcut go run split nmap <LocalLeader>sp <Plug>(go-run-split)
+au FileType go Shortcut go run vertical nmap <LocalLeader>vs <Plug>(go-run-vertical)
 au FileType go Shortcut GoAlternate nmap <LocalLeader>. :GoAlternate<CR>
 au FileType go Shortcut GoTestFunc nmap <LocalLeader>T :GoTestFunc
 au FileType go Shortcut GoTest nmap <LocalLeader>t :GoTest
-au FileType go Shortcut GoReferrers nmap <LocalLeader>rf :GoReferrers<CR>
+au FileType go Shortcut GoReferrers nmap <LocalLeader>r :GoReferrers<CR>
 au FileType go Shortcut GoReferrers nmap gr :GoReferrers<CR>
 au FileType go Shortcut GoChannelPeers nmap <LocalLeader>p :GoChannelPeers<CR>
 au FileType go Shortcut GoDef nmap <LocalLeader>d :GoDef<CR>
