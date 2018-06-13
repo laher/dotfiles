@@ -28,8 +28,9 @@ function k {
 }
 
 function kgp {
-  clicache -del kubectl --context=$1 get pod ${@:2}
-  clicache kubectl --context=$1 get pod ${@:2}
+  #clicache -del kubectl --context=$1 get pod ${@:2}
+  #clicache 
+  kubectl --context=$1 get pod ${@:2}
 }
 
 function kga {
