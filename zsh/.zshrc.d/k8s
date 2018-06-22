@@ -66,4 +66,6 @@ function kpf {
   kubectl --context=$1 port-forward ${@:2}
 }
 
-
+function kp {
+  kubectl --context=$1 patch deployment $2 -p "{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"redeployTimestamp\": \"$(date -u -R)\"}}}}}"
+}
