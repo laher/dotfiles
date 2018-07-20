@@ -12,6 +12,8 @@ Plug 'junkblocker/patchreview-vim'
 Plug 'codegram/vim-codereview'
 Plug 'ryanoasis/vim-devicons'
 
+Plug 'will133/vim-dirdiff'
+
 """ show buffers
 Plug 'junegunn/vim-peekaboo'
 

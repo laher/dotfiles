@@ -46,6 +46,7 @@ Shortcut swoop multi selection
 
 
 imap jk <Esc>
+imap kj <Esc>
 
 "sudo write current buffer:
 command Sw w !sudo tee % > /dev/null
