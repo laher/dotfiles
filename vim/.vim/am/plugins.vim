@@ -107,6 +107,8 @@ Plug 'diepm/vim-rest-console'
 " calendar
 Plug 'itchyny/calendar.vim'
 
+" typing
+Plug 'thanthese/Tortoise-Typing'
 
 """ Completion
 if !has('nvim')
