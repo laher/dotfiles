@@ -8,29 +8,29 @@ function kb {
      kubectl --context=$context scale --replicas=0 deployment/$i
      kubectl --context=$context scale --replicas=1 deployment/$i
   done
-  clicache -del kubectl --context=$context get pod --no-headers
+  #clicache -del kubectl --context=$context get pod --no-headers
 }
 
 function ki {
   #clicache kubectl --context=$1 get pod -l "app=$2" --no-headers | cut -d ' ' -f1
   echo -n "$1 "
-  clicache kubectl --context=$1 get pod --no-headers | grep $2 | head -1| cut -d ' ' -f1
+  kubectl --context=$1 get pod --no-headers | grep $2 | head -1| cut -d ' ' -f1
 }
 
 function kcc {
   rm -rf ~/.cache/clicache/*
-  #clicache -del kubectl --context=$1 get pod
-  #clicache -del kubectl --context=$1 get pod --no-headers
 }
 
 function k {
   kubectl --context=$1 ${@:2}
 }
 
-function kgp {
-  #clicache -del kubectl --context=$1 get pod ${@:2}
-  #clicache 
+function kp {
   kubectl --context=$1 get pod ${@:2}
+}
+
+function kpn {
+  kubectl --context=$1 get pod -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' ${@:2}
 }
 
 function kga {
