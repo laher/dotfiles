@@ -28,6 +28,7 @@ function k {
 function kpg {
   kubectl --context=$1 get pod ${@:2}
 }
+alias kgp=kpg
 
 function kpn {
   kubectl --context=$1 get pod -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' ${@:2}
