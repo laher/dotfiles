@@ -1,4 +1,5 @@
 #!/usr/bin/zsh
+PATH="$PATH:$HOME/go/bin"
 
 function cover {
   local t=$(mktemp -t cover)
