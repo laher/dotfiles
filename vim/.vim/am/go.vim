@@ -11,8 +11,10 @@ let g:go_list_type = "quickfix"
 let g:go_addtags_transform = "camelcase"
 
 let g:go_auto_type_info = 1
+let g:go_updatetime = 5000
 let g:go_info_mode = 'gocode'
- 
+let g:go_auto_sameids = 1 
+
 " vim-go
 augroup vg
 "au FileType go nmap <LocalLeader>b :GoBuild<CR>
