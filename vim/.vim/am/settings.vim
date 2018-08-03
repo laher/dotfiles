@@ -48,6 +48,15 @@ if !has('nvim')
 endif
 
 let g:deoplete#enable_at_startup = 1
+set completeopt+=noinsert
+inoremap <silent><CR> <C-R>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+    if (pumvisible())
+        return deoplete#close_popup()
+    else
+        return "\<CR>"
+    endif
+endfunction
 
 "" autocmd BufWritePost *.org execute '!emacs ' + expand(<afile>) + '--batch -f org-html-export-to-html -kill'
 autocmd BufWritePost *.org silent! !emacs <afile> --batch -f org-html-export-to-html -kill 2> /dev/null
