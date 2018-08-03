@@ -49,6 +49,7 @@ endif
 
 let g:deoplete#enable_at_startup = 1
 set completeopt+=noinsert
+autocmd CompleteDone * silent! pclose!
 inoremap <silent><CR> <C-R>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
     if (pumvisible())
