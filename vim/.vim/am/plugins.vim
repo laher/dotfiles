@@ -48,6 +48,7 @@ Plug 'markbiek/phpLint.vim'
 Plug 'gabrielelana/vim-markdown'
 """ OMG Scala
 Plug 'derekwyatt/vim-scala'
+Plug 'wannesm/wmgraphviz.vim'
 
 Plug 'kyuhi/vim-emoji-complete'
 
