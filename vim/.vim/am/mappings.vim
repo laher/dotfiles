@@ -69,3 +69,5 @@ nmap ga <Plug>(place-insert)
 " au FileType dotoo iabbrev ** • 
 "
 au FileType dotoo Shortcut new headline nnoremap <LocalLeader>b i*<Space>
+
+nmap <CR> o<Esc>

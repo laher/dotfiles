@@ -136,3 +136,4 @@ let g:lightline = {
 " ^set autowrite
 
 let g:WMGraphviz_output = "svg"
+let g:WMGraphviz_viewer = "google-chrome"

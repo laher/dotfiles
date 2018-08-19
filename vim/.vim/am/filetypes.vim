@@ -24,3 +24,5 @@ au BufRead,BufNewFile *.smoosh set filetype=smoosh
 au BufRead,BufNewFile *.smoosh set syntax=smoosh
 autocmd FileType smoosh setlocal commentstring="# %s"
 autocmd FileType smoosh setlocal shiftwidth=2 tabstop=2 expandtab
+
+autocmd FileType dot autocmd BufWritePre <buffer> :GraphvizCompile
