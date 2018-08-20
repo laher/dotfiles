@@ -40,6 +40,7 @@ Plug 'w0rp/ale' "syntax & linting
 "Plug 'scrooloose/syntastic'
 
 """ Other languages
+Plug 'sheerun/vim-polyglot'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}  """ condensed html
 Plug 'burnettk/vim-angular'
 Plug 'ternjs/tern_for_vim'
