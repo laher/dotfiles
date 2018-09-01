@@ -53,6 +53,7 @@ Plug 'derekwyatt/vim-scala'
 Plug 'wannesm/wmgraphviz.vim'
 
 Plug 'kyuhi/vim-emoji-complete'
+Plug 'christianrondeau/vim-base64'
 
 """ org-mode-ish
 "" Plug 'jceb/vim-orgmode'
