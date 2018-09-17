@@ -48,6 +48,8 @@ Plug 'ternjs/tern_for_vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'markbiek/phpLint.vim'
 Plug 'gabrielelana/vim-markdown'
+Plug 'mzlogin/vim-markdown-toc'
+
 """ OMG Scala
 Plug 'derekwyatt/vim-scala'
 Plug 'wannesm/wmgraphviz.vim'
