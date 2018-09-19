@@ -1,31 +1,25 @@
 call plug#begin('~/.vim/plugged')
 
+Plug 'Shougo/denite.nvim' " I think this is a dependency for something. Can't remember but leaving it near the top
+
 " Git support
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
-Plug 'tpope/vim-rhubarb'
-Plug 'airblade/vim-gitgutter'
-Plug 'jreybert/vimagit'
-Plug 'gregsexton/gitv', {'on': ['Gitv']}
-Plug 'Shougo/denite.nvim'
-Plug 'junkblocker/patchreview-vim'
-Plug 'codegram/vim-codereview'
-Plug 'ryanoasis/vim-devicons'
+Plug 'tpope/vim-fugitive' " The git things
+Plug 'tpope/vim-rhubarb' " :Gbrowse, hub
+Plug 'airblade/vim-gitgutter' " +/-/~ signs in the gutter
+Plug 'jreybert/vimagit' " Magit in vim
+Plug 'gregsexton/gitv', {'on': ['Gitv']} " :Gitv is a bit like tig
+Plug 'junkblocker/patchreview-vim' " Dependency for vim-codereview
+Plug 'codegram/vim-codereview' " Use :CodeReview https://github.com/myorganization/myrepo/pulls/1328
+Plug 'idanarye/vim-merginal' " view/switch branches with :Merginal
 
 Plug 'will133/vim-dirdiff'
 
-""" show buffers
-Plug 'junegunn/vim-peekaboo'
+Plug 'junegunn/vim-peekaboo' " show buffers
 
-""" deal with swap files
-Plug 'gioele/vim-autoswap'
-
-" plugin from http://vim-scripts.org/vim/scripts.html
-"Plug 'L9'
+Plug 'gioele/vim-autoswap' " deal with swap files
 
 
-""" insertions with ga (non-cursor)
-Plug 'joereynolds/place.vim'
+Plug 'joereynolds/place.vim' " insertions with ga (non-cursor)
 
 """ Go
 Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoUpdateBinaries' }
@@ -37,7 +31,6 @@ Plug 'buoto/gotests-vim'
 Plug 'FooSoft/vim-argwrap' " Wrap a paremeter list accross multiple lines
 Plug 'majutsushi/tagbar' " 'Outline' of current file
 Plug 'w0rp/ale' "syntax & linting
-"Plug 'scrooloose/syntastic'
 
 """ Other languages
 Plug 'sheerun/vim-polyglot'
@@ -82,6 +75,7 @@ Plug 'tpope/vim-tbone'
 Plug 'ctrlpvim/ctrlp.vim' " Find files faster by name
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " Find within files
+Plug 'ryanoasis/vim-devicons' " icons for NERDTree etc
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'pelodelfuego/vim-swoop' " replace across files typa thing
@@ -141,7 +135,8 @@ endif
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-Plug 'osyo-manga/vim-over' " show preview of commands
+" buggy? jumpy text
+" Plug 'osyo-manga/vim-over' " show preview of commands
 
 " All of your Plugs must be added before the following line
 call plug#end()
