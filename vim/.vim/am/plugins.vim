@@ -33,7 +33,7 @@ Plug 'majutsushi/tagbar' " 'Outline' of current file
 Plug 'w0rp/ale' "syntax & linting
 
 """ Other languages
-Plug 'sheerun/vim-polyglot'
+"Plug 'sheerun/vim-polyglot'
 Plug 'rust-lang/rust.vim'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}  """ condensed html
 Plug 'burnettk/vim-angular'
