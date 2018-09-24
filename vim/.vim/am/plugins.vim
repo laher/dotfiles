@@ -51,9 +51,7 @@ Plug 'kyuhi/vim-emoji-complete'
 Plug 'christianrondeau/vim-base64'
 
 """ org-mode-ish
-"" Plug 'jceb/vim-orgmode'
 Plug 'dhruvasagar/vim-dotoo'
-"Plug 'mattn/calendar-vim'
 
 """ tmux
 Plug 'christoomey/vim-tmux-navigator'
