@@ -1,0 +1,25 @@
+#!/bin/bash
+
+function dockillall {
+	# Deliberate word-splitting
+	# shellcheck disable=SC2046
+	docker stop $(docker ps -q)
+}
+
+function dockermall {
+	# Deliberate word-splitting
+	# shellcheck disable=SC2046
+	docker rm $(docker ps -a -q)
+}
+
+function dcd {
+	docker-compose down
+}
+
+function dcdv {
+	docker-compose down -v
+}
+
+function dcrt {
+	docker-compose run test
+}
