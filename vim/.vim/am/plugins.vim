@@ -79,6 +79,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'pelodelfuego/vim-swoop' " replace across files typa thing
 " Plug 'vim-ctrlspace/vim-ctrlspace' "not really using this megabeast
 Plug 'sunaku/vim-shortcut' "searchable key mappings
+Plug 'haya14busa/incsearch.vim'
 
 """ text objects and editing
 Plug 'kana/vim-textobj-user'

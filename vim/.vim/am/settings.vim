@@ -137,3 +137,9 @@ let g:lightline = {
 
 let g:WMGraphviz_output = "svg"
 let g:WMGraphviz_viewer = "google-chrome"
+
+
+""" incsearch
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
