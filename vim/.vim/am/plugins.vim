@@ -90,6 +90,7 @@ Plug 'bkad/CamelCaseMotion'
 Plug 'glts/vim-textobj-comment'
 "Plug 'jiangmiao/auto-pairs'
 Plug 'jeetsukumaran/vim-indentwise'
+Plug 'AndrewRadev/splitjoin.vim'
 
 """ Appearance and layout
 Plug 'ap/vim-buftabline' " tabs across top
