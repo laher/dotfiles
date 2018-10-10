@@ -8,7 +8,7 @@ autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType json setlocal shiftwidth=2 tabstop=2 expandtab
 "autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
 autocmd FileType html setlocal shiftwidth=2 tabstop=2 expandtab
-autocmd FileType php setlocal shiftwidth=4 tabstop=4 expandtab
+autocmd FileType php setlocal shiftwidth=4 tabstop=4 noexpandtab
 autocmd FileType css setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType yml setlocal shiftwidth=2 tabstop=2 expandtab
