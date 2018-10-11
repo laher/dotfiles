@@ -73,6 +73,7 @@ Plug 'tpope/vim-abolish'           " Flexible search
 Plug 'tpope/vim-jdaddy'            " JSON text object
 Plug 'tpope/vim-obsession'         " Continuously save buffer state
 Plug 'tpope/vim-tbone'
+Plug 'tpope/vim-sleuth'            " tab/space detection per-file
 
 """ navigation and fuzzy
 "Plug 'ctrlpvim/ctrlp.vim' " Find files faster by name
