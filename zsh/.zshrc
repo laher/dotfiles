@@ -131,3 +131,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # added by travis gem
 [ -f /home/am/.travis/travis.sh ] && source /home/am/.travis/travis.sh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
