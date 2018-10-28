@@ -51,6 +51,11 @@ function kx {
   kubectl --context=$1 exec -it $2 -- ${@:3}
 }
 
+
+function ksh {
+  kubectl --context=$1 exec -it $2 -- sh ${@:3}
+}
+
 function kl {
   kubectl --context=$1 log ${@:2}
 }
