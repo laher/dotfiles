@@ -42,6 +42,7 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'markbiek/phpLint.vim'
 Plug 'gabrielelana/vim-markdown'
 Plug 'mzlogin/vim-markdown-toc'
+Plug 'JamshedVesuna/vim-markdown-preview'
 
 """ OMG Scala
 Plug 'derekwyatt/vim-scala'
@@ -70,7 +71,7 @@ Plug 'tpope/vim-obsession'         " Continuously save buffer state
 Plug 'tpope/vim-tbone'
 
 """ navigation and fuzzy
-Plug 'ctrlpvim/ctrlp.vim' " Find files faster by name
+"Plug 'ctrlpvim/ctrlp.vim' " Find files faster by name
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " Find within files
 Plug 'ryanoasis/vim-devicons' " icons for NERDTree etc
