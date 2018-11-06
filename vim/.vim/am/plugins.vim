@@ -44,6 +44,7 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'prettier/vim-prettier'
 
 Plug 'markbiek/phpLint.vim'
+
 Plug 'gabrielelana/vim-markdown'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'JamshedVesuna/vim-markdown-preview'
@@ -57,6 +58,7 @@ Plug 'christianrondeau/vim-base64'
 
 """ org-mode-ish
 Plug 'dhruvasagar/vim-dotoo'
+Plug 'blindFS/vim-taskwarrior'
 
 """ tmux
 Plug 'christoomey/vim-tmux-navigator'
