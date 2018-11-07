@@ -35,10 +35,14 @@ Plug 'w0rp/ale' "syntax & linting
 """ Other languages
 "Plug 'sheerun/vim-polyglot'
 Plug 'rust-lang/rust.vim'
+
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}  """ condensed html
+
 Plug 'burnettk/vim-angular'
 Plug 'ternjs/tern_for_vim'
 Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'prettier/vim-prettier'
+
 Plug 'markbiek/phpLint.vim'
 Plug 'gabrielelana/vim-markdown'
 Plug 'mzlogin/vim-markdown-toc'
