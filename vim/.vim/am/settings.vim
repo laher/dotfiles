@@ -59,9 +59,6 @@ function! s:my_cr_function()
     endif
 endfunction
 
-"" autocmd BufWritePost *.org execute '!emacs ' + expand(<afile>) + '--batch -f org-html-export-to-html -kill'
-autocmd BufWritePost *.org silent! !emacs <afile> --batch -f org-html-export-to-html -kill 2> /dev/null
-
 if has('nvim')
 	autocmd BufEnter * if &buftype == "terminal" | startinsert | endif
 	tnoremap <Esc> <C-\><C-n>
@@ -143,3 +140,39 @@ let g:WMGraphviz_viewer = "google-chrome"
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+
+
+
+" plugin-specific settings
+
+
+" Start NERDTree when no files specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd BufEnter * NERDTreeMirror
+autocmd VimEnter * wincmd w
+
+let g:UltiSnipsExpandTrigger="<Leader>'"
+let g:UltiSnipsJumpForwardTrigger="<Leader>'"
+let g:UltiSnipsJumpBackwardTrigger="<Leader>\""
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+"let g:UltiSnipsSnippetsDir='mysnippets'
+"let g:UltiSnipsSnippetDirectories=['~/.vimsnippets']
+
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_save = 1
+let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
+
+" ctrlp
+let g:CtrlSpaceDefaultMappingKey = "<C-Space> "
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+           
+let g:over_enable_cmd_window = 1 " vim-over
+let g:over_enable_auto_nohlsearch = 1
+
+let g:used_javascript_libs = 'angularjs,angularui'
+let g:argwrap_tail_comma = 1
+
