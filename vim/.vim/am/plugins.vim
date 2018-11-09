@@ -30,6 +30,7 @@ Plug 'buoto/gotests-vim'
 """ related to go but not specific
 Plug 'FooSoft/vim-argwrap' " Wrap a paremeter list accross multiple lines
 Plug 'majutsushi/tagbar' " 'Outline' of current file
+Plug 'lvht/tagbar-markdown'
 Plug 'w0rp/ale' "syntax & linting
 
 """ Other languages

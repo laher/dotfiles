@@ -70,7 +70,8 @@ nmap ga <Plug>(place-insert)
 "
 au FileType dotoo Shortcut new headline nnoremap <LocalLeader>b i*<Space>
 
-nmap <CR> o<Esc>
+" disabled this line because it broke popups. Also I have no idea what it did
+"nmap <CR> o<Esc>
 
 au FileType rust nnoremap <LocalLeader>rf :%!rustfmt<CR>
 au FileType rust nnoremap <LocalLeader>rr :CargoRun<CR>
