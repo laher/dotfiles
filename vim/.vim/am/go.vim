@@ -40,7 +40,7 @@ au FileType go Shortcut GoTest nmap <LocalLeader>t :GoTest
 au FileType go Shortcut GoReferrers nmap <LocalLeader>r :GoReferrers<CR>
 au FileType go Shortcut GoReferrers nmap gr :GoReferrers<CR>
 au FileType go Shortcut GoChannelPeers nmap <LocalLeader>p :GoChannelPeers<CR>
-au FileType go Shortcut GoDef nmap <LocalLeader>d :GoDef<CR>
+au FileType go Shortcut GoDef nmap <LocalLeader>f :GoDef<CR>
 au FileType go Shortcut GoInfo nmap <LocalLeader>k :GoInfo<CR>
 au FileType go Shortcut GoIfErr nnoremap <LocalLeader>e :GoIfErr<CR>
 

@@ -20,6 +20,7 @@ nnoremap <Leader>d "_d
 Shortcut Find in project nnoremap <Leader>e :Ag <c-r><c-w><CR>
 Shortcut NERDTreeToggle nnoremap <Leader>T :NERDTreeToggle<CR>
 Shortcut NERDTreeFind nnoremap <Leader>t :NERDTreeFind<CR>
+Shortcut NERDTreeFind nnoremap <Leader>t :NERDTreeFind<CR>
 
 func IsNERDTreeOpen()
     return exists('t:NERDTreeBufName') && bufwinnr(t:NERDTreeBufName) != -1
@@ -75,3 +76,6 @@ au FileType dotoo Shortcut new headline nnoremap <LocalLeader>b i*<Space>
 
 au FileType rust nnoremap <LocalLeader>rf :%!rustfmt<CR>
 au FileType rust nnoremap <LocalLeader>rr :CargoRun<CR>
+
+
+au FileType markdown nmap <LocalLeader>t i## <C-R>=strftime("%Y-%m-%d")<CR><CR> * 
