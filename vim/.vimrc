@@ -3,7 +3,7 @@ filetype off                  " required
 
 if filereadable(expand("~/.vimrc.experiment")) " try
   source ~/.vimrc.experiment
-elseif filereadable(expand("~/.vim/am/plugins.vim")) " New
+elseif filereadable(expand("~/.vim/am/plugins.vim")) " Usual
   source ~/.vim/am/plugins.vim
   source ~/.vim/am/syntax.vim
   source ~/.vim/am/settings.vim
@@ -12,6 +12,7 @@ elseif filereadable(expand("~/.vim/am/plugins.vim")) " New
   source ~/.vim/am/abbreviations.vim
   source ~/.vim/am/mappings.vim
   source ~/.vim/am/go.vim
+  source ~/.vim/am/js.vim
   source ~/.vim/am/scala.vim
 endif
 

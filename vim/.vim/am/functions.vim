@@ -8,12 +8,10 @@ function! ExecuteMacroOverVisualRange()
 endfunction
 
 
-
+" copy current file's path to clipboard
 nnoremap <Leader>% :<C-u>call <SID>copy_path()<CR>
 function! s:copy_path()
-  let @*=expand('%')
-  let @"=expand('%')
-  let @+=expand('%')
+  let @+ = expand('%:p')
 endfunction 
 
 " https://medium.com/@garoth/neovim-terminal-usecases-tricks-8961e5ac19b9
