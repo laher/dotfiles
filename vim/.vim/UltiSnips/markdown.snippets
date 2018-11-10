@@ -4,8 +4,18 @@ $1
 `!v repeat(nr2char(96),3)`
 endsnippet
 
-snippet new
+snippet now
 # ${1:`date +%Y-%m-%d`}
+ * Updates:
+   - $2
+ * Planning:
+   - $3
+ * Recent Events:
+   - $4
+endsnippet
+
+snippet next
+# ${1:`date -d 'next monday' +%Y-%m-%d`}
  * Updates:
    - $2
  * Planning:
