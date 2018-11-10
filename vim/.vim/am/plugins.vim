@@ -63,9 +63,9 @@ Plug 'blindFS/vim-taskwarrior'
 
 """ tmux
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'benmills/vimux'
-Plug 'benmills/vimux-golang'
-
+" Plug 'benmills/vimux'
+" Plug 'benmills/vimux-golang'
+Plug 'christoomey/vim-tmux-runner'
 
 """ tpope
 Plug 'tpope/vim-surround'          " Operate on surrounding 
@@ -115,6 +115,7 @@ Plug 'diepm/vim-rest-console' " Rest console
 Plug 'itchyny/calendar.vim' " calendar
 Plug 'thanthese/Tortoise-Typing' " typing
 Plug 'chemzqm/todoapp.vim' " todo
+Plug 'jacobsimpson/nvim-example-python-plugin' " ooh, lets try
 
 """ Completion
 if !has('nvim')
