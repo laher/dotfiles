@@ -80,4 +80,7 @@ au FileType rust nnoremap <LocalLeader>rr :CargoRun<CR>
 
 au FileType markdown nmap <LocalLeader>t i## <C-R>=strftime("%Y-%m-%d")<CR><CR> * 
 
-
+" my functions
+nnoremap <Leader>[ :call Todo()<CR>
+nnoremap <Leader>% :<C-u>call <SID>copy_path()<CR>
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
