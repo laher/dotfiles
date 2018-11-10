@@ -4,8 +4,9 @@ function uk2nz {
 }
 
 function nz2uk {
-#	if [ "$1" eq "" ];
-#		1=`date --format="%H:%m"`
-#	fi
-	TZ=Europe/London date -d "$1 NZDT"
+	d="$1"
+	if [ "$d" = "" ]; then
+		d=`date +'%H:%M'`
+	fi
+	TZ=Europe/London date -d "$d NZDT"
 }
