@@ -7,12 +7,19 @@ function! ExecuteMacroOverVisualRange()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
+" try a thing
+function! s:inp()
+  "let target = input('Enter target')
+  execute ":put x"
+  ".target
+endfunction
+nnoremap <Leader>, :<C-u>call <SID>inp()<CR>
 
 " copy current file's path to clipboard
-nnoremap <Leader>% :<C-u>call <SID>copy_path()<CR>
 function! s:copy_path()
   let @+ = expand('%:p')
 endfunction 
+nnoremap <Leader>% :<C-u>call <SID>copy_path()<CR>
 
 " https://medium.com/@garoth/neovim-terminal-usecases-tricks-8961e5ac19b9
 " Workspace Setup
