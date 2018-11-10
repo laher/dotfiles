@@ -162,7 +162,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
-let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
+let g:ale_fixers = {'javascript': ['prettier', 'eslint', 'flow']}
 
 " ctrlp
 let g:CtrlSpaceDefaultMappingKey = "<C-Space> "

@@ -21,17 +21,22 @@ Plug 'gioele/vim-autoswap' " deal with swap files
 
 Plug 'joereynolds/place.vim' " insertions with ga (non-cursor)
 
+""" Completion
+Plug 'Shougo/deoplete.nvim' , { 'do': ':UpdateRemotePlugins' }
+
 """ Go
-Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'tag': '*' } " , 'do': ':GoUpdateBinaries' }
 Plug 'godoctor/godoctor.vim'
 Plug 'nsf/gocode', {'rtp': 'nvim/'}
 Plug 'buoto/gotests-vim'
+Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
 
 """ related to go but not specific
 Plug 'FooSoft/vim-argwrap' " Wrap a paremeter list accross multiple lines
 Plug 'majutsushi/tagbar' " 'Outline' of current file
 Plug 'lvht/tagbar-markdown'
 Plug 'w0rp/ale' "syntax & linting
+
 
 """ Other languages
 "Plug 'sheerun/vim-polyglot'
@@ -43,6 +48,11 @@ Plug 'burnettk/vim-angular'
 Plug 'ternjs/tern_for_vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'prettier/vim-prettier'
+"Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+"Plug 'wokalski/autocomplete-flow'
+"Plug 'steelsojka/deoplete-flow'
+Plug 'carlitux/deoplete-flow'
+
 
 Plug 'markbiek/phpLint.vim'
 
@@ -126,9 +136,6 @@ if !has('nvim')
 endif
 if has('nvim')
 	Plug 'jodosha/vim-godebug'
-	Plug 'Shougo/deoplete.nvim' , { 'do': ':UpdateRemotePlugins' }
-	Plug 'carlitux/deoplete-ternjs'
-	Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
 
 	"gonvim
 	Plug 'equalsraf/neovim-gui-shim'
@@ -141,6 +148,9 @@ endif
 """ snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+" You will also need the following for function argument completion:
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 
 " buggy? jumpy text
 " Plug 'osyo-manga/vim-over' " show preview of commands

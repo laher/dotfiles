@@ -14,3 +14,12 @@ autocmd FileType css setlocal shiftwidth=2 tabstop=2 expandtab
 augroup yellowui
   au! BufWritePre ~/**/yellow-ui/**/*.js :Prettier
 augroup END
+
+
+" Use tern_for_vim.
+let g:tern#command = ["/usr/bin/tern"]
+let g:tern#arguments = ["--persistent"]
+
+" let g:deoplete#sources#ternjs#tern_bin = '/usr/bin/tern'
+" let g:deoplete#sources#ternjs#timeout = 1
+let g:neosnippet#enable_completed_snippet = 1

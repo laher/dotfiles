@@ -84,3 +84,6 @@ au FileType markdown nmap <LocalLeader>t i## <C-R>=strftime("%Y-%m-%d")<CR><CR> 
 nnoremap <Leader>[ :call Todo()<CR>
 nnoremap <Leader>% :<C-u>call <SID>copy_path()<CR>
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
