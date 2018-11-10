@@ -12,8 +12,22 @@ function! s:inp()
   "let target = input('Enter target')
   execute ":put x"
   ".target
+  " confirm(""[,choices[,default[,type]]])
 endfunction
 nnoremap <Leader>, :<C-u>call <SID>inp()<CR>
+
+function! Todo()
+  vsplit ~/o/inbox.md
+  execute 1
+  "let curline = getline('.')
+  call inputsave()
+  let name = input('Enter todo: ')
+  call inputrestore()
+  "call setline('.', curline . ' ' . name)
+  execute insert name
+endfunction
+
+nnoremap <Leader>; :<C-u>call Todo()<CR>
 
 " copy current file's path to clipboard
 function! s:copy_path()

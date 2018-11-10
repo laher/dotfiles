@@ -110,14 +110,11 @@ Plug 'fxn/vim-monochrome' " theme
 Plug 'kcsongor/vim-monochrome-light' " theme
 Plug 'itchyny/vim-cursorword' " underline word under cursor
 
-" Rest console
-Plug 'diepm/vim-rest-console'
-
-" calendar
-Plug 'itchyny/calendar.vim'
-
-" typing
-Plug 'thanthese/Tortoise-Typing'
+""" Apps
+Plug 'diepm/vim-rest-console' " Rest console
+Plug 'itchyny/calendar.vim' " calendar
+Plug 'thanthese/Tortoise-Typing' " typing
+Plug 'chemzqm/todoapp.vim' " todo
 
 """ Completion
 if !has('nvim')

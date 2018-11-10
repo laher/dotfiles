@@ -79,3 +79,5 @@ au FileType rust nnoremap <LocalLeader>rr :CargoRun<CR>
 
 
 au FileType markdown nmap <LocalLeader>t i## <C-R>=strftime("%Y-%m-%d")<CR><CR> * 
+
+
