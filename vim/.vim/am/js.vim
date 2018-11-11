@@ -23,3 +23,5 @@ let g:tern#arguments = ["--persistent"]
 " let g:deoplete#sources#ternjs#tern_bin = '/usr/bin/tern'
 " let g:deoplete#sources#ternjs#timeout = 1
 let g:neosnippet#enable_completed_snippet = 1
+
+

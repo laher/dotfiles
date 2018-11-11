@@ -176,3 +176,17 @@ let g:over_enable_auto_nohlsearch = 1
 let g:used_javascript_libs = 'angularjs,angularui'
 let g:argwrap_tail_comma = 1
 
+" Language server
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['flow-language-server', '--stdio'],
+    \ 'go': ['go-langserver'],
+    \ 'json': ['vscode-json-languageservice'],
+    \ 'sh': ['bash-language-server', 'start'],
+    \ 'yaml': ['yaml-language-server'],
+    \ }

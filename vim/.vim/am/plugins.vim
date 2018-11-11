@@ -37,7 +37,10 @@ Plug 'majutsushi/tagbar' " 'Outline' of current file
 Plug 'lvht/tagbar-markdown'
 Plug 'w0rp/ale' "syntax & linting
 
-
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 """ Other languages
 "Plug 'sheerun/vim-polyglot'
 Plug 'rust-lang/rust.vim'
