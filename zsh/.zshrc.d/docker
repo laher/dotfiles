@@ -12,6 +12,10 @@ function dockermall {
 	docker rm $(docker ps -a -q)
 }
 
+function dc {
+	docker-compose "$@"
+}
+
 function dcd {
 	docker-compose down
 }

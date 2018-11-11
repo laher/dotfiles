@@ -130,7 +130,7 @@ Plug 'diepm/vim-rest-console' " Rest console
 Plug 'itchyny/calendar.vim' " calendar
 Plug 'thanthese/Tortoise-Typing' " typing
 Plug 'chemzqm/todoapp.vim' " todo
-Plug 'jacobsimpson/nvim-example-python-plugin' " ooh, lets try
+" Plug 'jacobsimpson/nvim-example-python-plugin' " ooh, lets try
 
 """ Completion
 if !has('nvim')
