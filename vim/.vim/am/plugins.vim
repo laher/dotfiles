@@ -12,7 +12,7 @@ Plug 'junkblocker/patchreview-vim' " Dependency for vim-codereview
 Plug 'codegram/vim-codereview' " Use :CodeReview https://github.com/myorganization/myrepo/pulls/1328
 Plug 'idanarye/vim-merginal' " view/switch branches with :Merginal
 
-Plug 'will133/vim-dirdiff'
+Plug 'will133/vim-dirdiff' " diff
 
 Plug 'junegunn/vim-peekaboo' " show buffers
 
@@ -49,6 +49,7 @@ Plug 'ternjs/tern_for_vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'prettier/vim-prettier'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'flowtype/vim-flow'
 "Plug 'wokalski/autocomplete-flow'
 "Plug 'steelsojka/deoplete-flow'
 "Plug 'carlitux/deoplete-flow'
