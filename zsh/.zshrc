@@ -95,11 +95,10 @@ if [[ -d ~/.zshrc.d ]]; then
 	done
 fi
 
-if [ -d ~/.zshrc.local.d ]; then
-    for f in ~/.zshrc.local.d/*(N); do
+if [ -d ~/.zshrc.movio.d ]; then
+    for f in ~/.zshrc.movio.d/*(N); do
 	source $f
     done
-
 fi
 
 if [ -f ~/.aliases ]; then
