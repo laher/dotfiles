@@ -48,10 +48,10 @@ Plug 'burnettk/vim-angular'
 Plug 'ternjs/tern_for_vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'prettier/vim-prettier'
-"Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 "Plug 'wokalski/autocomplete-flow'
 "Plug 'steelsojka/deoplete-flow'
-Plug 'carlitux/deoplete-flow'
+"Plug 'carlitux/deoplete-flow'
 
 
 Plug 'markbiek/phpLint.vim'
