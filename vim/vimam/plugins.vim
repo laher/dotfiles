@@ -63,6 +63,7 @@ Plug 'markbiek/phpLint.vim'
 Plug 'gabrielelana/vim-markdown'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'jkramer/vim-checkbox'
 
 """ OMG Scala
 Plug 'derekwyatt/vim-scala'

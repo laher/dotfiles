@@ -47,18 +47,6 @@ if !has('nvim')
 	set term=xterm-256color
 endif
 
-let g:deoplete#enable_at_startup = 1
-set completeopt+=noinsert
-autocmd CompleteDone * silent! pclose!
-inoremap <silent><CR> <C-R>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-    if (pumvisible())
-        return deoplete#close_popup()
-    else
-        return "\<CR>"
-    endif
-endfunction
-
 if has('nvim')
 	autocmd BufEnter * if &buftype == "terminal" | startinsert | endif
 	tnoremap <Esc> <C-\><C-n>
@@ -118,8 +106,13 @@ endif
 
 set backspace=indent,eol,start
 
+
 " restore cursor _except_ for commit messages
 autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif 
+
+
+" plugin-specific settings
+
 
 let g:place_single_character_mode = 0
 let g:calendar_google_calendar = 1
@@ -143,14 +136,15 @@ map g/ <Plug>(incsearch-stay)
 
 
 
-" plugin-specific settings
 
 
-" Start NERDTree when no files specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" autocmd BufEnter * NERDTreeMirror
-autocmd VimEnter * wincmd w
+if !exists('g:gui_oni')
+    " Start NERDTree when no files specified
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+    " autocmd BufEnter * NERDTreeMirror
+    autocmd VimEnter * wincmd w
+endif
 
 let g:UltiSnipsExpandTrigger="<Leader>'"
 let g:UltiSnipsJumpForwardTrigger="<Leader>'"
@@ -168,12 +162,14 @@ let g:ale_fixers = {'javascript': ['prettier', 'eslint', 'flow']}
 let g:CtrlSpaceDefaultMappingKey = "<C-Space> "
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-           
+
+if !exists('g:gui_oni')
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+endif       
 let g:over_enable_cmd_window = 1 " vim-over
 let g:over_enable_auto_nohlsearch = 1
 
-let g:used_javascript_libs = 'angularjs,angularui'
+" let g:used_javascript_libs = 'angularjs,angularui'
 let g:argwrap_tail_comma = 1
 
 " Language server
@@ -190,9 +186,19 @@ let g:LanguageClient_serverCommands = {
     \ 'sh': ['bash-language-server', 'start'],
     \ 'yaml': ['yaml-language-server'],
     \ }
-""" LSP servers:
-""" yarn global add flow-language-server
-""" npm i -g yaml-language-server
-""" npm i -g vscode-json-languageservice
-""" npm i -g bash-language-server 
-""" go get -u -v github.com/sourcegraph/go-langserver
+
+""" vim-checkbox plugin
+let g:checkbox_states = [' ', 'X']
+
+
+let g:deoplete#enable_at_startup = 1
+set completeopt+=noinsert
+autocmd CompleteDone * silent! pclose!
+inoremap <silent><CR> <C-R>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+    if (pumvisible())
+        return deoplete#close_popup()
+    else
+        return "\<CR>"
+    endif
+endfunction
