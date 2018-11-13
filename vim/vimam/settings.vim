@@ -136,14 +136,12 @@ map g/ <Plug>(incsearch-stay)
 
 
 
-
-
-if !exists('g:gui_oni')
+if !exists('g:gui_oni') && !exists('g:GuiLoaded')
     " Start NERDTree when no files specified
     autocmd StdinReadPre * let s:std_in=1
-    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
     " autocmd BufEnter * NERDTreeMirror
-    autocmd VimEnter * wincmd w
+"    autocmd VimEnter * wincmd w
 endif
 
 let g:UltiSnipsExpandTrigger="<Leader>'"

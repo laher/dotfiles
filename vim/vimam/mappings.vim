@@ -46,8 +46,8 @@ Shortcut swoop multi selection
  \ vmap <Leader>ml :call SwoopMultiSelection()<CR>
 
 
-imap jk <Esc>
-imap kj <Esc>
+Shortcut escape-jk imap jk <Esc>
+Shortcut escape-kj imap kj <Esc>
 
 "sudo write current buffer:
 command Sw w !sudo tee % > /dev/null
