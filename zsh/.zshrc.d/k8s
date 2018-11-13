@@ -22,7 +22,12 @@ function kcc {
 }
 
 function k {
-  kubectl --context=$1 ${@:2}
+  if [ "$1" = "d" ]; then
+    kubectl="kubectl-1.12.2"
+  else
+    kubectl="kubectl"
+  fi
+  $kubectl --context=$1 ${@:2}
 }
 
 function kpg {
