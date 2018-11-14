@@ -84,8 +84,9 @@ au FileType rust nnoremap <LocalLeader>rr :CargoRun<CR>
 
 au FileType markdown nmap <LocalLeader>t i## <C-R>=strftime("%Y-%m-%d")<CR><CR> * 
 
-" avoids 'delete replaces default buffer'
-nnoremap <Leader>p "0p  
+" avoids 'delete replaces default buffer' because 0 buffer contains 'last yank'
+Shortcut safepaste 
+ \ nnoremap <Leader>p "0p  
 
 " my functions
 nnoremap <Leader>[ :call Todo()<CR>
