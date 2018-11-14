@@ -12,7 +12,7 @@ function! Todo()
   let name = input('Enter todo: ')
   call inputrestore()
   "call setline('.', curline . ' ' . name)
-  call append(1, ' - ' . name)
+  call append(1, ' - [ ] ' . name)
   execute 2
 endfunction
 

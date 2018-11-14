@@ -154,8 +154,8 @@ endif
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 " You will also need the following for function argument completion:
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
+" Plug 'Shougo/neosnippet'
+" Plug 'Shougo/neosnippet-snippets'
 
 " buggy? jumpy text
 " Plug 'osyo-manga/vim-over' " show preview of commands

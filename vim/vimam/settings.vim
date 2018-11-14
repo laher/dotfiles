@@ -144,9 +144,6 @@ if !exists('g:gui_oni') && !exists('g:GuiLoaded')
 "    autocmd VimEnter * wincmd w
 endif
 
-let g:UltiSnipsExpandTrigger="<Leader>'"
-let g:UltiSnipsJumpForwardTrigger="<Leader>'"
-let g:UltiSnipsJumpBackwardTrigger="<Leader>\""
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 "let g:UltiSnipsSnippetsDir='mysnippets'
