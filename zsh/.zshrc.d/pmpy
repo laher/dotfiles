@@ -1,15 +1,13 @@
 #!/bin/bash
 
 function pmpy {
-	dir=${1:.}
-	pushd "$dir"
 	if git diff --quiet; then
 		git pull
 	else
 		git add .
-		git commit -m "pmpy $2"
+		git commit -m "pmpy"
 		git pull
 		git push
 	fi
-	popd
+	#popd
 }
