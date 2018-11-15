@@ -9,5 +9,4 @@ function pmpy {
 		git pull
 		git push
 	fi
-	#popd
 }
