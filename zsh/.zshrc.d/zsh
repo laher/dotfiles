@@ -49,25 +49,6 @@ function pcd { cd ${PWD%/$1/*}/$1; }
 
 function vimDirDiff { echo "Please wait while vim diffs the directories" args=$@ vim -f "+execute \"DirDiff $args\"" echo "vimDirDiff Done" }
 
-function _cdx {
-	dest=$1
-	if [ "$2" != "" ]; then
-		dest="$dest/$2"
-	fi
-	cd "$dest"
-}
-
-function cdd { 
-	_cdx ~/dotfiles $1
-}
-
-function cdo { 
-	_cdx ~/o $1
-}
-
-function cdp { 
-	_cdx ~/d/atm-php-docker/atm-php $1
-}
 
 # zsh-sticky-prefix
 

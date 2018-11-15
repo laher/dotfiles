@@ -1,0 +1,14 @@
+#!/bin/bash
+
+function pmpy {
+	pushd "$1"
+	if git diff; then
+		git pull
+	else
+		git add .
+		git commit -m "pmpy $2"
+		git pull
+		git push
+	fi
+	popd
+}
