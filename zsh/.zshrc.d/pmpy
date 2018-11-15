@@ -2,7 +2,7 @@
 
 function pmpy {
 	pushd "$1"
-	if git diff; then
+	if git diff --quiet; then
 		git pull
 	else
 		git add .
