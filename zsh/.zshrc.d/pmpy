@@ -1,7 +1,8 @@
 #!/bin/bash
 
 function pmpy {
-	pushd "$1"
+	dir=${1:.}
+	pushd "$dir"
 	if git diff --quiet; then
 		git pull
 	else
