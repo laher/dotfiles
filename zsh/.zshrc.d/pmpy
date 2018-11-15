@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# pullmepushyou
 function pmpy {
 	if git diff --quiet; then
 		git pull
