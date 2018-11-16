@@ -25,8 +25,8 @@ Plug 'joereynolds/place.vim' " insertions with ga (non-cursor)
 Plug 'Shougo/deoplete.nvim' , { 'do': ':UpdateRemotePlugins' }
 
 """ Go
-Plug 'fatih/vim-go', { 'tag': '*' } " , 'do': ':GoUpdateBinaries' }
-Plug 'godoctor/godoctor.vim'
+"Plug 'fatih/vim-go', { 'tag': '*' } " , 'do': ':GoUpdateBinaries' }
+"Plug 'godoctor/godoctor.vim'
 Plug 'nsf/gocode', {'rtp': 'nvim/'}
 Plug 'buoto/gotests-vim'
 Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
@@ -162,3 +162,5 @@ Plug 'honza/vim-snippets'
 
 " All of your Plugs must be added before the following line
 call plug#end()
+
+set runtimepath^=~/d/vim-go
