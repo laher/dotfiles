@@ -96,3 +96,4 @@ xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
+nmap <Leader>0 kd1GjdG
