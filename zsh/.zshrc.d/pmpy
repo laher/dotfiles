@@ -13,7 +13,7 @@ function pmpy {
 }
 
 function pmpy_all {
-	dirs=(~/dotfiles)
+	dirs=(~/dotfiles ~/movio-dotfiles)
 	for d in "${dirs[@]}"; do
 		pushd "$d"
 		pmpy
