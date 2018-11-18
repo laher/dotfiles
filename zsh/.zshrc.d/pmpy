@@ -11,3 +11,13 @@ function pmpy {
 		git push
 	fi
 }
+
+function pmpy_all {
+	dirs=(~/dotfiles)
+	for d in "${dirs[@]}"; do
+		pushd "$d"
+		pmpy
+		popd
+	done
+
+}
