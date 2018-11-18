@@ -2,6 +2,12 @@
 
 # pullmepushyou
 function pmpy {
+	d="$1"
+	if [ "$d" = "" ]; then
+		d="."
+	fi
+	echo "$d"
+	pushd "$d"
 	if git diff --quiet; then
 		git pull
 	else
@@ -10,14 +16,13 @@ function pmpy {
 		git pull
 		git push
 	fi
+	popd
 }
 
 function pmpy_all {
 	dirs=(~/dotfiles ~/movio-dotfiles)
 	for d in "${dirs[@]}"; do
-		pushd "$d"
-		pmpy
-		popd
+		pmpy "$d"
 	done
 
 }
