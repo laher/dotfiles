@@ -10,6 +10,7 @@ function pmpy {
 	pushd "$d"
 	if git diff --quiet; then
 		git pull
+		git push
 	else
 		git add .
 		git commit -m "pmpy"
