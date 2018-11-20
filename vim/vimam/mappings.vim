@@ -89,7 +89,8 @@ Shortcut safepaste
  \ nnoremap <Leader>p "0p  
 
 " my functions
-nnoremap <Leader>[ :call Todo()<CR>
+nnoremap <Leader>[ :call TodoPrompt()<CR>
+nnoremap <Leader>] :call TodoSplit()<CR>
 nnoremap <Leader>% :<C-u>call <SID>copy_path()<CR>
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 

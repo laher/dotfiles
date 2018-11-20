@@ -5,13 +5,22 @@ function! ExecuteMacroOverVisualRange()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
-function! Todo()
-  vsplit ~/o/inbox.md
+function! TodoPrompt()
+  split ~/o/inbox.md
   call inputsave()
   let name = input('Enter todo: ')
   call inputrestore()
   " insert a new todo on second line
   call append(1, ' - [ ] ' . name)
+  " go to second line
+  hide
+endfunction
+
+function! TodoSplit()
+  split ~/o/inbox.md
+  resize 5
+  " insert a new todo on second line
+  call append(1, ' - [ ] ')
   " go to second line
   execute 2
   " enter insert mode at end of line
