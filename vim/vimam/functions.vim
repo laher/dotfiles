@@ -33,6 +33,12 @@ function! TodoSplit()
   call feedkeys('A')
 endfunction
 
+" todo-todos
+" Find heading
+" Refile
+" Tagging
+" 
+
 " copy current file's path to clipboard
 function! s:copy_path()
   let @+ = expand('%:p')
