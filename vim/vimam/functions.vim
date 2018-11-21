@@ -6,19 +6,25 @@ function! ExecuteMacroOverVisualRange()
 endfunction
 
 function! TodoPrompt()
-  split ~/o/inbox.md
+  let curfile = @%
+  if curfile != 'inbox.md'
+    split ~/o/inbox.md
+  endif
   call inputsave()
   let name = input('Enter todo: ')
   call inputrestore()
   " insert a new todo on second line
   call append(1, ' - [ ] ' . name)
-  " go to second line
-  hide
+  if curfile != 'inbox.md'
+    hide
+  endif
 endfunction
 
 function! TodoSplit()
-  split ~/o/inbox.md
-  resize 5
+  if @% != 'inbox.md'
+    split ~/o/inbox.md
+    resize 5
+  endif
   " insert a new todo on second line
   call append(1, ' - [ ] ')
   " go to second line
