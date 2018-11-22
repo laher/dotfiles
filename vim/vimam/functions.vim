@@ -35,6 +35,20 @@ endfunction
 
 " todo-todos
 " Find heading
+function! TodoMoveToHeading()
+  let name = input('Enter Heading: ')
+  let [lnum, col] = searchpos('^#\+ ' . name, 'n')
+
+  if (lnum > 0)
+    " execute del
+    "" move to heading and paste
+    "" call cursor(lnum, col)
+    execute 'm ' . lnum
+  else
+    echo '\n '
+    echo 'not found\n'
+  endif
+endfunction
 " Refile
 " Tagging
 " 
