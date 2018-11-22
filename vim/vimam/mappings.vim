@@ -83,6 +83,7 @@ au FileType rust nnoremap <LocalLeader>rr :CargoRun<CR>
 
 
 au FileType markdown nmap <LocalLeader>t i## <C-R>=strftime("%Y-%m-%d")<CR><CR> * 
+au FileType markdown nnoremap <LocalLeader>m :call TodoMoveToHeading()<CR>
 
 " avoids 'delete replaces default buffer' because 0 buffer contains 'last yank'
 Shortcut safepaste 
