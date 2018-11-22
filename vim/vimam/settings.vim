@@ -185,6 +185,7 @@ let g:LanguageClient_serverCommands = {
 """ vim-checkbox plugin
 let g:checkbox_states = [' ', 'X']
 
+let vim_markdown_preview_github=1
 
 let g:deoplete#enable_at_startup = 1
 set completeopt+=noinsert

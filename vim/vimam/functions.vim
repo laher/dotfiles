@@ -48,7 +48,13 @@ endfunction
 " Refile
 " Tagging
 " 
+function! TodoM()
+  let b:lines=[]
+  while matchstr('^#\+ ', 'n')
+  add(b:lines, m)
 
+  call fzf#vim#complete(b:lines)
+endfunction
 " copy current file's path to clipboard
 function! s:copy_path()
   let @+ = expand('%:p')
