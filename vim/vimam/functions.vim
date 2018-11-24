@@ -5,6 +5,10 @@ function! ExecuteMacroOverVisualRange()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
+function! FileOffset()
+    return line2byte(line('.')) + col('.') - 1
+endfunction
+
 function! TodoPrompt()
   let curfile = @%
   if curfile != 'inbox.md'
