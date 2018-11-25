@@ -164,4 +164,4 @@ Plug 'honza/vim-snippets'
 " All of your Plugs must be added before the following line
 call plug#end()
 
-" set runtimepath^=~/d/vim-go
+set runtimepath^=~/d/regopher.vim
