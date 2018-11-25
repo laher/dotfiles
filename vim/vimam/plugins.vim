@@ -30,6 +30,7 @@ Plug 'godoctor/godoctor.vim'
 Plug 'nsf/gocode', {'rtp': 'nvim/'}
 Plug 'buoto/gotests-vim'
 Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
+Plug 'laher/regopher.vim'
 
 """ related to go but not specific
 Plug 'FooSoft/vim-argwrap' " Wrap a paremeter list accross multiple lines
@@ -164,4 +165,4 @@ Plug 'honza/vim-snippets'
 " All of your Plugs must be added before the following line
 call plug#end()
 
-set runtimepath^=~/d/regopher.vim
+"set runtimepath^=~/d/regopher.vim
