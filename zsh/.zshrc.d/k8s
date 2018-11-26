@@ -41,6 +41,7 @@ function kpn {
 
 function kpi {
   export POD=$(kubectl --context=$1 get pod -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' ${@:2}|vipe)
+  export CTXPOD="$1 $POD" 
 }
 
 function kpa {
