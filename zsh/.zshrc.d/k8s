@@ -39,6 +39,10 @@ function kpn {
   kubectl --context=$1 get pod -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' ${@:2}
 }
 
+function kpi {
+  export POD=$(kubectl --context=$1 get pod -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' ${@:2}|vipe)
+}
+
 function kpa {
   kubectl --context=$1 get pod -l "app=${@:2}" --no-headers
 }
