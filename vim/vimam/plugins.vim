@@ -118,6 +118,9 @@ Plug 'glts/vim-textobj-comment'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'AndrewRadev/splitjoin.vim'
 
+""" writing
+Plug 'szw/vim-dict'
+
 """ Appearance and layout
 Plug 'ap/vim-buftabline' " tabs across top
 Plug 'freeo/vim-kalisi' " theme

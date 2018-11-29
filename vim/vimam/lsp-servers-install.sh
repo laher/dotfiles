@@ -6,3 +6,4 @@ npm i -g yaml-language-server
 npm i -g vscode-json-languageservice
 npm i -g bash-language-server 
 go get -u -v github.com/sourcegraph/go-langserver
+npm i -g markdown-language-server
