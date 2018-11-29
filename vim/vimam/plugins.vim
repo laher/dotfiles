@@ -27,7 +27,7 @@ Plug 'Shougo/deoplete.nvim' , { 'do': ':UpdateRemotePlugins' }
 """ Go
 Plug 'fatih/vim-go', { 'tag': '*' } " , 'do': ':GoUpdateBinaries' }
 Plug 'godoctor/godoctor.vim'
-Plug 'nsf/gocode', {'rtp': 'nvim/'}
+"Plug 'nsf/gocode', {'rtp': 'nvim/'}
 Plug 'buoto/gotests-vim'
 Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
 Plug 'laher/regopher.vim'

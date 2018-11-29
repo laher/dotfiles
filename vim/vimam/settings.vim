@@ -189,6 +189,7 @@ let vim_markdown_preview_github=1
 
 let g:deoplete#enable_at_startup = 1
 set completeopt+=noinsert
+set completeopt-=preview
 autocmd CompleteDone * silent! pclose!
 inoremap <silent><CR> <C-R>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
