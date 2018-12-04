@@ -46,8 +46,14 @@ Shortcut swoop multi
 Shortcut swoop multi selection 
  \ vmap <Leader>ms :call SwoopMultiSelection()<CR>
 
-Shortcut gitlog
- \ nmap <Leader>l :Glog<CR>
+Shortcut git-log nmap <Leader>gl :Glog<CR>
+Shortcut git-status nmap <Leader>gs :Gstatus<CR>
+Shortcut git-diff nmap <Leader>gd :Gdiff<CR>
+Shortcut git-browse nmap <Leader>gbr :Gbrowse<CR>
+Shortcut git-blame nmap <Leader>gbl :Gblame<CR>
+
+
+Shortcut bunload nmap <Leader>u :bun<CR>
 
 Shortcut escape-jk imap jk <Esc>
 Shortcut escape-kj imap kj <Esc>
