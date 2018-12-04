@@ -94,6 +94,7 @@ Plug 'tpope/vim-jdaddy'            " JSON text object
 Plug 'tpope/vim-obsession'         " Continuously save buffer state
 Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-sleuth'            " tab/space detection per-file
+Plug 'tpope/vim-unimpaired'        " pairs of mappings like [q ]q for quickfix pref/next
 
 """ navigation and fuzzy
 "Plug 'ctrlpvim/ctrlp.vim' " Find files faster by name
