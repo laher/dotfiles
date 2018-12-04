@@ -8,7 +8,7 @@ function pmpy {
 	fi
 	echo "$d"
 	pushd "$d"
-	if git diff --quiet; then
+	if git diff --quiet HEAD; then
 		git pull
 		git push
 	else

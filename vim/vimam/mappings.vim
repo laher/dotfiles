@@ -36,15 +36,18 @@ endfunc
 
 Shortcut Filename inoremap <Leader>fn <c-r>=expand("%:t")<cr>
 
+let g:swoopUseDefaultKeyMap = 0
 Shortcut swoop 
- \ nmap <Leader>l :call Swoop()<CR>
+ \ nmap <Leader>s :call Swoop()<CR>
 Shortcut swoop selection 
- \ vmap <Leader>l :call SwoopSelection()<CR>
+ \ vmap <Leader>s :call SwoopSelection()<CR>
 Shortcut swoop multi
- \ nmap <Leader>ml :call SwoopMulti()<CR>
+ \ nmap <Leader>ms :call SwoopMulti()<CR>
 Shortcut swoop multi selection 
- \ vmap <Leader>ml :call SwoopMultiSelection()<CR>
+ \ vmap <Leader>ms :call SwoopMultiSelection()<CR>
 
+Shortcut gitlog
+ \ nmap <Leader>l :Glog<CR>
 
 Shortcut escape-jk imap jk <Esc>
 Shortcut escape-kj imap kj <Esc>
