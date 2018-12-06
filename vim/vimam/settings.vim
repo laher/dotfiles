@@ -177,7 +177,8 @@ nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 "    \ 'go': ['go-langserver'],
 let g:LanguageClient_serverCommands = {
     \ 'javascript': ['flow-language-server', '--stdio'],
-    \ 'json': ['vscode-json-languageservice'],
+    \ 'json': ['json-languageserver', '--stdio'],
+    \ 'css': ['css-languageserver', '--stdio'],
     \ 'sh': ['bash-language-server', 'start'],
     \ 'yaml': ['yaml-language-server'],
     \ }
