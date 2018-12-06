@@ -21,7 +21,7 @@ function pmpy {
 }
 
 function pmpy_all {
-	dirs=(~/dotfiles ~/movio-dotfiles)
+	dirs=(~/dotfiles ~/.password-store ~/movio-dotfiles)
 	for d in "${dirs[@]}"; do
 		pmpy "$d"
 	done

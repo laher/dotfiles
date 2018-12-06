@@ -16,8 +16,16 @@ Shortcut CtrlP nnoremap <Leader>p :CtrlP<CR>
 Shortcut CtrlPBuffer nnoremap <Leader>ob :CtrlPBuffer
 Shortcut CtrlSpace nnoremap <Leader><Space> :CtrlSpace<CR>
 Shortcut TagbarToggle nnoremap <Leader>. :TagbarToggle<CR>
+
+" deletes into an empty buffer
 nnoremap <Leader>d "_d
-Shortcut Find in project nnoremap <Leader>e :Ag <c-r><c-w><CR>
+
+command! -bang -nargs=* GGrep
+  \ call fzf#vim#grep(
+  \   'git grep --line-number '.shellescape(<q-args>), 0,
+  \   fzf#vim#with_preview({ 'dir': systemlist('git rev-parse --show-toplevel')[0] }), <bang>0)
+
+Shortcut Find in project nnoremap <Leader>e :GGrep <c-r><c-w><CR>
 Shortcut NERDTreeToggle nnoremap <Leader>T :NERDTreeToggle<CR>
 Shortcut NERDTreeFind nnoremap <Leader>t :NERDTreeFind<CR>
 Shortcut NERDTreeFind nnoremap <Leader>t :NERDTreeFind<CR>
