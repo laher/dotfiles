@@ -186,6 +186,8 @@ let g:LanguageClient_serverCommands = {
 """ vim-checkbox plugin
 let g:checkbox_states = [' ', 'X']
 
+let g:SimplenoteUsername = "am@laher.net.nz"
+
 let vim_markdown_preview_github=1
 
 let g:deoplete#enable_at_startup = 1
