@@ -1,5 +1,54 @@
 #!/usr/bin/zsh
 
+# Automatically download and switch kubenetes-cli according to the cluster version
+# This was Nan's script but I've adapted it NOT to run the command directly. Just prep the binary
+_k5l() {
+    if ! hash kubectl 2>/dev/null; then
+        echo "Pleast install latest version kubectl first. e.g. brew install kubectl"
+    fi
+
+    # Command that not required a cluser are escaped here
+    if [[ $* =~ ([[:space:]]*)(config|help|completion|options)([[:space:]]*) ]]
+    then
+        # command kubectl $@
+        return
+    fi
+
+    local context=""
+    if [[ $* =~ --context(=|[[:space:]]*)([^[:space:]]*) ]]
+    then
+        context="${match[2]}${BASH_REMATCH[2]}"
+    fi
+
+    if [ -f ~/bin/kubectl-$context ]
+    then
+        ~/bin/kubectl-$context $@
+    else
+        # download binary if necessary
+        context_arg=""
+        if [ ! -z "$context" ]
+        then
+            context_arg="--context=$context"
+        fi
+
+        local server_version_str=$(command kubectl $context_arg version | tail -1)
+        local server_version=""
+        if [[ $server_version_str = Server* && $server_version_str =~ GitVersion:\"v([^\"]*)\" ]]
+        then
+            server_version="${match[1]}${BASH_REMATCH[1]}"
+            local platform=$([[ $OSTYPE == *darwin* ]] && echo "darwin" || echo "linux")
+            [ -d ~/bin/ ] || mkdir -p ~/bin/
+            echo "k5l: dowloading kubectl $server_version for context $context ..."
+            curl -# -Lo ~/bin/kubectl-$context "https://storage.googleapis.com/kubernetes-release/release/v$server_version/bin/$platform/amd64/kubectl"
+            chmod +x ~/bin/kubectl-$context
+            echo "k5l: done. To update the client binary please delete ~/bin/kubectl-$context"
+            # ~/bin/kubectl-$context $@
+        else
+            echo "k5l: server version unavaliable"
+        fi
+    fi
+}
+
 function kb {
   context="$1"
   shift
@@ -14,7 +63,7 @@ function kb {
 function ki {
   #clicache kubectl --context=$1 get pod -l "app=$2" --no-headers | cut -d ' ' -f1
   echo -n "$1 "
-  kubectl --context=$1 get pod --no-headers | grep $2 | head -1| cut -d ' ' -f1
+  kubectl-$1 --context=$1 get pod --no-headers | grep $2 | head -1| cut -d ' ' -f1
 }
 
 function kcc {
@@ -22,16 +71,11 @@ function kcc {
 }
 
 function k {
-  if [ "$1" = "d" ]; then
-    kubectl="kubectl-1.12.2"
-  else
-    kubectl="kubectl"
-  fi
-  $kubectl --context=$1 ${@:2}
+  kubectl-$1 --context=$1 ${@:2}
 }
 
 function kpg {
-  kubectl --context=$1 get pod ${@:2}
+  kubectl-$1 --context=$1 get pod ${@:2}
 }
 alias kgp=kpg
 
@@ -45,11 +89,11 @@ function kpi {
 }
 
 function kpa {
-  kubectl --context=$1 get pod -l "app=${@:2}" --no-headers
+  kubectl-$1 --context=$1 get pod -l "app=${@:2}" --no-headers
 }
 
 function kw {
-  watch kubectl --context=$1 get pod
+  watch kubectl-$1 --context=$1 get pod
 }
 
 function kbw {
@@ -58,24 +102,24 @@ function kbw {
 }
 
 function kx {
-  kubectl --context=$1 exec -it $2 -- ${@:3}
+  kubectl-$1 --context=$1 exec -it $2 -- ${@:3}
 }
 
 
 function ksh {
-  kubectl --context=$1 exec -it $2 -- sh ${@:3}
+  kubectl-$1 --context=$1 exec -it $2 -- sh ${@:3}
 }
 
 function kl {
-  kubectl --context=$1 log ${@:2}
+  kubectl-$1 --context=$1 log ${@:2}
 }
 
 function ka {
-  kubectl --context=$1 apply -f ${@:2}
+  kubectl-$1 --context=$1 apply -f ${@:2}
 }
 
 function kr {
-  kubectl --context=$1 replace --cascade --force -f ${@:2}
+  kubectl-$1 --context=$1 replace --cascade --force -f ${@:2}
 }
 
 function kpf {
