@@ -45,6 +45,8 @@ Plug 'autozimu/LanguageClient-neovim', {
 """ Other languages
 "Plug 'sheerun/vim-polyglot'
 Plug 'rust-lang/rust.vim'
+Plug 'ambv/black'
+Plug 'fisadev/vim-isort'
 
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}  """ condensed html
 
