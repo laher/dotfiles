@@ -202,3 +202,6 @@ function! s:my_cr_function()
         return "\<CR>"
     endif
 endfunction
+
+""" for live reload
+:set backupcopy=yes
