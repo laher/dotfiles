@@ -16,7 +16,7 @@ Plug 'will133/vim-dirdiff' " diff
 
 Plug 'junegunn/vim-peekaboo' " show buffers
 
-Plug 'gioele/vim-autoswap' " deal with swap files
+" Plug 'gioele/vim-autoswap' " deal with swap files
 
 
 Plug 'joereynolds/place.vim' " insertions with ga (non-cursor)

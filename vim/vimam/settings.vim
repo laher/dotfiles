@@ -175,8 +175,8 @@ nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 "    \ 'go': ['go-langserver'],
+"    \ 'javascript': ['flow-language-server', '--stdio'],
 let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['flow-language-server', '--stdio'],
     \ 'json': ['json-languageserver', '--stdio'],
     \ 'css': ['css-languageserver', '--stdio'],
     \ 'sh': ['bash-language-server', 'start'],
