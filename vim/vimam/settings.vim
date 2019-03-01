@@ -174,8 +174,13 @@ nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
+let g:LanguageClient_rootMarkers = {
+        \ 'go': ['.git', 'go.mod'],
+        \ }
+
 "    \ 'go': ['go-langserver'],
 "    \ 'javascript': ['flow-language-server', '--stdio'],
+"    \ 'go': ['bingo'],
 let g:LanguageClient_serverCommands = {
     \ 'json': ['json-languageserver', '--stdio'],
     \ 'css': ['css-languageserver', '--stdio'],
