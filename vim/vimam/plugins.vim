@@ -25,17 +25,18 @@ Plug 'joereynolds/place.vim' " insertions with ga (non-cursor)
 Plug 'Shougo/deoplete.nvim' , { 'do': ':UpdateRemotePlugins' }
 
 """ Go
-Plug 'fatih/vim-go', { 'tag': '*' } " , 'do': ':GoUpdateBinaries' }
-Plug 'godoctor/godoctor.vim'
+"Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*' } " , 'do': ':GoUpdateBinaries' }
+"Plug 'godoctor/godoctor.vim', { 'for': 'go' }
+"Plug 'buoto/gotests-vim', { 'for': 'go' }
+"Plug 'zchee/deoplete-go', { 'for': 'go', 'build': {'unix': 'make'} }
+"Plug 'laher/regopher.vim', { 'for': 'go' }
+
 "Plug 'nsf/gocode', {'rtp': 'nvim/'}
-Plug 'buoto/gotests-vim'
-Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
-Plug 'laher/regopher.vim'
 
 """ related to go but not specific
 Plug 'FooSoft/vim-argwrap' " Wrap a paremeter list accross multiple lines
 Plug 'majutsushi/tagbar' " 'Outline' of current file
-Plug 'lvht/tagbar-markdown'
+Plug 'lvht/tagbar-markdown', { 'for': 'markdown' }
 Plug 'w0rp/ale' "syntax & linting
 
 Plug 'autozimu/LanguageClient-neovim', {
@@ -44,41 +45,41 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 """ Other languages
 "Plug 'sheerun/vim-polyglot'
-Plug 'rust-lang/rust.vim'
-Plug 'ambv/black'
-Plug 'fisadev/vim-isort'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'ambv/black', { 'for': 'python' }
+Plug 'fisadev/vim-isort', { 'for': 'python' }
 
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}  """ condensed html
 
-Plug 'burnettk/vim-angular'
-Plug 'ternjs/tern_for_vim'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'prettier/vim-prettier'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'flowtype/vim-flow'
+"Plug 'burnettk/vim-angular', { 'for': 'python' }
+Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
+Plug 'prettier/vim-prettier', { 'for': 'javascript' }
+Plug 'carlitux/deoplete-ternjs', {'for': 'javascript', 'do': 'npm install -g tern' }
+Plug 'flowtype/vim-flow', { 'for': 'javascript' }
 "Plug 'wokalski/autocomplete-flow'
 "Plug 'steelsojka/deoplete-flow'
 "Plug 'carlitux/deoplete-flow'
 
 
-Plug 'markbiek/phpLint.vim'
+Plug 'markbiek/phpLint.vim', { 'for': 'php' }
 
-Plug 'gabrielelana/vim-markdown'
-Plug 'mzlogin/vim-markdown-toc'
-"Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
+Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
+"Plug 'JamshedVesuna/vim-markdown-preview', { 'for': 'markdown' }
 "Plug 'suan/vim-instant-markdown'
-Plug 'jkramer/vim-checkbox'
+Plug 'jkramer/vim-checkbox', { 'for': 'markdown' }
 
 """ OMG Scala
-Plug 'derekwyatt/vim-scala'
-Plug 'wannesm/wmgraphviz.vim'
+Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
+Plug 'wannesm/wmgraphviz.vim', { 'for': 'dot' }
 
 Plug 'kyuhi/vim-emoji-complete'
 Plug 'christianrondeau/vim-base64'
 
 """ org-mode-ish
-Plug 'dhruvasagar/vim-dotoo'
-Plug 'blindFS/vim-taskwarrior'
+" Plug 'dhruvasagar/vim-dotoo'
+" Plug 'blindFS/vim-taskwarrior'
 
 """ tmux
 Plug 'christoomey/vim-tmux-navigator'
@@ -103,8 +104,8 @@ Plug 'tpope/vim-unimpaired'        " pairs of mappings like [q ]q for quickfix p
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " Find within files
 Plug 'ryanoasis/vim-devicons' " icons for NERDTree etc
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'pelodelfuego/vim-swoop' " replace across files typa thing
 " Plug 'vim-ctrlspace/vim-ctrlspace' "not really using this megabeast
 Plug 'sunaku/vim-shortcut' "searchable key mappings
@@ -137,8 +138,8 @@ Plug 'itchyny/vim-cursorword' " underline word under cursor
 Plug 'diepm/vim-rest-console' " Rest console
 Plug 'itchyny/calendar.vim' " calendar
 Plug 'thanthese/Tortoise-Typing' " typing
-Plug 'chemzqm/todoapp.vim' " todo
-Plug 'mrtazz/simplenote.vim'
+" Plug 'chemzqm/todoapp.vim' " todo
+" Plug 'mrtazz/simplenote.vim'
 " Plug 'jacobsimpson/nvim-example-python-plugin' " ooh, lets try
 
 """ Completion
@@ -146,17 +147,17 @@ if !has('nvim')
 	"Plug 'Shougo/neocomplete.vim'
 	Plug 'maralla/completor.vim' " Ugh not working for go. Disabling at startup for now and switching back to nvim
 
-	Plug 'ensime/ensime-vim'
+	" Plug 'ensime/ensime-vim'
 endif
 if has('nvim')
-	Plug 'jodosha/vim-godebug'
+	Plug 'jodosha/vim-godebug', { 'for': 'go' }
 
 	"gonvim
-	Plug 'equalsraf/neovim-gui-shim'
-	Plug 'dzhou121/gonvim-fuzzy' 
+	"Plug 'equalsraf/neovim-gui-shim'
+	"Plug 'dzhou121/gonvim-fuzzy' 
 
 
-	Plug 'ensime/ensime-vim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'ensime/ensime-vim', { 'for': 'scala', 'do': ':UpdateRemotePlugins' }
 endif
 
 """ snippets
