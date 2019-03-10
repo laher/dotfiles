@@ -61,11 +61,15 @@ Shortcut git-browse nmap <Leader>gbr :Gbrowse<CR>
 Shortcut git-blame nmap <Leader>gbl :Gblame<CR>
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <Leader>l :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <Leader>gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
+nnoremap <silent> <Leader>gr :call LanguageClient#textDocument_references()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> <Leader>r :call LanguageClient#textDocument_rename()<CR>
 
 Shortcut bunload nmap <Leader>u :bun<CR>
 

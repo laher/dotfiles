@@ -25,7 +25,7 @@ Plug 'joereynolds/place.vim' " insertions with ga (non-cursor)
 Plug 'Shougo/deoplete.nvim' , { 'do': ':UpdateRemotePlugins' }
 
 """ Go
-"Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*' } " , 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*' } " , 'do': ':GoUpdateBinaries' }
 "Plug 'godoctor/godoctor.vim', { 'for': 'go' }
 "Plug 'buoto/gotests-vim', { 'for': 'go' }
 "Plug 'zchee/deoplete-go', { 'for': 'go', 'build': {'unix': 'make'} }

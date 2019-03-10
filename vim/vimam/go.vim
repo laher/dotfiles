@@ -15,6 +15,9 @@ let g:go_updatetime = 2000
 let g:go_info_mode = 'gocode'
 let g:go_auto_sameids = 1 
 
+" remove gd mappings
+let g:go_def_mapping_enabled = 0
+
 " vim-go
 augroup vg
 "au FileType go nmap <LocalLeader>b :GoBuild<CR>
