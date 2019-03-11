@@ -5,7 +5,7 @@ Plug 'Shougo/denite.nvim' " I think this is a dependency for something. Can't re
 " Git support
 Plug 'tpope/vim-fugitive' " The git things
 Plug 'tpope/vim-rhubarb' " :Gbrowse, hub
-Plug 'airblade/vim-gitgutter' " +/-/~ signs in the gutter
+" Plug 'airblade/vim-gitgutter' " +/-/~ signs in the gutter
 Plug 'jreybert/vimagit' " Magit in vim
 Plug 'gregsexton/gitv', {'on': ['Gitv']} " :Gitv is a bit like tig
 Plug 'junkblocker/patchreview-vim' " Dependency for vim-codereview
