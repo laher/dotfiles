@@ -187,7 +187,7 @@ let g:LanguageClient_serverCommands = {
     \ 'sh': ['bash-language-server', 'start'],
     \ 'yaml': ['yaml-language-server'],
     \ 'python': ['pyls'],
-    \ 'go': ['gopls'],
+    \ 'go': ['bingo'],
     \ }
 
 """ vim-checkbox plugin
