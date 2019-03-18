@@ -1,5 +1,11 @@
 #!/usr/bin/zsh
 
+function install_kubectl_all {
+  $(install_kubectl 1.10.6)
+  $(install_kubectl 1.5.2)
+  $(install_kubectl 1.7.4)
+}
+
 function kubectl-env {
   case $1 in
   *dd) # fallthrough
@@ -25,49 +31,46 @@ function kubectl-ctx {
   echo "$(kubectl-env $1) --context=$1"
 }
 
-function ki {
-  #clicache kubectl --context=$1 get pod -l "app=$2" --no-headers | cut -d ' ' -f1
-  echo -n "$1 "
-  $(kubectl-ctx $1) get pod --no-headers | grep $2 | head -1| cut -d ' ' -f1
-}
-
 function k {
   case $2 in
-  +gp)
+  -gp)
     $(kubectl-ctx $1) get pod ${@:3}
     ;;
-  +gpn)
+  -gpn)
     $(kubectl-ctx $1) get pod -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' ${@:3}
     ;;
-  +gpi)
-    $(kubectl-ctx $1) get pod -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' ${@:3} |vipe
+  -gpi)
+    $(kubectl-ctx $1) get pod -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' ${@:4}|grep $3|vipe
     ;;
-  +x)
+  -gpa)
+    $(kubectl-ctx $1) get pod -l "app=${2}" --no-headers ${@:3}
+    ;;
+  -x)
     $(kubectl-ctx $1) exec -it $3 -- ${@:4}
     ;;
-  +sh)
+  -sh)
     $(kubectl-ctx $1) exec -it $3 -- sh ${@:4}
     ;;
-  +a)
+  -a)
     $(kubectl-ctx $1) apply -f ${@:3}
     ;;
-  +r)
+  -r)
     $(kubectl-ctx $1) replace --cascade --force -f ${@:3}
     ;;
-  +l)
+  -l)
     $(kubectl-ctx $1) log ${@:3}
     ;;
-  +f)
+  -f)
     $(kubectl-ctx $1) log --tail=10 -f ${@:3}
     ;;
-  +p)
+  -p)
     $(kubectl-ctx $1) patch deployment $3 -p "{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"redeployTimestamp\": \"$(date -u -R)\"}}}}}"
     ;;
-  +pw)
+  -pw)
     $(kubectl-ctx $1) patch deployment $3 -p "{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"redeployTimestamp\": \"$(date -u -R)\"}}}}}"
     $(kubectl-ctx $1) get pod --watch
     ;;
-  +pf)
+  -pf)
     $(kubectl-ctx $1) port-forward ${@:3}
     ;;
   *)
@@ -77,59 +80,21 @@ function k {
 }
 
 function kpi {
-  export POD=$(kubectl --context=$1 get pod -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' ${@:2}|vipe)
+  export POD=$($(kubectl-ctx $1 -gp) -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' ${@:3}|$grep $2|vipe)
   export CTXPOD="$1 $POD" 
 }
 
-function kpa {
-  $(kubectl-env $1) --context=$1 get pod -l "app=${@:2}" --no-headers
+function ki {
+  echo -n "$1 "
+  $(kubectl-ctx $1) get pod --no-headers | grep $2 | head -1| cut -d ' ' -f1
 }
 
-# Automatically download and switch kubenetes-cli according to the cluster version
-# This was Nan's script but I've adapted it NOT to run the command directly. Just prep the binary
-_k5l() {
-    if ! hash kubectl 2>/dev/null; then
-        echo "Pleast install latest version kubectl first. e.g. brew install kubectl"
-    fi
-
-    # Command that not required a cluser are escaped here
-    if [[ $* =~ ([[:space:]]*)(config|help|completion|options)([[:space:]]*) ]]
-    then
-        # command kubectl $@
-        return
-    fi
-
-    local context=""
-    if [[ $* =~ --context(=|[[:space:]]*)([^[:space:]]*) ]]
-    then
-        context="${match[2]}${BASH_REMATCH[2]}"
-    fi
-
-    if [ -f ~/bin/kubectl-$context ]
-    then
-        ~/bin/kubectl-$context $@
-    else
-        # download binary if necessary
-        context_arg=""
-        if [ ! -z "$context" ]
-        then
-            context_arg="--context=$context"
-        fi
-
-        local server_version_str=$(command kubectl $context_arg version | tail -1)
-        local server_version=""
-        if [[ $server_version_str = Server* && $server_version_str =~ GitVersion:\"v([^\"]*)\" ]]
-        then
-            server_version="${match[1]}${BASH_REMATCH[1]}"
-            local platform=$([[ $OSTYPE == *darwin* ]] && echo "darwin" || echo "linux")
-            [ -d ~/bin/ ] || mkdir -p ~/bin/
-            echo "k5l: dowloading kubectl $server_version for context $context ..."
-            curl -# -Lo ~/bin/kubectl-$context "https://storage.googleapis.com/kubernetes-release/release/v$server_version/bin/$platform/amd64/kubectl"
-            chmod +x ~/bin/kubectl-$context
-            echo "k5l: done. To update the client binary please delete ~/bin/kubectl-$context"
-            # ~/bin/kubectl-$context $@
-        else
-            echo "k5l: server version unavaliable"
-        fi
-    fi
+function install_kubectl {
+    local server_version=$1
+    local platform=$([[ $OSTYPE == *darwin* ]] && echo "darwin" || echo "linux")
+    [ -d ~/bin/ ] || mkdir -p ~/bin/
+    echo "dowloading kubectl $server_version  ..."
+    curl -# -Lo ~/bin/kubectl-$server_version "https://storage.googleapis.com/kubernetes-release/release/v$server_version/bin/$platform/amd64/kubectl"
+    chmod +x ~/bin/kubectl-$server_version
 }
+
