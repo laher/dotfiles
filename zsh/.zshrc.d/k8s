@@ -1,5 +1,90 @@
 #!/usr/bin/zsh
 
+function kubectl-env {
+  case $1 in
+  *dd) # fallthrough
+    ;&
+  tools)
+    echo kubectl-1.10.6
+    ;;
+  *us)
+    echo kubectl-1.5.2
+    ;;
+  *fr) # fallthrough
+    ;&
+  *cn)
+    echo kubectl-1.7.4
+    ;;
+  *)
+    echo kubectl
+    ;;
+  esac
+}
+
+function kubectl-ctx {
+  echo "$(kubectl-env $1) --context=$1"
+}
+
+function ki {
+  #clicache kubectl --context=$1 get pod -l "app=$2" --no-headers | cut -d ' ' -f1
+  echo -n "$1 "
+  $(kubectl-ctx $1) get pod --no-headers | grep $2 | head -1| cut -d ' ' -f1
+}
+
+function k {
+  case $2 in
+  +gp)
+    $(kubectl-ctx $1) get pod ${@:3}
+    ;;
+  +gpn)
+    $(kubectl-ctx $1) get pod -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' ${@:3}
+    ;;
+  +gpi)
+    $(kubectl-ctx $1) get pod -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' ${@:3} |vipe
+    ;;
+  +x)
+    $(kubectl-ctx $1) exec -it $3 -- ${@:4}
+    ;;
+  +sh)
+    $(kubectl-ctx $1) exec -it $3 -- sh ${@:4}
+    ;;
+  +a)
+    $(kubectl-ctx $1) apply -f ${@:3}
+    ;;
+  +r)
+    $(kubectl-ctx $1) replace --cascade --force -f ${@:3}
+    ;;
+  +l)
+    $(kubectl-ctx $1) log ${@:3}
+    ;;
+  +f)
+    $(kubectl-ctx $1) log --tail=10 -f ${@:3}
+    ;;
+  +p)
+    $(kubectl-ctx $1) patch deployment $3 -p "{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"redeployTimestamp\": \"$(date -u -R)\"}}}}}"
+    ;;
+  +pw)
+    $(kubectl-ctx $1) patch deployment $3 -p "{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"redeployTimestamp\": \"$(date -u -R)\"}}}}}"
+    $(kubectl-ctx $1) get pod --watch
+    ;;
+  +pf)
+    $(kubectl-ctx $1) port-forward ${@:3}
+    ;;
+  *)
+    $(kubectl-ctx $1) ${@:2}
+    ;;
+  esac
+}
+
+function kpi {
+  export POD=$(kubectl --context=$1 get pod -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' ${@:2}|vipe)
+  export CTXPOD="$1 $POD" 
+}
+
+function kpa {
+  $(kubectl-env $1) --context=$1 get pod -l "app=${@:2}" --no-headers
+}
+
 # Automatically download and switch kubenetes-cli according to the cluster version
 # This was Nan's script but I've adapted it NOT to run the command directly. Just prep the binary
 _k5l() {
@@ -47,85 +132,4 @@ _k5l() {
             echo "k5l: server version unavaliable"
         fi
     fi
-}
-
-function kb {
-  context="$1"
-  shift
-  for i
-  do
-     kubectl --context=$context scale --replicas=0 deployment/$i
-     kubectl --context=$context scale --replicas=1 deployment/$i
-  done
-  #clicache -del kubectl --context=$context get pod --no-headers
-}
-
-function ki {
-  #clicache kubectl --context=$1 get pod -l "app=$2" --no-headers | cut -d ' ' -f1
-  echo -n "$1 "
-  kubectl-$1 --context=$1 get pod --no-headers | grep $2 | head -1| cut -d ' ' -f1
-}
-
-function kcc {
-  rm -rf ~/.cache/clicache/*
-}
-
-function k {
-  kubectl-$1 --context=$1 ${@:2}
-}
-
-function kpg {
-  kubectl-$1 --context=$1 get pod ${@:2}
-}
-alias kgp=kpg
-
-function kpn {
-  kubectl --context=$1 get pod -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' ${@:2}
-}
-
-function kpi {
-  export POD=$(kubectl --context=$1 get pod -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' ${@:2}|vipe)
-  export CTXPOD="$1 $POD" 
-}
-
-function kpa {
-  kubectl-$1 --context=$1 get pod -l "app=${@:2}" --no-headers
-}
-
-function kw {
-  watch kubectl-$1 --context=$1 get pod
-}
-
-function kbw {
-  kb ${@:1}
-  kw ${@:1}
-}
-
-function kx {
-  kubectl-$1 --context=$1 exec -it $2 -- ${@:3}
-}
-
-
-function ksh {
-  kubectl-$1 --context=$1 exec -it $2 -- sh ${@:3}
-}
-
-function kl {
-  kubectl-$1 --context=$1 log ${@:2}
-}
-
-function ka {
-  kubectl-$1 --context=$1 apply -f ${@:2}
-}
-
-function kr {
-  kubectl-$1 --context=$1 replace --cascade --force -f ${@:2}
-}
-
-function kpf {
-  kubectl --context=$1 port-forward ${@:2}
-}
-
-function kp {
-  kubectl --context=$1 patch deployment $2 -p "{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"redeployTimestamp\": \"$(date -u -R)\"}}}}}"
 }
