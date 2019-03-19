@@ -10,6 +10,8 @@ function kubectl-env {
   case $1 in
   *dd) # fallthrough
     ;&
+  vol) # fallthrough
+    ;&
   tools)
     echo kubectl-1.10.6
     ;;
@@ -86,8 +88,14 @@ function k {
 }
 
 alias kyd='k ydd'
+alias kd='k ydd'
 alias kyus='k yus'
-alias kyfr='k yfr'
+alias ku='k yus'
+alias kfr='k yfr'
+alias kf='k yfr'
+alias kcn='k ycn'
+alias kc='k ycn'
+alias kv='k vol'
 
 function kpi {
   export POD=$($(kubectl-ctx $1 -gp) -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' ${@:3}|$grep $2|vipe)
