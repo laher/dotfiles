@@ -73,11 +73,21 @@ function k {
   -pf)
     $(kubectl-ctx $1) port-forward ${@:3}
     ;;
+  -v)
+    $(kubectl-ctx $1) get pod -o jsonpath='{range .items[*].spec.containers[*]}{.name}{"\t"}{.image}{"\n"}{end}'|sort -u
+    ;;
+  -vs)
+    $(kubectl-ctx $1) get pod -o jsonpath='{range .items[*].spec.containers[*]}{.name}{"\t"}{.image}{"\n"}{end}'|grep $3|sort -u
+    ;;
   *)
     $(kubectl-ctx $1) ${@:2}
     ;;
   esac
 }
+
+alias kyd='k ydd'
+alias kyus='k yus'
+alias kyfr='k yfr'
 
 function kpi {
   export POD=$($(kubectl-ctx $1 -gp) -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' ${@:3}|$grep $2|vipe)
