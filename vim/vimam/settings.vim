@@ -178,16 +178,15 @@ let g:LanguageClient_rootMarkers = {
         \ 'go': ['.git', 'go.mod'],
         \ }
 
-"    \ 'go': ['go-langserver'],
-"    \ 'javascript': ['flow-language-server', '--stdio'],
-"    \ 'go': ['bingo'],
 let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['flow', 'lsp'],
     \ 'json': ['json-languageserver', '--stdio'],
     \ 'css': ['css-languageserver', '--stdio'],
     \ 'sh': ['bash-language-server', 'start'],
     \ 'yaml': ['yaml-language-server'],
     \ 'python': ['pyls'],
     \ 'go': ['bingo'],
+    \ 'scala': ['metals-vim'],
     \ 'php': ['intelephense', '--stdio'],
     \ }
 

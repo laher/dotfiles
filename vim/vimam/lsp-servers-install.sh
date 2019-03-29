@@ -20,7 +20,7 @@ coursier bootstrap \
   org.scalameta:metals_2.12:0.4.4 \
   -r bintray:scalacenter/releases \
   -r sonatype:snapshots \
-  -o /usr/local/bin/metals-vim -f
+  -o ~/bin/metals-vim -f
 
 # conflicts with vim-go
 # go get -u -v github.com/sourcegraph/go-langserver
