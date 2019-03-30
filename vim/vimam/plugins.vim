@@ -51,12 +51,14 @@ Plug 'fisadev/vim-isort', { 'for': 'python' }
 
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}  """ condensed html
 
-"Plug 'burnettk/vim-angular', { 'for': 'python' }
 Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 Plug 'prettier/vim-prettier', { 'for': ['javascript','html','css','python'] }
 Plug 'carlitux/deoplete-ternjs', {'for': 'javascript', 'do': 'npm install -g tern' }
-Plug 'flowtype/vim-flow', { 'for': 'javascript' }
+
+" disabled vim-flow because quickfix keeps opening empty
+"Plug 'flowtype/vim-flow', { 'for': 'javascript' }
+
 "Plug 'wokalski/autocomplete-flow'
 "Plug 'steelsojka/deoplete-flow'
 "Plug 'carlitux/deoplete-flow'
