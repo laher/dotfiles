@@ -151,6 +151,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
+let g:ale_linters = {'python': ['pylint']}
 let g:ale_fixers = {'javascript': ['prettier', 'eslint', 'flow']}
 
 " ctrlp
