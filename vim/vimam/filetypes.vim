@@ -21,5 +21,5 @@ autocmd FileType smoosh setlocal shiftwidth=2 tabstop=2 expandtab
 
 autocmd FileType dot autocmd BufWritePre <buffer> :GraphvizCompile
 
-autocmd BufWritePre *.py execute ':Black'
+"autocmd BufWritePre *.py execute ':Black'
 
