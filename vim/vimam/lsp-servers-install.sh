@@ -8,6 +8,7 @@ npm i -g bash-language-server
 npm i -g markdown-language-server
 npm i -g vscode-html-languageserver-bin
 npm i -g vscode-css-languageserver-bin
+npm i -g intelephense
 pip3 install python-language-server
 curl -L -o ~/bin/coursier https://git.io/coursier
 chmod +x ~/bin/coursier
