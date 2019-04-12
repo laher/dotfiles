@@ -178,7 +178,7 @@ nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 let g:LanguageClient_rootMarkers = {
         \ 'go': ['.git', 'go.mod'],
         \ }
-
+" \ 'javascript': ['flow', 'lsp'],
 let g:LanguageClient_serverCommands = {
     \ 'javascript': ['flow-language-server', '--stdio'],
     \ 'json': ['json-languageserver', '--stdio'],
