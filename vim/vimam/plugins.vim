@@ -37,7 +37,7 @@ Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*' } " , 'do': ':GoUpdateBinaries' }
 Plug 'FooSoft/vim-argwrap' " Wrap a paremeter list accross multiple lines
 Plug 'majutsushi/tagbar' " 'Outline' of current file
 Plug 'lvht/tagbar-markdown', { 'for': 'markdown' }
-Plug 'w0rp/ale' "syntax & linting
+" Plug 'w0rp/ale' "syntax & linting
 
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
@@ -51,13 +51,13 @@ Plug 'fisadev/vim-isort', { 'for': 'python' }
 
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}  """ condensed html
 
-Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
-Plug 'prettier/vim-prettier', { 'for': ['javascript','html','css','python'] }
-Plug 'carlitux/deoplete-ternjs', {'for': 'javascript', 'do': 'npm install -g tern' }
+" Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
+" Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
+Plug 'prettier/vim-prettier', { 'for': ['javascript','html','css'] }
+" Plug 'carlitux/deoplete-ternjs', {'for': 'javascript', 'do': 'npm install -g tern' }
 
 " disabled vim-flow because quickfix keeps opening empty
-"Plug 'flowtype/vim-flow', { 'for': 'javascript' }
+" Plug 'flowtype/vim-flow', { 'for': 'javascript' }
 
 "Plug 'wokalski/autocomplete-flow'
 "Plug 'steelsojka/deoplete-flow'
