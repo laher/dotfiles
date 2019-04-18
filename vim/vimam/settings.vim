@@ -180,7 +180,7 @@ let g:LanguageClient_rootMarkers = {
         \ }
 
 let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['flow', 'lsp'],
+    \ 'javascript': ['flow-language-server', '--stdio'],
     \ 'json': ['json-languageserver', '--stdio'],
     \ 'css': ['css-languageserver', '--stdio'],
     \ 'sh': ['bash-language-server', 'start'],
