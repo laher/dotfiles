@@ -2,10 +2,10 @@
 
 ./setup-debian.sh
 
-#neovim has a ppa. debian?
 if grep --quiet Ubuntu /etc/lsb-release; then
-	sudo apt-get install software-properties-common
-	sudo add-apt-repository ppa:neovim-ppa/stable
+#neovim has a ppa. debian?
+#	sudo apt-get install software-properties-common
+#	sudo add-apt-repository ppa:neovim-ppa/stable
 
 	sudo apt-get update
 	sudo apt-get install neovim

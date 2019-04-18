@@ -82,6 +82,7 @@ fi
 #    source ~/.gvm/scripts/gvm
 #fi
 
+# export PS1="%B[%d:%l]%b%% "
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -132,3 +133,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -f /home/am/.travis/travis.sh ] && source /home/am/.travis/travis.sh
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+fpath=($fpath "/home/am/.zfunctions")
+
+  # Set Spaceship ZSH as a prompt
+  autoload -U promptinit; promptinit
+  prompt spaceship

@@ -83,3 +83,15 @@ function vimDirDiff { echo "Please wait while vim diffs the directories" args=$@
 #    zle .accept-line
 #}
 #zle -N accept-line
+
+
+# Completion
+autoload -U compinit
+compinit
+
+# Correction
+setopt correctall
+
+#autoload -U promptinit
+# promptinit
+#prompt gentoo

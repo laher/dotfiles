@@ -34,6 +34,6 @@ Add this line (Linux) to keep things synced:
 
  * OhMyZsh: https://github.com/robbyrussell/oh-my-zsh
  * autocomplete-git: http://code-worrier.com/blog/autocomplete-git/
- * (linux only) godeb: https://github.com/niemeyer/godeb
+ * [line-through]#(linux only) godeb: https://github.com/niemeyer/godeb#
  * [line-through]#git-up: https://github.com/aanand/git-up#
  * [line-through]#(now done by setup-vim.sh) Vundle: https://github.com/VundleVim/Vundle.vim#
