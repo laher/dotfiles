@@ -7,7 +7,7 @@ zplug "modules/tmux",       from:prezto
 #zplug "modules/history",    from:prezto
 zplug "modules/utility",    from:prezto
 #zplug "modules/ruby",       from:prezto
-#zplug "modules/ssh",        from:prezto
+zplug "modules/ssh",        from:prezto
 zplug "modules/terminal",   from:prezto
 zplug "modules/editor",     from:prezto
 zplug "modules/directory",  from:prezto
@@ -18,6 +18,10 @@ zplug "zsh-users/zsh-completions",              defer:0
 zplug "zsh-users/zsh-autosuggestions",          defer:2, on:"zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting",      defer:3, on:"zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-history-substring-search", defer:3, on:"zsh-users/zsh-syntax-highlighting"
+zmodload zsh/terminfo
+bindkey "$terminfo[cuu1]" history-substring-search-up
+bindkey "$terminfo[cud1]" history-substring-search-down
+
 
 #zplug "eendroroy/alien"
 zplug "jackharrisonsherlock/common"
@@ -35,4 +39,4 @@ zplug "junegunn/fzf-bin", \
 # Supports oh-my-zsh plugins and the like
 zplug "plugins/git",   from:oh-my-zsh
 
-
+zplug load
