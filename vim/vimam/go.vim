@@ -17,6 +17,9 @@ let g:go_auto_sameids = 1
 
 " remove gd mappings
 let g:go_def_mapping_enabled = 0
+let g:go_def_mode='gopls'
+
+let g:ale_go_langserver_executable = 'gopls'
 
 " vim-go
 augroup vg

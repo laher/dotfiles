@@ -186,7 +186,7 @@ let g:LanguageClient_serverCommands = {
     \ 'sh': ['bash-language-server', 'start'],
     \ 'yaml': ['yaml-language-server'],
     \ 'python': ['pyls'],
-    \ 'go': ['bingo'],
+    \ 'go': ['gopls'],
     \ 'scala': ['metals-vim'],
     \ 'php': ['intelephense', '--stdio'],
     \ }
