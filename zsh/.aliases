@@ -46,3 +46,8 @@ alias pgen='pass generate --clip'
 alias ktail='~/d/kubetail/kubetail -t'
 
 alias glances='~/.local/bin/glances --theme-white'
+
+alias ll='ls -lah'
+alias l='l'
+
+alias o='xdg-open'

@@ -1,7 +1,23 @@
 source ~/.zplug/init.zsh
 
-# Make sure to use double quotes
-zplug "zsh-users/zsh-history-substring-search"
+# Zplug plugins
+zplug "zplug/zplug", hook-build:"zplug --self-manage"
+
+zplug "modules/tmux",       from:prezto
+zplug "modules/history",    from:prezto
+zplug "modules/utility",    from:prezto
+#zplug "modules/ruby",       from:prezto
+#zplug "modules/ssh",        from:prezto
+zplug "modules/terminal",   from:prezto
+zplug "modules/editor",     from:prezto
+zplug "modules/directory",  from:prezto
+zplug "modules/completion", from:prezto
+
+# zsh users
+zplug "zsh-users/zsh-completions",              defer:0
+zplug "zsh-users/zsh-autosuggestions",          defer:2, on:"zsh-users/zsh-completions"
+zplug "zsh-users/zsh-syntax-highlighting",      defer:3, on:"zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-history-substring-search", defer:3, on:"zsh-users/zsh-syntax-highlighting"
 
 # Grab binaries from GitHub Releases
 # and rename with the "rename-to:" tag
