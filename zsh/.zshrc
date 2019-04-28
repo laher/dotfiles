@@ -44,16 +44,16 @@
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git golang git-extras)
+#plugins=(git golang git-extras)
 
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-[ -f ~/oh-my-zsh.sh ] && source ~/oh-my-zsh.sh
-if [ -f "$ZSH/oh-my-zsh.sh" ]; then
-  source $ZSH/oh-my-zsh.sh
-fi
+#[ -f ~/oh-my-zsh.sh ] && source ~/oh-my-zsh.sh
+#if [ -f "$ZSH/oh-my-zsh.sh" ]; then
+#  source $ZSH/oh-my-zsh.sh
+#fi
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
