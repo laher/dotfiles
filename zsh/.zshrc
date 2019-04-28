@@ -4,7 +4,7 @@
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -133,8 +133,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -f /home/am/.travis/travis.sh ] && source /home/am/.travis/travis.sh
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-fpath=($fpath "/home/am/.zfunctions")
+#fpath=($fpath "/home/am/.zfunctions")
 
   # Set Spaceship ZSH as a prompt
-  autoload -U promptinit; promptinit
-  prompt spaceship
+  #autoload -U promptinit; promptinit
+  #prompt spaceship

@@ -93,9 +93,63 @@ function vimDirDiff { echo "Please wait while vim diffs the directories" args=$@
 
 export SAVEHIST=100000
 
+setopt no_beep
+setopt interactive_comments
+setopt prompt_subst
+
+setopt auto_cd
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushd_minus
+setopt pushd_silent
+
+setopt append_history
+setopt inc_append_history
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_all_dups
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt share_history
+
+setopt hup
+setopt long_list_jobs
+setopt notify
+
+autoload -U compinit
+compinit
+zstyle ':completion:*' menu select
+zstyle ':completion:*:default' list-colors ''
+# case-insensitive, partial-word, and then substring completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' completer _complete _approximate
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
+zstyle -e ':completion:*:approximate:*' max-errors 'reply=($((($#PREFIX+$#SUFFIX)/3))numeric)'
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
+
+
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
+
+
+ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[blue]%}g%{$reset_color%}:%{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}…%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+local prompt_jobs="%(1j.%{$fg[yellow]%}%j%{$reset_color%}%{$fg[red]%}z%{$reset_color%} .)"
+local prompt_host="%{$fg[cyan]%}%m%{$reset_color%}"
+local prompt_root="%(!.%{$fg_bold[red]%}#.%{$fg[green]%}$)%{$reset_color%}"
+local return_status="%{$fg[red]%}%(?..=)%{$reset_color%}"
+
+PROMPT='${prompt_jobs}$(git_prompt_info) %~ ${prompt_root} '
+RPROMPT="${return_status}%*"
+
+
+HISTSIZE=5000               #How many lines of history to keep in memory
+HISTFILE=~/.zsh_history     #Where to save history to disk
+SAVEHIST=5000 #Number of history entries to save to disk
