@@ -13,6 +13,8 @@ alias branch-diff='git log --graph --abbrev-commit --date=relative'
 
 alias g='git '
 alias gs='git status '
+alias gp='git push'
+alias gl='git pull'
 alias ga='git add '
 alias gb='git branch '
 alias gci='git commit'
