@@ -100,6 +100,7 @@ Plug 'tpope/vim-obsession'         " Continuously save buffer state
 Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-sleuth'            " tab/space detection per-file
 Plug 'tpope/vim-unimpaired'        " pairs of mappings like [q ]q for quickfix pref/next
+Plug 'tpope/vim-eunuch'            " eunuch
 
 """ navigation and fuzzy
 "Plug 'ctrlpvim/ctrlp.vim' " Find files faster by name
