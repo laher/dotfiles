@@ -148,8 +148,8 @@ local prompt_host="%{$fg[cyan]%}%m%{$reset_color%}"
 local prompt_root="%(!.%{$fg_bold[red]%}#.%{$fg[green]%}→)%{$reset_color%}"
 local return_status="%{$fg[red]%}%(?..=)%{$reset_color%}"
 
-PROMPT='${prompt_jobs}$(git_prompt_info) %~ ${prompt_root} '
-RPROMPT="${return_status}%*"
+#PROMPT='${prompt_jobs}$(git_prompt_info) %~ ${prompt_root} '
+#RPROMPT="${return_status}%*"
 
 
 HISTSIZE=5000               #How many lines of history to keep in memory

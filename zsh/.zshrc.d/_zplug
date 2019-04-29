@@ -23,8 +23,8 @@ bindkey "$terminfo[cuu1]" history-substring-search-up
 bindkey "$terminfo[cud1]" history-substring-search-down
 
 
-#zplug "eendroroy/alien"
-zplug "jackharrisonsherlock/common"
+zplug "eendroroy/alien"
+#zplug "jackharrisonsherlock/common"
 
 export ZSH_THEME="common"
 
