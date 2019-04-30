@@ -91,6 +91,7 @@ function vimDirDiff { echo "Please wait while vim diffs the directories" args=$@
 # promptinit
 #prompt gentoo
 
+unsetopt correct
 export SAVEHIST=100000
 
 setopt no_beep
