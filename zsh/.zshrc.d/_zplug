@@ -18,7 +18,7 @@ zplug "zsh-users/zsh-completions",              defer:0
 zplug "zsh-users/zsh-autosuggestions",          defer:2, on:"zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting",      defer:3, on:"zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-history-substring-search", defer:3, on:"zsh-users/zsh-syntax-highlighting"
-#zmodload zsh/terminfo
+zmodload zsh/terminfo
 #bindkey "$terminfo[cuu1]" history-substring-search-up
 #bindkey "$terminfo[cud1]" history-substring-search-down
 

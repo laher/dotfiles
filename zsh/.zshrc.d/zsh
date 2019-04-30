@@ -136,6 +136,8 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-
 # bindkey "^[[A" up-line-or-beginning-search # Up
 # bindkey "^[[B" down-line-or-beginning-search # Down
 
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
 
