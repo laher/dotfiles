@@ -18,15 +18,15 @@ zplug "zsh-users/zsh-completions",              defer:0
 zplug "zsh-users/zsh-autosuggestions",          defer:2, on:"zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting",      defer:3, on:"zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-history-substring-search", defer:3, on:"zsh-users/zsh-syntax-highlighting"
-zmodload zsh/terminfo
-bindkey "$terminfo[cuu1]" history-substring-search-up
-bindkey "$terminfo[cud1]" history-substring-search-down
+#zmodload zsh/terminfo
+#bindkey "$terminfo[cuu1]" history-substring-search-up
+#bindkey "$terminfo[cud1]" history-substring-search-down
 
 
 zplug "eendroroy/alien"
 #zplug "jackharrisonsherlock/common"
 
-export ZSH_THEME="common"
+export ZSH_THEME="alien"
 
 # Grab binaries from GitHub Releases
 # and rename with the "rename-to:" tag
