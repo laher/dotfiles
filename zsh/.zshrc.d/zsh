@@ -197,3 +197,5 @@ export ALIEN_SECTIONS_LEFT=(
   venv
   prompt
 )
+
+export PATH="$PATH:/snap/bin"
