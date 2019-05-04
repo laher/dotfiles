@@ -1,0 +1,35 @@
+# just includes ...
+#
+if [ -d ~/.zshenv ]; then
+    source ~/.zshenv
+fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if [ -d ~/.zshrc.local ]; then
+    source ~/.zshrc.local
+fi
+
+if [[ -d ~/.zshrc.d ]]; then
+	for f in ~/.zshrc.d/*(N); do
+		source $f
+	done
+fi
+
+if [ -d ~/.zshrc.movio.d ]; then
+    for f in ~/.zshrc.movio.d/*(N); do
+	source $f
+    done
+fi
+
+if [ -f ~/.aliases ]; then
+    source ~/.aliases
+fi
+
+if [ -f ~/.aliases.local ]; then
+    source ~/.aliases.local
+fi
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
