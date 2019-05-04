@@ -3,3 +3,4 @@ stow vim
 stow alacritty
 stow tmux
 stow xinit
+stow git

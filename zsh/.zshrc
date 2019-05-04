@@ -90,3 +90,5 @@ export ALIEN_SECTIONS_LEFT=(
   venv
   prompt
 )
+fpath=($fpath "/home/am/.zfunctions")
+

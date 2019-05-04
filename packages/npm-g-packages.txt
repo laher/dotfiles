@@ -1,0 +1,8 @@
+bash-language-server
+flow-language-server
+intelephense
+markdown-language-server
+vscode-css-languageserver-bin
+vscode-html-languageserver-bin
+vscode-json-languageservice
+yaml-language-server
