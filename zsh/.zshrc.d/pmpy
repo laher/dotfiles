@@ -2,12 +2,13 @@
 
 # pullmepushyou
 function pmpy {
+	current=$(pwd)
 	d="$1"
 	if [ "$d" = "" ]; then
 		d="."
 	fi
 	echo "$d"
-	pushd "$d"
+	cd $d
 	if git diff --quiet HEAD; then
 		git pull
 		git push
@@ -17,7 +18,7 @@ function pmpy {
 		git pull
 		git push
 	fi
-	popd
+	cd "$current"
 }
 
 function pmpy_all {
