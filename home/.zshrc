@@ -1,4 +1,5 @@
 source ~/.zshrc.includes
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 unsetopt correct
 export SAVEHIST=100000

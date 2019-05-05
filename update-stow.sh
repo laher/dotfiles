@@ -1,6 +1,1 @@
-stow zsh
-stow vim
-stow alacritty
-stow tmux
-stow xinit
-stow git
+stow home
