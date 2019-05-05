@@ -13,7 +13,6 @@ webencodings
 wadllib
 usb-creator
 urllib3
-unity-tweak-tool
 unity-scope-zotero
 unity-scope-yelp
 unity-scope-virtualbox
@@ -45,6 +44,7 @@ PyYAML
 pyxdg
 pyxattr
 pytz
+python-xlib
 python-debian
 python-dateutil
 python-apt
@@ -56,6 +56,7 @@ pymacaroons
 PyJWT
 pyinotify
 PyGObject
+pydbus
 pycups
 pycrypto
 PyChromecast
@@ -87,6 +88,7 @@ ifaddr
 idna
 httplib2
 html5lib
+hidpidaemon
 greenlet
 Flask
 feedparser

@@ -29,6 +29,7 @@ grub-pc
 grub-pc-bin
 grub2-common
 gzip
+hidpi-daemon
 hostname
 hyphen-en-us
 init
@@ -55,6 +56,7 @@ lvm2
 mediainfo
 mkchromecast
 mokutil
+moreutils
 mythes-en-us
 ncurses-base
 ncurses-bin
@@ -85,11 +87,11 @@ ubuntu-minimal
 ubuntu-restricted-addons
 ubuntu-standard
 ubuntu-wallpapers
-unity-tweak-tool
 unixodbc-dev
 unrar
 unrar-free
 unzip
 vim
 vim-nox
+xstow
 zsh

@@ -1,6 +1,6 @@
 #!/bin/zsh
 
 cd "$(dirname "$0")"
-./push-apt.sh
-./push-npm-g.sh
-./push-python.sh
+./snapshot-apt.sh
+./snapshot-npm-g.sh
+./snapshot-python.sh
