@@ -1,1 +1,1 @@
-sudo apt install $(cat ./packages/apt-packages.txt | tr "\n" ' ')
+sudo apt install $(cat ./packages/apt-packages.txt |grep -v -x -F -f ./packages/apt-exclude.txt | tr "\n" ' ')

@@ -1,0 +1,5 @@
+hidpi-daemon
+thunderbird-locale-en
+thunderbird-locale-en-us
+mkchromecast
+nzbget
