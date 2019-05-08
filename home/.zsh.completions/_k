@@ -1,0 +1,43 @@
+#compdef _k k
+function _k {
+    local line
+
+    _arguments -C \
+        "-h[Show help information]" \
+        "--help[Show help information]" \
+        "1: :(yus yfr)" \
+        "2: :(gp x l get)" \
+        "*::arg:->args"
+
+    case $line[1] in
+        yus)
+            _hello_loudly
+        ;;
+        yfr)
+            _hello_quietly
+        ;;
+    esac
+
+    case $line[2] in
+        x)
+            _exec
+        ;;
+    esac
+
+
+}
+
+function _exec {
+    _arguments \
+        "-it[interactive]"
+}
+
+function _hello_quietly {
+    _arguments \
+        "--silent[Dont output anything]"
+}
+
+function _hello_loudly {
+    _arguments \
+        "--repeat=[Repat the <message> any number of times]"
+}

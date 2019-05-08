@@ -27,6 +27,7 @@ setopt hup
 setopt long_list_jobs
 setopt notify
 
+fpath=($fpath "/home/am/.zsh.completions")
 autoload -U compinit
 compinit
 zstyle ':completion:*' menu select
@@ -91,5 +92,4 @@ export ALIEN_SECTIONS_LEFT=(
   venv
   prompt
 )
-fpath=($fpath "/home/am/.zfunctions")
 
