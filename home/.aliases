@@ -53,3 +53,5 @@ alias sz='source ~/.zshrc'
 function pcd { cd ${PWD%/$1/*}/$1; }
 
 function vimDirDiff { echo "Please wait while vim diffs the directories" args=$@ vim -f "+execute \"DirDiff $args\"" echo "vimDirDiff Done" }
+
+alias gt='go test'
