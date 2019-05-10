@@ -1,6 +1,6 @@
 
-au FileType js Shortcut Ref nmap <LocalLeader>r :ALEGoToReferences<CR>
-au FileType js Shortcut Def nmap <LocalLeader>f :FlowJumpToDef<CR>
+au FileType js nmap <LocalLeader>r :ALEGoToReferences<CR>
+au FileType js nmap <LocalLeader>f :FlowJumpToDef<CR>
 
 " Syntax for js etc
 autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['standard']

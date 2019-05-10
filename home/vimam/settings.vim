@@ -35,14 +35,6 @@ if exists('g:gui_oni')
     set noswapfile
 endif
 
-if exists('g:gui_oni')
-"   set smartcase
-"   set noshowmode
-"   set noruler
-"    set laststatus=0
-"    set noshowcmd
-endif
-
 if !has('nvim')
 	set term=xterm-256color
 endif
@@ -53,11 +45,6 @@ if has('nvim')
 	command Tsplit split term://$SHELL
 	command Tvsplit vsplit term://$SHELL
 	command Ttabedit tabedit term://$SHELL
-	"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-	"let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-	"let &t_AB="\e[48;5;%dm"
-	"let &t_AF="\e[38;5;%dm""	
-	" This is for vim-tmux-navigator in OSX
 	nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 endif
 
@@ -113,10 +100,7 @@ autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 
 
 " plugin-specific settings
 
-
 let g:place_single_character_mode = 0
-let g:calendar_google_calendar = 1
-let g:calendar_google_task = 1
 
 let g:lightline = {
       \ 'separator': { 'left': '', 'right': '' },
@@ -124,17 +108,13 @@ let g:lightline = {
       \ }
 
 " ^set autowrite
-
 let g:WMGraphviz_output = "svg"
 let g:WMGraphviz_viewer = "google-chrome"
-
 
 """ incsearch
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
-
-
 
 if !exists('g:gui_oni') && !exists('g:GuiLoaded')
     " Start NERDTree when no files specified
@@ -154,10 +134,6 @@ let g:ale_lint_on_save = 1
 let g:ale_linters = {'python': ['pylint']}
 let g:ale_fixers = {'javascript': ['prettier', 'eslint', 'flow']}
 
-" ctrlp
-let g:CtrlSpaceDefaultMappingKey = "<C-Space> "
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
 
 if !exists('g:gui_oni')
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -168,28 +144,6 @@ let g:over_enable_auto_nohlsearch = 1
 " let g:used_javascript_libs = 'angularjs,angularui'
 let g:argwrap_tail_comma = 1
 
-" Language server
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-" Or map each action separately
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-
-let g:LanguageClient_rootMarkers = {
-        \ 'go': ['.git', 'go.mod'],
-        \ }
-" \ 'javascript': ['flow', 'lsp'],
-let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['flow-language-server', '--stdio'],
-    \ 'json': ['json-languageserver', '--stdio'],
-    \ 'css': ['css-languageserver', '--stdio'],
-    \ 'sh': ['bash-language-server', 'start'],
-    \ 'yaml': ['yaml-language-server'],
-    \ 'python': ['pyls'],
-    \ 'go': ['gopls'],
-    \ 'scala': ['metals-vim'],
-    \ 'php': ['intelephense', '--stdio'],
-    \ }
 
 """ vim-checkbox plugin
 let g:checkbox_states = [' ', 'X']

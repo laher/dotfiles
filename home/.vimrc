@@ -14,6 +14,7 @@ elseif filereadable(expand("~/vimam/plugins.vim")) " Usual
   source ~/vimam/go.vim
   source ~/vimam/js.vim
   source ~/vimam/scala.vim
+  source ~/vimam/lsp.vim
 endif
 
 
