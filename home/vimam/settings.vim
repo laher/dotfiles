@@ -93,13 +93,10 @@ endif
 
 set backspace=indent,eol,start
 
-
 " restore cursor _except_ for commit messages
 autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif 
 
-
 " plugin-specific settings
-
 let g:place_single_character_mode = 0
 
 let g:lightline = {
@@ -163,5 +160,7 @@ function! s:my_cr_function()
     endif
 endfunction
 
+" c<leader>w
+
 """ for live reload
-:set backupcopy=yes
+set backupcopy=yes
