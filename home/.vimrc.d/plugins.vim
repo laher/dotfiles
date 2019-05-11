@@ -45,7 +45,8 @@ Plug 'https://github.com/autozimu/LanguageClient-neovim', {
 "Plug 'https://github.com/rust-lang/rust.vim', { 'for': 'rust' }
 " Plug 'https://github.com/ambv/black', { 'for': 'python' }
 Plug 'https://github.com/fisadev/vim-isort', { 'for': 'python' }
-Plug 'https://github.com/rstacruz/sparkup', {'rtp': 'vim/'}  """ condensed html
+Plug 'https://github.com/rstacruz/sparkup', {'rtp': 'vim/'}  """ condensed html. type `div<C-E>` to get `<div></div>`
+Plug 'https://github.com/othree/xml.vim' """ xml and html
 
 " Plug 'https://github.com/ternjs/tern_for_vim', { 'for': 'javascript' }
 " Plug 'https://github.com/othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
