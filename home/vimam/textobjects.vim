@@ -1,6 +1,4 @@
 
-" `c;w` for changing next CamelCaseHump 
-call camelcasemotion#CreateMotionMappings('<leader>')
 
 " date `cit` e.g. 2001-01-01
 " time `cit` e.g. 10:10:11

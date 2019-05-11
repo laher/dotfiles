@@ -1,14 +1,7 @@
-
-
 " Leader
 let mapleader=";"
 let maplocalleader=","
 
-" shortcut plugin needs to be included for some reason. Weird!
-
-nnoremap <Leader>p :CtrlP<CR>
-nnoremap <Leader>ob :CtrlPBuffer
-nnoremap <Leader><Space> :CtrlSpace<CR>
 nnoremap <Leader>. :TagbarToggle<CR>
 
 " deletes into an empty buffer
@@ -20,6 +13,7 @@ command! -bang -nargs=* GGrep
   \   fzf#vim#with_preview({ 'dir': systemlist('git rev-parse --show-toplevel')[0] }), <bang>0)
 
 nnoremap <Leader>e :GGrep <c-r><c-w><CR>
+nnoremap <Leader>f :GFiles <c-r><c-w><CR>
 nnoremap <Leader>T :NERDTreeToggle<CR>
 nnoremap <Leader>t :NERDTreeFind<CR>
 nnoremap <Leader>t :NERDTreeFind<CR>
@@ -105,6 +99,12 @@ xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+" `c;w` for changing next CamelCaseHump 
+map <Leader>w <Plug>CamelCaseMotion_w
+map <Leader>b <Plug>CamelCaseMotion_b
+map <Leader>E <Plug>CamelCaseMotion_e
+map <Leader>ge <Plug>CamelCaseMotion_ge
 
 " delete all other lines. TODO protect against last line
 nmap <Leader>0 kd1Go<Esc>dG

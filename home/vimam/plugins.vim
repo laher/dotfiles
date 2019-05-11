@@ -82,35 +82,35 @@ Plug 'https://github.com/christoomey/vim-tmux-runner'
 
 """ tpope
 Plug 'https://github.com/tpope/vim-speeddating'       " Increment dates
-Plug 'https://github.com/tpope/vim-repeat'            " Repeat plugins
-Plug 'https://github.com/tpope/vim-commentary'        " Comment out blocks
-Plug 'https://github.com/tpope/vim-abolish'           " Flexible search
+Plug 'https://github.com/tpope/vim-repeat'            " `.` to repeat non-native things
+Plug 'https://github.com/tpope/vim-commentary'        " `gcc` Comment out lines. Also `gc` for motion target
+Plug 'https://github.com/tpope/vim-abolish'           " :Subvert/child{,ren}/adult{,s}/g, 
 Plug 'https://github.com/tpope/vim-obsession'         " Continuously save buffer state
-Plug 'https://github.com/tpope/vim-tbone'             " :Tmux support
+Plug 'https://github.com/tpope/vim-tbone'             " :Tmux support - :Twrite,:Tyank,:Tput
 Plug 'https://github.com/tpope/vim-sleuth'            " tab/space detection per-file
 Plug 'https://github.com/tpope/vim-unimpaired'        " pairs of mappings like [q ]q for quickfix pref/next
-Plug 'https://github.com/tpope/vim-eunuch'            " eunuch
+Plug 'https://github.com/tpope/vim-eunuch'            " Unix sugar - :SudoWrite, :Chmod, :Rename, :Delete ...
 
 """ navigation and fuzzy
 "Plug 'https://github.com/ctrlpvim/ctrlp.vim' " Find files faster by name
-Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " 
 Plug 'https://github.com/junegunn/fzf.vim' " Find within files
 Plug 'https://github.com/ryanoasis/vim-devicons' " icons for NERDTree etc
 Plug 'https://github.com/scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 " Plug 'https://github.com/vim-ctrlspace/vim-ctrlspace' "not really using this megabeast
 " Plug 'https://github.com/sunaku/vim-shortcut' "searchable key mappings
-Plug 'https://github.com/haya14busa/incsearch.vim'
+Plug 'https://github.com/haya14busa/incsearch.vim' " incrementally show search results
 
-""" text objects 
-Plug 'https://github.com/tpope/vim-jdaddy'            " JSON: j
+""" text objects - see below for some mappings
+Plug 'https://github.com/tpope/vim-jdaddy' " JSON: j
 Plug 'https://github.com/kana/vim-textobj-user' " see dates/times in ./textobjects.vim
 Plug 'https://github.com/kana/vim-textobj-entire' " whole buffer: e
 Plug 'https://github.com/vim-scripts/argtextobj.vim' " arg: a
 Plug 'https://github.com/michaeljsmith/vim-indent-object' " indentation: i / I
 Plug 'https://github.com/bkad/CamelCaseMotion' " CamelCase: <leader>w
 Plug 'https://github.com/glts/vim-textobj-comment' " comments: c
-Plug 'https://github.com/tpope/vim-surround' " Operate on surrounding parens/quotes: `s`. e.g. cs"'
+Plug 'https://github.com/tpope/vim-surround' " Operate on surrounding parens/quotes: `s`. e.g. cs'<p>
 
 """ editing
 Plug 'https://github.com/joereynolds/place.vim' " insertions with ga (doesn't move the cursor)
