@@ -103,24 +103,25 @@ Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' 
 " Plug 'https://github.com/sunaku/vim-shortcut' "searchable key mappings
 Plug 'https://github.com/haya14busa/incsearch.vim' " incrementally show search results
 
-""" text objects - see below for some mappings
+""" text objects
 Plug 'https://github.com/tpope/vim-jdaddy' " JSON: j
 Plug 'https://github.com/kana/vim-textobj-user' " see dates/times in ./textobjects.vim
 Plug 'https://github.com/kana/vim-textobj-entire' " whole buffer: e
 Plug 'https://github.com/vim-scripts/argtextobj.vim' " arg: a
 Plug 'https://github.com/michaeljsmith/vim-indent-object' " indentation: i / I
-Plug 'https://github.com/bkad/CamelCaseMotion' " CamelCase: <leader>w
+Plug 'https://github.com/bkad/CamelCaseMotion' " CamelCase: <leader>w . e.g. `c2<leader>w`
 Plug 'https://github.com/glts/vim-textobj-comment' " comments: c
-Plug 'https://github.com/tpope/vim-surround' " Operate on surrounding parens/quotes: `s`. e.g. cs'<p>
+Plug 'https://github.com/tpope/vim-surround' " Operate on surrounding parens/quotes: `s`. e.g. `cs'<p>`
 
 """ editing
-Plug 'https://github.com/joereynolds/place.vim' " insertions with ga (doesn't move the cursor)
+Plug 'https://github.com/joereynolds/place.vim' " insertions with ga (doesn't move the cursor. e.g. `ga$;` to add a semicolon)
 "Plug 'https://github.com/jiangmiao/auto-pairs'
 Plug 'https://github.com/jeetsukumaran/vim-indentwise' " [-,[+,[= and ]-,]+,]=
 Plug 'https://github.com/AndrewRadev/splitjoin.vim' " gS and gJ to split/join one-liners
+Plug 'https://github.com/christoomey/vim-titlecase' " `gt`: motion for title-case
 
 """ writing
-Plug 'https://github.com/szw/vim-dict' " :Dict not working ... ?
+"Plug 'https://github.com/szw/vim-dict' " :Dict not working ... ?
 
 """ Appearance and layout
 Plug 'https://github.com/itchyny/vim-cursorword' " underline word under cursor
@@ -147,6 +148,7 @@ Plug 'https://github.com/honza/vim-snippets'
 
 " buggy? jumpy text
 " Plug 'https://github.com/osyo-manga/vim-over' " show preview of commands
+
 
 " All of your Plugs must be added before the following line
 call plug#end()

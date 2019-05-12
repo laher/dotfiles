@@ -1,4 +1,4 @@
-# vim config
+# vim config notes
 
 * plugins.vim is the starting point
 * settings.vim contains most of the general stuff
@@ -21,5 +21,9 @@ With cursor at the pipe below:
 
 Make sure the cursor is currently outside the tag though.
 
+
+## Play here
+
+"sdfsdfsdf ee"
 
     <span><em>hello</em></span>

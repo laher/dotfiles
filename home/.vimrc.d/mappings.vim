@@ -35,7 +35,7 @@ inoremap <Leader>fn <c-r>=expand("%:t")<cr>
 nmap <Leader>gl :Glog<CR>
 nmap <Leader>gs :Gstatus<CR>
 nmap <Leader>gd :Gdiff<CR>
-nmap <Leader>gbr :Gbrowse<CR>
+map <Leader>x :Gbrowse<CR>
 nmap <Leader>gbl :Gblame<CR>
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
