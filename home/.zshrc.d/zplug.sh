@@ -37,7 +37,7 @@ zplug "junegunn/fzf-bin", \
     use:"*linux*amd64*"
 
 # Supports oh-my-zsh plugins and the like
-zplug "plugins/git",   from:oh-my-zsh
+# zplug "plugins/git",   from:oh-my-zsh
 
 zplug 'wfxr/formarks'
 zplug 'wfxr/forgit'

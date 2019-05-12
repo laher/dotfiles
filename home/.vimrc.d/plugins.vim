@@ -84,11 +84,10 @@ Plug 'https://github.com/christoomey/vim-tmux-runner'
 """ tpope
 Plug 'https://github.com/tpope/vim-speeddating'       " Increment dates
 Plug 'https://github.com/tpope/vim-repeat'            " `.` to repeat non-native things
-Plug 'https://github.com/tpope/vim-commentary'        " `gcc` Comment out lines. Also `gc` for motion target
 Plug 'https://github.com/tpope/vim-abolish'           " :Subvert/child{,ren}/adult{,s}/g, 
 Plug 'https://github.com/tpope/vim-obsession'         " Continuously save buffer state
 Plug 'https://github.com/tpope/vim-tbone'             " :Tmux support - :Twrite,:Tyank,:Tput
-Plug 'https://github.com/tpope/vim-sleuth'            " tab/space detection per-file
+Plug 'https://github.com/tpope/vim-sleuth'            " tab/space indentation detection per-file
 Plug 'https://github.com/tpope/vim-unimpaired'        " pairs of mappings like [q ]q for quickfix pref/next
 Plug 'https://github.com/tpope/vim-eunuch'            " Unix sugar - :SudoWrite, :Chmod, :Rename, :Delete ...
 
@@ -113,12 +112,14 @@ Plug 'https://github.com/bkad/CamelCaseMotion' " CamelCase: <leader>w . e.g. `c2
 Plug 'https://github.com/glts/vim-textobj-comment' " comments: c
 Plug 'https://github.com/tpope/vim-surround' " Operate on surrounding parens/quotes: `s`. e.g. `cs'<p>`
 
+Plug 'https://github.com/christoomey/vim-titlecase' " `gt`: motion for title-case
+Plug 'https://github.com/tpope/vim-commentary'        " `gcc` Comment out lines. Also `gc` for motion target
+
 """ editing
 Plug 'https://github.com/joereynolds/place.vim' " insertions with ga (doesn't move the cursor. e.g. `ga$;` to add a semicolon)
 "Plug 'https://github.com/jiangmiao/auto-pairs'
 Plug 'https://github.com/jeetsukumaran/vim-indentwise' " [-,[+,[= and ]-,]+,]=
 Plug 'https://github.com/AndrewRadev/splitjoin.vim' " gS and gJ to split/join one-liners
-Plug 'https://github.com/christoomey/vim-titlecase' " `gt`: motion for title-case
 
 """ writing
 "Plug 'https://github.com/szw/vim-dict' " :Dict not working ... ?

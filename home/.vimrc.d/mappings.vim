@@ -35,7 +35,8 @@ inoremap <Leader>fn <c-r>=expand("%:t")<cr>
 nmap <Leader>gl :Glog<CR>
 nmap <Leader>gs :Gstatus<CR>
 nmap <Leader>gd :Gdiff<CR>
-map <Leader>x :Gbrowse<CR>
+vmap <Leader>x :Gbrowse<CR>
+nmap <Leader>x :Gbrowse<CR>
 nmap <Leader>gbl :Gblame<CR>
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
@@ -101,10 +102,10 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " `c;w` for changing next CamelCaseHump 
-map <Leader>w <Plug>CamelCaseMotion_w
-map <Leader>b <Plug>CamelCaseMotion_b
-map <Leader>E <Plug>CamelCaseMotion_e
-map <Leader>ge <Plug>CamelCaseMotion_ge
+nmap <Leader>w <Plug>CamelCaseMotion_w
+nmap <Leader>b <Plug>CamelCaseMotion_b
+nmap <Leader>E <Plug>CamelCaseMotion_e
+nmap <Leader>ge <Plug>CamelCaseMotion_ge
 
 " delete all other lines. TODO protect against last line
 nmap <Leader>0 kd1Go<Esc>dG
