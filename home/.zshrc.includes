@@ -11,7 +11,8 @@ if [ -d ~/.zshrc.local ]; then
 fi
 
 if [[ -d ~/.zshrc.d ]]; then
-	for f in ~/.zshrc.d/*(N); do
+	# (N) is the NULL_GLOB option. Don't error if empty
+	for f in ~/.zshrc.d/*.sh(N); do
 		source $f
 	done
 fi

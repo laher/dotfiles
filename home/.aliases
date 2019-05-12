@@ -10,16 +10,18 @@ alias g='git '
 alias gs='git status '
 alias gp='git push'
 alias gl='git pull'
-alias ga='git add '
 alias gb='git branch '
 alias gci='git commit'
 alias gc='git commit'
 alias gcl='git clone'
-alias gd='git diff'
 alias gco='git checkout'
 alias gk='gitk --all&'
 alias gu='git gui --all'
 alias gupp='git pull && git push'
+
+# disabled because forgit
+#alias ga='git add ' 
+#alias gd='git diff'
 
 alias got='git '
 alias get='git '
@@ -53,3 +55,5 @@ alias sz='source ~/.zshrc'
 function pcd { cd ${PWD%/$1/*}/$1; }
 
 function vimDirDiff { echo "Please wait while vim diffs the directories" args=$@ vim -f "+execute \"DirDiff $args\"" echo "vimDirDiff Done" }
+
+alias gt='go test'

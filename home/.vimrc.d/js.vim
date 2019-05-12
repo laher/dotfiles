@@ -1,6 +1,6 @@
 
-au FileType js Shortcut Ref nmap <LocalLeader>r :ALEGoToReferences<CR>
-au FileType js Shortcut Def nmap <LocalLeader>f :FlowJumpToDef<CR>
+au FileType js nmap <LocalLeader>r :ALEGoToReferences<CR>
+au FileType js nmap <LocalLeader>f :FlowJumpToDef<CR>
 
 " Syntax for js etc
 autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['standard']
@@ -12,8 +12,8 @@ autocmd FileType json setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType html setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType css setlocal shiftwidth=2 tabstop=2 expandtab
 augroup yellowui
-  " au! BufWritePre ~/**/yellow-ui/**/*.js :Prettier
-  au! BufWritePre ~/d/voteo/**/*.js :Prettier
+  au! BufWritePre ~/**/yellow-ui/**/*.js :PrettierAsync
+  au! BufWritePre ~/d/voteo/**/*.js :PrettierAsync
 augroup END
 
 

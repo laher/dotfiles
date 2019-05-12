@@ -3,17 +3,19 @@ filetype off                  " required
 
 if filereadable(expand("~/.vimrc.experiment")) " try
   source ~/.vimrc.experiment
-elseif filereadable(expand("~/vimam/plugins.vim")) " Usual
-  source ~/vimam/plugins.vim
-  source ~/vimam/syntax.vim
-  source ~/vimam/settings.vim
-  source ~/vimam/filetypes.vim
-  source ~/vimam/functions.vim
-  source ~/vimam/abbreviations.vim
-  source ~/vimam/mappings.vim
-  source ~/vimam/go.vim
-  source ~/vimam/js.vim
-  source ~/vimam/scala.vim
+elseif filereadable(expand("~/.vimrc.d/plugins.vim")) " Usual
+  source ~/.vimrc.d/plugins.vim
+  source ~/.vimrc.d/syntax.vim
+  source ~/.vimrc.d/settings.vim
+  source ~/.vimrc.d/filetypes.vim
+  source ~/.vimrc.d/functions.vim
+  source ~/.vimrc.d/abbreviations.vim
+  source ~/.vimrc.d/mappings.vim
+  source ~/.vimrc.d/go.vim
+  source ~/.vimrc.d/js.vim
+  source ~/.vimrc.d/scala.vim
+  source ~/.vimrc.d/lsp.vim
+  source ~/.vimrc.d/textobjects.vim
 endif
 
 
