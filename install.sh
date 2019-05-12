@@ -20,4 +20,5 @@ git clone https://github.com/laher/dotfiles.git
 cd dotfiles
 ./update.sh
 
+sudo usermod -aG docker $USER 
 echo "now run install-pt2.sh"
