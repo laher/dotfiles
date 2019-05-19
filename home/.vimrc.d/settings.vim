@@ -160,7 +160,5 @@ function! s:my_cr_function()
     endif
 endfunction
 
-" c<leader>w
-
 """ for live reload
 set backupcopy=yes
