@@ -77,7 +77,7 @@ HISTSIZE=5000               #How many lines of history to keep in memory
 HISTFILE=~/.zsh_history     #Where to save history to disk
 SAVEHIST=5000 #Number of history entries to save to disk
 
-export ALIEN_THEME="soft"
+export ALIEN_THEME="green"
 export USE_NERD_FONT=1
 export ALIEN_SECTION_PATH_COMPONENTS=2
 

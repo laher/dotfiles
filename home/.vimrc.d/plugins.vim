@@ -103,10 +103,10 @@ Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' 
 Plug 'https://github.com/haya14busa/incsearch.vim' " incrementally show search results
 
 """ text objects
+Plug 'https://github.com/wellle/targets.vim' " pairs,separators. args `aa`. anyblock: `inb` anyquote: `inq` 
 Plug 'https://github.com/tpope/vim-jdaddy' " JSON: j
 Plug 'https://github.com/kana/vim-textobj-user' " see dates/times in ./textobjects.vim
 Plug 'https://github.com/kana/vim-textobj-entire' " whole buffer: e
-Plug 'https://github.com/vim-scripts/argtextobj.vim' " arg: a
 Plug 'https://github.com/michaeljsmith/vim-indent-object' " indentation: i / I
 Plug 'https://github.com/bkad/CamelCaseMotion' " CamelCase: <leader>w . e.g. `c2<leader>w`
 Plug 'https://github.com/glts/vim-textobj-comment' " comments: c
@@ -120,6 +120,9 @@ Plug 'https://github.com/joereynolds/place.vim' " insertions with ga (doesn't mo
 "Plug 'https://github.com/jiangmiao/auto-pairs'
 Plug 'https://github.com/jeetsukumaran/vim-indentwise' " [-,[+,[= and ]-,]+,]=
 Plug 'https://github.com/AndrewRadev/splitjoin.vim' " gS and gJ to split/join one-liners
+Plug 'https://github.com/vim-scripts/repeatable-motions.vim' " repeatable motions
+Plug 'https://github.com/svermeulen/vim-cutlass' " override delete operations to not affect current buffer
+"Plug 'https://github.com/svermeulen/vim-yoink' " :Yanks shows recent yanks
 
 """ writing
 "Plug 'https://github.com/szw/vim-dict' " :Dict not working ... ?
