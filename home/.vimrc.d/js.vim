@@ -13,7 +13,9 @@ autocmd FileType html setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType css setlocal shiftwidth=2 tabstop=2 expandtab
 augroup yellowui
   au! BufWritePre ~/**/yellow-ui/**/*.js :PrettierAsync
+  au! BufWritePre ~/**/yellow-ui/**/*.css :PrettierAsync
   au! BufWritePre ~/d/voteo/**/*.js :PrettierAsync
+  au! BufWritePre ~/d/voteo/**/*.css :PrettierAsync
 augroup END
 
 
