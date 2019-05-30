@@ -75,6 +75,8 @@ Plug 'https://github.com/wannesm/wmgraphviz.vim', { 'for': 'dot' }
 Plug 'https://github.com/kyuhi/vim-emoji-complete'
 Plug 'https://github.com/christianrondeau/vim-base64'
 
+Plug 'google/vim-jsonnet', { 'for': 'jsonnet' }
+
 """ tmux
 Plug 'https://github.com/christoomey/vim-tmux-navigator'
 " Plug 'https://github.com/benmills/vimux'
