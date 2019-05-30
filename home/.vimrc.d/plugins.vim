@@ -121,7 +121,7 @@ Plug 'https://github.com/joereynolds/place.vim' " insertions with ga (doesn't mo
 Plug 'https://github.com/jeetsukumaran/vim-indentwise' " [-,[+,[= and ]-,]+,]=
 Plug 'https://github.com/AndrewRadev/splitjoin.vim' " gS and gJ to split/join one-liners
 Plug 'https://github.com/vim-scripts/repeatable-motions.vim' " repeatable motions
-Plug 'https://github.com/svermeulen/vim-cutlass' " override delete operations to not affect current buffer
+"Plug 'https://github.com/svermeulen/vim-cutlass' " override delete operations to not affect current buffer
 "Plug 'https://github.com/svermeulen/vim-yoink' " :Yanks shows recent yanks
 
 """ writing
