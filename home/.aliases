@@ -20,8 +20,8 @@ alias gu='git gui --all'
 alias gupp='git pull && git push'
 
 # disabled because forgit
-#alias ga='git add ' 
-#alias gd='git diff'
+alias ga='git add ' 
+alias gd='git diff'
 
 alias got='git '
 alias get='git '
