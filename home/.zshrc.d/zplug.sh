@@ -1,5 +1,6 @@
-source ~/.zplug/init.zsh
-
+if [[ -f ~/.zplug/init.zsh ]]; then
+	source ~/.zplug/init.zsh
+fi
 # Zplug plugins
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
 
@@ -40,6 +41,6 @@ zplug "junegunn/fzf-bin", \
 # zplug "plugins/git",   from:oh-my-zsh
 
 zplug 'wfxr/formarks'
-#zplug 'wfxr/forgit'
+# zplug 'wfxr/forgit' # fzf things for git-add and git-diff
 
 zplug load
