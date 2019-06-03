@@ -25,3 +25,5 @@ coursier bootstrap \
 
 # conflicts with vim-go
 # go get -u -v github.com/sourcegraph/go-langserver
+
+go get -u golang.org/x/tools/cmd/gopls

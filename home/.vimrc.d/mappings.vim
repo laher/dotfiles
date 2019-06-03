@@ -13,7 +13,9 @@ command! -bang -nargs=* GGrep
   \   fzf#vim#with_preview({ 'dir': systemlist('git rev-parse --show-toplevel')[0] }), <bang>0)
 
 nnoremap <Leader>e :GGrep <c-r><c-w><CR>
-nnoremap <Leader>f :GFiles <c-r><c-w><CR>
+nnoremap <Leader>gg :GGrep<CR>
+nnoremap <Leader>f :GFiles<CR>
+nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>T :NERDTreeToggle<CR>
 nnoremap <Leader>t :NERDTreeFind<CR>
 nnoremap <Leader>t :NERDTreeFind<CR>
@@ -102,10 +104,10 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " `c;w` for changing next CamelCaseHump 
-nmap <Leader>w <Plug>CamelCaseMotion_w
-nmap <Leader>b <Plug>CamelCaseMotion_b
-nmap <Leader>E <Plug>CamelCaseMotion_e
-nmap <Leader>ge <Plug>CamelCaseMotion_ge
+nmap <Leader>ccw <Plug>CamelCaseMotion_w
+nmap <Leader>ccb <Plug>CamelCaseMotion_b
+nmap <Leader>ccE <Plug>CamelCaseMotion_e
+nmap <Leader>ccge <Plug>CamelCaseMotion_ge
 
 " delete all other lines. TODO protect against last line
 nmap <Leader>0 kd1Go<Esc>dG
