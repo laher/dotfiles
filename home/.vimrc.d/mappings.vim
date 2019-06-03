@@ -112,4 +112,6 @@ nmap <Leader>ccge <Plug>CamelCaseMotion_ge
 " delete all other lines. TODO protect against last line
 nmap <Leader>0 kd1Go<Esc>dG
 
+" replace word under cursor
+:nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 "nmap <Leader>3 kdggjdG
