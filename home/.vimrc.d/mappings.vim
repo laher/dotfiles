@@ -66,6 +66,7 @@ nmap ga <Plug>(place-insert)
 let g:UltiSnipsExpandTrigger="<Leader>'"
 let g:UltiSnipsJumpForwardTrigger="<Leader>'"
 let g:UltiSnipsJumpBackwardTrigger="<Leader>\""
+let g:UltiSnipsListSnippets="<Leader>;"
 
 " expert mode
 "noremap <Up> <nop>

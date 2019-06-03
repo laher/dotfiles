@@ -40,6 +40,6 @@ zplug "junegunn/fzf-bin", \
 # zplug "plugins/git",   from:oh-my-zsh
 
 zplug 'wfxr/formarks'
-zplug 'wfxr/forgit'
+#zplug 'wfxr/forgit'
 
 zplug load
