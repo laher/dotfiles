@@ -123,8 +123,8 @@ endif
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetDirectories = ['~/.UltiSnips']
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsSnippetsDir='~/.UltiSnips'
+"let g:UltiSnipsSnippetDirectories=['~/.vimsnippets']
 
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
