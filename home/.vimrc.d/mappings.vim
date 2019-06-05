@@ -14,6 +14,7 @@ command! -bang -nargs=* GGrep
 
 nnoremap <Leader>e :GGrep <c-r><c-w><CR>
 nnoremap <Leader>gg :GGrep<CR>
+nnoremap <Leader>ag :Ag<CR>
 nnoremap <Leader>f :GFiles<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>T :NERDTreeToggle<CR>
