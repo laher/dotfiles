@@ -5,7 +5,7 @@ package-lock.json
 
 # Compiled source #
 ###################
-*.com
+#*.com << disabled because github.com (password store)
 *.class
 *.dll
 *.exe
@@ -28,7 +28,6 @@ package-lock.json
 # Logs and databases #
 ######################
 *.log
-*.sql
 *.sqlite
 
 # OS generated files #

@@ -14,6 +14,7 @@ command! -bang -nargs=* GGrep
 
 nnoremap <Leader>e :GGrep <c-r><c-w><CR>
 nnoremap <Leader>gg :GGrep<CR>
+nnoremap <Leader>ag :Ag<CR>
 nnoremap <Leader>f :GFiles<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>T :NERDTreeToggle<CR>
@@ -113,4 +114,6 @@ nmap <Leader>ccge <Plug>CamelCaseMotion_ge
 " delete all other lines. TODO protect against last line
 nmap <Leader>0 kd1Go<Esc>dG
 
+" replace word under cursor
+:nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 "nmap <Leader>3 kdggjdG
