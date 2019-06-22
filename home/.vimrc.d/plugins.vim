@@ -131,6 +131,8 @@ Plug 'https://github.com/vim-scripts/repeatable-motions.vim' " repeatable motion
 
 """ Appearance and layout
 Plug 'https://github.com/itchyny/vim-cursorword' " underline word under cursor
+Plug 'luochen1990/rainbow'
+let g:rainbow_active = 1
 Plug 'https://github.com/freeo/vim-kalisi' " theme
 Plug 'https://github.com/itchyny/lightline.vim' " status across bottom
 Plug 'https://github.com/ap/vim-buftabline' " tabs across top
