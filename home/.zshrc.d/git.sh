@@ -14,4 +14,9 @@ function gbrr {
 	git branch -r --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)'| head
 }
 
+function gtp {
+	git tag "$1"
+	git push origin "$1"
+}
+
 git config --global core.excludesfile ~/.gitignore_global

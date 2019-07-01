@@ -99,7 +99,9 @@ autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 
 " plugin-specific settings
 let g:place_single_character_mode = 0
 
+" Lightline
 let g:lightline = {
+      \ 'colorscheme': 'plastic',
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' }
       \ }

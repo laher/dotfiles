@@ -93,3 +93,4 @@ export ALIEN_SECTIONS_LEFT=(
   prompt
 )
 
+export PATH=/usr/local/bin:$PATH

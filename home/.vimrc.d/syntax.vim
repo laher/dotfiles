@@ -16,3 +16,6 @@ map <M-i> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 " fiddle with org mode syntax
 autocmd BufEnter *.org syntax match stars /^\*\+ .*/
 highlight stars ctermfg=red guifg=#ff0000 cterm=bold
+
+
+

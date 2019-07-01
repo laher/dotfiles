@@ -134,7 +134,8 @@ Plug 'https://github.com/itchyny/vim-cursorword' " underline word under cursor
 Plug 'https://github.com/freeo/vim-kalisi' " theme
 Plug 'https://github.com/itchyny/lightline.vim' " status across bottom
 Plug 'https://github.com/ap/vim-buftabline' " tabs across top
-
+Plug 'jaredgorski/spacecamp' " theme
+Plug 'https://github.com/flrnprz/plastic.vim' " theme
 " Plug 'https://github.com/fxn/vim-monochrome' " theme
 " Plug 'https://github.com/altercation/vim-colors-solarized' " theme
 " Plug 'https://github.com/kcsongor/vim-monochrome-light' " theme
