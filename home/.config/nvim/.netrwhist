@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/am'
-let g:netrw_dirhist_2='/Users/am/.zshrc.movio.d'
-let g:netrw_dirhist_3='/Users/am/go/src/github.com/movio/yellow/src/group-maker'
-let g:netrw_dirhist_4='/Users/am/go/src/github.com/movio/yellow/src/group-maker/groupmaker'
-let g:netrw_dirhist_5='/Users/am/.zshrc.d'
-let g:netrw_dirhist_6='/Users/am'
-let g:netrw_dirhist_7='/Users/am/go/src/github.com/movio/yellow/src/query-api/archive'
