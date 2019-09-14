@@ -18,6 +18,7 @@ augroup yellowui
   au! BufWritePre ~/d/voteo/**/*.css :PrettierAsync
 augroup END
 
+" au! BufWritePre ~/workspace/**.json :%!jq .
 
 " Use tern_for_vim.
 let g:tern#command = ["/usr/bin/tern"]

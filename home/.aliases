@@ -28,8 +28,8 @@ alias get='git '
 
 alias tailf='tail -F'
 
-alias v=nvim
-alias vim=nvim
+alias v=/usr/local/bin/vim
+alias vim=/usr/local/bin/vim
 
 
 alias watch='watch '
@@ -38,12 +38,11 @@ alias h='hostname'
 
 alias pgen='pass generate --clip'
 
-alias glances='~/.local/bin/glances --theme-white'
 
 alias ll='ls -lah'
 alias l='l'
 
-alias o='xdg-open'
+alias o='open'
 alias sz='source ~/.zshrc'
 
 

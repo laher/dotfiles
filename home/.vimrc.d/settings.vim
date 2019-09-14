@@ -36,7 +36,9 @@ if exists('g:gui_oni')
 endif
 
 if !has('nvim')
-	set term=xterm-256color
+  set term=xterm-256color
+  set ttymouse=sgr
+  set balloondelay=250
 endif
 
 if has('nvim')
@@ -76,7 +78,15 @@ set incsearch
 set title
 
 "set clipboard^=unnamed
-set clipboard+=unnamedplus
+"set clipboard+=unnamedplus
+" yank to clipboard
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+
+  if has("unnamedplus") " X11 support
+    set clipboard+=unnamedplus
+  endif
+endif
 
 " Put plugins and dictionaries in this dir (also on Windows)
 let vimDir = '$HOME/.vim'
@@ -164,3 +174,12 @@ endfunction
 
 """ for live reload
 set backupcopy=yes
+
+
+""" govim things
+" set nocompatible
+" set nobackup
+" set nowritebackup
+" set noswapfile
+
+set updatetime=500

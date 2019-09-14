@@ -17,8 +17,8 @@ if [[ -d ~/.zshrc.d ]]; then
 	done
 fi
 
-if [ -d ~/.zshrc.movio.d ]; then
-    for f in ~/.zshrc.movio.d/*(N); do
+if [ -d ~/.zshrc.vend.d ]; then
+    for f in ~/.zshrc.vend.d/*(N); do
 	source $f
     done
 fi

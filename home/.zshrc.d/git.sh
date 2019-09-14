@@ -5,7 +5,7 @@ function gsa {
 
 alias gupp='git pull && git push'
 alias gbsd="git for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)' refs/heads"
-
+alias gpsu='git push --set-upstream origin $(git_current_branch)'
 function gbrl {
 	git branch --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)'| head
 }
