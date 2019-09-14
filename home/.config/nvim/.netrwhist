@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/am/go/src/github.com/movio/yellow/src/group-maker/httpapi'
-let g:netrw_dirhist_2='/Users/am/go/src/github.com/movio/yellow/src/group-maker/gbdb'
-let g:netrw_dirhist_3='/Users/am/d/atm-php-docker/atm-php/_L10N'
-let g:netrw_dirhist_4='/Users/am/d/atm-php-docker/atm-php/_L10N/en'
-let g:netrw_dirhist_5='/Users/am/d/atm-php-docker/atm-php/_L10N/en/LC_MESSAGES'
