@@ -28,7 +28,7 @@ alias get='git '
 
 alias tailf='tail -F'
 
-alias v=/usr/local/bin/vim
+alias v=nvim
 alias vim=/usr/local/bin/vim
 
 

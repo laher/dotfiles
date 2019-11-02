@@ -1,6 +1,6 @@
 
 colorscheme kalisi
-set background=light
+set background=dark
 
 " cursor
 set termguicolors

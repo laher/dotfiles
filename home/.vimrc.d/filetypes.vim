@@ -19,7 +19,10 @@ au BufRead,BufNewFile *.smoosh set syntax=smoosh
 autocmd FileType smoosh setlocal commentstring="# %s"
 autocmd FileType smoosh setlocal shiftwidth=2 tabstop=2 expandtab
 
-autocmd FileType dot autocmd BufWritePre <buffer> :GraphvizCompile
+
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+
+"autocmd FileType dot autocmd BufWritePre <buffer> :GraphvizCompile
 
 "autocmd BufWritePre *.py execute ':Black'
 

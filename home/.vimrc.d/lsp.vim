@@ -12,6 +12,8 @@ let g:LanguageClient_rootMarkers = {
 "    \ 'css': ['css-languageserver', '--stdio'],
 let g:LanguageClient_serverCommands = {
     \ 'javascript': ['flow-language-server', '--stdio'],
+    \ 'typescript.tsx': ['typescript-language-server', '--stdio'],
+    \ 'typescript': ['typescript-language-server', '--stdio'],
     \ 'json': ['json-languageserver', '--stdio'],
     \ 'sh': ['bash-language-server', 'start'],
     \ 'yaml': ['yaml-language-server'],

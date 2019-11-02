@@ -33,6 +33,7 @@ endif
 if has('nvim')
   Plug 'https://github.com/fatih/vim-go', { 'for': 'go', 'tag': '*' } " , 'do': ':GoUpdateBinaries' }
 endif
+Plug 'https://github.com/corylanou/vim-present' " syntax for .slide files
 """ related to go but not specific
 Plug 'https://github.com/FooSoft/vim-argwrap' " :ArgWrap wraps a paremeter list accross multiple lines
 Plug 'https://github.com/majutsushi/tagbar' " 'Outline' of current file
@@ -47,7 +48,12 @@ Plug 'https://github.com/fisadev/vim-isort', { 'for': 'python' }
 Plug 'https://github.com/rstacruz/sparkup', {'rtp': 'vim/'}  """ condensed html. type `div<C-E>` to get `<div></div>`
 Plug 'https://github.com/othree/xml.vim' """ xml and html. type `<LocalLeader>c` to change a tag-name
 
-Plug 'https://github.com/prettier/vim-prettier', { 'for': ['javascript','html','css'] }
+Plug 'https://github.com/leafgarland/typescript-vim'
+Plug 'https://github.com/peitalin/vim-jsx-typescript'
+
+Plug 'https://github.com/prettier/vim-prettier', {
+ \ 'do': 'yarn install',
+ \ 'for': ['javascript','html','css','typescript','json'] }
 
 Plug 'https://github.com/markbiek/phpLint.vim', { 'for': 'php' }
 Plug 'https://github.com/gabrielelana/vim-markdown', { 'for': 'markdown' }
@@ -98,13 +104,19 @@ Plug 'https://github.com/joereynolds/place.vim' " insertions with ga (doesn't mo
 Plug 'https://github.com/jeetsukumaran/vim-indentwise' " [-,[+,[= and ]-,]+,]=
 Plug 'https://github.com/AndrewRadev/splitjoin.vim' " gS and gJ to split/join one-liners
 Plug 'https://github.com/vim-scripts/repeatable-motions.vim' " repeatable motions
+Plug 'https://github.com/rhysd/clever-f.vim'
 
 """ Appearance and layout
 Plug 'https://github.com/itchyny/vim-cursorword' " underline word under cursor
 Plug 'https://github.com/freeo/vim-kalisi' " theme
+Plug 'https://github.com/altercation/vim-colors-solarized' " theme
 Plug 'https://github.com/itchyny/lightline.vim' " status across bottom
 Plug 'https://github.com/flrnprz/plastic.vim' " lightline theme
 Plug 'https://github.com/ap/vim-buftabline' " tabs across top
+
+""" gifs 
+Plug 'https://github.com/mattn/webapi-vim'
+Plug 'https://github.com/cirla/vim-giphy'
 
 " All of your Plugs must be added before the following line
 call plug#end()

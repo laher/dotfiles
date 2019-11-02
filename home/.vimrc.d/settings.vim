@@ -183,3 +183,5 @@ set backupcopy=yes
 " set noswapfile
 
 set updatetime=500
+
+runtime matchit/matchit.vim

@@ -94,3 +94,6 @@ export ALIEN_SECTIONS_LEFT=(
 )
 
 export PATH=/usr/local/bin:$PATH
+
+# added by travis gem
+[ -f /Users/amirlaher/.travis/travis.sh ] && source /Users/amirlaher/.travis/travis.sh
