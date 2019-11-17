@@ -1,5 +1,5 @@
 
-colorscheme gotham256
+colorscheme codeschool
 " set background=light
 
 " cursor
