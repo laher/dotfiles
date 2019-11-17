@@ -1,5 +1,4 @@
 source ~/.zshrc.includes
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 unsetopt correct
 export SAVEHIST=100000
@@ -97,3 +96,5 @@ export PATH=/usr/local/bin:$PATH
 
 # added by travis gem
 [ -f /Users/amirlaher/.travis/travis.sh ] && source /Users/amirlaher/.travis/travis.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

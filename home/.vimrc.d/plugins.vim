@@ -8,8 +8,10 @@ Plug 'https://github.com/tpope/vim-rhubarb' " :Gbrowse, hub
 Plug 'https://github.com/airblade/vim-gitgutter' " +/-/~ signs in the gutter
 Plug 'https://github.com/gregsexton/gitv', {'on': ['Gitv']} " :Gitv is a bit like tig
 Plug 'https://github.com/jreybert/vimagit' " Magit in vim
-Plug 'https://github.com/junkblocker/patchreview-vim' " Dependency for vim-codereview
-Plug 'https://github.com/codegram/vim-codereview' " Use :CodeReview https://github.com/myorganization/myrepo/pulls/1328
+" Plug 'https://github.com/junkblocker/patchreview-vim' " Dependency for vim-codereview
+" Plug 'https://github.com/codegram/vim-codereview' " Use :CodeReview https://github.com/myorganization/myrepo/pulls/1328
+Plug 'https://github.com/google/vim-maktaba' " Dependency for google/vim-codereview
+Plug 'https://github.com/google/vim-codereview' " Use :CodeReview github.com/org/repo
 Plug 'https://github.com/idanarye/vim-merginal' " view/switch branches with :Merginal
 
 Plug 'https://github.com/will133/vim-dirdiff' " :DirDiff
@@ -17,7 +19,7 @@ Plug 'https://github.com/will133/vim-dirdiff' " :DirDiff
 Plug 'https://github.com/junegunn/vim-peekaboo' " show buffers while yanking
 
 
-""" Completion
+""" Completion => 
 if has('nvim')
   Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -109,6 +111,7 @@ Plug 'https://github.com/rhysd/clever-f.vim'
 """ Appearance and layout
 Plug 'https://github.com/itchyny/vim-cursorword' " underline word under cursor
 Plug 'https://github.com/freeo/vim-kalisi' " theme
+Plug 'https://github.com/flazz/vim-colorschemes'
 Plug 'https://github.com/altercation/vim-colors-solarized' " theme
 Plug 'https://github.com/itchyny/lightline.vim' " status across bottom
 Plug 'https://github.com/flrnprz/plastic.vim' " lightline theme

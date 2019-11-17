@@ -18,6 +18,7 @@ alias gco='git checkout'
 alias gk='gitk --all&'
 alias gu='git gui --all'
 alias gupp='git pull && git push'
+alias contributors='git shortlog -s -n'
 
 alias ga='git add ' 
 alias gd='git diff'
