@@ -13,6 +13,7 @@ alias gl='git pull'
 alias gb='git branch '
 alias gci='git commit'
 alias gc='git commit'
+alias gcs='git commit -S'
 alias gcl='git clone'
 alias gco='git checkout'
 alias gk='gitk --all&'
@@ -53,3 +54,12 @@ function pcd { cd ${PWD%/$1/*}/$1; }
 function vimDirDiff { echo "Please wait while vim diffs the directories" args=$@ vim -f "+execute \"DirDiff $args\"" echo "vimDirDiff Done" }
 
 alias gt='go test'
+
+function lsi {
+  ls | fzf | xargs $1
+}
+function lsv {
+  find .| grep -v vendor | grep $1 | fzf | xargs nvim
+}
+
+alias agv='ag --ignore-dir=vendor'

@@ -18,6 +18,7 @@ Plug 'https://github.com/will133/vim-dirdiff' " :DirDiff
 
 Plug 'https://github.com/junegunn/vim-peekaboo' " show buffers while yanking
 
+Plug 'https://github.com/glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 """ Completion => 
 if has('nvim')
@@ -33,13 +34,13 @@ if !has('nvim')
   Plug 'https://github.com/myitcv/govim', { 'for': 'go', 'tag': '*' }
 endif
 if has('nvim')
-  Plug 'https://github.com/fatih/vim-go', { 'for': 'go', 'tag': '*' } " , 'do': ':GoUpdateBinaries' }
+  Plug 'https://github.com/fatih/vim-go', { 'for': 'go', 'tag': 'v*', 'do': ':GoUpdateBinaries' }
 endif
 Plug 'https://github.com/corylanou/vim-present' " syntax for .slide files
 """ related to go but not specific
 Plug 'https://github.com/FooSoft/vim-argwrap' " :ArgWrap wraps a paremeter list accross multiple lines
 Plug 'https://github.com/majutsushi/tagbar' " 'Outline' of current file
-Plug 'https://github.com/lvht/tagbar-markdown', { 'for': 'markdown' }
+" Plug 'https://github.com/lvht/tagbar-markdown', { 'for': 'markdown' }
 
 Plug 'https://github.com/autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
@@ -113,9 +114,14 @@ Plug 'https://github.com/itchyny/vim-cursorword' " underline word under cursor
 Plug 'https://github.com/freeo/vim-kalisi' " theme
 Plug 'https://github.com/flazz/vim-colorschemes'
 Plug 'https://github.com/altercation/vim-colors-solarized' " theme
-Plug 'https://github.com/itchyny/lightline.vim' " status across bottom
-Plug 'https://github.com/flrnprz/plastic.vim' " lightline theme
-Plug 'https://github.com/ap/vim-buftabline' " tabs across top
+if exists('g:started_by_firenvim')
+  """ no status bars
+else
+  Plug 'https://github.com/itchyny/lightline.vim' " status across bottom
+  Plug 'https://github.com/flrnprz/plastic.vim' " lightline theme
+  Plug 'https://github.com/ap/vim-buftabline' " tabs across top
+endif
+Plug 'https://github.com/twitvim/twitvim.git'
 
 """ gifs 
 Plug 'https://github.com/mattn/webapi-vim'

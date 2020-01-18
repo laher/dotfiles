@@ -16,8 +16,19 @@ set showbreak=↪
 set whichwrap+=<,>,h,l,[,] " right-arrow goes to next line
 set autochdir " change dir to current file's dir
 set autowrite " useful for :bufdo
-set laststatus=2 " Always display the statusline in all windows
-set showtabline=2 " Always display the tabline, even if there is only one tab
+if exists('g:started_by_firenvim')
+ set laststatus=0
+ set showtabline=0
+ set noshowmode
+ set noruler
+ set laststatus=0
+ set noshowcmd
+else
+ set laststatus=2 " Always display the statusline in all windows
+ set showtabline=2 " Always display the tabline, even if there is only one tab
+endif
+
+let twitvim_enable_python3 = 1
 
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set encoding=utf-8

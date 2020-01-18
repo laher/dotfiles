@@ -15,8 +15,8 @@ augroup yellowui
   au! BufWritePre ~/**/monocle*/**/*.ts :PrettierAsync
   au! BufWritePre ~/**/monocle*/**/*.tsx :PrettierAsync
   au! BufWritePre ~/**/monocle*/**/*.css :PrettierAsync
-  au! BufWritePre ~/d/voteo/**/*.js :PrettierAsync
-  au! BufWritePre ~/d/voteo/**/*.css :PrettierAsync
+  au! BufWritePre ~/**/*.js :PrettierAsync
+  au! BufWritePre ~/**/*.css :PrettierAsync
 augroup END
 
 " au! BufWritePre ~/workspace/**.json :%!jq .

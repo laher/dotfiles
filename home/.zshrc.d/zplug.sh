@@ -4,7 +4,7 @@ fi
 # Zplug plugins
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
 
-zplug "modules/tmux",       from:prezto
+#zplug "modules/tmux",       from:prezto
 #zplug "modules/history",    from:prezto
 #zplug "modules/utility",    from:prezto
 #zplug "modules/ruby",       from:prezto
@@ -43,5 +43,7 @@ zplug "plugins/dotenv",  from:oh-my-zsh
 
 zplug 'wfxr/formarks'
 # zplug 'wfxr/forgit' # fzf things for git-add and git-diff
+
+# zplug "ezh/fzf-ls"
 
 zplug load
