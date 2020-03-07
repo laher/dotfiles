@@ -20,6 +20,7 @@ alias gk='gitk --all&'
 alias gu='git gui --all'
 alias gupp='git pull && git push'
 alias contributors='git shortlog -s -n'
+alias glc='git rev-parse --verify HEAD'
 
 alias ga='git add ' 
 alias gd='git diff'

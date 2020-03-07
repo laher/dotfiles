@@ -31,21 +31,43 @@ endif
 """ Go
 
 if !has('nvim')
-  Plug 'https://github.com/myitcv/govim', { 'for': 'go', 'tag': '*' }
+"  Plug 'https://github.com/myitcv/govim', { 'for': 'go', 'tag': '*' }
 endif
 if has('nvim')
-  Plug 'https://github.com/fatih/vim-go', { 'for': 'go', 'tag': 'v*', 'do': ':GoUpdateBinaries' }
+"    Plug 'https://github.com/fatih/vim-go', { 'for': 'go', 'tag': 'v*', 'do': ':GoUpdateBinaries' }
 endif
+
+Plug 'https://github.com/mattn/vim-goimports'
+Plug 'https://github.com/mattn/vim-gorename'
+Plug 'https://github.com/mattn/vim-goaddtags'
+Plug 'https://github.com/mattn/vim-gorun'
+Plug 'https://github.com/mattn/vim-goimports'
+Plug 'https://github.com/mattn/vim-goimpl'
+Plug 'https://github.com/mattn/vim-gosrc'
+Plug 'https://github.com/mattn/go-errcheck-vim'
+
 Plug 'https://github.com/corylanou/vim-present' " syntax for .slide files
 """ related to go but not specific
 Plug 'https://github.com/FooSoft/vim-argwrap' " :ArgWrap wraps a paremeter list accross multiple lines
 Plug 'https://github.com/majutsushi/tagbar' " 'Outline' of current file
 " Plug 'https://github.com/lvht/tagbar-markdown', { 'for': 'markdown' }
 
-Plug 'https://github.com/autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+" Plug 'https://github.com/autozimu/LanguageClient-neovim', {
+"    \ 'branch': 'next',
+"    \ 'do': 'bash install.sh',
+"    \ }
+
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'https://github.com/liuchengxu/vista.vim'
+"Plug 'lgranie/vim-lsp-java'
+
+
+Plug 'jaxbot/semantic-highlight.vim'
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 """ Other languages
 Plug 'https://github.com/fisadev/vim-isort', { 'for': 'python' }
 Plug 'https://github.com/rstacruz/sparkup', {'rtp': 'vim/'}  """ condensed html. type `div<C-E>` to get `<div></div>`

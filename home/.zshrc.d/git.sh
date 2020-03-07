@@ -20,3 +20,13 @@ function gtp {
 }
 
 git config --global core.excludesfile ~/.gitignore_global
+
+function glcf {
+	pushd "$1"
+	git rev-parse --verify HEAD
+	popd
+}
+
+function cdg {
+	cd "$(git rev-parse --show-toplevel)"
+}

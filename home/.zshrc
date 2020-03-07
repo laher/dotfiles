@@ -107,3 +107,4 @@ if [ -f '/Users/amirlaher/dev/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/a
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/amirlaher/dev/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/amirlaher/dev/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/usr/local/opt/awscli@1/bin:$PATH"
