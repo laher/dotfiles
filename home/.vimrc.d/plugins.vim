@@ -36,10 +36,16 @@ Plug 'https://github.com/majutsushi/tagbar' " 'Outline' of current file
 Plug 'https://github.com/lvht/tagbar-markdown', { 'for': 'markdown' }
 " Plug 'https://github.com/w0rp/ale' "syntax & linting
 
-Plug 'https://github.com/autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+" Plug 'https://github.com/autozimu/LanguageClient-neovim', {
+"    \ 'branch': 'next',
+"    \ 'do': 'bash install.sh',
+"    \ }
+
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
 """ Other languages
 "Plug 'https://github.com/sheerun/vim-polyglot'
 "Plug 'https://github.com/rust-lang/rust.vim', { 'for': 'rust' }

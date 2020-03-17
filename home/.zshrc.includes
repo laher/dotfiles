@@ -17,8 +17,8 @@ if [[ -d ~/.zshrc.d ]]; then
 	done
 fi
 
-if [ -d ~/.zshrc.movio.d ]; then
-    for f in ~/.zshrc.movio.d/*(N); do
+if [ -d ~/.zshrc.vend.d ]; then
+    for f in ~/.zshrc.vend.d/*(N); do
 	source $f
     done
 fi
@@ -31,6 +31,6 @@ if [ -f ~/.aliases.local ]; then
     source ~/.aliases.local
 fi
 
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 

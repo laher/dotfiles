@@ -18,6 +18,7 @@ alias gco='git checkout'
 alias gk='gitk --all&'
 alias gu='git gui --all'
 alias gupp='git pull && git push'
+alias contributors='git shortlog -s -n'
 
 alias ga='git add ' 
 alias gd='git diff'
@@ -43,9 +44,22 @@ alias glances='~/.local/bin/glances --theme-white'
 alias ll='ls -lah'
 alias l='l'
 
-alias o='xdg-open'
-alias sz='source ~/.zshrc'
+# for ZSH
+case "$OSTYPE" in
+  darwin*)
+    # ...
+    alias o='open'
+  ;;
+  linux*)
+    # ...
+    alias o='xdg-open'
+  ;;
+  dragonfly*|freebsd*|netbsd*|openbsd*)
+    # ...
+  ;;
+esac
 
+alias sz='source ~/.zshrc'
 
 # parent cd
 function pcd { cd ${PWD%/$1/*}/$1; }
@@ -53,3 +67,6 @@ function pcd { cd ${PWD%/$1/*}/$1; }
 function vimDirDiff { echo "Please wait while vim diffs the directories" args=$@ vim -f "+execute \"DirDiff $args\"" echo "vimDirDiff Done" }
 
 alias gt='go test'
+
+alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias dotfiles-linux='/usr/bin/git --git-dir=$HOME/dotfiles-linux/ --work-tree=$HOME'
