@@ -13,14 +13,15 @@ command! -bang -nargs=* GGrep
   \   fzf#vim#with_preview({ 'dir': systemlist('git rev-parse --show-toplevel')[0] }), <bang>0)
 
 nnoremap <Leader>e :GGrep <c-r><c-w><CR>
-nnoremap <Leader>gg :GGrep<CR>
+nnoremap <Leader>g :GGrep<CR>
 nnoremap <Leader>f :GFiles<CR>
 nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>v :Vista<CR>
 nnoremap <Leader>T :NERDTreeToggle<CR>
 nnoremap <Leader>t :NERDTreeFind<CR>
 nnoremap <Leader>t :NERDTreeFind<CR>
 
-nnoremap <Leader>l :split term://less +F ~/vim-lsp.log<CR><Esc>
+nnoremap <Leader>l :split term://less +F /tmp/vim-lsp.log<CR><Esc>
 
 func IsNERDTreeOpen()
     return exists('t:NERDTreeBufName') && bufwinnr(t:NERDTreeBufName) != -1

@@ -45,11 +45,13 @@ Plug 'https://github.com/mattn/vim-goimports'
 Plug 'https://github.com/mattn/vim-goimpl'
 Plug 'https://github.com/mattn/vim-gosrc'
 Plug 'https://github.com/mattn/go-errcheck-vim'
+"Plug 'https://github.com/laher/gokeyify.vim'
+Plug 'https://github.com/laher/gothx.vim'
 
 Plug 'https://github.com/corylanou/vim-present' " syntax for .slide files
 """ related to go but not specific
 Plug 'https://github.com/FooSoft/vim-argwrap' " :ArgWrap wraps a paremeter list accross multiple lines
-Plug 'https://github.com/majutsushi/tagbar' " 'Outline' of current file
+" Plug 'https://github.com/majutsushi/tagbar' " 'Outline' of current file
 " Plug 'https://github.com/lvht/tagbar-markdown', { 'for': 'markdown' }
 
 " Plug 'https://github.com/autozimu/LanguageClient-neovim', {
@@ -57,11 +59,11 @@ Plug 'https://github.com/majutsushi/tagbar' " 'Outline' of current file
 "    \ 'do': 'bash install.sh',
 "    \ }
 
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
+Plug 'https://github.com/prabirshrestha/async.vim'
+Plug 'https://github.com/prabirshrestha/asyncomplete.vim'
+Plug 'https://github.com/prabirshrestha/asyncomplete-lsp.vim'
+Plug 'https://github.com/prabirshrestha/vim-lsp'
+Plug 'https://github.com/mattn/vim-lsp-settings'
 Plug 'https://github.com/liuchengxu/vista.vim'
 "Plug 'lgranie/vim-lsp-java'
 
@@ -132,7 +134,7 @@ Plug 'https://github.com/vim-scripts/repeatable-motions.vim' " repeatable motion
 Plug 'https://github.com/rhysd/clever-f.vim'
 
 """ Appearance and layout
-Plug 'https://github.com/itchyny/vim-cursorword' " underline word under cursor
+"Plug 'https://github.com/itchyny/vim-cursorword' " underline word under cursor
 Plug 'https://github.com/freeo/vim-kalisi' " theme
 Plug 'https://github.com/flazz/vim-colorschemes'
 Plug 'https://github.com/altercation/vim-colors-solarized' " theme
@@ -140,8 +142,10 @@ if exists('g:started_by_firenvim')
   """ no status bars
 else
   Plug 'https://github.com/itchyny/lightline.vim' " status across bottom
+  Plug 'ryanoasis/vim-devicons' " use in lightline 
+  Plug 'mgee/lightline-bufferline' " For tabs on top
   Plug 'https://github.com/flrnprz/plastic.vim' " lightline theme
-  Plug 'https://github.com/ap/vim-buftabline' " tabs across top
+  Plug 'https://github.com/laher/vim-buftabline' " tabs across top
 endif
 Plug 'https://github.com/twitvim/twitvim.git'
 

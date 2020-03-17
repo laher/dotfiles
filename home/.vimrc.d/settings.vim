@@ -122,11 +122,19 @@ autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 
 let g:place_single_character_mode = 0
 
 " Lightline
-let g:lightline = {
-      \ 'colorscheme': 'plastic',
+"      \ 'colorscheme': 'plastic',
+ let g:lightline = {
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' }
       \ }
+
+let g:buftabline_separators = 1
+let g:buftabline_indicators = 1
+let g:buftabline_numbers = 1
+let g:buftabline_separator_char = '🍕'
+let g:lightline#bufferline#enable_devicons = 1
+let g:webdevicons_enable_denite = 1
+let g:WebDevIconsOS = 'Darwin'
 
 " ^set autowrite
 let g:WMGraphviz_output = "svg"
