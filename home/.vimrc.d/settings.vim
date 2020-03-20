@@ -205,3 +205,5 @@ set backupcopy=yes
 set updatetime=500
 
 runtime matchit/matchit.vim
+
+let g:gothx_command_prefix = "Go"

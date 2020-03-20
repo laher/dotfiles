@@ -64,3 +64,5 @@ function lsv {
 }
 
 alias agv='ag --ignore-dir=vendor'
+
+alias cdl='cd ~/go/src/github.com/laher'
