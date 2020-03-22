@@ -10,8 +10,6 @@ Plug 'tpope/vim-rhubarb' " :Gbrowse, hub
 Plug 'airblade/vim-gitgutter' " +/-/~ signs in the gutter
 Plug 'gregsexton/gitv', {'on': ['Gitv']} " :Gitv is a bit like tig
 Plug 'jreybert/vimagit' " Magit in vim
-" Plug 'junkblocker/patchreview-vim' " Dependency for vim-codereview
-" Plug 'codegram/vim-codereview' " Use :CodeReview https://github.com/myorganization/myrepo/pulls/1328
 Plug 'google/vim-maktaba' " Dependency for google/vim-codereview
 Plug 'google/vim-codereview' " Use :CodeReview github.com/org/repo
 Plug 'idanarye/vim-merginal' " view/switch branches with :Merginal
@@ -21,57 +19,28 @@ Plug 'will133/vim-dirdiff' " :DirDiff
 Plug 'junegunn/vim-peekaboo' " show buffers while yanking
 
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-
-""" Completion => 
-" if has('nvim')
-"  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"else
-"  Plug 'Shougo/deoplete.nvim'
-"  Plug 'roxma/nvim-yarp'
-"  Plug 'roxma/vim-hug-neovim-rpc'
-"endif
-""" Go
-
-if !has('nvim')
-"  Plug 'myitcv/govim', { 'for': 'go', 'tag': '*' }
-endif
-if has('nvim')
-"    Plug 'fatih/vim-go', { 'for': 'go', 'tag': 'v*', 'do': ':GoUpdateBinaries' }
-endif
-
 Plug 'mattn/vim-goimports'
 Plug 'mattn/vim-gorename'
 Plug 'mattn/vim-goaddtags'
 " Plug 'mattn/vim-gorun'
-Plug 'mattn/vim-goimports'
 " Plug 'mattn/vim-goimpl'
 Plug 'mattn/vim-gosrc'
 Plug 'mattn/go-errcheck-vim'
 "Plug 'laher/gokeyify.vim'
 Plug 'laher/gothx.vim'
 
-Plug 'corylanou/vim-present' " syntax for .slide files
-""" related to go but not specific
+""" lsp 
 Plug 'FooSoft/vim-argwrap' " :ArgWrap wraps a paremeter list accross multiple lines
-" Plug 'majutsushi/tagbar' " 'Outline' of current file
-" Plug 'lvht/tagbar-markdown', { 'for': 'markdown' }
-
-" Plug 'autozimu/LanguageClient-neovim', {
-"    \ 'branch': 'next',
-"    \ 'do': 'bash install.sh',
-"    \ }
-
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'liuchengxu/vista.vim'
-"Plug 'lgranie/vim-lsp-java'
-
 
 Plug 'jaxbot/semantic-highlight.vim'
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+
 """ Other languages
 Plug 'fisadev/vim-isort', { 'for': 'python' }
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}  """ condensed html. type `div<C-E>` to get `<div></div>`
@@ -110,8 +79,6 @@ Plug 'tpope/vim-eunuch'            " Unix sugar - :SudoWrite, :Chmod, :Rename, :
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " 
 Plug 'junegunn/fzf.vim' " Find within files
 Plug 'ryanoasis/vim-devicons' " icons for NERDTree etc
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'haya14busa/incsearch.vim' " incrementally show search results
 
 """ text objects
@@ -129,14 +96,12 @@ Plug 'tpope/vim-commentary'        " `gcc` Comment out lines. Also `gc` for moti
 
 """ editing
 Plug 'joereynolds/place.vim' " insertions with ga (doesn't move the cursor. e.g. `ga$;` to add a semicolon)
-"Plug 'jiangmiao/auto-pairs'
 Plug 'jeetsukumaran/vim-indentwise' " [-,[+,[= and ]-,]+,]=
 Plug 'AndrewRadev/splitjoin.vim' " gS and gJ to split/join one-liners
 Plug 'vim-scripts/repeatable-motions.vim' " repeatable motions
 Plug 'rhysd/clever-f.vim'
 
 """ Appearance and layout
-"Plug 'itchyny/vim-cursorword' " underline word under cursor
 Plug 'freeo/vim-kalisi' " theme
 Plug 'flazz/vim-colorschemes'
 Plug 'altercation/vim-colors-solarized' " theme
@@ -158,6 +123,7 @@ Plug 'cirla/vim-giphy'
 " All of your Plugs must be added before the following line
 call plug#end()
 
+""" open Plug lines in browser
 function! s:plug_gx()
   if getline('.') =~ '^Plug\s'
       let cfile = expand('<cfile>')
@@ -177,3 +143,32 @@ augroup PlugGx
   autocmd FileType vim nnoremap <buffer> <silent> gx :call <sid>plug_gx()<cr>
   autocmd FileType vim nnoremap <buffer> <silent> gx :call <sid>plug_gx()<cr>
 augroup END
+
+""" open vim imports in browser
+" function! s:go_gx()
+"   echo "hi"
+"   if getline('.') =~ '^import "' 
+"       let pkg = substitute(getline('.'), '\vimport "(.*)"', '\1', '')
+"       call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx :
+"         \ 'https://pkg.go.dev/'.pkg)), netrw#CheckIfRemote())
+"       return
+"   endif 
+"   if getline('.') =~ '\v^\s+".*"\s*$'
+"       let pkg = substitute(getline('.'), '\v\s+"(.*)"', '\1', '')
+"       call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx :
+"         \ 'https://pkg.go.dev/'.pkg)), netrw#CheckIfRemote())
+"       return
+"   endif
+
+"   """ usual behaviour for gx
+"   call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx :
+"            \ '<cfile>')), netrw#CheckIfRemote())
+" endfunction
+
+" augroup GoGx
+
+"   autocmd!
+"   autocmd FileType go nnoremap <buffer> <silent> gx :call gothx#gx#Gogx()<cr>
+"   autocmd FileType go inoremap <buffer> <silent> gx :call gothx#gx#Gogx()<cr>
+" augroup END
+
