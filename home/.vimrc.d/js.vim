@@ -12,12 +12,14 @@ autocmd FileType json setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType html setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType css setlocal shiftwidth=2 tabstop=2 expandtab
 augroup yellowui
-  au! BufWritePre ~/**/yellow-ui/**/*.js :PrettierAsync
-  au! BufWritePre ~/**/yellow-ui/**/*.css :PrettierAsync
-  au! BufWritePre ~/d/voteo/**/*.js :PrettierAsync
-  au! BufWritePre ~/d/voteo/**/*.css :PrettierAsync
+  au! BufWritePre ~/**/monocle*/**/*.ts :PrettierAsync
+  au! BufWritePre ~/**/monocle*/**/*.tsx :PrettierAsync
+  au! BufWritePre ~/**/monocle*/**/*.css :PrettierAsync
+  au! BufWritePre ~/**/*.js :PrettierAsync
+  au! BufWritePre ~/**/*.css :PrettierAsync
 augroup END
 
+" au! BufWritePre ~/workspace/**.json :%!jq .
 
 " Use tern_for_vim.
 let g:tern#command = ["/usr/bin/tern"]

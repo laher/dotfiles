@@ -55,3 +55,7 @@ au FileType go nnoremap <LocalLeader>e :GoIfErr<CR>
 augroup END
 
 
+if !has('nvim')
+        " govim
+        set signcolumn=number
+endif

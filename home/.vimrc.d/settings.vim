@@ -16,8 +16,19 @@ set showbreak=↪
 set whichwrap+=<,>,h,l,[,] " right-arrow goes to next line
 set autochdir " change dir to current file's dir
 set autowrite " useful for :bufdo
-set laststatus=2 " Always display the statusline in all windows
-set showtabline=2 " Always display the tabline, even if there is only one tab
+if exists('g:started_by_firenvim')
+ set laststatus=0
+ set showtabline=0
+ set noshowmode
+ set noruler
+ set laststatus=0
+ set noshowcmd
+else
+ set laststatus=2 " Always display the statusline in all windows
+ set showtabline=2 " Always display the tabline, even if there is only one tab
+endif
+
+let twitvim_enable_python3 = 1
 
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set encoding=utf-8
@@ -36,7 +47,9 @@ if exists('g:gui_oni')
 endif
 
 if !has('nvim')
-	set term=xterm-256color
+  set term=xterm-256color
+  set ttymouse=sgr
+  set balloondelay=250
 endif
 
 if has('nvim')
@@ -49,9 +62,10 @@ if has('nvim')
 endif
 
 set termencoding=utf-8
+set guifont=FiraCode-Regular:h18
 "set guifont=Source\ Code\ Pro\ ExtraLight:h18
 "set guifont=Ubuntu\ Mono\ derivative\ Powerline:h18
-set guifont=GoMono\ Nerd\ Font\ Book:h18
+"set guifont=GoMono\ Nerd\ Font:h18
 "set completeopt-=preview
 
 
@@ -76,7 +90,15 @@ set incsearch
 set title
 
 "set clipboard^=unnamed
-set clipboard+=unnamedplus
+"set clipboard+=unnamedplus
+" yank to clipboard
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+
+  if has("unnamedplus") " X11 support
+    set clipboard+=unnamedplus
+  endif
+endif
 
 " Put plugins and dictionaries in this dir (also on Windows)
 let vimDir = '$HOME/.vim'
@@ -99,10 +121,20 @@ autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 
 " plugin-specific settings
 let g:place_single_character_mode = 0
 
-let g:lightline = {
+" Lightline
+"      \ 'colorscheme': 'plastic',
+ let g:lightline = {
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' }
       \ }
+
+let g:buftabline_separators = 1
+let g:buftabline_indicators = 1
+let g:buftabline_numbers = 1
+let g:buftabline_separator_char = '🍕'
+let g:lightline#bufferline#enable_devicons = 1
+let g:webdevicons_enable_denite = 1
+let g:WebDevIconsOS = 'Darwin'
 
 " ^set autowrite
 let g:WMGraphviz_output = "svg"
@@ -162,3 +194,16 @@ endfunction
 
 """ for live reload
 set backupcopy=yes
+
+
+""" govim things
+" set nocompatible
+" set nobackup
+" set nowritebackup
+" set noswapfile
+
+set updatetime=500
+
+runtime matchit/matchit.vim
+
+let g:gothx_command_prefix = "Go"

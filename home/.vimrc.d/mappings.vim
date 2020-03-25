@@ -13,13 +13,15 @@ command! -bang -nargs=* GGrep
   \   fzf#vim#with_preview({ 'dir': systemlist('git rev-parse --show-toplevel')[0] }), <bang>0)
 
 nnoremap <Leader>e :GGrep <c-r><c-w><CR>
-nnoremap <Leader>gg :GGrep<CR>
-nnoremap <Leader>ag :Ag<CR>
+nnoremap <Leader>g :GGrep<CR>
 nnoremap <Leader>f :GFiles<CR>
 nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>v :Vista<CR>
 nnoremap <Leader>T :NERDTreeToggle<CR>
 nnoremap <Leader>t :NERDTreeFind<CR>
 nnoremap <Leader>t :NERDTreeFind<CR>
+
+nnoremap <Leader>l :split term://less +F /tmp/vim-lsp.log<CR><Esc>
 
 func IsNERDTreeOpen()
     return exists('t:NERDTreeBufName') && bufwinnr(t:NERDTreeBufName) != -1
@@ -117,3 +119,31 @@ nmap <Leader>0 kd1Go<Esc>dG
 " replace word under cursor
 :nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 "nmap <Leader>3 kdggjdG
+
+let s:menu_structure = { 'go': ['go-run', 'go-install'], 'any': ['case-insensitive', 'case-sensitive'] }
+let s:menu_mappings = { 'go-run': 'gothx#run#Run','go-install': 'gothx#install#Install' , 'case-insensitive': 's:case_ins', 'case-sensitive': 's:case_sens' }
+
+function! s:case_ins()
+  set ignorecase
+endfunction
+
+function! s:case_sens()
+  set noignorecase
+endfunction
+
+function! s:menu_sink(arg)
+ " call function(a:arg)()
+ call function(s:menu_mappings[a:arg])()
+endfunction
+
+function! s:menu_source()
+  let extension = expand("%:e")
+  let ret = s:menu_structure['any']
+  let others = get(s:menu_structure, extension, [])
+  ret += others
+  return ret
+endfunction
+
+" nnoremap <silent> <Leader>; :call fzf#run({'source': ['gothx#run#Run', 'gothx#install#Install'],
+nnoremap <silent> <Leader>; :call fzf#run({'source': <sid>menu_source(),
+            \ 'sink': function('<sid>menu_sink'), 'left': '25%'})<cr>

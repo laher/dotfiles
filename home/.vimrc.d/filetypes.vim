@@ -5,7 +5,6 @@ autocmd FileType yml setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType php setlocal shiftwidth=4 tabstop=4 noexpandtab
 "autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd BufRead,BufNewFile *.tpl set filetype=html
-autocmd BufRead,BufNewFile *.make set filetype=make
 
 " dotoo
 au BufRead,BufNewFile *.org		set filetype=dotoo
@@ -20,7 +19,10 @@ au BufRead,BufNewFile *.smoosh set syntax=smoosh
 autocmd FileType smoosh setlocal commentstring="# %s"
 autocmd FileType smoosh setlocal shiftwidth=2 tabstop=2 expandtab
 
-autocmd FileType dot autocmd BufWritePre <buffer> :GraphvizCompile
+
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+
+"autocmd FileType dot autocmd BufWritePre <buffer> :GraphvizCompile
 
 "autocmd BufWritePre *.py execute ':Black'
 

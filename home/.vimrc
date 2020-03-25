@@ -16,6 +16,7 @@ elseif filereadable(expand("~/.vimrc.d/plugins.vim")) " Usual
   source ~/.vimrc.d/scala.vim
   source ~/.vimrc.d/lsp.vim
   source ~/.vimrc.d/textobjects.vim
+  source ~/.vimrc.d/denite.vim
 endif
 
 
