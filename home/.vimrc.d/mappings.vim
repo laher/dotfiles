@@ -1,6 +1,7 @@
 " Leader
-let mapleader=";"
-let maplocalleader=","
+let mapleader=" "
+nmap  ;; :echom "use the comma, man"<CR>
+let maplocalleader=";"
 
 nnoremap <Leader>. :TagbarToggle<CR>
 
@@ -17,23 +18,8 @@ nnoremap <Leader>g :GGrep<CR>
 nnoremap <Leader>f :GFiles<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>v :Vista<CR>
-nnoremap <Leader>T :NERDTreeToggle<CR>
-nnoremap <Leader>t :NERDTreeFind<CR>
-nnoremap <Leader>t :NERDTreeFind<CR>
-
 nnoremap <Leader>l :split term://less +F /tmp/vim-lsp.log<CR><Esc>
 
-func IsNERDTreeOpen()
-    return exists('t:NERDTreeBufName') && bufwinnr(t:NERDTreeBufName) != -1
-endfunc
-
-func NERDToggleOrFind()
-	if IsNERDTreeOpen()
-		:NERDTreeToggle<CR>
-	else 
-		:NERDTreeFind<CR>
-	endif
-endfunc
 
 inoremap <Leader>fn <c-r>=expand("%:t")<cr>
 
@@ -61,15 +47,15 @@ imap jk <Esc>
 imap kj <Esc>
 
 "sudo write current buffer:
-command Sw w !sudo tee % > /dev/null
+command! Sw w !sudo tee % > /dev/null
 
 nmap ga <Plug>(place-insert)
 
 
-let g:UltiSnipsExpandTrigger="<Leader>'"
-let g:UltiSnipsJumpForwardTrigger="<Leader>'"
-let g:UltiSnipsJumpBackwardTrigger="<Leader>\""
-let g:UltiSnipsListSnippets="<Leader>;"
+"let g:UltiSnipsExpandTrigger="<Leader>'"
+"let g:UltiSnipsJumpForwardTrigger="<Leader>'"
+"let g:UltiSnipsJumpBackwardTrigger="<Leader>\""
+"let g:UltiSnipsListSnippets="<Leader>;"
 
 " expert mode
 "noremap <Up> <nop>
@@ -93,14 +79,14 @@ au FileType rust nnoremap <LocalLeader>rr :CargoRun<CR>
 
 
 au FileType markdown nmap <LocalLeader>t i## <C-R>=strftime("%Y-%m-%d")<CR><CR> * 
-au FileType markdown nnoremap <LocalLeader>m :call TodoMoveToHeading()<CR>
+"au FileType markdown nnoremap <LocalLeader>m :call TodoMoveToHeading()<CR>
 
 " avoids 'delete replaces default buffer' because 0 buffer contains 'last yank'
 nnoremap <Leader>p "0p  
 
 " my functions
-nnoremap <Leader>[ :call TodoPrompt()<CR>
-nnoremap <Leader>] :call TodoSplit()<CR>
+"nnoremap <Leader>[ :call TodoPrompt()<CR>
+"nnoremap <Leader>] :call TodoSplit()<CR>
 nnoremap <Leader>% :<C-u>call <SID>copy_path()<CR>
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
@@ -117,5 +103,24 @@ nmap <Leader>ccge <Plug>CamelCaseMotion_ge
 nmap <Leader>0 kd1Go<Esc>dG
 
 " replace word under cursor
-:nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+
+nnoremap <Leader><Leader> :call fzm#Run()<CR>
+nnoremap <Leader>m :call fzm#Run()<CR>
+
+" for getting used to the switch
 "nmap <Leader>3 kdggjdG
+
+" function! CaseIns()
+"   set ignorecase
+" endfunction
+
+" function! CaseSens()
+"   set noignorecase
+" endfunction
+
+" call fzm#fzm#add_item('todo', funcref('TodoPrompt'))
+" call fzm#fzm#add_item('todo-split', funcref('TodoSplit'))
+" call fzm#fzm#add_item('case-sensitive', funcref('CaseSens'))
+" call fzm#fzm#add_item('case-insensitive', funcref('CaseIns'))
+" nnoremap <silent> <Leader>; :call fzm#fzm#run()<cr>

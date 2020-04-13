@@ -27,6 +27,12 @@ function glcf {
 	popd
 }
 
+function gf {
+	pushd "$1"
+	git "${@:2}"
+	popd
+}
+
 function cdg {
 	cd "$(git rev-parse --show-toplevel)"
 }

@@ -2,16 +2,16 @@
 
 " date `cit` e.g. 2001-01-01
 " time `cit` e.g. 10:10:11
- call textobj#user#plugin('datetime', {
-\   'date': {
-\     'pattern': '\<\d\d\d\d-\d\d-\d\d\>',
-\     'select': ['ad', 'id'],
-\   },
-\   'time': {
-\     'pattern': '\<\d\d:\d\d:\d\d\>',
-\     'select': ['at', 'it'],
-\   },
-\ })
+ " call textobj#user#plugin('datetime', {
+" \   'date': {
+" \     'pattern': '\<\d\d\d\d-\d\d-\d\d\>',
+" \     'select': ['ad', 'id'],
+" \   },
+" \   'time': {
+" \     'pattern': '\<\d\d:\d\d:\d\d\>',
+" \     'select': ['at', 'it'],
+" \   },
+" \ })
 
 """ http://springest.io/vim-motions-and-command-language
 
