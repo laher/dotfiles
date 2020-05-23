@@ -112,7 +112,9 @@ if has('persistent_undo')
 	let &undodir = myUndoDir
 	set undofile
 endif
-
+if has('nvim')
+	set inccommand=nosplit
+endif
 set backspace=indent,eol,start
 
 " restore cursor _except_ for commit messages
@@ -207,3 +209,4 @@ set updatetime=500
 runtime matchit/matchit.vim
 
 "let g:gothx_command_prefix = "Go"
+

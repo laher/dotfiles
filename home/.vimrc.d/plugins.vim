@@ -3,10 +3,15 @@
 call plug#begin('~/.vim/plugged')
 
 """ navigation and fuzzy
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " 
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' " Find within files
+let g:fzf_command_prefix = 'Fzf'
 Plug 'ryanoasis/vim-devicons' " icons for NERDTree etc
 Plug 'haya14busa/incsearch.vim' " incrementally show search results
+
+Plug 'junegunn/vader.vim' " testing framework 
+
 
 " Git support
 Plug 'tpope/vim-fugitive' " The git things
@@ -16,7 +21,6 @@ Plug 'gregsexton/gitv', {'on': ['Gitv']} " :Gitv is a bit like tig
 Plug 'junegunn/vim-peekaboo' " show buffers while yanking
 
 """ lsp 
-Plug 'FooSoft/vim-argwrap' " :ArgWrap wraps a paremeter list accross multiple lines
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
@@ -24,7 +28,13 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'liuchengxu/vista.vim'
 
-""" Other languages
+""" Specific language support
+"Plug 'mattn/vim-goimports', { 'for': 'go' }
+Plug 'fatih/vim-go', { 'for': 'go' }
+let g:go_gopls_enabled=0
+let g:go_def_mapping_enabled=0
+let g:go_doc_keywordprg_enabled=0
+let g:go_fmt_autosave=0
 Plug 'fisadev/vim-isort', { 'for': 'python' }
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
@@ -33,6 +43,11 @@ Plug 'prettier/vim-prettier', {
  \ 'for': ['javascript','html','css','typescript','json'] }
 
 Plug 'markbiek/phpLint.vim', { 'for': 'php' }
+
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled = 1
+Plug 'junegunn/vim-xmark', { 'do': 'make' }
 "Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
 "Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 "Plug 'jkramer/vim-checkbox', { 'for': 'markdown' }
@@ -52,6 +67,7 @@ Plug 'tpope/vim-unimpaired'        " pairs of mappings like [q ]q for quickfix p
 Plug 'tpope/vim-eunuch'            " Unix sugar - :SudoWrite, :Chmod, :Rename, :Delete ...
 
 """ text objects
+Plug 'FooSoft/vim-argwrap' " :ArgWrap wraps a paremeter list accross multiple lines
 Plug 'wellle/targets.vim' " pairs,separators. args `aa`. anyblock: `inb` anyquote: `inq` 
 Plug 'tpope/vim-jdaddy' " JSON: j
 Plug 'michaeljsmith/vim-indent-object' " indentation: i / I
@@ -81,7 +97,7 @@ call plug#end()
 
 """ open Plug lines in browser
 function! s:plug_gx()
-  if getline('.') =~ '^Plug\s'
+  if getline('.') =~ '^"\?Plug\s'
       let cfile = expand('<cfile>')
       if cfile !~ 'github\.com' && !filereadable(cfile)
           call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx :
@@ -102,4 +118,4 @@ augroup END
 
 set runtimepath^=~/go/src/github.com/laher/gothx.vim
 set runtimepath^=~/go/src/github.com/laher/today.vim
-set runtimepath^=~/go/src/github.com/laher/fzm.vim
+set runtimepath^=~/go/src/github.com/laher/fuzzymenu.vim

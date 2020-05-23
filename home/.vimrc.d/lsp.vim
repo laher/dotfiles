@@ -15,9 +15,9 @@ nnoremap <silent> <F2> :LspRename<CR>
 nnoremap <2-LeftMouse> :LspDefinition<CR>
 let g:lsp_highlight_references_enabled = 1
 "let g:lsp_log_verbose = 1
-let g:lsp_log_file = expand('/tmp/vim-lsp.log')
+"let g:lsp_log_file = expand('/tmp/vim-lsp.log')
 " for asyncomplete.vim log
-let g:asyncomplete_log_file = expand('/tmp/asyncomplete.log')
+"let g:asyncomplete_log_file = expand('/tmp/asyncomplete.log')
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_signs_error = {'text': '🚨'}
 let g:lsp_signs_warning = {'text': '⚠️'}

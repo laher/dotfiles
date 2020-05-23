@@ -32,6 +32,7 @@ alias get='git '
 alias tailf='tail -F'
 
 alias v=nvim
+alias vg="v -c 'GFiles!'"
 alias vim=/usr/local/bin/vim
 
 
@@ -66,3 +67,7 @@ function lsv {
 alias agv='ag --ignore-dir=vendor'
 
 alias cdl='cd ~/go/src/github.com/laher'
+
+alias python=/usr/local/bin/python3 
+alias pip=/usr/local/bin/pip3 
+

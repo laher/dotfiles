@@ -1,5 +1,5 @@
 
-colorscheme codeschool
+colorscheme jellybeans
 " set background=light
 
 " cursor
@@ -17,6 +17,6 @@ map <M-i> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 autocmd BufEnter *.org syntax match stars /^\*\+ .*/
 highlight stars ctermfg=red guifg=#ff0000 cterm=bold
 
-" highlight Pmenu ctermfg=2 ctermbg=3 guifg=#ffffff guibg=#0000ff
-highlight Pmenu ctermbg=blue 
-"guibg="#0000ff"
+highlight Pmenu ctermfg=2 ctermbg=3 guifg=#ffffff guibg=#0000ff
+highlight Pmenu ctermbg=gray guibg=gray
+
