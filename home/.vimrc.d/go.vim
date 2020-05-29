@@ -16,12 +16,14 @@ let g:go_info_mode = 'gocode'
 let g:go_auto_sameids = 1 
 
 let g:go_template_autocreate = 1
-
 " remove gd mappings
 let g:go_def_mapping_enabled = 0
 "let g:go_def_mode='gopls'
 
-let g:ale_go_langserver_executable = 'gopls'
+"augroup goimports_autoformat
+autocmd BufWritePre *.go LspDocumentFormatSync
+"autocmd BufWritePre *.go LspCodeAction source.organizeImports
+"augroup END
 
 " vim-go
 augroup vg
@@ -32,9 +34,9 @@ au FileType go nmap <LocalLeader>ce :GoCallees<CR>
 au FileType go nmap <LocalLeader>? :GoCoverageToggle<CR>
 au FileType go nmap <LocalLeader>D :GoDefPop<CR>
 au FileType go nmap <LocalLeader>v :GoImplements<CR>
-au FileType go nmap <LocalLeader>I :GoImports<CR>
-au FileType go nmap <LocalLeader>i :GoInstall<CR>
-au FileType go nmap <LocalLeader>y :GoPlay<CR>
+"au FileType go nmap <LocalLeader>i :GoImports<CR>
+au FileType go nmap <LocalLeader>I :ThxInstall<CR>
+au FileType go nmap <LocalLeader>y :ThxPlay<CR>
 au FileType go nmap <LocalLeader>' :GoDocBrowser<CR>
 au FileType go nmap <LocalLeader>b :GoToggleBreakpoint<CR>
 au FileType go nmap <LocalLeader>db :GoDebug<CR>
@@ -51,9 +53,9 @@ au FileType go nmap <LocalLeader>p :GoChannelPeers<CR>
 au FileType go nmap <LocalLeader>d :GoDef<CR>
 au FileType go nmap <LocalLeader>k :GoInfo<CR>
 au FileType go nnoremap <LocalLeader>e :GoIfErr<CR>
-
 augroup END
 
+au FileType go nmap <LocalLeader>i :LspCodeActionSync source.organizeImports<CR>
 
 if !has('nvim')
         " govim

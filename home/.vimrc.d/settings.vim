@@ -112,7 +112,9 @@ if has('persistent_undo')
 	let &undodir = myUndoDir
 	set undofile
 endif
-
+if has('nvim')
+	set inccommand=nosplit
+endif
 set backspace=indent,eol,start
 
 " restore cursor _except_ for commit messages
@@ -179,18 +181,18 @@ let g:checkbox_states = [' ', 'X']
 
 let vim_markdown_preview_github=1
 
-let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_at_startup = 1
 set completeopt+=noinsert
 set completeopt-=preview
 autocmd CompleteDone * silent! pclose!
-inoremap <silent><CR> <C-R>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-    if (pumvisible())
-        return deoplete#close_popup()
-    else
-        return "\<CR>"
-    endif
-endfunction
+"inoremap <silent><CR> <C-R>=<SID>my_cr_function()<CR>
+" function! s:my_cr_function()
+"     if (pumvisible())
+"         return deoplete#close_popup()
+"     else
+"         return "\<CR>"
+"     endif
+" endfunction
 
 """ for live reload
 set backupcopy=yes
@@ -206,4 +208,5 @@ set updatetime=500
 
 runtime matchit/matchit.vim
 
-let g:gothx_command_prefix = "Go"
+"let g:gothx_command_prefix = "Go"
+
