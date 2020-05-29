@@ -5,7 +5,6 @@ package-lock.json
 
 # Compiled source #
 ###################
-#*.com << disabled because github.com (password store)
 *.class
 *.dll
 *.exe
@@ -39,3 +38,5 @@ package-lock.json
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+.netrwhist
