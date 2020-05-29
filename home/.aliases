@@ -33,7 +33,6 @@ alias tailf='tail -F'
 
 alias v=nvim
 alias vg="v -c 'GFiles!'"
-alias vim=/usr/local/bin/vim
 
 
 alias watch='watch '
@@ -46,9 +45,20 @@ alias pgen='pass generate --clip'
 alias ll='ls -lah'
 alias l='l'
 
-alias o='open'
+case "$OSTYPE" in
+  darwin*)
+    # ...
+    alias o='open'
+  ;;
+  linux*)
+    # ...
+    alias o='xdg-open'
+  ;;
+  dragonfly*|freebsd*|netbsd*|openbsd*)
+    # ...
+  ;;
+esac
 alias sz='source ~/.zshrc'
-
 
 # parent cd
 function pcd { cd ${PWD%/$1/*}/$1; }
@@ -68,6 +78,6 @@ alias agv='ag --ignore-dir=vendor'
 
 alias cdl='cd ~/go/src/github.com/laher'
 
-alias python=/usr/local/bin/python3 
-alias pip=/usr/local/bin/pip3 
-
+[ -f "/usr/local/bin/python3" ] && alias python=/usr/local/bin/python3 
+[ -f "/usr/local/bin/pip3" ] && alias pip=/usr/local/bin/pip3 
+[ -f "/usr/local/bin/vim" ] && alias vim=/usr/local/bin/vim
