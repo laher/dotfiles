@@ -13,12 +13,14 @@ alias gl='git pull'
 alias gb='git branch '
 alias gci='git commit'
 alias gc='git commit'
+alias gcs='git commit -S'
 alias gcl='git clone'
 alias gco='git checkout'
 alias gk='gitk --all&'
 alias gu='git gui --all'
 alias gupp='git pull && git push'
 alias contributors='git shortlog -s -n'
+alias glc='git rev-parse --verify HEAD'
 
 alias ga='git add ' 
 alias gd='git diff'
@@ -30,7 +32,7 @@ alias get='git '
 alias tailf='tail -F'
 
 alias v=nvim
-alias vim=nvim
+alias vg="v -c 'GFiles!'"
 
 
 alias watch='watch '
@@ -39,12 +41,10 @@ alias h='hostname'
 
 alias pgen='pass generate --clip'
 
-alias glances='~/.local/bin/glances --theme-white'
 
 alias ll='ls -lah'
 alias l='l'
 
-# for ZSH
 case "$OSTYPE" in
   darwin*)
     # ...
@@ -58,7 +58,6 @@ case "$OSTYPE" in
     # ...
   ;;
 esac
-
 alias sz='source ~/.zshrc'
 
 # parent cd
@@ -68,5 +67,17 @@ function vimDirDiff { echo "Please wait while vim diffs the directories" args=$@
 
 alias gt='go test'
 
-alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
-alias dotfiles-linux='/usr/bin/git --git-dir=$HOME/dotfiles-linux/ --work-tree=$HOME'
+function lsi {
+  ls | fzf | xargs $1
+}
+function lsv {
+  find .| grep -v vendor | grep $1 | fzf | xargs nvim
+}
+
+alias agv='ag --ignore-dir=vendor'
+
+alias cdl='cd ~/go/src/github.com/laher'
+
+[ -f "/usr/local/bin/python3" ] && alias python=/usr/local/bin/python3 
+[ -f "/usr/local/bin/pip3" ] && alias pip=/usr/local/bin/pip3 
+[ -f "/usr/local/bin/vim" ] && alias vim=/usr/local/bin/vim
