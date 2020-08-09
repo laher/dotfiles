@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' " Find within files
-let g:fzf_command_prefix = 'Fzf'
+"let g:fzf_command_prefix = 'Fzf'
 Plug 'ryanoasis/vim-devicons' " icons for NERDTree etc
 Plug 'haya14busa/incsearch.vim' " incrementally show search results
 
@@ -21,12 +21,15 @@ Plug 'gregsexton/gitv', {'on': ['Gitv']} " :Gitv is a bit like tig
 Plug 'junegunn/vim-peekaboo' " show buffers while yanking
 
 """ lsp 
+Plug 'SirVer/ultisnips'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'liuchengxu/vista.vim'
+Plug 'thomasfaingnaert/vim-lsp-snippets'
+Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 
 """ Specific language support
 "Plug 'mattn/vim-goimports', { 'for': 'go' }
@@ -117,5 +120,5 @@ augroup PlugGx
 augroup END
 
 set runtimepath^=~/go/src/github.com/laher/gothx.vim
-set runtimepath^=~/go/src/github.com/laher/today.vim
+"set runtimepath^=~/go/src/github.com/laher/today.vim
 set runtimepath^=~/go/src/github.com/laher/fuzzymenu.vim

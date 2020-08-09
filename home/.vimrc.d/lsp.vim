@@ -19,9 +19,10 @@ let g:lsp_highlight_references_enabled = 1
 " for asyncomplete.vim log
 "let g:asyncomplete_log_file = expand('/tmp/asyncomplete.log')
 let g:lsp_diagnostics_echo_cursor = 1
-let g:lsp_signs_error = {'text': '🚨'}
-let g:lsp_signs_warning = {'text': '⚠️'}
-let g:lsp_signs_hint = {'text': 'ℹ️'} " icons require GUI
+let g:lsp_signs_error = {'text': 'E'}
+let g:lsp_signs_enabled = 1
+let g:lsp_signs_warning = {'text': 'W'}
+let g:lsp_signs_hint = {'text': 'i'} " icons require GUI
 
 " let g:vim_lsp_java = {
 "   \ 'eclipse_jdtls' : {

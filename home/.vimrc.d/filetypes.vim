@@ -23,6 +23,8 @@ autocmd FileType smoosh setlocal shiftwidth=2 tabstop=2 expandtab
 
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
+autocmd FileType markdown,java,php autocmd BufWritePre <buffer> %s/\s\+$//e
+
 "autocmd FileType dot autocmd BufWritePre <buffer> :GraphvizCompile
 
 "autocmd BufWritePre *.py execute ':Black'
