@@ -17,8 +17,8 @@ if [[ -d ~/.zshrc.d ]]; then
 	done
 fi
 
-if [ -d ~/.zshrc.vend.d ]; then
-    for f in ~/.zshrc.vend.d/*(N); do
+if [ -d ~/.zshrc.private.d ]; then
+    for f in ~/.zshrc.private.d/*(N); do
 	source $f
     done
 fi

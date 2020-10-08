@@ -19,6 +19,7 @@ Plug 'tpope/vim-rhubarb' " :Gbrowse, hub
 Plug 'airblade/vim-gitgutter' " +/-/~ signs in the gutter
 Plug 'gregsexton/gitv', {'on': ['Gitv']} " :Gitv is a bit like tig
 Plug 'junegunn/vim-peekaboo' " show buffers while yanking
+Plug 'shumphrey/fugitive-gitlab.vim'
 
 """ lsp 
 Plug 'SirVer/ultisnips'
@@ -34,16 +35,20 @@ Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 """ Specific language support
 "Plug 'mattn/vim-goimports', { 'for': 'go' }
 Plug 'fatih/vim-go', { 'for': 'go' }
-let g:go_gopls_enabled=0
-let g:go_def_mapping_enabled=0
-let g:go_doc_keywordprg_enabled=0
-let g:go_fmt_autosave=0
+  let g:go_gopls_enabled=0
+  let g:go_def_mapping_enabled=0
+  let g:go_doc_keywordprg_enabled=0
+  let g:go_fmt_autosave=1
+  let g:go_fmt_command = "goimports"
 Plug 'fisadev/vim-isort', { 'for': 'python' }
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'prettier/vim-prettier', {
  \ 'do': 'yarn install',
  \ 'for': ['javascript','html','css','typescript','json'] }
+
+Plug 'eslint/eslint'
+Plug 'ruanyl/vim-fixmyjs'
 
 Plug 'markbiek/phpLint.vim', { 'for': 'php' }
 
@@ -119,6 +124,6 @@ augroup PlugGx
   autocmd FileType vim nnoremap <buffer> <silent> gx :call <sid>plug_gx()<cr>
 augroup END
 
-set runtimepath^=~/d/laher/gothx.vim
+set runtimepath^=~/d/ext/gothx.vim
 "set runtimepath^=~/go/src/github.com/laher/today.vim
-set runtimepath^=~/d/fuzzymenu.vim
+set runtimepath^=~/d/ext/fuzzymenu.vim

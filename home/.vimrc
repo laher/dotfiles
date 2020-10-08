@@ -16,15 +16,11 @@ elseif filereadable(expand("~/.vimrc.d/plugins.vim")) " Usual
   source ~/.vimrc.d/scala.vim
   source ~/.vimrc.d/lsp.vim
   source ~/.vimrc.d/textobjects.vim
+  source ~/.vimrc.d/fzm.vim
 endif
 
 
 if filereadable(expand("~/.vimrc.local")) " Local overrides ...
   source ~/.vimrc.local
 endif
-
-
-
-
-
 

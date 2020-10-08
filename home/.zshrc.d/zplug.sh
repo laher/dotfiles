@@ -31,11 +31,14 @@ export ZSH_THEME="alien"
 
 # Grab binaries from GitHub Releases
 # and rename with the "rename-to:" tag
-zplug "junegunn/fzf-bin", \
-    from:gh-r, \
-    as:command, \
-    rename-to:fzf, \
-    use:"*linux*amd64*"
+#zplug "junegunn/fzf-bin", \
+#    from:gh-r, \
+#    as:command, \
+#    rename-to:fzf, \
+#    use:"*linux*amd64*"
+
+# fuzzy filtering
+zplug "junegunn/fzf", as:command, hook-build:"./install --bin", use:"bin/{fzf-tmux,fzf}"
 
 # Supports oh-my-zsh plugins and the like
 # zplug "plugins/git",   from:oh-my-zsh
@@ -47,3 +50,7 @@ zplug 'wfxr/formarks'
 # zplug "ezh/fzf-ls"
 
 zplug load
+
+# fzf
+source ~/.zplug/repos/junegunn/fzf/shell/key-bindings.zsh
+source ~/.zplug/repos/junegunn/fzf/shell/completion.zsh

@@ -1,6 +1,6 @@
 
 function gsa {
-	find . -maxdepth 2 -name .git -type d -execdir bash -c "pwd && git status" \;
+	find . -maxdepth 2 -name .git -type d -execdir bash -c "pwd && git status -s" \;
 }
 
 alias gupp='git pull && git push'

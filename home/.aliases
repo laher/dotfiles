@@ -21,6 +21,7 @@ alias gu='git gui --all'
 alias gupp='git pull && git push'
 alias contributors='git shortlog -s -n'
 alias glc='git rev-parse --verify HEAD'
+alias gfo='git fetch origin'
 
 alias ga='git add ' 
 alias gd='git diff'
@@ -28,11 +29,16 @@ alias gd='git diff'
 alias got='git '
 alias get='git '
 
+alias gsb='git switch'
+alias gnb='git switch -c'
+
+alias gm='git merge --no-ff'
+
 
 alias tailf='tail -F'
 
 alias v=nvim
-alias vg="v -c 'GFiles!'"
+alias vgf="v -c 'GFiles!'"
 
 
 alias watch='watch '
@@ -74,7 +80,7 @@ function lsv {
   find .| grep -v vendor | grep $1 | fzf | xargs nvim
 }
 
-alias agv='ag --ignore-dir=vendor'
+alias agv='ag --ignore-dir=vendor --ignore-dir=node_modules --ignore-dir=assets -W 120'
 
 alias cdl='cd ~/go/src/github.com/laher'
 

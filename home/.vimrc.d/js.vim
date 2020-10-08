@@ -12,9 +12,9 @@ autocmd FileType json setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType html setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType css setlocal shiftwidth=2 tabstop=2 expandtab
 augroup yellowui
-  au! BufWritePre ~/**/monocle*/**/*.ts :PrettierAsync
-  au! BufWritePre ~/**/monocle*/**/*.tsx :PrettierAsync
-  au! BufWritePre ~/**/monocle*/**/*.css :PrettierAsync
+  au! BufWritePost ~/d/**/*.ts :Fixmyjs
+  au! BufWritePost ~/d/**/*.js :Fixmyjs
+  au! BufWritePost ~/d/**/*.vue :Fixmyjs
   "au! BufWritePre ~/**/*.js :PrettierAsync
   "au! BufWritePre ~/**/*.css :PrettierAsync
 augroup END
