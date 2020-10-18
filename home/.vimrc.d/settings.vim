@@ -215,4 +215,3 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'cd '.argv()[0] | execute 'FZF!' | endif
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | execute 'FZF!' | endif
 
-let g:fuzzymenu_vim_config='~/.vimrc.d/settings.vim'

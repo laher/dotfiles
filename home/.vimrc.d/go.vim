@@ -1,6 +1,7 @@
 
 " Go stuff
 let g:go_fmt_command = "goimports"
+let g:go_fmt_autosave = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
@@ -19,11 +20,25 @@ let g:go_template_autocreate = 1
 " remove gd mappings
 let g:go_def_mapping_enabled = 0
 "let g:go_def_mode='gopls'
-
+"
+"autocmd BufWritePre *.go :call CocAction('organizeImport')
 "augroup goimports_autoformat
-autocmd BufWritePre *.go LspDocumentFormatSync
+"autocmd BufWritePre *.go LspDocumentFormatSync
 "autocmd BufWritePre *.go LspCodeAction source.organizeImports
 "augroup END
+
+"autocmd BufWritePre *.go :call CocAction('organizeImport')
+
+autocmd FileType go nmap <LocalLeader>f :call CocAction('organizeImport')
+
+autocmd FileType go nmap gtj :CocCommand go.tags.add json<cr>
+autocmd FileType go nmap gty :CocCommand go.tags.add yaml<cr>
+autocmd FileType go nmap gtx :CocCommand go.tags.clear<cr>
+autocmd FileType go nmap <LocalLeader>i :CocCommand go.impl.cursor<cr>	
+autocmd FileType go nmap <LocalLeader>tt :CocCommand go.test.toggle<cr>
+autocmd FileType go nmap <LocalLeader>te :CocCommand go.test.generate.exported<cr>	
+autocmd FileType go nmap <LocalLeader>tb :CocCommand go.test.generate.file<cr>	
+autocmd FileType go nmap <LocalLeader>tf :CocCommand go.test.generate.function<cr>	
 
 " vim-go
 augroup vg
