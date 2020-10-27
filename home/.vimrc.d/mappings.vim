@@ -14,8 +14,11 @@ nnoremap <Leader>v :Vista<CR>
 nnoremap <Leader>s :split term://less +F /tmp/vim-lsp.log<CR><Esc>
 
 nmap <silent> <Leader><Leader> :call fuzzymenu#Run({})<cr>
-vmap <C-space> :call fuzzymenu#Run({'visual': 1})<cr>
-nmap <C-space> :call fuzzymenu#Run({})<cr>
+nmap <silent> <C-space> :call fuzzymenu#Run({})<cr>
+
+"vnoremap <silent> <C-space> :<c-u>call fuzzymenu#RunVisual()<cr>
+vnoremap <silent> <C-space> :call fuzzymenu#RunVisual()<cr>
+
 "nmap <Leader><Leader> <Plug>Fzm
 "vmap <Leader><Leader> <Plug>FzmVisual
 "nnoremap <Leader>fn <c-r>=expand("%:t")<cr>

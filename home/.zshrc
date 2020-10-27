@@ -108,5 +108,13 @@ if [ -f '/Users/amirlaher/dev/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/a
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/amirlaher/dev/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/amirlaher/dev/google-cloud-sdk/completion.zsh.inc'; fi
 export PATH="/usr/local/opt/awscli@1/bin:$PATH"
-
+export PATH="/home/am/.cargo/bin:$PATH"
 export CLICOLOR=1
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

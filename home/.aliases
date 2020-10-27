@@ -82,7 +82,7 @@ function lsv {
 
 alias agv='ag --ignore-dir=vendor --ignore-dir=node_modules --ignore-dir=assets -W 120'
 
-alias cdl='cd ~/go/src/github.com/laher'
+alias cdl='cd ~/d/laher'
 
 #[ -f "/usr/local/bin/python3" ] && alias python=/usr/local/bin/python3 
 #[ -f "/usr/local/bin/pip3" ] && alias pip=/usr/local/bin/pip3 

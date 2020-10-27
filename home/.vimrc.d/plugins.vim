@@ -128,6 +128,6 @@ augroup PlugGx
   autocmd FileType vim nnoremap <buffer> <silent> gx :call <sid>plug_gx()<cr>
 augroup END
 
-set runtimepath^=~/d/ext/gothx.vim
+set runtimepath^=~/d/laher/gothx.vim
 "set runtimepath^=~/go/src/github.com/laher/today.vim
-set runtimepath^=~/d/ext/fuzzymenu.vim
+set runtimepath^=~/d/laher/fuzzymenu.vim
