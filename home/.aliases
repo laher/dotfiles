@@ -3,7 +3,6 @@ alias pullreq='hub pull-request -b develop -m'
 alias tag='git describe --tags --abbrev=0'
 alias tagdiff='git diff --exit-code `git describe --tags --abbrev=0`'
 
-alias release-diff='git log --graph --abbrev-commit --date=relative release-prod..release-test'
 alias branch-diff='git log --graph --abbrev-commit --date=relative'
 
 alias g='git '
@@ -37,7 +36,9 @@ alias gm='git merge --no-ff'
 
 alias tailf='tail -F'
 
-alias v=nvim
+alias v='nvim -O'
+alias nv='nvim -O'
+alias vv='vim.nox -O'
 alias vgf="v -c 'GFiles!'"
 
 
@@ -81,9 +82,9 @@ function lsv {
 }
 
 alias agv='ag --ignore-dir=vendor --ignore-dir=node_modules --ignore-dir=assets -W 120'
-
 alias cdl='cd ~/d/laher'
 
 #[ -f "/usr/local/bin/python3" ] && alias python=/usr/local/bin/python3 
 #[ -f "/usr/local/bin/pip3" ] && alias pip=/usr/local/bin/pip3 
 #[ -f "/usr/local/bin/vim" ] && alias vim=/usr/local/bin/vim
+alias r='. ranger'

@@ -39,7 +39,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 """ Specific language support
 "Plug 'mattn/vim-goimports', { 'for': 'go' }
 Plug 'fatih/vim-go', { 'for': 'go' }
-  let g:go_gopls_enabled=0
+  "let g:go_gopls_enabled=0
   let g:go_def_mapping_enabled=0
   let g:go_doc_keywordprg_enabled=0
   let g:go_fmt_autosave=1
@@ -131,3 +131,4 @@ augroup END
 set runtimepath^=~/d/laher/gothx.vim
 "set runtimepath^=~/go/src/github.com/laher/today.vim
 set runtimepath^=~/d/laher/fuzzymenu.vim
+set runtimepath^=~/d/laher/showy

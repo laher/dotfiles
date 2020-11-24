@@ -13,7 +13,6 @@ elseif filereadable(expand("~/.vimrc.d/plugins.vim")) " Usual
   source ~/.vimrc.d/mappings.vim
   source ~/.vimrc.d/go.vim
   source ~/.vimrc.d/js.vim
-  source ~/.vimrc.d/scala.vim
   source ~/.vimrc.d/lsp.vim
   source ~/.vimrc.d/textobjects.vim
   source ~/.vimrc.d/fzm.vim
@@ -24,3 +23,5 @@ if filereadable(expand("~/.vimrc.local")) " Local overrides ...
   source ~/.vimrc.local
 endif
 
+"let types ='js,json'
+"execute 'aucmd Filetype '.types.' '.' BufWritePre echo "hi"'

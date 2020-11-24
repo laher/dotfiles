@@ -95,12 +95,12 @@ export ALIEN_SECTIONS_LEFT=(
 export PATH=/usr/local/bin:$PATH
 
 # added by travis gem
-[ -f /Users/amirlaher/.travis/travis.sh ] && source /Users/amirlaher/.travis/travis.sh
+# [ -f /Users/amirlaher/.travis/travis.sh ] && source /Users/amirlaher/.travis/travis.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/amirlaher/dev/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/amirlaher/dev/google-cloud-sdk/path.zsh.inc'; fi

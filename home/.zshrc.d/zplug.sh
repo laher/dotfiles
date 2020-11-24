@@ -42,13 +42,13 @@ zplug "junegunn/fzf", as:command, hook-build:"./install --bin", use:"bin/{fzf-tm
 
 # Supports oh-my-zsh plugins and the like
 # zplug "plugins/git",   from:oh-my-zsh
-zplug "plugins/dotenv",  from:oh-my-zsh
+# zplug "plugins/dotenv",  from:oh-my-zsh
 
 zplug 'wfxr/formarks'
 # zplug 'wfxr/forgit' # fzf things for git-add and git-diff
 
 # zplug "ezh/fzf-ls"
-
+zplug 'fdw/ranger-autojump'
 zplug load
 
 # fzf

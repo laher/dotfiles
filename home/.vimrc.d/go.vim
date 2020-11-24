@@ -13,7 +13,7 @@ let g:go_addtags_transform = "camelcase"
 
 let g:go_auto_type_info = 0
 let g:go_updatetime = 2000
-let g:go_info_mode = 'gocode'
+let g:go_info_mode = 'gopls'
 let g:go_auto_sameids = 1 
 
 let g:go_template_autocreate = 1

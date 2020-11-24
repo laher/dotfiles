@@ -19,8 +19,8 @@ function gbrl {
 
 function gbrr {
 	local ref branch
-	branch=$(git branch -r --sort='-committerdate:iso8601' --format='%(refname)'| fzf) && \
-		branch=${ref#"refs/heads/"} && \
+	ref=$(git branch -r --sort='-committerdate:iso8601' --format='%(refname)'| fzf) && \
+		branch=${ref#"refs/remotes/origin/"} && \
 		git checkout $branch
 }
 
