@@ -39,4 +39,11 @@ package-lock.json
 ehthumbs.db
 Thumbs.db
 
+# Random Am shit #
+##################
 .netrwhist
+.env
+
+tmp
+nohup.out
+bin

@@ -6,7 +6,10 @@ call plug#begin('~/.vim/plugged')
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' " Find within files
-"let g:fzf_command_prefix = 'Fzf'
+let g:fzf_command_prefix = 'Fzf'
+
+command! -bang -nargs=* Agv call fzf#vim#ag(<q-args>, '--ignore=vendor', <bang>0)
+
 Plug 'ryanoasis/vim-devicons' " icons for NERDTree etc
 Plug 'haya14busa/incsearch.vim' " incrementally show search results
 
@@ -77,6 +80,22 @@ Plug 'tpope/vim-tbone'             " :Tmux support - :Twrite,:Tyank,:Tput
 Plug 'tpope/vim-sleuth'            " tab/space indentation detection per-file
 Plug 'tpope/vim-unimpaired'        " pairs of mappings like [q ]q for quickfix pref/next
 Plug 'tpope/vim-eunuch'            " Unix sugar - :SudoWrite, :Chmod, :Rename, :Delete ...
+Plug 'tpope/vim-dispatch'          " dispatch Make in the background
+Plug 'tpope/vim-projectionist'     " set up VA (alternate) and make tasks
+  autocmd User ProjectionistDetect
+  \ call projectionist#append(getcwd(),
+  \ {
+  \    '*.go':      { 'alternate': '{}_test.go' },
+  \    '*_test.go': { 'alternate': '{}.go' },
+  \    '*.cpp':     { 'alternate': '{}.h' },
+  \    '*.h':       { 'alternate': '{}.cpp' },
+  \    '*.js':      { 'alternate': '{}.spec.js' },
+  \    '*.ts':      { 'alternate': '{}.spec.ts' },
+  \    '*.spec.js': { 'alternate': '{}.js' },
+  \    '*.spec.ts': { 'alternate': '{}.ts' }
+  \ })
+nmap <silent><leader>aa :A<CR>
+nmap <silent><leader>av :AV<CR>
 
 """ text objects
 Plug 'FooSoft/vim-argwrap' " :ArgWrap wraps a paremeter list accross multiple lines
@@ -104,6 +123,7 @@ Plug 'ryanoasis/vim-devicons' " use in lightline
 Plug 'mgee/lightline-bufferline' " For tabs on top
 Plug 'flrnprz/plastic.vim' " lightline theme
 Plug 'laher/vim-buftabline' " tabs across top
+
 " All of your Plugs must be added before the following line
 call plug#end()
 

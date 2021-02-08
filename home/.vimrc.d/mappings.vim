@@ -53,6 +53,9 @@ nmap <Leader>GX :Gbrowse!<CR>
 nmap <Leader>gp :Gblame<CR>
 nmap <Leader>GP :Gblame!<CR>
 
+" similar to <prefix>z in tmux:
+:nnoremap <Leader>z :tabe %<CR>
+
 " nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 " nnoremap <Leader>l :call LanguageClient_contextMenu()<CR>
 " " Or map each action separately

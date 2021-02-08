@@ -14,3 +14,5 @@ let shiftwidth='2'
 
 " Border style (rounded / sharp / horizontal)
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Todo', 'border': 'sharp' } }
+let g:fuzzymenu_width_adjust=-70
+nmap <leader>f :FzmOp =<CR>
