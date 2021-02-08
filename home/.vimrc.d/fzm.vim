@@ -1,5 +1,7 @@
 let g:fuzzymenu_vim_config='~/.vimrc.d/fzm.vim'
 
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'border': 'sharp'} }
+
 """ mappings created by fuzzymenu.vim
 nmap <leader>ser :Buffers<CR>
 set nowildmenu
