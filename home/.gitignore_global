@@ -47,3 +47,5 @@ Thumbs.db
 tmp
 nohup.out
 bin
+
+*.iml

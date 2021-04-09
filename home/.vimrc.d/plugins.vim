@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' " Find within files
-let g:fzf_command_prefix = 'Fzf'
+"let g:fzf_command_prefix = 'Fzf'
 
 command! -bang -nargs=* Agv call fzf#vim#ag(<q-args>, '--ignore=vendor', <bang>0)
 
@@ -37,7 +37,11 @@ Plug 'SirVer/ultisnips'
 
 
 " Use release branch (recommend)
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+let g:completion_timer_cycle = 200 "default value is 80
 
 """ Specific language support
 "Plug 'mattn/vim-goimports', { 'for': 'go' }
@@ -106,6 +110,8 @@ Plug 'bkad/CamelCaseMotion' " CamelCase: <leader>w . e.g. `c2<leader>w`
 Plug 'tpope/vim-surround' " Operate on surrounding parens/quotes: `s`. e.g. `cs'<p>`
 Plug 'christoomey/vim-titlecase' " `gt`: motion for title-case
 Plug 'tpope/vim-commentary'        " `gcc` Comment out lines. Also `gc` for motion target
+
+Plug 'AndrewRadev/tagalong.vim'
 
 """ editing
 "Plug 'joereynolds/place.vim' " insertions with ga (doesn't move the cursor. e.g. `ga$;` to add a semicolon)

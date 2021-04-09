@@ -33,9 +33,9 @@ let g:go_def_mapping_enabled = 0
 
 autocmd FileType go nmap <LocalLeader>f :call CocAction('organizeImport')
 
-autocmd FileType go nmap gtj :CocCommand go.tags.add json<cr>
-autocmd FileType go nmap gty :CocCommand go.tags.add yaml<cr>
-autocmd FileType go nmap gtx :CocCommand go.tags.clear<cr>
+" autocmd FileType go nmap gtj :CocCommand go.tags.add json<cr>
+" autocmd FileType go nmap gty :CocCommand go.tags.add yaml<cr>
+" autocmd FileType go nmap gtx :CocCommand go.tags.clear<cr>
 autocmd FileType go nmap <LocalLeader>i :CocCommand go.impl.cursor<cr>	
 autocmd FileType go nmap <LocalLeader>tt :CocCommand go.test.toggle<cr>
 autocmd FileType go nmap <LocalLeader>te :CocCommand go.test.generate.exported<cr>	
@@ -72,7 +72,7 @@ au FileType go nmap <LocalLeader>k :GoInfo<CR>
 au FileType go nnoremap <LocalLeader>e :GoIfErr<CR>
 augroup END
 
-au FileType go nmap <LocalLeader>i :LspCodeActionSync source.organizeImports<CR>
+"au FileType go nmap <LocalLeader>i :LspCodeActionSync source.organizeImports<CR>
 
 if !has('nvim')
         " govim

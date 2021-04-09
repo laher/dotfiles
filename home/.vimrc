@@ -13,9 +13,10 @@ elseif filereadable(expand("~/.vimrc.d/plugins.vim")) " Usual
   source ~/.vimrc.d/mappings.vim
   source ~/.vimrc.d/go.vim
   source ~/.vimrc.d/js.vim
-  source ~/.vimrc.d/lsp.vim
+"  source ~/.vimrc.d/lsp.vim
   source ~/.vimrc.d/textobjects.vim
   source ~/.vimrc.d/fzm.vim
+  source ~/.vimrc.d/nvim.vim
 endif
 
 

@@ -45,7 +45,7 @@ nnoremap <Leader>GF :GFiles!<CR>
 " git other
 nmap <Leader>gl :Glog<CR>
 nmap <Leader>gs :Gstatus<CR>
-nmap <Leader>gd :Gdiff<CR>
+"nmap <Leader>gd :Gdiff<CR>
 vmap <Leader>gx :Gbrowse<CR>
 vmap <Leader>GX :Gbrowse!<CR>
 nmap <Leader>gx :Gbrowse<CR>
@@ -116,9 +116,6 @@ nnoremap <Leader>p "0p
 nnoremap <Leader>% :<C-u>call <SID>copy_path()<CR>
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-
 " `c;w` for changing next CamelCaseHump 
 nmap <Leader>ccw <Plug>CamelCaseMotion_w
 nmap <Leader>ccb <Plug>CamelCaseMotion_b
@@ -131,22 +128,3 @@ nmap <Leader>0 kd1Go<Esc>dG
 " replace word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
-"nnoremap <Leader><Leader> :call fzm#Run()<CR>
-"nnoremap <Leader>m :call fzm#Run()<CR>
-
-" for getting used to the switch
-"nmap <Leader>3 kdggjdG
-
-" function! CaseIns()
-"   set ignorecase
-" endfunction
-
-" function! CaseSens()
-"   set noignorecase
-" endfunction
-
-" call fzm#fzm#add_item('todo', funcref('TodoPrompt'))
-" call fzm#fzm#add_item('todo-split', funcref('TodoSplit'))
-" call fzm#fzm#add_item('case-sensitive', funcref('CaseSens'))
-" call fzm#fzm#add_item('case-insensitive', funcref('CaseIns'))
-" nnoremap <silent> <Leader>; :call fzm#fzm#run()<cr>
