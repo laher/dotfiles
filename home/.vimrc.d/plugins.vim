@@ -23,6 +23,9 @@ Plug 'airblade/vim-gitgutter' " +/-/~ signs in the gutter
 Plug 'gregsexton/gitv', {'on': ['Gitv']} " :Gitv is a bit like tig
 Plug 'junegunn/vim-peekaboo' " show buffers while yanking
 Plug 'shumphrey/fugitive-gitlab.vim'
+Plug 'tommcdo/vim-fubitive'
+
+let g:fubitive_domain_pattern = 'git\.fostermoore\.com'
 
 """ lsp 
 Plug 'SirVer/ultisnips'

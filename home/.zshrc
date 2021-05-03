@@ -102,11 +102,6 @@ export PATH=/usr/local/bin:$PATH
 
 # eval "$(direnv hook zsh)"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/amirlaher/dev/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/amirlaher/dev/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/amirlaher/dev/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/amirlaher/dev/google-cloud-sdk/completion.zsh.inc'; fi
 export PATH="/usr/local/opt/awscli@1/bin:$PATH"
 export PATH="/home/am/.cargo/bin:$PATH"
 export CLICOLOR=1

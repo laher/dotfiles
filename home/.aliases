@@ -81,8 +81,9 @@ function lsv {
   find .| grep -v vendor | grep $1 | fzf | xargs nvim
 }
 
-alias agv='ag --ignore-dir=vendor --ignore-dir=node_modules --ignore-dir=assets -W 120'
+alias agv='ag --ignore-dir=vendor --ignore-dir=node_modules --ignore-dir=assets --ignore-dir=target -W 120'
 alias cdl='cd ~/d/laher'
+alias cdd='cd ~/d/'
 
 #[ -f "/usr/local/bin/python3" ] && alias python=/usr/local/bin/python3 
 #[ -f "/usr/local/bin/pip3" ] && alias pip=/usr/local/bin/pip3 
