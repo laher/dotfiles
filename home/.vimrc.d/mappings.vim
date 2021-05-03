@@ -13,11 +13,15 @@ nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>v :Vista<CR>
 nnoremap <Leader>s :split term://less +F /tmp/vim-lsp.log<CR><Esc>
 
-nmap <silent> <Leader><Leader> :call fuzzymenu#Run({})<cr>
-nmap <silent> <C-space> :call fuzzymenu#Run({})<cr>
+nmap <silent> <Leader><Leader> <Plug>(Fzm)
+nmap <silent> <C-space> <Plug>(Fzm)
+vmap <silent> <C-space> <Plug>(FzmVisual)
+
+"nmap <silent> <Leader><Leader> :call fuzzymenu#Run({})<cr>
+"nmap <silent> <C-space> :call fuzzymenu#Run({})<cr>
 
 "vnoremap <silent> <C-space> :<c-u>call fuzzymenu#RunVisual()<cr>
-vnoremap <silent> <C-space> :call fuzzymenu#RunVisual()<cr>
+"vnoremap <silent> <C-space> :call fuzzymenu#RunVisual()<cr>
 
 "nmap <Leader><Leader> <Plug>Fzm
 "vmap <Leader><Leader> <Plug>FzmVisual
@@ -41,13 +45,16 @@ nnoremap <Leader>GF :GFiles!<CR>
 " git other
 nmap <Leader>gl :Glog<CR>
 nmap <Leader>gs :Gstatus<CR>
-nmap <Leader>gd :Gdiff<CR>
+"nmap <Leader>gd :Gdiff<CR>
 vmap <Leader>gx :Gbrowse<CR>
 vmap <Leader>GX :Gbrowse!<CR>
 nmap <Leader>gx :Gbrowse<CR>
 nmap <Leader>GX :Gbrowse!<CR>
 nmap <Leader>gp :Gblame<CR>
 nmap <Leader>GP :Gblame!<CR>
+
+" similar to <prefix>z in tmux:
+:nnoremap <Leader>z :tabe %<CR>
 
 " nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 " nnoremap <Leader>l :call LanguageClient_contextMenu()<CR>
@@ -109,9 +116,6 @@ nnoremap <Leader>p "0p
 nnoremap <Leader>% :<C-u>call <SID>copy_path()<CR>
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-
 " `c;w` for changing next CamelCaseHump 
 nmap <Leader>ccw <Plug>CamelCaseMotion_w
 nmap <Leader>ccb <Plug>CamelCaseMotion_b
@@ -124,22 +128,3 @@ nmap <Leader>0 kd1Go<Esc>dG
 " replace word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
-"nnoremap <Leader><Leader> :call fzm#Run()<CR>
-"nnoremap <Leader>m :call fzm#Run()<CR>
-
-" for getting used to the switch
-"nmap <Leader>3 kdggjdG
-
-" function! CaseIns()
-"   set ignorecase
-" endfunction
-
-" function! CaseSens()
-"   set noignorecase
-" endfunction
-
-" call fzm#fzm#add_item('todo', funcref('TodoPrompt'))
-" call fzm#fzm#add_item('todo-split', funcref('TodoSplit'))
-" call fzm#fzm#add_item('case-sensitive', funcref('CaseSens'))
-" call fzm#fzm#add_item('case-insensitive', funcref('CaseIns'))
-" nnoremap <silent> <Leader>; :call fzm#fzm#run()<cr>

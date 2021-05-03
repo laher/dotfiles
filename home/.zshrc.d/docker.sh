@@ -20,6 +20,10 @@ function dcd {
 	docker-compose down
 }
 
+function dcud {
+	docker-compose up -d
+}
+
 function dcdv {
 	docker-compose down -v
 }

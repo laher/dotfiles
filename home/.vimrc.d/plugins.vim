@@ -7,6 +7,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' " Find within files
 "let g:fzf_command_prefix = 'Fzf'
+
+command! -bang -nargs=* Agv call fzf#vim#ag(<q-args>, '--ignore=vendor', <bang>0)
+
 Plug 'ryanoasis/vim-devicons' " icons for NERDTree etc
 Plug 'haya14busa/incsearch.vim' " incrementally show search results
 
@@ -20,6 +23,9 @@ Plug 'airblade/vim-gitgutter' " +/-/~ signs in the gutter
 Plug 'gregsexton/gitv', {'on': ['Gitv']} " :Gitv is a bit like tig
 Plug 'junegunn/vim-peekaboo' " show buffers while yanking
 Plug 'shumphrey/fugitive-gitlab.vim'
+Plug 'tommcdo/vim-fubitive'
+
+let g:fubitive_domain_pattern = 'git\.fostermoore\.com'
 
 """ lsp 
 Plug 'SirVer/ultisnips'
@@ -34,12 +40,16 @@ Plug 'SirVer/ultisnips'
 
 
 " Use release branch (recommend)
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+let g:completion_timer_cycle = 200 "default value is 80
 
 """ Specific language support
 "Plug 'mattn/vim-goimports', { 'for': 'go' }
 Plug 'fatih/vim-go', { 'for': 'go' }
-  let g:go_gopls_enabled=0
+  "let g:go_gopls_enabled=0
   let g:go_def_mapping_enabled=0
   let g:go_doc_keywordprg_enabled=0
   let g:go_fmt_autosave=1
@@ -77,6 +87,22 @@ Plug 'tpope/vim-tbone'             " :Tmux support - :Twrite,:Tyank,:Tput
 Plug 'tpope/vim-sleuth'            " tab/space indentation detection per-file
 Plug 'tpope/vim-unimpaired'        " pairs of mappings like [q ]q for quickfix pref/next
 Plug 'tpope/vim-eunuch'            " Unix sugar - :SudoWrite, :Chmod, :Rename, :Delete ...
+Plug 'tpope/vim-dispatch'          " dispatch Make in the background
+Plug 'tpope/vim-projectionist'     " set up VA (alternate) and make tasks
+  autocmd User ProjectionistDetect
+  \ call projectionist#append(getcwd(),
+  \ {
+  \    '*.go':      { 'alternate': '{}_test.go' },
+  \    '*_test.go': { 'alternate': '{}.go' },
+  \    '*.cpp':     { 'alternate': '{}.h' },
+  \    '*.h':       { 'alternate': '{}.cpp' },
+  \    '*.js':      { 'alternate': '{}.spec.js' },
+  \    '*.ts':      { 'alternate': '{}.spec.ts' },
+  \    '*.spec.js': { 'alternate': '{}.js' },
+  \    '*.spec.ts': { 'alternate': '{}.ts' }
+  \ })
+nmap <silent><leader>aa :A<CR>
+nmap <silent><leader>av :AV<CR>
 
 """ text objects
 Plug 'FooSoft/vim-argwrap' " :ArgWrap wraps a paremeter list accross multiple lines
@@ -87,6 +113,8 @@ Plug 'bkad/CamelCaseMotion' " CamelCase: <leader>w . e.g. `c2<leader>w`
 Plug 'tpope/vim-surround' " Operate on surrounding parens/quotes: `s`. e.g. `cs'<p>`
 Plug 'christoomey/vim-titlecase' " `gt`: motion for title-case
 Plug 'tpope/vim-commentary'        " `gcc` Comment out lines. Also `gc` for motion target
+
+Plug 'AndrewRadev/tagalong.vim'
 
 """ editing
 "Plug 'joereynolds/place.vim' " insertions with ga (doesn't move the cursor. e.g. `ga$;` to add a semicolon)
@@ -104,6 +132,7 @@ Plug 'ryanoasis/vim-devicons' " use in lightline
 Plug 'mgee/lightline-bufferline' " For tabs on top
 Plug 'flrnprz/plastic.vim' " lightline theme
 Plug 'laher/vim-buftabline' " tabs across top
+
 " All of your Plugs must be added before the following line
 call plug#end()
 
@@ -131,3 +160,4 @@ augroup END
 set runtimepath^=~/d/laher/gothx.vim
 "set runtimepath^=~/go/src/github.com/laher/today.vim
 set runtimepath^=~/d/laher/fuzzymenu.vim
+set runtimepath^=~/d/laher/showy

@@ -19,8 +19,8 @@ function gbrl {
 
 function gbrr {
 	local ref branch
-	branch=$(git branch -r --sort='-committerdate:iso8601' --format='%(refname)'| fzf) && \
-		branch=${ref#"refs/heads/"} && \
+	ref=$(git branch -r --sort='-committerdate:iso8601' --format='%(refname)'| fzf) && \
+		branch=${ref#"refs/remotes/origin/"} && \
 		git checkout $branch
 }
 
@@ -49,4 +49,16 @@ function gf {
 
 function cdg {
 	cd "$(git rev-parse --show-toplevel)"
+}
+
+lg()
+{
+    export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
+
+    lazygit "$@"
+
+    if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
+            cd "$(cat $LAZYGIT_NEW_DIR_FILE)"
+            rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
+    fi
 }

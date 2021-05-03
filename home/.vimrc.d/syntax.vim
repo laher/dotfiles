@@ -1,5 +1,5 @@
 
-colorscheme jellybeans
+colorscheme PerfectDark
 " set background=light
 
 " cursor

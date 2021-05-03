@@ -2,6 +2,8 @@
 " Go stuff
 let g:go_fmt_command = "goimports"
 let g:go_fmt_autosave = 1
+
+let g:go_jump_to_error = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
@@ -13,7 +15,7 @@ let g:go_addtags_transform = "camelcase"
 
 let g:go_auto_type_info = 0
 let g:go_updatetime = 2000
-let g:go_info_mode = 'gocode'
+let g:go_info_mode = 'gopls'
 let g:go_auto_sameids = 1 
 
 let g:go_template_autocreate = 1
@@ -31,9 +33,9 @@ let g:go_def_mapping_enabled = 0
 
 autocmd FileType go nmap <LocalLeader>f :call CocAction('organizeImport')
 
-autocmd FileType go nmap gtj :CocCommand go.tags.add json<cr>
-autocmd FileType go nmap gty :CocCommand go.tags.add yaml<cr>
-autocmd FileType go nmap gtx :CocCommand go.tags.clear<cr>
+" autocmd FileType go nmap gtj :CocCommand go.tags.add json<cr>
+" autocmd FileType go nmap gty :CocCommand go.tags.add yaml<cr>
+" autocmd FileType go nmap gtx :CocCommand go.tags.clear<cr>
 autocmd FileType go nmap <LocalLeader>i :CocCommand go.impl.cursor<cr>	
 autocmd FileType go nmap <LocalLeader>tt :CocCommand go.test.toggle<cr>
 autocmd FileType go nmap <LocalLeader>te :CocCommand go.test.generate.exported<cr>	
@@ -70,7 +72,7 @@ au FileType go nmap <LocalLeader>k :GoInfo<CR>
 au FileType go nnoremap <LocalLeader>e :GoIfErr<CR>
 augroup END
 
-au FileType go nmap <LocalLeader>i :LspCodeActionSync source.organizeImports<CR>
+"au FileType go nmap <LocalLeader>i :LspCodeActionSync source.organizeImports<CR>
 
 if !has('nvim')
         " govim
