@@ -51,3 +51,25 @@ augroup END
 function! s:copy_path()
   let @+ = expand('%:p')
 endfunction 
+
+
+function! CommandWindow(choice_command, vim_command)
+  try
+    let output = system(a:choice_command . ' | fzy')
+  catch /Vim:Interrupt/
+    echo 'interrupted'
+    " Swallow errors from ^C, allow redraw! below
+  endtry
+  redraw!
+  if v:shell_error == 0
+    if !empty(output)
+      execute a:vim_command . ' ' . trim(output)
+    else
+      echom 'no output'
+    endif
+  else
+    echom 'fzy error'. v:shell_error
+  endif
+endfunction
+command! -nargs=0 CoachF call CommandWindow('find . -type f', 'vs')
+command! -nargs=0 Coach call CommandWindow('ls', 'vs')
