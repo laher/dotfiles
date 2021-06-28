@@ -30,7 +30,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_set_keymap('n', '<space>gd', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
@@ -60,9 +60,53 @@ local on_attach = function(client, bufnr)
   end
 end
 
+
+-- You will have to adjust your values according to your system
+-- require'nvim_lsp'.sumneko_lua.setup {
+--   settings = {
+--    Lua = {
+--      runtime = {
+--        version = 'Lua 5.3',
+--        path = {
+--          '?.lua',
+--          '?/init.lua',
+--          vim.fn.expand'~/.luarocks/share/lua/5.3/?.lua',
+--          vim.fn.expand'~/.luarocks/share/lua/5.3/?/init.lua',
+--          '/usr/share/5.3/?.lua',
+--          '/usr/share/lua/5.3/?/init.lua'
+--        }
+--      },
+--      workspace = {
+--        library = {
+--          [vim.fn.expand'~/.luarocks/share/lua/5.3'] = true,
+--          ['/usr/share/lua/5.3'] = true
+--        }
+--      }
+--    }
+--  }
+--}
+
+require('lemminx')
+
+local function setup_servers()
+  require'lspinstall'.setup()
+  local servers = require'lspinstall'.installed_servers()
+  for _, server in pairs(servers) do
+    require'lspconfig'[server].setup{}
+  end
+end
+
+setup_servers()
+
+-- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
+require'lspinstall'.post_install_hook = function ()
+  setup_servers() -- reload installed servers
+  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
+end
+
 -- Use a loop to conveniently both setup defined servers 
 -- and map buffer local keybindings when the language server attaches
-local servers = { "pyright", "rust_analyzer", "tsserver", "gopls", "vuels", "jdtls" }
+local servers = { "pyright", "rust_analyzer", "tsserver", "gopls", "vuels", "jdtls", "lemminx" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup { on_attach = on_attach }
 end

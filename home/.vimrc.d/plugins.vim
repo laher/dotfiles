@@ -19,13 +19,14 @@ Plug 'junegunn/vader.vim' " testing framework
 " Git support
 Plug 'tpope/vim-fugitive' " The git things
 Plug 'tpope/vim-rhubarb' " :Gbrowse, hub
-Plug 'airblade/vim-gitgutter' " +/-/~ signs in the gutter
+"Plug 'airblade/vim-gitgutter' " +/-/~ signs in the gutter
 Plug 'gregsexton/gitv', {'on': ['Gitv']} " :Gitv is a bit like tig
 Plug 'junegunn/vim-peekaboo' " show buffers while yanking
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'tommcdo/vim-fubitive'
 
-let g:fubitive_domain_pattern = 'git\.fostermoore\.com'
+
+Plug 'tpope/vim-dadbod'
 
 """ lsp 
 Plug 'SirVer/ultisnips'
@@ -43,10 +44,12 @@ Plug 'SirVer/ultisnips'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'neovim/nvim-lspconfig'
+Plug 'kabouzeid/nvim-lspinstall'
 Plug 'nvim-lua/completion-nvim'
-let g:completion_timer_cycle = 200 "default value is 80
+let g:completion_timer_cycle = 100 "default value is 80
 
 """ Specific language support
+Plug 'udalov/kotlin-vim'
 "Plug 'mattn/vim-goimports', { 'for': 'go' }
 Plug 'fatih/vim-go', { 'for': 'go' }
   "let g:go_gopls_enabled=0
@@ -58,7 +61,7 @@ Plug 'fisadev/vim-isort', { 'for': 'python' }
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'prettier/vim-prettier', {
- \ 'do': 'yarn install',
+ \ 'do': 'npm install',
  \ 'for': ['javascript','html','css','typescript','json'] }
 
 Plug 'eslint/eslint'
@@ -161,3 +164,4 @@ set runtimepath^=~/d/laher/gothx.vim
 "set runtimepath^=~/go/src/github.com/laher/today.vim
 set runtimepath^=~/d/laher/fuzzymenu.vim
 set runtimepath^=~/d/laher/showy
+set runtimepath^=~/.vimrc.d/

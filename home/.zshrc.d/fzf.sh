@@ -1,5 +1,8 @@
 #!/bin/bash
 
+export FZF_DEFAULT_COMMAND='fd --exclude target'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 # open file by text
 # sudo apt-get install silversearcher-ag
 function vg() {

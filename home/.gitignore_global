@@ -5,6 +5,9 @@ package-lock.json
 .run
 dependency-reduced-pom.xml
 
+# Verne things
+seeds.txt
+
 # Compiled source #
 ###################
 *.class

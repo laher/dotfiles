@@ -73,3 +73,15 @@ function! CommandWindow(choice_command, vim_command)
 endfunction
 command! -nargs=0 CoachF call CommandWindow('find . -type f', 'vs')
 command! -nargs=0 Coach call CommandWindow('ls', 'vs')
+
+function! ToggleVerbose()
+    if !&verbose
+        set verbosefile=~/log/vim-verbose.log
+        set verbose=15
+        echo "verbose mode"
+    else
+        set verbose=0
+        set verbosefile=
+        echo "quiet mode"
+    endif
+endfunction
