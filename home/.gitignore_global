@@ -4,6 +4,8 @@ package-lock.json
 .vscode
 .run
 dependency-reduced-pom.xml
+Amir*.*
+
 
 # Verne things
 seeds.txt
@@ -15,6 +17,9 @@ seeds.txt
 *.exe
 *.o
 *.so
+target
+# sorta
+*.min.js
 
 # Packages #
 ############
@@ -54,3 +59,9 @@ nohup.out
 bin
 
 *.iml
+
+body.html
+certificate.pdf
+.classpath
+.project
+.settings

@@ -11,11 +11,15 @@ if [ -f ~/.zshrc.local ]; then
 fi
 
 if [[ -d ~/.zshrc.d ]]; then
-	# (N) is the NULL_GLOB option. Don't error if empty
-	for f in ~/.zshrc.d/*.sh(N); do
-		source $f
-	done
-fi
+    source ~/.zshrc.d/brew.sh
+    source ~/.zshrc.d/docker.sh
+    source ~/.zshrc.d/fzf.sh
+    source ~/.zshrc.d/git.sh
+    source ~/.zshrc.d/go.sh
+ 	# for f in ~/.zshrc.d/*.sh(N); do # (N) is the NULL_GLOB option. Don't error if empty
+ 	# 	source $f
+ 	# done
+ fi
 
 if [ -d ~/.zshrc.private.d ]; then
     for f in ~/.zshrc.private.d/*(N); do

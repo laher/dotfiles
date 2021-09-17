@@ -33,3 +33,8 @@ function cddn()
 {
     find . -name "$1" cd
 }
+
+function set-title(){
+  TITLE="\[\e]2;$*\a\]"
+  echo -e ${TITLE}
+}

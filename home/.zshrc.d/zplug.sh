@@ -1,6 +1,9 @@
-if [[ -f ~/.zplug/init.zsh ]]; then
-	source ~/.zplug/init.zsh
+
+if [[ -f $ZPLUG_HOME/init.zsh ]]; then
+	source $ZPLUG_HOME/init.zsh
 fi
+
+
 # Zplug plugins
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
 
@@ -52,5 +55,7 @@ zplug 'fdw/ranger-autojump'
 zplug load
 
 # fzf
-source ~/.zplug/repos/junegunn/fzf/shell/key-bindings.zsh
-source ~/.zplug/repos/junegunn/fzf/shell/completion.zsh
+#source ~/.zplug/repos/junegunn/fzf/shell/key-bindings.zsh
+#source ~/.zplug/repos/junegunn/fzf/shell/completion.zsh
+
+

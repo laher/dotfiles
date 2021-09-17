@@ -48,8 +48,14 @@ Plug 'kabouzeid/nvim-lspinstall'
 Plug 'nvim-lua/completion-nvim'
 let g:completion_timer_cycle = 100 "default value is 80
 
+
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 """ Specific language support
 Plug 'udalov/kotlin-vim'
+Plug 'dmix/elvish.vim', { 'on_ft': ['elvish']}
 "Plug 'mattn/vim-goimports', { 'for': 'go' }
 Plug 'fatih/vim-go', { 'for': 'go' }
   "let g:go_gopls_enabled=0
@@ -66,7 +72,7 @@ Plug 'prettier/vim-prettier', {
 
 Plug 'eslint/eslint'
 Plug 'ruanyl/vim-fixmyjs'
-
+Plug 'mogelbrod/vim-jsonpath'
 Plug 'markbiek/phpLint.vim', { 'for': 'php' }
 
 Plug 'godlygeek/tabular'
@@ -128,7 +134,8 @@ Plug 'AndrewRadev/tagalong.vim'
 
 """ Appearance and layout
 Plug 'freeo/vim-kalisi' " theme
-Plug 'flazz/vim-colorschemes'
+Plug 'flazz/vim-colorschemes' " themes
+Plug 'Pocco81/Catppuccino.nvim' " theme
 Plug 'altercation/vim-colors-solarized' " theme
 Plug 'itchyny/lightline.vim' " status across bottom
 Plug 'ryanoasis/vim-devicons' " use in lightline 
