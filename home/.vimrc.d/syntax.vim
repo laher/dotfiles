@@ -1,6 +1,7 @@
 
-colorscheme PerfectDark
-" set background=light
+colorscheme aqua
+" colorscheme solarized
+"set background=light
 
 " cursor
 set termguicolors

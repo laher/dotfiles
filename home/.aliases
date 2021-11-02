@@ -37,6 +37,7 @@ alias gm='git merge --no-ff'
 alias tailf='tail -F'
 
 alias v='nvim -O'
+alias lv='lvim -O'
 alias nv='nvim -O'
 alias vv='vim.nox -O'
 alias vgf="v -c 'GFiles!'"

@@ -19,7 +19,7 @@ Plug 'junegunn/vader.vim' " testing framework
 " Git support
 Plug 'tpope/vim-fugitive' " The git things
 Plug 'tpope/vim-rhubarb' " :Gbrowse, hub
-"Plug 'airblade/vim-gitgutter' " +/-/~ signs in the gutter
+Plug 'airblade/vim-gitgutter' " +/-/~ signs in the gutter
 Plug 'gregsexton/gitv', {'on': ['Gitv']} " :Gitv is a bit like tig
 Plug 'junegunn/vim-peekaboo' " show buffers while yanking
 Plug 'shumphrey/fugitive-gitlab.vim'
@@ -47,11 +47,23 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'nvim-lua/completion-nvim'
 let g:completion_timer_cycle = 100 "default value is 80
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
+" Avoid showing message extra message when using completion
+set shortmess+=c
+" Use completion-nvim in every buffer
+autocmd BufEnter * lua require'completion'.on_attach()
+imap <tab> <Plug>(completion_smart_tab)
+imap <s-tab> <Plug>(completion_smart_s_tab)
+imap <silent> <c-p> <Plug>(completion_trigger)
 
 
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+"Plug 'nvim-lua/popup.nvim'
+"Plug 'nvim-lua/plenary.nvim'
+"Plug 'nvim-telescope/telescope.nvim'
 
 """ Specific language support
 Plug 'udalov/kotlin-vim'

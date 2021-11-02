@@ -3,6 +3,19 @@ function gsa {
 	find . -maxdepth 2 -name .git -type d -execdir bash -c "pwd && git status -s" \;
 }
 
+
+
+function git_current_branch() {
+      git branch --no-color | grep -E '^\*' | awk '{print $2}' \
+        || echo "default_value"
+      # or
+      # git symbolic-ref --short -q HEAD || echo "default_value";
+}
+
+function gr {
+  git rev-parse --show-toplevel
+}
+
 alias gupp='git pull && git push'
 alias gbsd="git for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)' refs/heads"
 alias gpsu='git push --set-upstream origin $(git_current_branch)'
