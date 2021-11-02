@@ -1,3 +1,5 @@
+
+
 local cr = {}
 
 local api = vim.api
@@ -25,7 +27,7 @@ end
 end ]]
 
 cr.golint = function()
-  --print('hi')
+  cr.clear()
   local file = assert(io.popen('golangci-lint run --out-format json', 'r'))
   local output = file:read('*all')
   file:close()
@@ -34,17 +36,25 @@ cr.golint = function()
   --print(data["Issues"])
   for k, issue in pairs(data["Issues"]) do
     local buffer_number = api.nvim_get_current_buf()
-    cr.setmark(buffer_number, issue["Pos"]["Line"]-1, issue["Text"])
+    local filename = vim.fn.expand('%')
+    if (filename == issue["Pos"]["Filename"]) then
+      cr.setmark(buffer_number, issue["Pos"]["Line"]-1, issue["Text"])
+    end
   end
 end
 
 cr.setup = function()
-  local map = vim.api.nvim_set_keymap
-  vim.g["ns"] = api.nvim_create_namespace("golint");
+  vim.g["ns"] = api.nvim_create_namespace("golint")
+
+  -- lint on save (NOTE - BufReadPost isn't working right, yet ?!)
+  api.nvim_exec([[ autocmd BufWritePre,BufReadPost *.go :silent! lua require('plugins.golint').golint() ]], false)
+
+  -- maybe make some mappings for testing ...
+  --[[ local map = vim.api.nvim_set_keymap
   local opts = { noremap=true, silent=true }
-  map('n', '<leader>z', "<cmd>lua require'myplug'.hello_extmark()<CR>", opts)
-  map('n', '<leader>x', "<cmd>lua require'myplug'.clear()<CR>", opts)
-  map('n', '<leader>c', "<cmd>lua require'myplug'.golint()<CR>", opts)
+  map('n', '<leader>z', "<cmd>lua require'plugins.golint'.hello_extmark()<CR>", opts)
+  map('n', '<leader>x', "<cmd>lua require'plugins.golint'.clear()<CR>", opts) ]]
 end
 
+-- to initialise this file: require('plugins.golint').setup()
 return cr
