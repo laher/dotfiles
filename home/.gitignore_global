@@ -5,10 +5,12 @@ package-lock.json
 .run
 dependency-reduced-pom.xml
 Amir*.*
+gitignore-*
 
 # v things
 seeds.txt
 demo.html
+*.bk
 
 # Compiled source #
 ###################

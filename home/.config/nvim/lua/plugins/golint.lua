@@ -4,7 +4,7 @@ local cr = {}
 
 local api = vim.api
 
-cr.setmark = function(buffer_number, start_line, msg)
+--[[ cr.setmark = function(buffer_number, start_line, msg)
   api.nvim_buf_add_highlight(buffer_number, vim.g["ns"], "SpellBad", start_line, 0, -1)
   api.nvim_buf_set_extmark(buffer_number, vim.g["ns"], start_line, 0, {
     virt_text = { { msg } }, virt_text_pos = 'eol'} )
@@ -20,11 +20,11 @@ cr.clear = function()
   api.nvim_buf_clear_namespace(buffer_number, vim.g["ns"], 0, -1)
 end
 
---[[ cr.golint = function()
+cr.golint = function()
   local buffer_number = api.nvim_get_current_buf()
   local line_number = 10
   cr.setmark(buffer_number, line_number, 'err not handled')
-end ]]
+end
 
 cr.golint = function()
   cr.clear()
@@ -41,13 +41,16 @@ cr.golint = function()
       cr.setmark(buffer_number, issue["Pos"]["Line"]-1, issue["Text"])
     end
   end
-end
+end ]]
 
 cr.setup = function()
-  vim.g["ns"] = api.nvim_create_namespace("golint")
-
+--  vim.g["ns"] = api.nvim_create_namespace("golint")
+  require('lint').linters_by_ft = {
+    go = {'golangcilint',}
+  }
+  api.nvim_exec([[ au BufWritePost *.go lua require('lint').try_lint() ]], false)
   -- lint on save (NOTE - BufReadPost isn't working right, yet ?!)
-  api.nvim_exec([[ autocmd BufWritePre,BufReadPost *.go :silent! lua require('plugins.golint').golint() ]], false)
+  -- api.nvim_exec([[ autocmd BufWritePost,BufReadPost *.go :silent! lua require('plugins.golint').golint() ]], false)
 
   -- maybe make some mappings for testing ...
   --[[ local map = vim.api.nvim_set_keymap

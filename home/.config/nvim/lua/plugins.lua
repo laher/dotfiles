@@ -31,8 +31,9 @@ return require('packer').startup(function(use)
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
   use 'tanvirtin/monokai.nvim'
+  use 'morhetz/gruvbox'
   use 'liuchengxu/vista.vim'
-  --  use 'williamboman/nvim-lsp-installer'
+  use 'williamboman/nvim-lsp-installer'
   use { 'hrsh7th/nvim-cmp',
     requires = {
       'L3MON4D3/LuaSnip',
@@ -55,14 +56,21 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+  use { 'ray-x/go.nvim', run = function() require('go').setup() end }
+  use 'ggandor/lightspeed.nvim'
   --[[ use {
     'ray-x/go.nvim',
     requires = { 'nvim-treesitter/nvim-treesitter' },
   } ]]
-  use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
+  -- use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
   use 'b3nj5m1n/kommentary'
 
 
+  use 'mfussenegger/nvim-lint'
+  -- use 'kdheepak/lazygit.nvim'
+  use 'f-person/git-blame.nvim'
+  use 'APZelos/blamer.nvim'
   if packer_bootstrap then
     require('packer').sync()
   end

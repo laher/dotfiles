@@ -26,7 +26,7 @@ local opt = vim.opt         		-- global/buffer/windows-scoped options
 -----------------------------------------------------------
 -- General
 -----------------------------------------------------------
-g.mapleader = ' '             -- change leader key
+g.mapleader = ','             -- change leader key
 opt.mouse = 'a'               -- enable mouse support
 opt.clipboard = 'unnamedplus' -- copy/paste to system clipboard
 opt.swapfile = false          -- don't use swapfile
@@ -69,7 +69,8 @@ opt.synmaxcol = 240       -- max column for syntax highlight
 -- Colorscheme
 -----------------------------------------------------------
 opt.termguicolors = true      -- enable 24-bit RGB colors
-cmd [[colorscheme monokai]]
+cmd [[colorscheme gruvbox]]
+opt.background = 'light'
 
 -----------------------------------------------------------
 -- Tabs, indent
@@ -128,3 +129,8 @@ cmd [[
     autocmd TermOpen * startinsert
     autocmd BufLeave term://* stopinsert
 ]]
+
+
+  require('kommentary.config').configure_language("xml", {
+      multi_line_comment_strings = {"<!--", "-->"},
+  })

@@ -1,5 +1,5 @@
 local nvim_lsp = require('lspconfig')
-local comp = require('completion')
+local compl = require('completion')
 
 
 -- Use an on_attach function to only map the following keys
@@ -33,7 +33,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
-  comp.on_attach()
+  -- compl.on_attach()
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
@@ -48,4 +48,4 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-require('navigator').setup()
+-- require('navigator').setup()

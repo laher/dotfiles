@@ -4,11 +4,11 @@
 
 -- Plugin manager: packer.nvim
 -- https://github.com/wbthomason/packer.nvim
-local fn = vim.fn
+--[[ local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-end
+end ]]
 
 
 -- local cmd = vim.cmd
@@ -18,7 +18,7 @@ end
 -- Add packages
 -- for packages info see: init.lua (Lua modules)
 -- return packer.startup(function(use)
-return require('packer').startup(function(use)
+--[[ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- packer can manage itself
 
   use 'kyazdani42/nvim-tree.lua'
@@ -48,8 +48,10 @@ return require('packer').startup(function(use)
       require('gitsigns').setup()
     end,
   }
+  use { 'ray-x/go.nvim', run = function() require('go').setup() end }
+  use 'ggandor/lightspeed.nvim'
   if packer_bootstrap then
     require('packer').sync()
   end
 
-end)
+end) ]]
