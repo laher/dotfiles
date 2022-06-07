@@ -8,4 +8,4 @@ export HISTSIZE=99999999
 export HISTFILESIZE=${HISTSIZE}
 
 export EDITOR="nvim"
-. "$HOME/.cargo/env"
+#. "$HOME/.cargo/env"

@@ -68,7 +68,27 @@ opt.synmaxcol = 240       -- max column for syntax highlight
 -----------------------------------------------------------
 -- Colorscheme
 -----------------------------------------------------------
-opt.termguicolors = true      -- enable 24-bit RGB colors
+opt.termguicolors = false      -- enable 24-bit RGB colors
+if os.getenv('TERM') == 'kitty' then
+    opt.termguicolors = true      -- enable 24-bit RGB colors
+end
+    --[[ if $TERM =~ '^\(rxvt\|screen\|interix\|putty\)\(-.*\)\?$'
+        set notermguicolors
+    elseif $TERM =~ '^\(tmux\|iterm\|vte\|gnome\)\(-.*\)\?$'
+        set termguicolors
+    elseif $TERM =~ '^\(xterm\)\(-.*\)\?$'
+        if $XTERM_VERSION != ''
+            set termguicolors
+        elseif $KONSOLE_PROFILE_NAME != ''
+            set termguicolors
+        elseif $VTE_VERSION != ''
+            set termguicolors
+        else
+            set notermguicolors
+        endif
+    elseif $TERM =~ ...
+        ... and so forth ...
+    endif ]]
 cmd [[colorscheme gruvbox]]
 opt.background = 'light'
 

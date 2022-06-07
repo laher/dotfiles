@@ -14,7 +14,6 @@ https://github.com/famiu/feline.nvim/blob/master/USAGE.md
 Thanks to ibhagwan for the example to follow:
 https://github.com/ibhagwan/nvim-lua
 
---]]
 
 
 local colors = {
@@ -240,3 +239,5 @@ require('feline').setup {
     bufnames = {},
   },
 }
+
+--]]

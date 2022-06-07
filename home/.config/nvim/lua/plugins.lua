@@ -43,9 +43,9 @@ return require('packer').startup(function(use)
       'saadparwaiz1/cmp_luasnip',
     },
   }
-  use { 'famiu/feline.nvim',
+  --[[ use { 'famiu/feline.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
-  }
+  } ]]
   use { 'lewis6991/gitsigns.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
     config = function()
@@ -65,12 +65,13 @@ return require('packer').startup(function(use)
   } ]]
   -- use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
   use 'b3nj5m1n/kommentary'
-
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   use 'mfussenegger/nvim-lint'
   -- use 'kdheepak/lazygit.nvim'
   use 'f-person/git-blame.nvim'
   use 'APZelos/blamer.nvim'
+  use "tversteeg/registers.nvim"
   if packer_bootstrap then
     require('packer').sync()
   end

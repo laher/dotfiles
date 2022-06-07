@@ -17,6 +17,7 @@ if [[ -d ~/.zshrc.d ]]; then
     source ~/.zshrc.d/git.sh
     source ~/.zshrc.d/go.sh
     source ~/.zshrc.d/shell.sh
+    source ~/.zshrc.d/powerline.sh
  	# for f in ~/.zshrc.d/*.sh(N); do # (N) is the NULL_GLOB option. Don't error if empty
  	# 	source $f
  	# done

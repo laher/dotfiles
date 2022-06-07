@@ -1,3 +1,7 @@
+export HISTCONTROL=ignoredups
+export HISTSIZE=10000
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # function cdup {
 #   c=$(pwd)
 #   d=$1

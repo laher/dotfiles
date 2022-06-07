@@ -9,8 +9,8 @@
 
 --]]
 
-require('settings')
 require('plugins')
+require('settings')
 require('lsp')
 require('keymappings')
 require('completion')
