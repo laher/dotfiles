@@ -1,6 +1,5 @@
 function powerline_precmd() {
-  PS1="$($(go env GOPATH)/bin/powerline-go -error $? -jobs ${${(%):%j}:-0})"
-
+  PS1="$($(go env GOPATH)/bin/powerline-go -error $? -theme gruvbox -jobs ${${(%):%j}:-0})"
     # Uncomment the following line to automatically clear errors after showing
     # them once. This not only clears the error for powerline-go, but also for
     # everything else you run in that shell. Don't enable this if you're not
