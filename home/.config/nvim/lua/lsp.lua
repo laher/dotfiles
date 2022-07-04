@@ -1,5 +1,5 @@
 local lspconfig = require('lspconfig')
-local compl = require('completion')
+-- local compl = require('completion')
 
 
 -- Add additional capabilities supported by nvim-cmp
