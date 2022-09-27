@@ -45,7 +45,7 @@ return require('packer').startup(function(use)
     use 'f-person/git-blame.nvim'
     use 'APZelos/blamer.nvim'
   end
-  
+
   -- both in nvim and others
 
   use 'nvim-treesitter/nvim-treesitter-textobjects'
@@ -65,6 +65,8 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+  use { "nvim-telescope/telescope-file-browser.nvim" }
+  use { "nvim-telescope/telescope-packer.nvim" }
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   use 'ggandor/lightspeed.nvim'
   use { 'b3nj5m1n/kommentary',

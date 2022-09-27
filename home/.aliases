@@ -22,9 +22,16 @@ alias contributors='git shortlog -s -n'
 alias glc='git rev-parse --verify HEAD'
 alias gfo='git fetch origin'
 alias gsh='git stash --include-untracked'
+alias grb='git rebase --interactive'
+alias grbm='git rebase --interactive origin/main'
+alias yoink='git fetch --all && git rebase --interactive origin/main'
+alias yeet='git push --force-with-lease'
+
 
 alias ga='git add '
 alias gd='git diff'
+alias gdno='git diff --name-only'
+alias gdnom='git diff --name-only origin/main'
 
 alias got='git '
 alias get='git '
@@ -87,9 +94,9 @@ alias agv='ag --ignore-dir=vendor --ignore-dir=node_modules --ignore-dir=assets 
 alias cdl='cd ~/d/laher'
 alias cdd='cd ~/d/'
 
-#[ -f "/usr/local/bin/python3" ] && alias python=/usr/local/bin/python3
-#[ -f "/usr/local/bin/pip3" ] && alias pip=/usr/local/bin/pip3
-#[ -f "/usr/local/bin/vim" ] && alias vim=/usr/local/bin/vim
+[ -f "/opt/homebrew/bin/python3" ] && alias python=/opt/homebrew/bin/python3
+[ -f "/opt/homebrew/bin/pip3" ] && alias pip=/opt/homebrew/bin/pip3
 alias r='. ranger'
 
 alias agg="ag --file-search-regex='\.go$'"
+

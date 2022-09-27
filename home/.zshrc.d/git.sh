@@ -1,8 +1,27 @@
-
-function gsa {
-	find . -maxdepth 2 -name .git -type d -execdir bash -c "pwd && git status -s" \;
+export RED='\033[0;31m'
+export CYAN='\033[0;36m'
+export GREEN='\033[0;32m'
+export NOCOL='\033[0m'
+function gall {
+  find . -maxdepth 2 -name .git -type d -execdir bash -c "echo -en \"${CYAN}./\" && realpath --relative-to='$(pwd)' . && echo -en \"${NOCOL}\" && git $*" \;
 }
 
+function gallb {
+  find . -maxdepth 2 -name .git -type d -execdir bash -c "echo -en \"${NOCOL}./\" && realpath --relative-to='$(pwd)' . && echo -en \"${GREEN} * \" && git branch --show-current" \;
+}
+function galls {
+  gall status -s
+}
+function gallfall {
+	find . -maxdepth 2 -name .git -type d -execdir bash -c "pwd && git fetch --all" \;
+}
+
+# for sanity checking gall
+function eall {
+	find . -maxdepth 2 -name .git -type d -execdir bash -c "pwd && echo $*" \;
+}
+
+alias gfa='git fetch --all'
 
 
 function git_current_branch() {

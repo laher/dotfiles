@@ -2,6 +2,8 @@ export HISTCONTROL=ignoredups
 export HISTSIZE=10000
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
 # function cdup {
 #   c=$(pwd)
 #   d=$1
