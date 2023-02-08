@@ -54,3 +54,5 @@ bindkey '^x^e' edit-command-line
 # Vi style:
 # zle -N edit-command-line
 # bindkey -M vicmd v edit-command-line
+
+. /opt/homebrew/etc/profile.d/z.sh

@@ -41,10 +41,6 @@ require'nvim-treesitter.configs'.setup {
 
 if (vim.g.vscode == nil) then
   vim.g.nvim_tree_width_allow_resize  = 1
-  require('nvim-tree').setup{
-    -- open the tree when running this setup function
-    -- open_on_setup = true,
-  }
 
   require("telescope").load_extension "packer"
   require("telescope").load_extension "file_browser"
@@ -141,4 +137,5 @@ if (vim.g.vscode == nil) then
     }
   })
 
+  vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 end

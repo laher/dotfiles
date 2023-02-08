@@ -2,7 +2,7 @@ export RED='\033[0;31m'
 export CYAN='\033[0;36m'
 export GREEN='\033[0;32m'
 export NOCOL='\033[0m'
-function gall {
+function gallf {
   find . -maxdepth 2 -name .git -type d -execdir bash -c "echo -en \"${CYAN}./\" && realpath --relative-to='$(pwd)' . && echo -en \"${NOCOL}\" && git $*" \;
 }
 
@@ -25,11 +25,11 @@ alias gfa='git fetch --all'
 
 
 function git_current_branch() {
-      git branch --no-color | grep -E '^\*' | awk '{print $2}' \
-        || echo "default_value"
-      # or
-      # git symbolic-ref --short -q HEAD || echo "default_value";
+      #git branch --no-color | grep -E '^\*' | awk '{print $2}' \
+      #  || echo "default_value"
+      git branch --show-current
 }
+
 alias gpsu='git push --set-upstream origin $(git_current_branch)'
 alias gpsu2='git push --set-upstream origin $(git symbolic-ref --short -q HEAD)'
 
@@ -84,6 +84,10 @@ function cdg {
 	cd "$(git rev-parse --show-toplevel)"
 }
 
+function squash {
+  git reset $(git merge-base origin/main $(git rev-parse --abbrev-ref HEAD))
+}
+
 lg()
 {
     export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
@@ -101,3 +105,23 @@ zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 fpath=(~/.zsh $fpath)
 
 autoload -Uz compinit && compinit
+
+function forcepush {
+  cb="$(git branch --show-current)"
+case ${cb} in
+  main | master | production | development)
+    echo "nope. not forcing push onto ${cb} branch"
+    return 1
+    ;;
+
+  "")
+    echo "not on a branch"
+    return 1
+    ;;
+
+  *)
+    git push --force-with-lease
+    ;;
+
+esac
+}

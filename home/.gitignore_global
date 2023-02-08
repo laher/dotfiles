@@ -55,6 +55,7 @@ Thumbs.db
 ##################
 .netrwhist
 .env
+*.env
 
 tmp
 nohup.out
@@ -71,3 +72,9 @@ __debug_bin
 
 test.xlsx
 TODO
+out.csv
+*.out.csv
+ticket_templates.tsv
+out.tsv
+*.out.tsv
+*gitignoreme*

@@ -4,8 +4,9 @@ local lspconfig = require('lspconfig')
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
+local navic = require("nvim-navic")
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -38,12 +39,15 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
+  if client.server_capabilities.documentSymbolProvider then
+    navic.attach(client, bufnr)
+  end
   -- compl.on_attach()
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'gopls', 'tsserver' }
+local servers = { 'pyright', 'gopls', 'tsserver', 'vuels', 'jsonnet_ls', 'jsonls' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
@@ -52,6 +56,26 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
+lspconfig.jsonnet_ls.setup{
+	ext_vars = {
+		foo = 'bar',
+	},
+	formatting = {
+		-- default values
+		Indent              = 2,
+		MaxBlankLines       = 2,
+		StringStyle         = 'single',
+		CommentStyle        = 'slash',
+		PrettyFieldNames    = true,
+		PadArrays           = false,
+		PadObjects          = true,
+		SortImports         = true,
+		UseImplicitPlus     = true,
+		StripEverything     = false,
+		StripComments       = false,
+		StripAllButComments = false,
+	},
+}
 
 -- luasnip setup
 local luasnip = require 'luasnip'
@@ -97,3 +121,5 @@ cmp.setup {
   },
 }
 -- require('navigator').setup()
+
+

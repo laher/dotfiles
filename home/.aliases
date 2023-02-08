@@ -25,7 +25,9 @@ alias gsh='git stash --include-untracked'
 alias grb='git rebase --interactive'
 alias grbm='git rebase --interactive origin/main'
 alias yoink='git fetch --all && git rebase --interactive origin/main'
-alias yeet='git push --force-with-lease'
+# alias yeet='git push --force-with-lease'
+# see function
+# alias forcepush='git push --force-with-lease'
 
 
 alias ga='git add '
@@ -91,7 +93,7 @@ function lsv {
 }
 
 alias agv='ag --ignore-dir=vendor --ignore-dir=node_modules --ignore-dir=assets --ignore-dir=target -W 120'
-alias cdl='cd ~/d/laher'
+alias cdl='cd ~/dl'
 alias cdd='cd ~/d/'
 
 [ -f "/opt/homebrew/bin/python3" ] && alias python=/opt/homebrew/bin/python3
@@ -100,3 +102,10 @@ alias r='. ranger'
 
 alias agg="ag --file-search-regex='\.go$'"
 
+function fzh {
+  history 1|fzf
+}
+
+function fzc {
+  history 1|grep 'cd ~'|fzf
+}

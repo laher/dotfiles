@@ -11,24 +11,6 @@ return require('packer').startup(function(use)
 
   -- if in vscode then disable all the unneeded stuff
   if (vim.g.vscode == nil) then
-    use {
-        'kyazdani42/nvim-tree.lua',
-        requires = 'kyazdani42/nvim-web-devicons',
-        config = function() require'nvim-tree'.setup {
-          -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
-          update_focused_file = {
-            -- enables the feature
-            enable      = true,
-            -- update the root directory of the tree to the one of the folder containing the file if the file is not under the current root directory
-            -- only relevant when `update_focused_file.enable` is true
-            update_cwd  = true,
-            -- list of buffer names / filetypes that will not update the cwd if the file isn't found under the current root directory
-            -- only relevant when `update_focused_file.update_cwd` is true and `update_focused_file.enable` is true
-            ignore_list = {}
-          }
-
-        } end
-    }
     use 'liuchengxu/vista.vim'
     use 'williamboman/nvim-lsp-installer'
     use { 'ray-x/go.nvim', run = function() require('go').setup() end }
@@ -44,6 +26,10 @@ return require('packer').startup(function(use)
     use 'neovim/nvim-lspconfig'
     use 'f-person/git-blame.nvim'
     use 'APZelos/blamer.nvim'
+    use {
+      'SmiteshP/nvim-navic',
+      requires = 'neovim/nvim-lspconfig'
+    }
   end
 
   -- both in nvim and others
@@ -76,9 +62,51 @@ return require('packer').startup(function(use)
   }
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
+  use { 'mhartington/formatter.nvim' }
+  use { 'prettier/vim-prettier',
+    run = 'yarn install',
+    ft = {'javascript', 'typescript', 'css', 'less', 'scss', 'graphql', 'markdown', 'vue', 'html'}
+  }
   use 'mfussenegger/nvim-lint'
+
+  use {
+    "tpope/vim-dadbod",
+    opt = true,
+    requires = {
+      "kristijanhusak/vim-dadbod-ui",
+      "kristijanhusak/vim-dadbod-completion",
+    },
+    config = function()
+      local function db_completion()
+        require("cmp").setup.buffer { sources = { { name = "vim-dadbod-completion" } } }
+      end
+
+      vim.g.db_ui_save_location = vim.fn.stdpath "config" .. require("plenary.path").path.sep .. "db_ui"
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = {
+          "sql",
+        },
+        command = [[setlocal omnifunc=vim_dadbod_completion#omni]],
+      })
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = {
+          "sql",
+          "mysql",
+          "plsql",
+        },
+        callback = function()
+          vim.schedule(db_completion)
+        end,
+      })
+
+    end,
+    cmd = { "DBUIToggle", "DBUI", "DBUIAddConnection", "DBUIFindBuffer", "DBUIRenameBuffer", "DBUILastQueryInfo" },
+  }
+
   -- use 'kdheepak/lazygit.nvim'
-  use "tversteeg/registers.nvim"
+  -- use "tversteeg/registers.nvim"
   if packer_bootstrap then
     require('packer').sync()
   end
