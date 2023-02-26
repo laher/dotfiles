@@ -7,7 +7,7 @@ alias branch-diff='git log --graph --abbrev-commit --date=relative'
 
 alias g='git '
 alias gs='git status '
-alias gp='git push'
+# alias gp='git push' this is now a function
 alias gl='git pull'
 alias gb='git branch '
 alias gci='git commit'

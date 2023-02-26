@@ -14,7 +14,8 @@ return require('packer').startup(function(use)
     use 'liuchengxu/vista.vim'
     use 'williamboman/nvim-lsp-installer'
     use { 'ray-x/go.nvim', run = function() require('go').setup() end }
-    use { 'hrsh7th/nvim-cmp',
+    use {
+      'hrsh7th/nvim-cmp',
       requires = {
         'L3MON4D3/LuaSnip',
         'hrsh7th/cmp-nvim-lsp',
@@ -30,18 +31,57 @@ return require('packer').startup(function(use)
       'SmiteshP/nvim-navic',
       requires = 'neovim/nvim-lspconfig'
     }
-  end
+    use {
+      "folke/trouble.nvim",
+      requires = "nvim-tree/nvim-web-devicons",
+      config = function()
+        require("trouble").setup {
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+        }
+      end
+    }
+    use 'folke/tokyonight.nvim'
+    use {
+      "folke/twilight.nvim",
+      config = function()
+        require("twilight").setup {
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+          context = 20,
+          expand = {
+            "function",
+            "type",
+            "method",
+            "if_statement",
+          },
+          dimming = {
+            alpha = 0.25,
+          }
+        }
+      end
+    }
+    use {
+      "folke/zen-mode.nvim",
+      config = function()
+        require("zen-mode").setup {
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+        }
+      end
+    }
 
-  -- both in nvim and others
 
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use 'Yggdroot/indentLine'
-  use 'windwp/nvim-autopairs'
-  use 'kyazdani42/nvim-web-devicons'
-  --  use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
-  use 'tanvirtin/monokai.nvim'
-  use 'morhetz/gruvbox'
-  use { 'lewis6991/gitsigns.nvim',
+    use 'nvim-treesitter/nvim-treesitter-textobjects'
+    use 'Yggdroot/indentLine'
+    use 'windwp/nvim-autopairs'
+    --  use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
+    use 'tanvirtin/monokai.nvim'
+    use 'morhetz/gruvbox'
+    use { 'lewis6991/gitsigns.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('gitsigns').setup()
@@ -56,60 +96,35 @@ return require('packer').startup(function(use)
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   use 'ggandor/lightspeed.nvim'
   use { 'b3nj5m1n/kommentary',
-    config = function()
-      require('kommentary.config').use_extended_mappings()
-    end,
-  }
-  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  config = function()
+    require('kommentary.config').use_extended_mappings()
+  end,
+}
+use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
+-- quickfix
+use {
+  'ten3roberts/qf.nvim',
+  config = function()
+    require'qf'.setup{}
+  end
+}
+  end
+
+  -- both in nvim and others
   use { 'mhartington/formatter.nvim' }
   use { 'prettier/vim-prettier',
-    run = 'yarn install',
-    ft = {'javascript', 'typescript', 'css', 'less', 'scss', 'graphql', 'markdown', 'vue', 'html'}
-  }
-  use 'mfussenegger/nvim-lint'
+  run = 'yarn install',
+  ft = {'javascript', 'typescript', 'css', 'less', 'scss', 'graphql', 'markdown', 'vue', 'html'}
+}
+use 'mfussenegger/nvim-lint'
 
-  use {
-    "tpope/vim-dadbod",
-    opt = true,
-    requires = {
-      "kristijanhusak/vim-dadbod-ui",
-      "kristijanhusak/vim-dadbod-completion",
-    },
-    config = function()
-      local function db_completion()
-        require("cmp").setup.buffer { sources = { { name = "vim-dadbod-completion" } } }
-      end
 
-      vim.g.db_ui_save_location = vim.fn.stdpath "config" .. require("plenary.path").path.sep .. "db_ui"
-
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = {
-          "sql",
-        },
-        command = [[setlocal omnifunc=vim_dadbod_completion#omni]],
-      })
-
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = {
-          "sql",
-          "mysql",
-          "plsql",
-        },
-        callback = function()
-          vim.schedule(db_completion)
-        end,
-      })
-
-    end,
-    cmd = { "DBUIToggle", "DBUI", "DBUIAddConnection", "DBUIFindBuffer", "DBUIRenameBuffer", "DBUILastQueryInfo" },
-  }
-
-  -- use 'kdheepak/lazygit.nvim'
-  -- use "tversteeg/registers.nvim"
-  if packer_bootstrap then
-    require('packer').sync()
-  end
+-- use 'kdheepak/lazygit.nvim'
+-- use "tversteeg/registers.nvim"
+if packer_bootstrap then
+  require('packer').sync()
+end
 end)
 
 

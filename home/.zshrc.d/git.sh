@@ -2,24 +2,33 @@ export RED='\033[0;31m'
 export CYAN='\033[0;36m'
 export GREEN='\033[0;32m'
 export NOCOL='\033[0m'
-function gallf {
-  find . -maxdepth 2 -name .git -type d -execdir bash -c "echo -en \"${CYAN}./\" && realpath --relative-to='$(pwd)' . && echo -en \"${NOCOL}\" && git $*" \;
+
+function gcd {
+  cd $(gall list| fzf)
 }
 
-function gallb {
-  find . -maxdepth 2 -name .git -type d -execdir bash -c "echo -en \"${NOCOL}./\" && realpath --relative-to='$(pwd)' . && echo -en \"${GREEN} * \" && git branch --show-current" \;
+function glg {
+  cd $(gall list| fzf) && lg
 }
-function galls {
-  gall status -s
-}
-function gallfall {
-	find . -maxdepth 2 -name .git -type d -execdir bash -c "pwd && git fetch --all" \;
-}
+# use `gall` now
+# function gallf {
+#   find . -maxdepth 2 -name .git -type d -execdir bash -c "echo -en \"${CYAN}./\" && realpath --relative-to='$(pwd)' . && echo -en \"${NOCOL}\" && git $*" \;
+# }
 
-# for sanity checking gall
-function eall {
-	find . -maxdepth 2 -name .git -type d -execdir bash -c "pwd && echo $*" \;
-}
+# function gallb {
+#   find . -maxdepth 2 -name .git -type d -execdir bash -c "echo -en \"${NOCOL}./\" && realpath --relative-to='$(pwd)' . && echo -en \"${GREEN} * \" && git branch --show-current" \;
+# }
+# function galls {
+#   gall status -s
+# }
+# function gallfall {
+# 	find . -maxdepth 2 -name .git -type d -execdir bash -c "pwd && git fetch --all" \;
+# }
+
+# # for sanity checking gall
+# function eall {
+# 	find . -maxdepth 2 -name .git -type d -execdir bash -c "pwd && echo $*" \;
+# }
 
 alias gfa='git fetch --all'
 
@@ -105,6 +114,19 @@ zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 fpath=(~/.zsh $fpath)
 
 autoload -Uz compinit && compinit
+
+function gp {
+  cb="$(git branch --show-current)"
+case ${cb} in
+  main | master | production | development)
+    echo "nope. not push onto ${cb} branch"
+    ;;
+  *)
+    git push
+    ;;
+esac
+}
+
 
 function forcepush {
   cb="$(git branch --show-current)"

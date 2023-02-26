@@ -85,8 +85,11 @@ end
         ... and so forth ...
     endif ]]
 if vim.g.vscode == nil then
-  vim.cmd [[colorscheme gruvbox]]
-  vim.opt.background = 'light'
+ -- vim.cmd [[colorscheme gruvbox]]
+ -- vim.opt.background = 'light'
+
+
+  vim.cmd[[colorscheme tokyonight-day]]
 end
 
 -----------------------------------------------------------
