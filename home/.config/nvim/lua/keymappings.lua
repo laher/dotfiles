@@ -41,7 +41,7 @@ if (vim.g.vscode == nil) then
   vim.keymap.set('n', '<leader>n', ':NvimTreeFindFile<CR>', {silent = true}) -- search file
 
   -- Vista tag-viewer
-  vim.keymap.set('n', '<C-m>', ':Vista!!<CR>', {silent = true})   -- open/close
+  -- vim.keymap.set('n', '<C-m>', ':Vista!!<CR>', {silent = true})   -- open/close
 
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {buffer = true})
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, {buffer = true})

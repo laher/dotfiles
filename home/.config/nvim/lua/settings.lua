@@ -72,7 +72,7 @@ vim.cmd [[au BufNewFile,BufRead *.es   set syntax=json]]
 -----------------------------------------------------------
 -- Colorscheme
 -----------------------------------------------------------
-vim.opt.termguicolors = false      -- enable 24-bit RGB colors
+vim.opt.termguicolors = true      -- enable 24-bit RGB colors
 if os.getenv('TERM') == 'kitty' then
     vim.opt.termguicolors = true      -- enable 24-bit RGB colors
 end

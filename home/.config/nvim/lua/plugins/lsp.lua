@@ -14,6 +14,15 @@ return {
             },
         },
     },
+		-- neodev.nvim
+    {
+      'folke/neodev.nvim',
+       config = function()
+          require("neodev").setup({
+            -- add any options here, or leave empty to use the default settings
+          })
+       end,
+    },
 
     -- nvim-lspconfig
     {
@@ -29,7 +38,8 @@ return {
                         'marksman'
                     }
                 }
-            }
+            },
+            'folke/neodev.nvim',
         },
         keys = {
             { 'gd', '<cmd>Telescope lsp_definitions<cr>', desc = 'Goto Definition' },
@@ -45,6 +55,9 @@ return {
             'BufNewFile'
         },
         config = function()
+            require("neodev").setup({
+              -- add any options here, or leave empty to use the default settings
+            })
             local navic = require('nvim-navic')
             local lspconfig = require('lspconfig')
             lspconfig.clangd.setup({
