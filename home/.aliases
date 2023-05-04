@@ -23,6 +23,8 @@ alias glc='git rev-parse --verify HEAD'
 alias gfo='git fetch origin'
 alias gsh='git stash --include-untracked'
 alias grb='git rebase --interactive'
+alias grbc='git rebase --continue'
+alias grba='git rebase --abort'
 alias grbm='git rebase --interactive origin/main'
 alias yoink='git fetch --all && git rebase --interactive origin/main'
 # alias yeet='git push --force-with-lease'
@@ -93,8 +95,8 @@ function lsv {
 }
 
 alias agv='ag --ignore-dir=vendor --ignore-dir=node_modules --ignore-dir=assets --ignore-dir=target -W 120'
-alias cdl='cd ~/dl'
-alias cdd='cd ~/d/'
+# alias cdl='cd ~/dl'
+# alias cdd='cd ~/d/'
 
 [ -f "/opt/homebrew/bin/python3" ] && alias python=/opt/homebrew/bin/python3
 [ -f "/opt/homebrew/bin/pip3" ] && alias pip=/opt/homebrew/bin/pip3
@@ -109,3 +111,4 @@ function fzh {
 function fzc {
   history 1|grep 'cd ~'|fzf
 }
+alias nvc="nvim ~/.config/nvim/lua/plugins/init.lua"

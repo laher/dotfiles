@@ -4,11 +4,27 @@ export GREEN='\033[0;32m'
 export NOCOL='\033[0m'
 
 function gcd {
-  cd $(gall list| fzf)
+
+  if [ $# -eq 0 ]
+  then
+    dest=$(gall list| fzf)
+  else
+    dest=$(gall list| fzf -1 -q $1)
+  fi
+  if [ "$dest" != "" ]
+  then
+    cd "$dest"
+  fi
 }
 
 function glg {
-  cd $(gall list| fzf) && lg
+  if [ $# -eq 0 ]
+  then
+    cd $(gall list| fzf) && lg
+  else
+    cd $(gall list| fzf -1 -q $1) && lg
+  fi
+
 }
 # use `gall` now
 # function gallf {
