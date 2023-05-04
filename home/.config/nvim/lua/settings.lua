@@ -16,6 +16,7 @@ vim.o.autochdir = true
 -- General
 -----------------------------------------------------------
 vim.g.mapleader = ','             -- change leader key
+vim.g.maplocalleader = ';'        -- change local leader key
 vim.opt.mouse = 'a'               -- enable mouse support
 vim.opt.clipboard = 'unnamedplus' -- copy/paste to system clipboard
 vim.opt.swapfile = false          -- don't use swapfile
@@ -60,6 +61,14 @@ vim.opt.history = 100         -- remember n lines in history
 vim.opt.lazyredraw = true     -- faster scrolling
 vim.opt.synmaxcol = 240       -- max column for syntax highlight
 
+
+-----------------------------------------------------------
+-- file types
+-----------------------------------------------------------
+
+
+vim.cmd [[au BufNewFile,BufRead *.es   set syntax=json]]
+
 -----------------------------------------------------------
 -- Colorscheme
 -----------------------------------------------------------
@@ -89,7 +98,7 @@ if vim.g.vscode == nil then
  -- vim.opt.background = 'light'
 
 
-  vim.cmd[[colorscheme tokyonight-day]]
+--  vim.cmd[[colorscheme tokyonight-day]]
 end
 
 -----------------------------------------------------------
@@ -149,7 +158,22 @@ vim.cmd [[
     autocmd BufLeave term://* stopinsert
 ]]
 
+-- syntax mappings
+vim.api.nvim_exec([[
+  augroup esjson
+    au!
+    autocmd BufNewFile,BufRead *.es set syntax=text
+    autocmd BufNewFile,BufRead *.es LspStop
+  augroup END
+]], false)
 
-  require('kommentary.config').configure_language("xml", {
-      multi_line_comment_strings = {"<!--", "-->"},
-  })
+vim.api.nvim_create_autocmd("BufRead", {
+    pattern = "*.es",
+    callback = function(args)
+      vim.cmd('LspStop')
+    end,
+    desc = "No LSP for .es files",
+})
+
+
+vim.g.loaded_perl_provider = 0

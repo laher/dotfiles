@@ -38,6 +38,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  buf_set_keymap('n', 's', '<cmd>lua vim.lsp.buf.stop()<CR>', opts)
 
   if client.server_capabilities.documentSymbolProvider then
     navic.attach(client, bufnr)
@@ -122,5 +123,4 @@ cmp.setup {
   },
 }
 -- require('navigator').setup()
-
 

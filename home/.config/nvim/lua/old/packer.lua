@@ -73,42 +73,97 @@ return require('packer').startup(function(use)
         }
       end
     }
-
-
     use 'nvim-treesitter/nvim-treesitter-textobjects'
     use 'Yggdroot/indentLine'
     use 'windwp/nvim-autopairs'
     --  use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
     use 'tanvirtin/monokai.nvim'
     use 'morhetz/gruvbox'
-    use { 'lewis6991/gitsigns.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      require('gitsigns').setup()
-    end,
-  }
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
-  use { "nvim-telescope/telescope-file-browser.nvim" }
-  use { "nvim-telescope/telescope-packer.nvim" }
-  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
-  use 'ggandor/lightspeed.nvim'
-  use { 'b3nj5m1n/kommentary',
-  config = function()
-    require('kommentary.config').use_extended_mappings()
-  end,
-}
-use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+    use {
+      'lewis6991/gitsigns.nvim',
+      requires = { 'nvim-lua/plenary.nvim' },
+      config = function()
+        require('gitsigns').setup()
+      end,
+    }
+    use {
+      'nvim-telescope/telescope.nvim',
+      requires = { {'nvim-lua/plenary.nvim'} }
+    }
+    use { "nvim-telescope/telescope-file-browser.nvim" }
+    use { "nvim-telescope/telescope-packer.nvim" }
+    use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+    use 'ggandor/lightspeed.nvim'
+    use {
+      'b3nj5m1n/kommentary',
+      config = function()
+        require('kommentary.config').use_extended_mappings()
+      end,
+    }
+    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
--- quickfix
-use {
-  'ten3roberts/qf.nvim',
-  config = function()
-    require'qf'.setup{}
-  end
-}
+    -- quickfix
+    use {
+      'ten3roberts/qf.nvim',
+      config = function()
+        require'qf'.setup{}
+      end
+    }
+    use {
+        'ruifm/gitlinker.nvim',
+        requires = 'nvim-lua/plenary.nvim',
+        config = function()
+        end
+    }
+  use {
+      "nvim-neorg/neorg",
+      tag = "*",
+      config = function()
+          require('neorg').setup {
+              load = {
+                  ["core.defaults"] = {}, -- Loads default behaviour
+                  ["core.completion"] = {
+                    config = {
+                      engine = "nvim-cmp",
+                    },
+                  },
+                  ["core.summary"] = {},
+                  ["core.concealer"] = {
+                    config = {
+                        icon_preset = "diamond",
+                        icons = {
+                          todo = {
+                            done = { icon = "✓" },
+                            undone = { icon = "✗" },
+                            pending = { icon = "✗" },
+                          },
+                          heading = {
+                            level_1 = { icon = "❖" },
+                            level_2 = { icon = "◈" },
+                            level_3 = { icon = "⟡" },
+                            level_4 = { icon = "◇" },
+                            level_5 = { icon = "◆" },
+                            level_6 = { icon = "⋄" },
+                          }
+                        },
+                    }
+                  },
+                  ["core.dirman"] = { -- Manages Neorg workspaces
+                      config = {
+                          workspaces = {
+                              work = "~/notes/work",
+                              home = "~/notes/home",
+                          },
+                          default_workspace = "work",
+                          -- open_last_workspace = true
+                      },
+                  },
+              },
+          }
+      end,
+      run = ":Neorg sync-parsers",
+      requires = "nvim-lua/plenary.nvim",
+  }
   end
 
   -- both in nvim and others
