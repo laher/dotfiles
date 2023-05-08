@@ -43,7 +43,22 @@ if (vim.g.vscode == nil) then
   -- Vista tag-viewer
   -- vim.keymap.set('n', '<C-m>', ':Vista!!<CR>', {silent = true})   -- open/close
 
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {buffer = true})
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, {buffer = true})
+  -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {buffer = true})
+  -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, {buffer = true})
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, {buffer = true})
+
+  vim.keymap.set('n', '<C-c>', ':Neorg exec block<CR>', {silent = true})
+
+    local neorg_callbacks = require("neorg.callbacks")
+    neorg_callbacks.on_event("core.keybinds.events.enable_keybinds", function(_, keybinds)
+        -- Map all the below keybinds only when the "norg" mode is active
+        keybinds.map_event_to_mode("norg", {
+            n = { -- Bind keys in normal mode
+       --         { "<C-c>", "external.exec.view" },
+            },
+        }, {
+            silent = true,
+            noremap = true,
+        })
+    end)
 end

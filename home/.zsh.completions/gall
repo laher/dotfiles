@@ -1,0 +1,118 @@
+
+
+_gall() {
+    local line state
+
+    _arguments -C \
+               "1: :->cmds" \
+               "*::arg:->args"
+    case "$state" in
+        cmds)
+            _values "gall command" \
+                    "status[brief status for each repo]" \
+                    "st[(alias for status)]" \
+                    "fetch[fetch objects from remotes]" \
+                    "grep[find across repos]" \
+                    "list[list each repo]" \
+                    "ls[(alias for list)]" \
+                    "switch[switch branch to match 'current' repo]" \
+                    "sw[(alias for switch)]" \
+                    "diff[git-diff each repo]" \
+                    "fast-forward[pull tracking branch (no merge commit)]" \
+                    "ff[(alias for fast-forward)]" \
+                    "is-synced[check if branch status matches its tracking branch]" \
+                    "completion[generate completions file (pipe to a file)]" \
+            ;;
+        args)
+            case $line[1] in
+                status)
+                    _gall_status
+                    ;;
+                fetch)
+                    _gall_fetch
+                    ;;
+                grep)
+                    _gall_grep
+                    ;;
+                list)
+                    _gall_list
+                    ;;
+                switch)
+                    _gall_switch
+                    ;;
+                diff)
+                    _gall_diff
+                    ;;
+                fast-forward)
+                    _gall_fast-forward
+                    ;;
+                is-synced)
+                    _gall_is-synced
+                    ;;
+                completion)
+                    _gall_completion
+                    ;;
+            esac
+            ;;
+    esac
+}
+
+
+
+
+_gall_status() {
+#    _arguments -s \
+#          {-c,--create-table}'[flag help goes here.]' \
+}
+
+
+_gall_fetch() {
+#    _arguments -s \
+#          {-c,--create-table}'[flag help goes here.]' \
+}
+
+
+_gall_grep() {
+#    _arguments -s \
+#          {-c,--create-table}'[flag help goes here.]' \
+}
+
+
+_gall_list() {
+#    _arguments -s \
+#          {-c,--create-table}'[flag help goes here.]' \
+}
+
+
+_gall_switch() {
+#    _arguments -s \
+#          {-c,--create-table}'[flag help goes here.]' \
+}
+
+
+_gall_diff() {
+#    _arguments -s \
+#          {-c,--create-table}'[flag help goes here.]' \
+}
+
+
+_gall_fast-forward() {
+#    _arguments -s \
+#          {-c,--create-table}'[flag help goes here.]' \
+}
+
+
+_gall_is-synced() {
+#    _arguments -s \
+#          {-c,--create-table}'[flag help goes here.]' \
+}
+
+
+_gall_completion() {
+#    _arguments -s \
+#          {-c,--create-table}'[flag help goes here.]' \
+}
+
+
+
+compdef _gall gall

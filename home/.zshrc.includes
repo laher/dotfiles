@@ -11,6 +11,7 @@ if [ -f ~/.zshrc.local ]; then
 fi
 
 if [[ -d ~/.zshrc.d ]]; then
+    source ~/.zshrc.d/nvim.sh
     source ~/.zshrc.d/brew.sh
     source ~/.zshrc.d/docker.sh
     source ~/.zshrc.d/fzf.sh

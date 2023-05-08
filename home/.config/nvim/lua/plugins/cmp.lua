@@ -134,6 +134,9 @@ return {
                 { name = 'buffer' },
                 { name = 'async_path' },
                 { name = 'calc' },
+                { name = 'gopls' },
+                { name = 'tsserver' },
+                { name = 'lua_language_server' },
             },
             confirm_opts = {
                 behavior = cmp.ConfirmBehavior.Replace,
@@ -144,11 +147,11 @@ return {
                 documentation = cmp.config.window.bordered(),
             },
             experimental = {
-                ghost_text = true,
+               -- ghost_text = true,
             },
             enabled = function()
                 -- Disable nvim-cmp in a telescope prompt
-                buftype = vim.api.nvim_buf_get_option(0, 'buftype')
+                local buftype = vim.api.nvim_buf_get_option(0, 'buftype')
                 if buftype == 'prompt' then
                     return false
                 end

@@ -65,6 +65,7 @@
         "/Users/amirlaher/.local/share/nvim/lazy/mason.nvim/lua",
         "/Users/amirlaher/.local/share/nvim/lazy/better-escape.nvim/lua",
         "/Users/amirlaher/dotfiles/home/.config/nvim/lua",
+        "${3rd}/luv/library",
         "${3rd}/luv/library"
     ]
 }

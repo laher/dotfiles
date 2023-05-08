@@ -1,0 +1,1 @@
+VLUA=~/.config/nvim/lua/

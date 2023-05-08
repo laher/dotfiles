@@ -101,5 +101,26 @@ return {
         'max397574/better-escape.nvim',
         event = 'InsertEnter',
         config = true
-    }
+    },
+
+    -- nvim-various-textobjs
+    {
+      "chrisgrieser/nvim-various-textobjs",
+      opts = { useDefaultKeymaps = true },
+    },
+
+    -- oil.nvim
+    {
+      'stevearc/oil.nvim',
+      opts = {},
+      -- Optional dependencies
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
+    -- lastplace
+    {
+      'ethanholz/nvim-lastplace',
+      config = function()
+        require'nvim-lastplace'.setup{}
+      end,
+    },
 }

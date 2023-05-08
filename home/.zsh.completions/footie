@@ -1,0 +1,91 @@
+#_footie() {
+#  compadd team league
+#}
+
+
+_footie() {
+    local line state
+
+    _arguments -C \
+               "1: :->cmds" \
+               "*::arg:->args"
+    case "$state" in
+        cmds)
+            _values "footie command" \
+                    "league[Commands for getting info about a league.]" \
+                    "team[Commands for getting info about a team.]" \
+            ;;
+        args)
+            case $line[1] in
+                league)
+                    _footie_league
+                    ;;
+                team)
+                    _footie_team
+                    ;;
+            esac
+            ;;
+    esac
+}
+
+_footie_team() {
+    local line state
+
+    _arguments -C \
+               "1: :->cmds" \
+               "*::arg:->args"
+    case "$state" in
+        cmds)
+            _values "footie_team command" \
+                    "players[players.]" \
+                    "results[recent results.]" \
+                    "fixtures[upcoming fixtures.]" \
+            ;;
+        args)
+            case $line[1] in
+                standings)
+                    _footie_league_standings
+                    ;;
+            esac
+            ;;
+    esac
+}
+
+_footie_league() {
+    local line state
+
+    _arguments -C \
+               "1: :->cmds" \
+               "*::arg:->args"
+    case "$state" in
+        cmds)
+            _values "footie_league command" \
+                    "standings[league table.]" \
+                    "rounds[rounds.]" \
+                    "teams[team names and ids.]" \
+            ;;
+        args)
+            case $line[1] in
+                standings)
+                    _footie_league_standings
+                    ;;
+            esac
+            ;;
+    esac
+}
+
+_footie_league_standings() {
+    _arguments -s \
+               {-c,--create-table}'[Create a new table, or overwrite an existing table (with the -f flag) from the imported data.]' \
+               {-u,--update-table}'[Update an existing table with the imported data.]' \
+               {-f,--force}'[If a create operation is being executed, data already exists in the destination, the force flag will allow the target to be overwritten.]' \
+               {-r,--replace-table}'[Replace existing table with imported data while preserving the original schema.]' \
+               '(--continue)--continue[Continue importing when row import errors are encountered.]' \
+               {-s,--schema}'[The schema for the output data.]' \
+               {-m,--map}'[A file that lays out how fields should be mapped from input data to output data.]' \
+               {-pk,--pk}'[Explicitly define the name of the field in the schema which should be used as the primary key.]' \
+               '(--file-type)--file-type[Explicitly define the type of the file if it can''t be inferred from the file extension.]' \
+               '(--delim)--delim[Specify a delimiter for a csv style file with a non-comma delimiter.]'
+}
+
+compdef _footie footie

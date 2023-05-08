@@ -18,6 +18,9 @@ return {
             'dashboard',
             'Trouble',
             'neogitstatus',
+            'norg',
+            'neorg',
+            'Neorg',
         },
         context_patterns = {
             'class',
