@@ -1,6 +1,8 @@
 return {
     'folke/which-key.nvim',
     keys = {
+
+        { '<leader>w', ':WhichKey<cr>', desc = 'Which Key' },
         "<leader>",
         '"',
         "'",

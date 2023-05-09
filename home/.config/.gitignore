@@ -1,11 +1,2 @@
-packer_compiled.lua
-undodir
-stripe
-karabiner
-kitty
-zellij
-AWSVPNClient
-httpie
-nvim/db_ui
-hub
 *
+!nvim

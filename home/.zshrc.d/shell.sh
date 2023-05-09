@@ -1,5 +1,6 @@
 export HISTCONTROL=ignoredups
 export HISTSIZE=10000
+unsetopt beep
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh

@@ -67,5 +67,6 @@
         "/Users/amirlaher/dotfiles/home/.config/nvim/lua",
         "${3rd}/luv/library",
         "${3rd}/luv/library"
-    ]
+    ],
+    "workspace.checkThirdParty": false
 }

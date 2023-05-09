@@ -73,9 +73,7 @@ vim.cmd [[au BufNewFile,BufRead *.es   set syntax=json]]
 -- Colorscheme
 -----------------------------------------------------------
 vim.opt.termguicolors = true      -- enable 24-bit RGB colors
-if os.getenv('TERM') == 'kitty' then
-    vim.opt.termguicolors = true      -- enable 24-bit RGB colors
-end
+vim.o.guifont = "Inconsolata Nerd Font:h18"
     --[[ if $TERM =~ '^\(rxvt\|screen\|interix\|putty\)\(-.*\)\?$'
         set notermguicolors
     elseif $TERM =~ '^\(tmux\|iterm\|vte\|gnome\)\(-.*\)\?$'
@@ -93,13 +91,6 @@ end
     elseif $TERM =~ ...
         ... and so forth ...
     endif ]]
-if vim.g.vscode == nil then
- -- vim.cmd [[colorscheme gruvbox]]
- -- vim.opt.background = 'light'
-
-
---  vim.cmd[[colorscheme tokyonight-day]]
-end
 
 -----------------------------------------------------------
 -- Tabs, indent

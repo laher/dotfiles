@@ -68,37 +68,6 @@ return {
             })
             local navic = require('nvim-navic')
             local lspconfig = require('lspconfig')
-            lspconfig.clangd.setup({
-                on_attach = function(client, bufnr)
-                    navic.attach(client, bufnr)
-                end,
-            })
-            lspconfig.lua_ls.setup({
-                on_attach = function(client, bufnr)
-                    navic.attach(client, bufnr)
-                end,
-                settings = {
-                    Lua = {
-                        diagnostics = {
-                            globals = { 'vim' },
-                        },
-                        workspace = {
-                            library = {
-                                [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-                                [vim.fn.stdpath('config') .. '/lua'] = true,
-                            },
-                        },
-                        telemetry = {
-                            enable = false,
-                        },
-                    },
-                },
-            })
-            lspconfig.marksman.setup({
-                on_attach = function(client, bufnr)
-                    navic.attach(client, bufnr)
-                end,
-            })
 
             local on_attach = function(client, bufnr)
               -- local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -110,23 +79,12 @@ return {
               -- Mappings.
               -- local opts = { noremap=true, silent=true }
               -- See `:help vim.lsp.*` for documentation on any of the below functions
-              -- buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-              -- buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-              -- buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-              -- buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-              -- buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
               -- buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
               -- buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
               -- buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
               -- buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-              -- buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-              -- buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
               -- buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references({includeDelcaration = false})<CR>', opts)
-              -- buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-              -- buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-              -- buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
               -- buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-              -- buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
               -- buf_set_keymap('n', 's', '<cmd>lua vim.lsp.buf.stop()<CR>', opts)
               --
               if client.server_capabilities.documentSymbolProvider then
@@ -134,6 +92,51 @@ return {
               end
               -- compl.on_attach()
             end
+
+            -- lspconfig.lua_ls.setup{
+            --     on_attach = function(client, bufnr)
+            --       client.server_capabilities.documentFormattingProvider = false
+            --       vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+            --               vim.lsp.diagnostic.on_publish_diagnostics, {
+            --                 -- disable virtual text
+            --                 virtual_text = false,
+            --
+            --                 -- show signs
+            --                 signs = true,
+            --
+            --                 -- delay update diagnostics
+            --                 update_in_insert = false,
+            --               }
+            --             )
+            --
+            --       if client.server_capabilities.documentSymbolProvider then
+            --         navic.attach(client, bufnr)
+            --       end
+            --     end,
+            --     settings = {
+            --         Lua = {
+            --             runtime = {
+            --               version = 'LuaJIT',
+            --             },
+            --             diagnostics = {
+            --                 enable = false,
+            --                 globals = { 'vim' },
+            --             },
+            --             workspace = {
+            --                 library = {
+            --                   library = vim.api.nvim_get_runtime_file("", true),
+            --                 },
+            --             },
+            --             telemetry = {
+            --                 enable = false,
+            --             },
+            --         },
+            --     },
+            --     flags = {
+            --       debounce_text_changes = 150,
+            --     }
+            -- }
+
             -- Use a loop to conveniently call 'setup' on multiple servers and
             -- map buffer local keybindings when the language server attaches
             local servers = { 'pyright', 'gopls', 'tsserver', 'vuels', 'jsonls', 'marksman', 'clangd' }

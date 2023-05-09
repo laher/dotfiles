@@ -60,7 +60,4 @@ local opts = {
 require('lazy').setup('plugins', opts)
 
 require('settings')
--- require('pluginsettings')
--- require('lsp')
 require('keymappings')
--- require('golint').setup()

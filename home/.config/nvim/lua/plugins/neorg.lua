@@ -2,8 +2,27 @@ return {
   {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
+    -- config = function()
+    --   require("neorg").setup()
+    --   local neorg_callbacks = require("neorg.callbacks")
+    --   neorg_callbacks.on_event("core.keybinds.events.enable_keybinds", function(_, keybinds)
+    --           -- Map all the below keybinds only when the "norg" mode is active
+    --           keybinds.map_event_to_mode("norg", {
+    --             n = { -- Bind keys in normal mode
+    --               --         { "<C-c>", "external.exec.block" },
+    --             },
+    --           }, {
+    --             silent = true,
+    --             noremap = true,
+    --           })
+    --   end)
+    -- end,
+    keys = {
+      { '<leader>x', ':Neorg exec block<CR>', desc = 'Exec block' },
+      { '<leader>o', ':Neorg index<CR>', desc = 'Launch neorg' },
+    },
+    cmd = "Neorg",
     opts = {
-
       load = {
         ["core.defaults"] = {}, -- Loads default behaviour
         ["core.completion"] = {
@@ -60,7 +79,7 @@ return {
         },
         ["core.concealer"] = {
           config = {
-            folds = false,
+            folds = true,
             icon_preset = "diamond",
             icons = {
               todo = {
