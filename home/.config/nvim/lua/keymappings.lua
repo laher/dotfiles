@@ -20,7 +20,7 @@ vim.keymap.set("n", "<leader>rl", ":luafile $MYVIMRC<CR>", { silent = true })
 -- open terminal
 vim.keymap.set("n", "<leader>t", ":Term<CR>")
 -- nvim-tree
-vim.keymap.set("n", "<leader>z", ":NvimTreeToggle<CR>", { silent = true }) -- open/close
+-- vim.keymap.set("n", "<leader>z", ":NvimTreeToggle<CR>", { silent = true }) -- open/close
 -- vim.keymap.set("n", "<leader>f", ":NvimTreeFindFile<CR>", { silent = true }) -- search file
 -- map('i', '<leader>s', '<C-c>:w<CR>', {silent = true})
 

@@ -2,6 +2,10 @@ return {
     'nvim-tree/nvim-tree.lua',
     dependencies = 'nvim-tree/nvim-web-devicons',
     cmd = 'NvimTreeToggle',
+    keys = {
+      -- { '<leader>z', ':lua require("nvim-tree.api").tree.toggle()<cr>', desc = 'Toggle tree' },
+      { '<leader>z', ':NvimTreeToggle<CR>', desc = 'Toggle tree' },
+    },
     opts = {
         disable_netrw = true,
         hijack_netrw = true,

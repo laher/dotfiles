@@ -82,10 +82,10 @@ alias sz='source ~/.zshrc'
 
 # parent cd
 function pcd { cd ${PWD%/$1/*}/$1; }
-export nvdir='~/dotfiles/home/.config/nvim'
+export nvdir="~/dotfiles/home/.config/nvim"
 function cdv { cd $nvdir/$1; }
-alias cdvp='cd $nvdir/lua/plugins'
-alias cdvl='cd $nvdir/lua'
+alias cdvp="cd $nvdir/lua/plugins"
+alias cdvl="cd $nvdir/lua"
 
 function vimDirDiff { echo "Please wait while vim diffs the directories" args=$@ vim -f "+execute \"DirDiff $args\"" echo "vimDirDiff Done" }
 
