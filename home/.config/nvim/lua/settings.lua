@@ -27,6 +27,7 @@ vim.opt.swapfile = false          -- don't use swapfile
 vim.opt.number = true             -- show line number
 vim.opt.showmatch = true          -- highlight matching parenthesis
 vim.opt.foldmethod = 'marker'     -- enable folding (default 'foldmarker')
+vim.opt.foldlevelstart = 99 -- all open
 vim.opt.colorcolumn = '160'        -- line lenght marker at 80 columns
 vim.opt.splitright = true         -- vertical split to the right
 vim.opt.splitbelow = true         -- orizontal split to the bottom
@@ -48,8 +49,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- highlight on yank
 vim.api.nvim_exec([[
   augroup YankHighlight
-    autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
+    autocmd! TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
   augroup end
 ]], false)
 
@@ -138,7 +138,7 @@ vim.wo.wrap = false
 -- Terminal
 -----------------------------------------------------------
 -- open a terminal pane on the right using :Term
-vim.cmd [[command Term :botright vsplit term://$SHELL]]
+vim.cmd [[command! Term :botright vsplit term://$SHELL]]
 
 -- Terminal visual tweaks
 --- enter insert mode when switching to terminal

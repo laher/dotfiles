@@ -21,7 +21,7 @@ vim.keymap.set("n", "<leader>rl", ":luafile $MYVIMRC<CR>", { silent = true })
 vim.keymap.set("n", "<leader>t", ":Term<CR>")
 -- nvim-tree
 vim.keymap.set("n", "<leader>z", ":NvimTreeToggle<CR>", { silent = true }) -- open/close
-vim.keymap.set("n", "<leader>f", ":NvimTreeFindFile<CR>", { silent = true }) -- search file
+-- vim.keymap.set("n", "<leader>f", ":NvimTreeFindFile<CR>", { silent = true }) -- search file
 -- map('i', '<leader>s', '<C-c>:w<CR>', {silent = true})
 
 -- move around splits using Ctrl + {h,j,k,l}
@@ -33,10 +33,11 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { silent = true })
 -- map kk to Esc
 vim.keymap.set("i", "kk", "<Esc>")
 
+-- reinstates the netrw keymapping (I disabled netrw)
+vim.keymap.set("n", "gx", ":!open <c-r><c-a><CR>", { silent = true })
 
 -- Vista tag-viewer
 -- vim.keymap.set('n', '<C-m>', ':Vista!!<CR>', {silent = true})   -- open/close
 
--- neorg .. how to make it local?
--- vim.keymap.set("n", "<C-c>", ":Neorg exec block<CR>", { silent = true })
-
+-- not really a mapping
+vim.g.neovide_input_macos_alt_is_meta = true

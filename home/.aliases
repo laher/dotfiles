@@ -82,6 +82,10 @@ alias sz='source ~/.zshrc'
 
 # parent cd
 function pcd { cd ${PWD%/$1/*}/$1; }
+export nvdir='~/dotfiles/home/.config/nvim'
+function cdv { cd $nvdir/$1; }
+alias cdvp='cd $nvdir/lua/plugins'
+alias cdvl='cd $nvdir/lua'
 
 function vimDirDiff { echo "Please wait while vim diffs the directories" args=$@ vim -f "+execute \"DirDiff $args\"" echo "vimDirDiff Done" }
 
@@ -95,8 +99,6 @@ function lsv {
 }
 
 alias agv='ag --ignore-dir=vendor --ignore-dir=node_modules --ignore-dir=assets --ignore-dir=target -W 120'
-# alias cdl='cd ~/dl'
-# alias cdd='cd ~/d/'
 
 [ -f "/opt/homebrew/bin/python3" ] && alias python=/opt/homebrew/bin/python3
 [ -f "/opt/homebrew/bin/pip3" ] && alias pip=/opt/homebrew/bin/pip3

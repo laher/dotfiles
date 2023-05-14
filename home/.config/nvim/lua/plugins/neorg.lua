@@ -18,7 +18,7 @@ return {
     --   end)
     -- end,
     keys = {
-      { '<leader>x', ':Neorg exec block<CR>', desc = 'Exec block' },
+      { '<localleader>x', ':Neorg exec cursor<CR>', desc = 'Exec code block' },
       { '<leader>o', ':Neorg index<CR>', desc = 'Launch neorg' },
     },
     cmd = "Neorg",

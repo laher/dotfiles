@@ -113,6 +113,12 @@ return {
     {
       'stevearc/oil.nvim',
       opts = {},
+      commands = {
+        'Oil',
+      },
+      keys = {
+        { '-', ':vs %:h', desc = "Open parent directory in vertical split" },
+      },
       -- Optional dependencies
       dependencies = { "nvim-tree/nvim-web-devicons" },
     },
