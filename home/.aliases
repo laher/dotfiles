@@ -48,11 +48,13 @@ alias gm='git merge --no-ff'
 
 alias tailf='tail -F'
 
-alias v='nvim -O'
-alias lv='lvim -O'
-alias nv='nvim -O'
-alias vv='vim.nox -O'
-alias vgf="v -c 'GFiles!'"
+if [ -n "$NVIM" ]; then
+  alias v='nvr -O'
+  alias nv='nvr -O'
+else
+  alias v='nvim -O'
+  alias nv='nvim -O'
+fi
 
 
 alias watch='watch '

@@ -23,6 +23,7 @@
   "guihua.lua": { "branch": "master", "commit": "ab8b1f09603cc268770efd057115035dc6cfa83d" },
   "hlargs.nvim": { "branch": "main", "commit": "30131b02e126962c3c9c7acf2ee227d7c5369dd1" },
   "lazy.nvim": { "branch": "main", "commit": "aba872ec78ffe7f7367764ab0fff6f0170421fde" },
+  "lazygit.nvim": { "branch": "main", "commit": "32bffdebe273e571588f25c8a708ca7297928617" },
   "leap.nvim": { "branch": "main", "commit": "6f2912755c9c4ae790abd829f0cf1b07c037b2a4" },
   "lsp_lines.nvim": { "branch": "main", "commit": "512d8c79637e7aeb889240c2e0ca8ae327940737" },
   "lualine.nvim": { "branch": "master", "commit": "05d78e9fd0cdfb4545974a5aa14b1be95a86e9c9" },
@@ -50,7 +51,7 @@
   "nvim-notify": { "branch": "master", "commit": "f3024b912073774111202f5fa6518b0cd2a74432" },
   "nvim-scrollbar": { "branch": "main", "commit": "f3a5469e9881360e70d34b25333c910ee4a505f3" },
   "nvim-surround": { "branch": "main", "commit": "219bd66585aa467b1c90fd01b54a2a423aaed4ab" },
-  "nvim-tree.lua": { "branch": "master", "commit": "498e8793bbe73ab5235b3ee8f0aee32f5d01649f" },
+  "nvim-tree.lua": { "branch": "master", "commit": "89816ace70642e9d3db0dab3dc68918f8979ec31" },
   "nvim-treesitter": { "branch": "master", "commit": "680807fa6a482c639119098bc48ca3831c66db13" },
   "nvim-treesitter-textobjects": { "branch": "master", "commit": "35a60f093fa15a303874975f963428a5cd24e4a0" },
   "nvim-ufo": { "branch": "main", "commit": "45aede6f5c4981156df3ddeeae01c4290e43e104" },
@@ -73,7 +74,6 @@
   "vim-illuminate": { "branch": "master", "commit": "a2907275a6899c570d16e95b9db5fd921c167502" },
   "vim-matchup": { "branch": "master", "commit": "6c8909b682803d8c3a054259079f158a73a0e30f" },
   "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" },
-  "which-key.nvim": { "branch": "main", "commit": "5a6c954a5a46023c19acc03a8b6d7c3e57964fc5" },
   "windows.nvim": { "branch": "main", "commit": "c7492552b23d0ab30325e90b56066ec51242adc8" },
   "zen-mode.nvim": { "branch": "main", "commit": "6e6c963d70a8e47854fa656987666bfb863f9c4e" }
 }

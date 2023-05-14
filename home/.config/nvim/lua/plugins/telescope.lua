@@ -27,12 +27,14 @@ return {
         --  end
         -- },
         'nvim-telescope/telescope-dap.nvim',
+        'kdheepak/lazygit.nvim',
     },
     branch = '0.1.x',
     cmd = 'Telescope',
     keys = {
-      '<leader>f',
-      '<leader>g',
+      '<leader>ff',
+      '<leader>fg',
+      '<leader>gg',
     },
     opts = {
         defaults = {
@@ -66,19 +68,22 @@ return {
         },
     },
     config = function()
-        require('telescope').setup {}
-        -- Load the extensions
-        require('telescope').load_extension('fzf')
-        require('telescope').load_extension('file_browser')
-        require('telescope').load_extension('undo')
-        -- require('telescope').load_extension('projects')
-        require('telescope').load_extension('dap')
-        require('telescope').load_extension('dap')
+        local t= require('telescope')
+        t.setup {}
+        t.load_extension('fzf')
+        t.load_extension('file_browser')
+        t.load_extension('undo')
+        t.load_extension('dap')
+        t.load_extension('lazygit')
 
         local live_gitroot = function()
           require('telescope.builtin').live_grep({cwd = vim.fn.finddir('.git', vim.fn.getcwd() .. ";") .. '/..' })
         end
-        vim.keymap.set("n", "<leader>g", live_gitroot, { silent = true })
-        vim.keymap.set("n", "<leader>f", require('telescope.builtin').git_files, { silent = true })
+        vim.keymap.set('n', '<leader>fg', live_gitroot, { silent = true })
+        vim.keymap.set('n', '<leader>ff', require('telescope.builtin').git_files, { silent = true })
+        vim.keymap.set('n', '<leader>gg', ':LazyGit<cr>', { silent = true })
+        vim.api.nvim_create_autocmd('BufEnter', { callback = function()
+            require('lazygit.utils').project_root_dir()
+          end })
     end,
 }
