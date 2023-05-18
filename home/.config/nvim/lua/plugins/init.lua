@@ -117,7 +117,7 @@ return {
         'Oil',
       },
       keys = {
-        { '-', ':vs %:h', desc = "Open parent directory in vertical split" },
+        { '<leader>-', ':vs %:h<cr>', desc = "Open parent directory in vertical split" },
       },
       -- Optional dependencies
       dependencies = { "nvim-tree/nvim-web-devicons" },
