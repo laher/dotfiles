@@ -8,6 +8,9 @@ Amir*.*
 gitignore-*
 *.bk
 
+# I can't stop nvim from updating this
+.luarc.json
+
 # Compiled source #
 ###################
 *.class
@@ -74,3 +77,4 @@ ticket_templates.tsv
 out.tsv
 *.out.tsv
 *ignoreme*
+

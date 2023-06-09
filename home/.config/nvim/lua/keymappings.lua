@@ -35,7 +35,7 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { silent = true })
 vim.keymap.set("i", "kk", "<Esc>")
 
 -- reinstates the netrw keymapping (I disabled netrw)
-vim.keymap.set("n", "gx", ":!open <c-r><c-a><CR>", { silent = true })
+vim.keymap.set("n", "<leader>gf", ":e <c-r><c-a><CR>", { silent = true })
 
 -- Vista tag-viewer
 -- vim.keymap.set('n', '<C-m>', ':Vista!!<CR>', {silent = true})   -- open/close

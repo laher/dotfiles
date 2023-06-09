@@ -1,0 +1,25 @@
+@document.meta
+title: {TITLE_INPUT}
+description:
+authors: {AUTHOR}
+categories:
+created: {TODAY}
+updated: 2023-05-05
+version: 1.0.0
+@end
+
+* {TITLE_INPUT}
+  Weather: {WEATHER}
+  {{:{YESTERDAY}:}}[Yesterday] - {{:{TOMORROW}:}}[Tomorrow]
+
+** Daily Tasks
+*** {CURSOR}
+*** fetch
+@code bash
+cd ~/d/tix-api && gall fetch
+@end
+*** other
+@code bash
+cd ~/d/tix-api && gall status
+@end
+*** done

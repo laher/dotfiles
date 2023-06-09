@@ -103,17 +103,12 @@ return {
         config = true
     },
 
-    -- nvim-various-textobjs
-    {
-      "chrisgrieser/nvim-various-textobjs",
-      opts = { useDefaultKeymaps = true },
-    },
 
     -- oil.nvim
     {
       'stevearc/oil.nvim',
       opts = {},
-      commands = {
+      cmd = {
         'Oil',
       },
       keys = {
@@ -121,6 +116,11 @@ return {
       },
       -- Optional dependencies
       dependencies = { "nvim-tree/nvim-web-devicons" },
+      config = function()
+        require("oil").setup({
+          default_file_explorer = true,
+        })
+      end
     },
     -- lastplace
     {

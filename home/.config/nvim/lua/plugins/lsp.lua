@@ -50,7 +50,7 @@ return {
             { 'gI', vim.lsp.buf.implementation, desc = 'Goto Implementation' },
             { 'gy', vim.lsp.buf.type_definition, desc = 'Goto T[y]pe Definition' },
             { '<leader>rn', vim.lsp.buf.rename, desc = 'Rename' },
-            { '<leader>ca', vim.lsp.buf.code_action, desc = 'Code Action' },
+            { '<leader>co', vim.lsp.buf.code_action, desc = 'Code Action' },
             { '<leader>e', vim.lsp.buf.show_line_diagnostics, desc = 'Show line diagnostics' },
             { '[d', vim.lsp.diagnostic.goto_prev, desc = 'Goto prev diagnostic' },
             { ']d', vim.lsp.diagnostic.goto_next, desc = 'Goto next diagnostic' },
@@ -128,7 +128,7 @@ return {
 
             -- Use a loop to conveniently call 'setup' on multiple servers and
             -- map buffer local keybindings when the language server attaches
-            local servers = { 'pyright', 'gopls', 'tsserver', 'vuels', 'jsonls', 'marksman', 'clangd' }
+            local servers = { 'pyright', 'gopls', 'tsserver', 'vuels', 'jsonls', 'marksman', 'clangd', 'lua_ls' }
             for _, lsp in ipairs(servers) do
               lspconfig[lsp].setup {
                 on_attach = on_attach,

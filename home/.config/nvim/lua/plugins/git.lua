@@ -1,4 +1,54 @@
 return {
+  {
+    'pwntester/octo.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function ()
+      require"octo".setup()
+    end
+  },
+
+  -- gitlinker
+  {
+      'ruifm/gitlinker.nvim',
+      dependencies = 'nvim-lua/plenary.nvim',
+      event = {
+          'BufReadPost',
+          'BufNewFile'
+      },
+      config = function()
+        require'gitlinker'.setup()
+        --vim.api.nvim_set_keymap('v', '<leader>gb', '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {})
+        -- vim.api.nvim_set_keymap('v', '<leader>gb', '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = function(url) vim.notify(url) end})<cr>', {})
+      end,
+  },
+
+  --   -- gx
+  --    {
+  --   "chrishrb/gx.nvim",
+  --   event = { "BufEnter" },
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  --
+  --   -- you can specify also another config if you want
+  --   config = function() require("gx").setup {
+  --     -- open_browser_app = "os_specific", -- specify your browser app; default for macOS is "open", Linux "xdg-open" and Windows "powershell.exe"
+  --     -- open_browser_args = { "--background" }, -- specify any arguments, such as --background for macOS' "open".
+  --     handlers = {
+  --       plugin = true, -- open plugin links in lua (e.g. packer, lazy, ..)
+  --       github = true, -- open github issues
+  --       package_json = true, -- open dependencies from package.json
+  --       search = true, -- search the web/selection on the web if nothing else is found
+  --     },
+  --     handler_options = {
+  --       search_engine = "google", -- you can select between google, bing and duckduckgo
+  --     },
+  --   } end,
+  -- },
+
+  {
     'lewis6991/gitsigns.nvim',
     ft = 'gitcommit',
     init = function()
@@ -77,4 +127,5 @@ return {
         -- scrollbar integration
         require('scrollbar.handlers.gitsigns').setup()
     end,
+}
 }

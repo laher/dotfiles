@@ -1,9 +1,13 @@
 return {
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+  },
+  {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     event = {
         'BufReadPost',
-        'BufNewFile'
+        'BufNewFile',
     },
     opts = {
         ensure_installed = {
@@ -37,4 +41,5 @@ return {
         require('nvim-treesitter.configs').setup(opts)
         require("nvim-treesitter.install").compilers = { "gcc-13" } -- for neorg. upgrade occasionally!
     end,
+  }
 }
