@@ -15,3 +15,12 @@ function v-nvs {
 function v-nvk {
   nvim "${VLUA}/keymappings.lua"
 }
+
+
+function v-cd-p {
+  cd "${VLUA}/plugins"
+}
+
+function v-cd-l {
+  cd "${VLUA}"
+}
