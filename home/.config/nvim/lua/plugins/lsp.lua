@@ -65,26 +65,26 @@ return {
         virtual_text = false
       })
     end,
-  }
+  },
 
 
   -- {
-    --     'jose-elias-alvarez/null-ls.nvim',
-    --     dependencies = 'williamboman/mason.nvim',
-    --     event = {
-      --         'BufReadPre',
-      --         'BufNewFile',
-      --     },
-      --     opts = function()
-        --         local nls = require('null-ls')
-        --         return {
-          --             sources = {
-            --                 nls.builtins.formatting.stylua,
-            --                 nls.builtins.formatting.markdownlint,
-            --                 nls.builtins.diagnostics.markdownlint,
-            --                 nls.builtins.diagnostics.luacheck,
-            --             }
-            --         }
-            --     end,
-            -- },
-          }
+  --   'jose-elias-alvarez/null-ls.nvim',
+  --   dependencies = 'williamboman/mason.nvim',
+  --   event = {
+  --     'BufReadPre',
+  --     'BufNewFile',
+  --   },
+  --   opts = function()
+  --     local nls = require('null-ls')
+  --     return {
+  --       sources = {
+  --         nls.builtins.formatting.stylua,
+  --         nls.builtins.formatting.markdownlint,
+  --         nls.builtins.diagnostics.markdownlint,
+  --         nls.builtins.diagnostics.luacheck,
+  --       }
+  --     }
+  --   end,
+  -- },
+}
