@@ -104,24 +104,6 @@ return {
     },
 
 
-    -- oil.nvim
-    {
-      'stevearc/oil.nvim',
-      opts = {},
-      cmd = {
-        'Oil',
-      },
-      keys = {
-        { '<leader>-', ':vs %:h<cr>', desc = "Open parent directory in vertical split" },
-      },
-      -- Optional dependencies
-      dependencies = { "nvim-tree/nvim-web-devicons" },
-      config = function()
-        require("oil").setup({
-          default_file_explorer = true,
-        })
-      end
-    },
     -- lastplace
     {
       'ethanholz/nvim-lastplace',

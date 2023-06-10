@@ -168,3 +168,9 @@ vim.api.nvim_create_autocmd("BufRead", {
 
 
 vim.g.loaded_perl_provider = 0
+
+
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
