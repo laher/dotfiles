@@ -11,6 +11,7 @@ return {
     },
 
     -- bufdelete.nvim
+    -- delete buffer without creating/updating windows
     {
         'famiu/bufdelete.nvim',
         cmd = 'Bdelete'
@@ -30,7 +31,6 @@ return {
         config = true
     },
 
-    -- numb.nvim
     -- peek buffer while entering command
     {
         'nacro90/numb.nvim',
@@ -38,7 +38,6 @@ return {
         config = true
     },
 
-    -- relative-toggle.nvim
     -- toggle between relative and absolute line numbers
     {
         'cpea2506/relative-toggle.nvim',
@@ -46,7 +45,7 @@ return {
         config = true
     },
 
-    -- trouble.nvim
+    -- collect problems in minubuffer
     {
         'folke/trouble.nvim',
         dependencies = 'nvim-tree/nvim-web-devicons',
@@ -55,6 +54,7 @@ return {
     },
 
     -- better-escape.nvim
+    -- use jj/kk/etc to escape without lag
     {
         'max397574/better-escape.nvim',
         event = 'InsertEnter',
@@ -63,6 +63,7 @@ return {
 
 
     -- lastplace
+    -- reopen files at last place
     {
       'ethanholz/nvim-lastplace',
       config = function()

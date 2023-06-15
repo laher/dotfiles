@@ -7,7 +7,7 @@ dependency-reduced-pom.xml
 Amir*.*
 gitignore-*
 *.bk
-
+*.out
 # I can't stop nvim from updating this
 .luarc.json
 

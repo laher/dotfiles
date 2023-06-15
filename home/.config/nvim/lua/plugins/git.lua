@@ -33,6 +33,7 @@ return {
       -- vim.api.nvim_set_keymap('v', '<leader>gb', '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = function(url) vim.notify(url) end})<cr>', {})
     end,
   },
+  { 'f-person/git-blame.nvim' },
 
   --   -- gx
   --    {
