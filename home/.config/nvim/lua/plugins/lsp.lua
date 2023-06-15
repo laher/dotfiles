@@ -54,6 +54,7 @@ return {
     end,
   },
 
+  -- show virtual lines rather than virtual text
   {
     'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
     event = 'LspAttach',
@@ -67,24 +68,43 @@ return {
     end,
   },
 
+  -- dim unussed
+  {
+    'zbirenbaum/neodim',
+    event = 'LspAttach',
+    branch = 'v2',
+    opts = {
+      alpha = 0.75,
+      blend_color = '#000000',
+      update_in_insert = {
+        enable = true,
+        delay = 100,
+      },
+      hide = {
+        virtual_text = true,
+        signs = true,
+        underline = true,
+      },
+    },
+  },
 
   -- {
-  --   'jose-elias-alvarez/null-ls.nvim',
-  --   dependencies = 'williamboman/mason.nvim',
-  --   event = {
-  --     'BufReadPre',
-  --     'BufNewFile',
-  --   },
-  --   opts = function()
-  --     local nls = require('null-ls')
-  --     return {
-  --       sources = {
-  --         nls.builtins.formatting.stylua,
-  --         nls.builtins.formatting.markdownlint,
-  --         nls.builtins.diagnostics.markdownlint,
-  --         nls.builtins.diagnostics.luacheck,
-  --       }
-  --     }
-  --   end,
-  -- },
-}
+    --   'jose-elias-alvarez/null-ls.nvim',
+    --   dependencies = 'williamboman/mason.nvim',
+    --   event = {
+      --     'BufReadPre',
+      --     'BufNewFile',
+      --   },
+      --   opts = function()
+        --     local nls = require('null-ls')
+        --     return {
+          --       sources = {
+            --         nls.builtins.formatting.stylua,
+            --         nls.builtins.formatting.markdownlint,
+            --         nls.builtins.diagnostics.markdownlint,
+            --         nls.builtins.diagnostics.luacheck,
+            --       }
+            --     }
+            --   end,
+            -- },
+          }

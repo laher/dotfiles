@@ -142,5 +142,15 @@ return {
       -- ] @function.outer
       -- ]])
     end,
-  }
+  },
+
+    -- nvim-surround
+    {
+        'kylechui/nvim-surround',
+        event = {
+            'BufReadPost',
+            'BufNewFile'
+        },
+        config = true
+    },
 }

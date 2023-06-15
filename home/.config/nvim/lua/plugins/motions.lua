@@ -31,5 +31,18 @@ return {
             return ret
         end,
         opts = { labeled_modes = 'nx' }
-    }
+    },
+
+    -- extends % to html tags etc
+{
+    'andymass/vim-matchup',
+    dependencies = 'nvim-treesitter/nvim-treesitter',
+    event = {
+        'BufReadPost',
+        'BufNewFile',
+    },
+    config = function()
+        vim.g.matchup_matchparen_offscreen = { method = 'status_manual' }
+    end,
+},
 }

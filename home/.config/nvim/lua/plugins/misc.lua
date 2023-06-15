@@ -1,13 +1,4 @@
 return {
-    -- nvim-surround
-    {
-        'kylechui/nvim-surround',
-        event = {
-            'BufReadPost',
-            'BufNewFile'
-        },
-        config = true
-    },
 
     -- Comment.nvim
     {
@@ -25,36 +16,8 @@ return {
         cmd = 'Bdelete'
     },
 
-    -- hlargs.nvim
-    {
-        'm-demare/hlargs.nvim',
-        dependencies = 'nvim-treesitter/nvim-treesitter',
-        ft = {
-            'c',
-            'cpp',
-            'cs',
-            'go',
-            'java',
-            'js',
-            'jsx',
-            'ts',
-            'tsx',
-            'jl',
-            'lua',
-            'nix',
-            'php',
-            'py',
-            'r',
-            'R',
-            'rb',
-            'vim',
-            'zig',
-            'rs'
-        },
-        config = true
-    },
-
     -- nvim-hlslens
+    -- highlights search matches with numbers;
     {
         'kevinhwang91/nvim-hlslens',
         keys = {
@@ -67,14 +30,8 @@ return {
         config = true
     },
 
-    -- colorful-winsep.nvim
-    {
-        'nvim-zh/colorful-winsep.nvim',
-        event = 'WinNew',
-        config = true
-    },
-
     -- numb.nvim
+    -- peek buffer while entering command
     {
         'nacro90/numb.nvim',
         event = 'CmdlineEnter',
@@ -82,6 +39,7 @@ return {
     },
 
     -- relative-toggle.nvim
+    -- toggle between relative and absolute line numbers
     {
         'cpea2506/relative-toggle.nvim',
         event = 'InsertEnter',
