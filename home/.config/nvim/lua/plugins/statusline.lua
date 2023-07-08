@@ -1,4 +1,6 @@
 return {
+  -- { 'Bekaboo/dropbar.nvim' },
+  {
     'nvim-lualine/lualine.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons',
     event = {
@@ -52,4 +54,5 @@ return {
             'toggleterm'
         }
     },
+  },
 }

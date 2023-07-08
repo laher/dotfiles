@@ -156,6 +156,11 @@ return {
       },
     },
   },
+  {
+    "giusgad/pets.nvim",
+    cmd = {'PetsList','PetsNew'},
+    dependencies = { "MunifTanjim/nui.nvim", "giusgad/hologram.nvim" },
+  },
 
   -- colorful-winsep.nvim
   {

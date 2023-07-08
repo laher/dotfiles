@@ -91,8 +91,6 @@ alias cdvl="cd $nvdir/lua"
 
 function vimDirDiff { echo "Please wait while vim diffs the directories" args=$@ vim -f "+execute \"DirDiff $args\"" echo "vimDirDiff Done" }
 
-alias gt='go test'
-
 function lsi {
   ls | fzf | xargs $1
 }

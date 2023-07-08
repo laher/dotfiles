@@ -5,7 +5,8 @@ function v-nvi {
 }
 
 function v-nvp {
-  nvim "${VLUA}/plugins/init.lua"
+  # just pick a common one
+  nvim "${VLUA}/plugins/neorg.lua"
 }
 
 function v-nvs {

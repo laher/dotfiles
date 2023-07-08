@@ -3,7 +3,10 @@ return {
   -- oil.nvim
   {
     'stevearc/oil.nvim',
-    lazy = false, -- needed for loading `:e .`, etc
+    cmd = {
+      'Oil',
+    },
+    lazy = false,
     keys = {
       { '<leader>-', ':vs %:h<cr>', desc = "Open parent directory in vertical split" },
     },
