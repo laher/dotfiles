@@ -79,3 +79,9 @@ out.tsv
 *.out.tsv
 *ignoreme*
 
+# temporary
+.golangci.yaml
+
+# exp/tixapi_mediumtest
+# exp/tix-api-svccore/mediumtest
+# db*_test.go

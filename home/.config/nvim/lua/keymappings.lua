@@ -36,6 +36,12 @@ vim.keymap.set("i", "kk", "<Esc>")
 
 -- reinstates the netrw keymapping (I disabled netrw)
 vim.keymap.set("n", "<leader>gf", ":e <c-r><c-a><CR>", { silent = true })
+local vscode = function()
+  local command = string.format([[code --goto "%s:%s"]], vim.fn.expand('%'), vim.fn.line('.'))
+  vim.fn.jobstart(command, { detach = true }) -- detach: dont try to manage the process. just start and exit
+end
+vim.keymap.set("n", "<leader>ko", vscode, { silent = true })
+-- vim.keymap.set("n", "<leader>gv", [[:!code --goto join('"', expand('%'), ':', line('.'), '"')<CR>]], { silent = true })
 
 -- Vista tag-viewer
 -- vim.keymap.set('n', '<C-m>', ':Vista!!<CR>', {silent = true})   -- open/close

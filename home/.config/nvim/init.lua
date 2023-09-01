@@ -62,3 +62,4 @@ require('lazy').setup('plugins', opts)
 
 require('settings')
 require('keymappings')
+require('esp')

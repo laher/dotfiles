@@ -83,7 +83,7 @@ return {
                 },
                 -- Accept currently selected item. If none selected, `select` first item.
                 -- Set `select` to `false` to only confirm explicitly selected items.
-                ['<CR>'] = cmp.mapping.confirm { select = true },
+                ['<CR>'] = cmp.mapping.confirm { select = false },
                 ['<Tab>'] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_next_item()
@@ -191,17 +191,17 @@ return {
     end,
   },
   -- pairs of brackets
-  {
-    'windwp/nvim-autopairs',
-    event = 'InsertEnter',
-    opts = {
-        disable_filetype = { 'TelescopePrompt', 'text' }
-    },
-    config = function(_, opts)
-        local npairs = require('nvim-autopairs')
-        npairs.setup(opts)
-        local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-        require('cmp').event:on('confirm_done', cmp_autopairs.on_confirm_done({}))
-    end,
-}
+--   {
+--     'windwp/nvim-autopairs',
+--     event = 'InsertEnter',
+--     opts = {
+--         disable_filetype = { 'TelescopePrompt', 'text' }
+--     },
+--     config = function(_, opts)
+--         local npairs = require('nvim-autopairs')
+--         npairs.setup(opts)
+--         local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+--         require('cmp').event:on('confirm_done', cmp_autopairs.on_confirm_done({}))
+--     end,
+-- }
 }

@@ -1,49 +1,4 @@
 alias sudo='sudo '
-alias pullreq='hub pull-request -b develop -m'
-alias tag='git describe --tags --abbrev=0'
-alias tagdiff='git diff --exit-code `git describe --tags --abbrev=0`'
-
-alias branch-diff='git log --graph --abbrev-commit --date=relative'
-
-alias g='git '
-alias gs='git status '
-# alias gp='git push' this is now a function
-alias gl='git pull'
-alias gb='git branch '
-alias gci='git commit'
-alias gc='git commit'
-alias gcs='git commit -S'
-alias gcl='git clone'
-alias gco='git checkout'
-alias gk='gitk --all&'
-alias gu='git gui --all'
-alias gupp='git pull && git push'
-alias contributors='git shortlog -s -n'
-alias glc='git rev-parse --verify HEAD'
-alias gfo='git fetch origin'
-alias gsh='git stash --include-untracked'
-alias grb='git rebase --interactive'
-alias grbc='git rebase --continue'
-alias grba='git rebase --abort'
-alias grbm='git rebase --interactive origin/main'
-alias yoink='git fetch --all && git rebase --interactive origin/main'
-# alias yeet='git push --force-with-lease'
-# see function
-# alias forcepush='git push --force-with-lease'
-
-
-alias ga='git add '
-alias gd='git diff'
-alias gdno='git diff --name-only'
-alias gdnom='git diff --name-only origin/main'
-
-alias got='git '
-alias get='git '
-
-alias gsb='git switch'
-alias gnb='git switch -c'
-
-alias gm='git merge --no-ff'
 
 
 alias tailf='tail -F'
@@ -113,4 +68,5 @@ function fzh {
 function fzc {
   history 1|grep 'cd ~'|fzf
 }
-alias nvc="nvim ~/.config/nvim/lua/plugins/init.lua"
+
+alias nvc="nvim ~/.config/nvim/lua/plugins/misc.lua"

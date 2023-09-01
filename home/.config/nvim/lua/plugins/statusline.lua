@@ -7,6 +7,7 @@ return {
         'BufReadPost',
         'BufNewFile',
     },
+    cond = not vim.g.started_by_firenvim,
     opts = {
         options = {
             theme = 'tokyonight',

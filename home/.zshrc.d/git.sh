@@ -46,6 +46,7 @@ function glg {
 # 	find . -maxdepth 2 -name .git -type d -execdir bash -c "pwd && echo $*" \;
 # }
 
+alias gfo='git fetch origin'
 alias gfa='git fetch --all'
 
 
@@ -74,6 +75,9 @@ function gbrl {
 		branch=${ref#"refs/heads/"} && \
 		git checkout $branch
 }
+function cb {
+  gbrl
+}
 
 function gbrr {
 	local ref branch
@@ -93,24 +97,33 @@ function gtp {
 
 git config --global core.excludesfile ~/.gitignore_global
 
+# last commit
+alias glc='git rev-parse --verify HEAD'
+# last commit for
 function glcf {
 	pushd "$1"
 	git rev-parse --verify HEAD
 	popd
 }
 
+# git for
 function gf {
 	pushd "$1"
 	git "${@:2}"
 	popd
 }
 
+# cd to the git root
 function cdg {
 	cd "$(git rev-parse --show-toplevel)"
 }
 
 function squash {
   git reset $(git merge-base origin/main $(git rev-parse --abbrev-ref HEAD))
+}
+
+function squashbranch {
+  git reset $(git merge-base "$1" $(git rev-parse --abbrev-ref HEAD))
 }
 
 lg()
@@ -163,3 +176,36 @@ case ${cb} in
 
 esac
 }
+
+alias pullreq='hub pull-request -b main -m'
+alias tag='git describe --tags --abbrev=0'
+alias tagdiff='git diff --exit-code `git describe --tags --abbrev=0`'
+alias branch-diff='git log --graph --abbrev-commit --date=relative'
+alias glogmain='git log --graph --abbrev-commit --date=relative HEAD ^main'
+
+alias g='git '
+alias gs='git status '
+# alias gp='git push' this is now a function
+alias gl='git pull'
+alias gc='git commit'
+alias gcs='git commit -S'
+alias gco='git checkout'
+alias contributors='git shortlog -s -n'
+alias gsh='git stash --include-untracked'
+alias grb='git rebase --interactive'
+alias grbc='git rebase --continue'
+alias grba='git rebase --abort'
+alias grbm='git rebase --interactive origin/main'
+alias yoink='git fetch --all && git rebase --interactive origin/main'
+# alias yeet='git push --force-with-lease'
+# see function
+# alias forcepush='git push --force-with-lease'
+
+
+alias ga='git add '
+alias gd='git diff'
+alias gdno='git diff --name-only'
+alias gdnom='git diff --name-only origin/main'
+
+alias gsb='git switch'
+alias gnb='git switch -c'

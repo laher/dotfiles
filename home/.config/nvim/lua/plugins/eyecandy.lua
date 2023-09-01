@@ -105,6 +105,7 @@ return {
     dependencies = 'nvim-tree/nvim-web-devicons',
     version = '*',
     event = 'UIEnter',
+    cond = not vim.g.started_by_firenvim,
     opts = {
       options = {
         mode = 'buffers',
