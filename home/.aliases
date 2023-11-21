@@ -1,5 +1,5 @@
 alias sudo='sudo '
-
+alias d='docker'
 
 alias tailf='tail -F'
 

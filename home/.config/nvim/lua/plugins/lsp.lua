@@ -24,12 +24,12 @@ return {
       { '[d', vim.lsp.diagnostic.goto_prev, desc = 'Goto prev diagnostic' },
       { ']d', vim.lsp.diagnostic.goto_next, desc = 'Goto next diagnostic' },
       { '<localleader>f', vim.lsp.buf.format, desc = 'LSP format' },
-      { 'K', vim.lsp.buf.hover, desc = 'Hover' },
+      { 'K', vim.lsp.buf.hover, desc = 'LSP Hover' },
       { '<C-k>', vim.lsp.buf.signature_help, desc = 'Signature Help' },
     },
     config = function()
       require("mason").setup()
-      require("mason-lspconfig").setup()
+      require("mason-lspconfig").setup { ensure_installed = { "lua_ls", "gopls" } }
       require("mason-lspconfig").setup_handlers {
         -- The first entry (without a key) will be the default handler
         -- and will be called for each installed server that doesn't have
@@ -41,8 +41,39 @@ return {
         -- For example, a handler override for the `rust_analyzer`:
         ["rust_analyzer"] = function ()
           require("rust-tools").setup {}
+        end,
+
+        ["gopls"] = function ()
+          -- see below
         end
+
       }
+
+      require('lspconfig').gopls.setup({
+        settings = {
+          gopls = {
+            gofumpt = true
+          }
+        }
+      })
+
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        pattern = '*.go',
+        callback = function()
+          local params = vim.lsp.util.make_range_params()
+          params.context = {only = {"source.organizeImports"}}
+          local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 2000)
+          for cid, res in pairs(result or {}) do
+            for _, r in pairs(res.result or {}) do
+              if r.edit then
+                local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
+                vim.lsp.util.apply_workspace_edit(r.edit, enc)
+              end
+            end
+          end
+          vim.lsp.buf.format({async = false})
+        end
+      })
     end
   },
 
@@ -68,7 +99,7 @@ return {
     end,
   },
 
-  -- dim unussed
+  -- dim unused
   {
     'zbirenbaum/neodim',
     event = 'LspAttach',
@@ -87,24 +118,18 @@ return {
       },
     },
   },
-
-  -- {
-    --   'jose-elias-alvarez/null-ls.nvim',
-    --   dependencies = 'williamboman/mason.nvim',
-    --   event = {
-      --     'BufReadPre',
-      --     'BufNewFile',
-      --   },
-      --   opts = function()
-        --     local nls = require('null-ls')
-        --     return {
-          --       sources = {
-            --         nls.builtins.formatting.stylua,
-            --         nls.builtins.formatting.markdownlint,
-            --         nls.builtins.diagnostics.markdownlint,
-            --         nls.builtins.diagnostics.luacheck,
-            --       }
-            --     }
-            --   end,
-            -- },
-          }
+  {
+    'rmagatti/goto-preview',
+    keys = {
+      { 'gpd', "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", desc = "Preview definition" },
+      { 'gpr', "<cmd>lua require('goto-preview').goto_preview_references()<CR>", desc = "Preview References" },
+-- nnoremap gpt <cmd>lua require('goto-preview').goto_preview_type_definition()<CR>
+-- nnoremap gpi <cmd>lua require('goto-preview').goto_preview_implementation()<CR>
+-- nnoremap gpD <cmd>lua require('goto-preview').goto_preview_declaration()<CR>
+-- nnoremap gP <cmd>lua require('goto-preview').close_all_win()<CR>
+    },
+    config = function()
+      require('goto-preview').setup {}
+    end
+  }
+}

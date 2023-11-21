@@ -1,4 +1,13 @@
 return {
+  { -- moving windows around
+    'sindrets/winshift.nvim'
+  },
+  -- { -- nicer references
+  --   'DNLHC/glance.nvim'
+  -- },
+  { -- quickfix stuff
+    'kevinhwang91/nvim-bqf'
+  },
 
   -- Comment.nvim
   {

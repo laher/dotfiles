@@ -195,7 +195,16 @@ alias gsh='git stash --include-untracked'
 alias grb='git rebase --interactive'
 alias grbc='git rebase --continue'
 alias grba='git rebase --abort'
-alias grbm='git rebase --interactive origin/main'
+# alias grbm='git rebase --interactive origin/main'
+
+function grbm {
+  git fetch --all && git rebase --interactive origin/main
+}
+
+function grbb {
+  git fetch --all && git rebase --interactive "$1"
+}
+
 alias yoink='git fetch --all && git rebase --interactive origin/main'
 # alias yeet='git push --force-with-lease'
 # see function
@@ -209,3 +218,24 @@ alias gdnom='git diff --name-only origin/main'
 
 alias gsb='git switch'
 alias gnb='git switch -c'
+
+# pull request
+g-pr() {
+  to_branch=$1
+  if [ -z $to_branch ]; then
+    to_branch="main"
+  fi
+
+  # try the upstream branch if possible, otherwise origin will do
+  upstream=$(git config --get remote.upstream.url)
+  origin=$(git config --get remote.origin.url)
+  if [ -z $upstream ]; then
+    upstream=$origin
+  fi
+
+  to_user=$(echo $upstream | sed -e 's/.*[\/:]\([^/]*\)\/[^/]*$/\1/')
+  from_user=$(echo $origin | sed -e 's/.*[\/:]\([^/]*\)\/[^/]*$/\1/')
+  repo=$(basename `git rev-parse --show-toplevel`)
+  from_branch=$(git rev-parse --abbrev-ref HEAD)
+  open "https://github.com/$to_user/$repo/pull/new/$to_user:$to_branch...$from_user:$from_branch"
+}

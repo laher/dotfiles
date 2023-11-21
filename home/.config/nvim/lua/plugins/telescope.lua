@@ -1,5 +1,18 @@
 return {
   {
+     "ibhagwan/fzf-lua",
+      -- optional for icon support
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+      config = function()
+        -- calling `setup` is optional for customization
+        require("fzf-lua").setup({})
+      end,
+      cmd = { "FzfLua" },
+      keys = {
+        { '<c-P>', "<cmd>lua require('fzf-lua').files()<CR>", desc = "fzf files" }
+      },
+  }, -- NOT telescope but :shrug:
+  {
     'nvim-telescope/telescope.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim',

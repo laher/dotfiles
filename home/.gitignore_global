@@ -51,24 +51,27 @@ target
 ehthumbs.db
 Thumbs.db
 
-# Random Am shit #
-##################
+# editor files
+##############
+.swp
+*.iml
+.project
+.settings
+
+
+# Random
+########
 .netrwhist
 .env
 *.env
-
 tmp
 nohup.out
 bin
 
-*.iml
-
 body.html
 certificate.pdf
 .classpath
-.project
-.settings
-__debug_bin
+__debug_bin*
 
 test.xlsx
 TODO
@@ -81,4 +84,5 @@ out.tsv
 
 # temporary
 .golangci.yaml
-
+Xviminfo
+__pycache__

@@ -39,7 +39,7 @@ return {
     },
     config = function(_, opts)
         require('nvim-treesitter.configs').setup(opts)
-        require("nvim-treesitter.install").compilers = { "gcc-13" } -- for neorg. upgrade occasionally!
+        -- require("nvim-treesitter.install").compilers = { "gcc-13" } -- for neorg. upgrade occasionally!
     end,
   },
   -- splitjoin

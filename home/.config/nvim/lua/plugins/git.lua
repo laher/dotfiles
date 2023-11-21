@@ -8,6 +8,10 @@ return {
     }
   },
   {
+    'sindrets/diffview.nvim',
+    cmd = 'Diffview',
+  },
+  {
     'FabijanZulj/blame.nvim',
     cmd = 'ToggleBlame',
   },
@@ -38,8 +42,8 @@ return {
     end,
   },
   {
-    -- 'simondrake/decorated_yank'
-    'laher/decorated_yank'
+    'simondrake/decorated_yank'
+    -- 'laher/decorated_yank'
     -- dir = '~/dl/decorated_yank'
   },
   { 'f-person/git-blame.nvim' },
