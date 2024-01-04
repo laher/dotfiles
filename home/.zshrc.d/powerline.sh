@@ -1,5 +1,20 @@
+zmodload zsh/datetime
+
+function preexec() {
+  __TIMER=$EPOCHREALTIME
+}
+
 function powerline_precmd() {
-  PS1="$($(go env GOPATH)/bin/powerline-go -error $? -theme gruvbox -git-mode compact -hostname-only-if-ssh -modules "venv,host,ssh,cwd,perms,git,hg,jobs,exit,root" -jobs ${${(%):%j}:-0})"
+  local __ERRCODE=$?
+  local __DURATION=0
+
+  if [ -n $__TIMER ]; then
+    local __ERT=$EPOCHREALTIME
+    __DURATION="$(($__ERT - ${__TIMER:-__ERT}))"
+  fi
+  PS1="$($(go env GOPATH)/bin/powerline-go -duration $__DURATION -error $__ERRCODE -theme gruvbox -git-mode compact -hostname-only-if-ssh -modules "venv,host,ssh,cwd,perms,git,hg,exit,root,duration")"
+  unset __TIMER
+    #  -jobs ${${(%):%j}:-0}
     # Uncomment the following line to automatically clear errors after showing
     # them once. This not only clears the error for powerline-go, but also for
     # everything else you run in that shell. Don't enable this if you're not
