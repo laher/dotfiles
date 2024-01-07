@@ -1,27 +1,26 @@
 VLUA=~/.config/nvim/lua/
 
-function v-nvi {
+function v-init {
   nvim "${VLUA}/init.lua"
 }
 
-function v-nvp {
+function v-plugins {
   # just pick a common one
-  nvim "${VLUA}/plugins/neorg.lua"
+  nvim "${VLUA}/plugins/lsp.lua"
 }
 
-function v-nvs {
+function v-settings {
   nvim "${VLUA}/settings.lua"
 }
 
-function v-nvk {
+function v-keymappings {
   nvim "${VLUA}/keymappings.lua"
 }
 
-
-function v-cd-p {
+function v-cd-plugins {
   cd "${VLUA}/plugins"
 }
 
-function v-cd-l {
+function v-cd-lua {
   cd "${VLUA}"
 }
