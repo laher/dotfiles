@@ -29,13 +29,14 @@ return {
     },
     config = function()
       require("mason").setup()
-      require("mason-lspconfig").setup { ensure_installed = { "lua_ls", "gopls" } }
       require("mason-lspconfig").setup_handlers {
         -- The first entry (without a key) will be the default handler
         -- and will be called for each installed server that doesn't have
         -- a dedicated handler.
         function (server_name) -- default handler (optional)
+       --   vim.notify('configuring LSP: ' .. server_name)
           require("lspconfig")[server_name].setup {}
+        --  vim.notify('done configuring LSP: ' .. server_name)
         end,
         -- Next, you can provide a dedicated handler for specific servers.
         -- For example, a handler override for the `rust_analyzer`:
@@ -43,23 +44,46 @@ return {
           require("rust-tools").setup {}
         end,
 
-        ["gopls"] = function ()
-          -- see below
-        end
+        -- ["gopls"] = function ()
+        --   vim.notify('configuring gopls - in here')
+        --   require('lspconfig').gopls.setup({
+        --     settings = {
+        --       gopls = {
+        --         gofumpt = true,
+        --         ["formatting.gofumpt"] = true,
+        --         ["local"] = 'github.com/stqry', -- this gets overridden somehow :( I'm not sure where it happens
+        --       }
+        --     }
+        --   })
+        -- end
 
       }
+      require("mason-lspconfig").setup { ensure_installed = { "lua_ls", "gopls" } }
 
-      require('lspconfig').gopls.setup({
-        settings = {
-          gopls = {
-            gofumpt = true
-          }
-        }
-      })
+     -- vim.notify('configuring gopls - out here')
+     -- require('lspconfig').gopls.setup({
+     --   settings = {
+     --     gopls = {
+     --       gofumpt = true,
+     --       ["formatting.local"] = 'github.com/stqry',
+     --       ["local"] = 'github.com/stqry',
+     --     }
+     --   }
+     -- })
+     -- vim.notify('configuring gopls - done')
 
       vim.api.nvim_create_autocmd('BufWritePre', {
         pattern = '*.go',
         callback = function()
+          local lspc = require('lspconfig')
+          -- local keys = ''
+          -- for k in pairs(lspc.gopls.manager.config.settings.gopls) do
+          --   keys = keys .. k .. ', '
+          -- end
+          -- vim.notify(keys)
+          -- override settings
+          lspc.gopls.manager.config.settings.gopls['local'] = 'github.com/stqry'
+          -- vim.notify(vim.inspect(lspc.gopls.manager.config.settings.gopls['local']))
           local params = vim.lsp.util.make_range_params()
           params.context = {only = {"source.organizeImports"}}
           local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 2000)
@@ -131,5 +155,16 @@ return {
     config = function()
       require('goto-preview').setup {}
     end
-  }
+  },
+  {
+    "hedyhli/outline.nvim",
+    lazy = true,
+    cmd = { "Outline", "OutlineOpen" },
+    keys = { -- Example mapping to toggle outline
+      { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
+    },
+    opts = {
+      -- Your setup opts here
+    },
+  },
 }

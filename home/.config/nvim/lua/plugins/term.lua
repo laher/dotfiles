@@ -1,4 +1,5 @@
 return {
+  {
     'akinsho/toggleterm.nvim',
     version = '*',
     cmd = 'ToggleTerm',
@@ -16,4 +17,8 @@ return {
             border = 'curved',
         },
     },
+  },
+  {
+    'skywind3000/vim-terminal-help'
+  }
 }

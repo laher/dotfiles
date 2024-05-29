@@ -12,7 +12,7 @@ function powerline_precmd() {
     local __ERT=$EPOCHREALTIME
     __DURATION="$(($__ERT - ${__TIMER:-__ERT}))"
   fi
-  PS1="$($(go env GOPATH)/bin/powerline-go -duration $__DURATION -error $__ERRCODE -theme gruvbox -git-mode compact -hostname-only-if-ssh -modules "venv,host,ssh,cwd,perms,git,hg,exit,root,duration")"
+  PS1="$($(go env GOPATH)/bin/powerline-go -duration $__DURATION -error $__ERRCODE -theme gruvbox -git-mode simple -hostname-only-if-ssh -modules "venv,host,ssh,cwd,perms,git,hg,exit,root,duration")"
   unset __TIMER
     #  -jobs ${${(%):%j}:-0}
     # Uncomment the following line to automatically clear errors after showing
