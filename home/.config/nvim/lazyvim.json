@@ -1,0 +1,17 @@
+{
+  "extras": [
+    "lazyvim.plugins.extras.editor.trouble-v3",
+    "lazyvim.plugins.extras.lang.go",
+    "lazyvim.plugins.extras.lang.json",
+    "lazyvim.plugins.extras.lang.markdown",
+    "lazyvim.plugins.extras.lang.toml",
+    "lazyvim.plugins.extras.lang.typescript",
+    "lazyvim.plugins.extras.lang.vue",
+    "lazyvim.plugins.extras.lang.yaml",
+    "lazyvim.plugins.extras.ui.mini-animate"
+  ],
+  "news": {
+    "NEWS.md": "4964"
+  },
+  "version": 5
+}
