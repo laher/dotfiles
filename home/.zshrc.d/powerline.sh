@@ -12,7 +12,7 @@ function powerline_precmd() {
     local __ERT=$EPOCHREALTIME
     __DURATION="$(($__ERT - ${__TIMER:-__ERT}))"
   fi
-  PS1="$($(go env GOPATH)/bin/powerline-go -shell-var ENV_NAME -duration $__DURATION -error $__ERRCODE -theme gruvbox -git-mode simple -hostname-only-if-ssh -modules "venv,host,ssh,cwd,perms,git,hg,exit,root,duration,shell-var")"
+  PS1="$(${HOME}/go/bin/powerline-go -shell-var ENV_NAME -duration $__DURATION -error $__ERRCODE -theme gruvbox -git-mode simple -hostname-only-if-ssh -modules "venv,host,ssh,cwd,perms,git,hg,exit,root,duration,shell-var")"
   unset __TIMER
     #  -jobs ${${(%):%j}:-0}
     # Uncomment the following line to automatically clear errors after showing
@@ -32,6 +32,6 @@ function install_powerline_precmd() {
   precmd_functions+=(powerline_precmd)
 }
 
-if [ "$TERM" != "linux" ] && [ -f "$(go env GOPATH)/bin/powerline-go" ]; then
+if [ "$TERM" != "linux" ] && [ -f "${HOME}/go/bin/powerline-go" ]; then
     install_powerline_precmd
 fi
