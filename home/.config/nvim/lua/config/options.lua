@@ -3,3 +3,4 @@
 -- Add any additional options here
 
 vim.cmd("set whichwrap+=<,>,[,],h,l") -- right-arrow goes to next line
+vim.cmd("set relativenumber!") -- off. or `set rnu!`
