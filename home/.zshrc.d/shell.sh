@@ -55,7 +55,8 @@ bindkey '^x^e' edit-command-line
 # zle -N edit-command-line
 # bindkey -M vicmd v edit-command-line
 
-. /opt/homebrew/etc/profile.d/z.sh
+eval "$(zoxide init zsh)"
+#. /opt/homebrew/etc/profile.d/z.sh
 
 # see man zshcontrib
 # this makes your history search completion nicer
@@ -65,4 +66,5 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
+
 

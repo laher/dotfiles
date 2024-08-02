@@ -73,6 +73,7 @@ return {
       ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
       setup = {
         gopls = function()
+
           vim.api.nvim_create_autocmd("BufWritePre", {
             pattern = "*.go",
             callback = function()
@@ -118,6 +119,7 @@ return {
         "tsx",
         "typescript",
         "go",
+        "html",
       })
     end,
   },
