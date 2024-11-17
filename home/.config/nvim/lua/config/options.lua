@@ -17,3 +17,19 @@ function vim.lsp.protocol.make_client_capabilities()
 
   return caps
 end
+
+vim.filetype.add({
+  pattern = {
+    ["*.es"] = "text",
+  },
+})
+
+vim.opt.list = true
+vim.opt.listchars = {
+  eol = "¬",
+  tab = "▸ ", -- tab requires a string of two characters
+  extends = "»",
+  precedes = "«",
+  trail = "·",
+  space = "·",
+}

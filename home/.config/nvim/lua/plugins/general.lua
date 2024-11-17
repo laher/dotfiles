@@ -19,7 +19,10 @@ return {
       colorscheme = "gruvbox",
     },
   },
-
+  {
+    "ziglang/zig.vim",
+    ft = "zig",
+  },
   -- change trouble config
   {
     "folke/trouble.nvim",
@@ -60,51 +63,100 @@ return {
     },
   },
 
-  -- add gopls to lspconfig
-  {
-    "neovim/nvim-lspconfig",
-    ---@class PluginLspOpts
-    opts = {
-      ---@type lspconfig.options
-      servers = {
-        -- gopls will be automatically installed with mason and loaded with lspconfig
-        gopls = {},
-      },
-      ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
-      setup = {
-        gopls = function()
-
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            pattern = "*.go",
-            callback = function()
-              local lspc = require("lspconfig")
-              -- local keys = ''
-              -- for k in pairs(lspc.gopls.manager.config.settings.gopls) do
-              --   keys = keys .. k .. ', '
-              -- end
-              -- vim.notify(keys)
-              -- override settings
-              lspc.gopls.manager.config.settings.gopls["local"] = "github.com/stqry"
-              -- vim.notify(vim.inspect(lspc.gopls.manager.config.settings.gopls['local']))
-              local params = vim.lsp.util.make_range_params()
-              params.context = { only = { "source.organizeImports" } }
-              local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 2000)
-              for cid, res in pairs(result or {}) do
-                for _, r in pairs(res.result or {}) do
-                  if r.edit then
-                    local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
-                    vim.lsp.util.apply_workspace_edit(r.edit, enc)
-                  end
-                end
-              end
-              vim.lsp.buf.format({ async = false })
-            end,
-          })
-          -- dont return true. This would tell lsp not to configure go
-        end,
-      },
-    },
-  },
+  -- -- add gopls to lspconfig
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --    event = { "BufReadPre", "BufNewFile" },
+  --     dependencies = {
+  --       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
+  --       "mason.nvim",
+  --       "williamboman/mason-lspconfig.nvim",
+  --       {
+  --         "hrsh7th/cmp-nvim-lsp",
+  --         cond = function()
+  --           return require("lazyvim.util").has("nvim-cmp")
+  --         end,
+  --       },
+  --     },
+  --   ---@class PluginLspOpts
+  --   opts = {
+  --     ---@type lspconfig.options
+  --     servers = {
+  --       -- gopls will be automatically installed with mason and loaded with lspconfig
+  --       gopls = {
+  --         gofumpt = nil,
+  --         settings = {
+  --           gopls = {
+  --             gofumpt = nil,
+  --           }
+  --         },
+  --       },
+  --     },
+  --     autoformat = false,
+  --     ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
+  --     setup = {
+  --       gopls = function()
+  --         -- LazyVim.lsp.on_attach(function(client, _) 
+  --         --     local lspc = require("lspconfig")
+  --         --     -- lspc.gopls.manager.config.settings.gopls["local"] = "github.com/stqry"
+  --         --   lspc.gopls.manager.config.settings.gopls.gofumpt = nil
+  --         --
+  --         --   local keys = ''
+  --         --   for k in pairs(lspc.gopls.manager.config.settings.gopls) do
+  --         --     keys = keys .. k
+  --         --     if k == 'gofumpt' then
+  --         --      keys = keys .. '=' .. tostring(lspc.gopls.manager.config.settings.gopls[k])
+  --         --     end
+  --         --
+  --         --     keys = keys .. ', '
+  --         --   end
+  --         --   vim.notify(keys)
+  --         -- end, "gopls")
+  --
+  --         -- vim.api.nvim_create_autocmd("BufWritePre", {
+  --         --   pattern = "*.go",
+  --         --   callback = function()
+  --         --     local lspc = require("lspconfig")
+  --         --     lspc.gopls.manager.config.settings.gopls["local"] = "github.com/stqry"
+  --         --     lspc.gopls.manager.config.settings.gopls.gofumpt = nil
+  --         --     local keys = ''
+  --         --     for k in pairs(lspc.gopls.manager.config.settings.gopls) do
+  --         --       keys = keys .. k .. ', '
+  --         --     end
+  --         --     vim.notify(keys)
+  --         --     -- override settings
+  --         --     -- local params = vim.lsp.util.make_range_params()
+  --         --     -- params.context = { only = { "source.organizeImports" } }
+  --         --     -- local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 2000)
+  --         --     -- for cid, res in pairs(result or {}) do
+  --         --     --   for _, r in pairs(res.result or {}) do
+  --         --     --     if r.edit then
+  --         --     --       local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
+  --         --     --  --     vim.lsp.util.apply_workspace_edit(r.edit, enc)
+  --         --     --     end
+  --         --     --   end
+  --         --     -- end
+  --         --     -- --              vim.lsp.buf.format({ async = false })
+  --         --     LazyVim.lsp.on_attach(function(client, _)
+  --         --       if not client.server_capabilities.semanticTokensProvider then
+  --         --         local semantic = client.config.capabilities.textDocument.semanticTokens
+  --         --         client.server_capabilities.semanticTokensProvider = {
+  --         --           full = true,
+  --         --           legend = {
+  --         --             tokenTypes = semantic.tokenTypes,
+  --         --             tokenModifiers = semantic.tokenModifiers,
+  --         --           },
+  --         --           range = true,
+  --         --         }
+  --         --       end
+  --         --     end, "gopls")
+  --         --   end,
+  --         -- })
+  --         -- dont return true. This would tell lsp not to configure go
+  --       end,
+  --     },
+  --   },
+  -- },
 
   -- for typescript, LazyVim also includes extra specs to properly setup lspconfig,
   -- treesitter, mason and typescript.nvim. So instead of the above, you can use:

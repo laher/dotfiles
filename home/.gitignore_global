@@ -9,6 +9,7 @@ gitignore-*
 *.bk
 *.out
 *.test
+breaker
 # I can't stop nvim from updating this
 .luarc.json
 
